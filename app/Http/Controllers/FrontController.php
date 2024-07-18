@@ -90,8 +90,11 @@ class FrontController extends Controller
             abort(403);
         }
 
+    
+
         $banks = PackageBank::all();
-        return view('front.choose_bank', compact('packageBooking', 'banks'));
+        $pacakgaeTour = PackageTour::where('id', $packageBooking->package_tour_id)->first();
+        return view('front.choose_bank', compact('packageBooking', 'banks', 'pacakgaeTour'));
     }
 
     public function choose_bank_store(UpdatePackageBookingRequest $request, PackageBooking $packageBooking){
@@ -110,7 +113,8 @@ class FrontController extends Controller
     }
 
     public function book_payment(PackageBooking $packageBooking){
-        return view('front.book_payment', compact('packageBooking'));
+        $pacakgaeTour = PackageTour::where('id', $packageBooking->package_tour_id);
+        return view('front.book_payment', compact('packageBooking', 'pacakgaeTour'));
     }
 
     public function book_payment_store(StorePackageBookingCheckoutRequest $request, PackageBooking $packageBooking){

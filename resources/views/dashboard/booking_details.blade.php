@@ -12,12 +12,12 @@
           <a href="{{route('dashboard.bookings')}}">
             <img src="{{asset('assets/icons/back.png')}}" alt="back">
           </a>
-          <p class="text-center m-auto font-semibold">Trip Details</p>
+          <p class="text-center m-auto font-semibold">Package Wedding Details</p>
           <div class="w-12"></div>
         </nav>
         <div class="flex flex-col gap-8">
           <div class="flex flex-col gap-3 px-4 ">
-            <p class="font-semibold">Detail Trip</p>
+            <p class="font-semibold">Detail Package</p>
             <div class="bg-white p-4 rounded-[26px] flex items-center gap-3">
               <div class="w-[72px] h-[72px] flex shrink-0 rounded-xl overflow-hidden">
                 <img src="{{Storage::url($packageBooking->tour->thumbnail)}}" class="w-full h-full object-cover object-center" alt="thumbnail">
@@ -80,12 +80,13 @@
             </div>
           </div>
           <div class="flex flex-col gap-3 px-4 ">
-            <a href="home.html" class="p-[16px_24px] rounded-xl bg-blue w-full text-white text-center flex items-center justify-center gap-3  hover:bg-[#06C755] transition-all duration-300">
+            <p class="text-center text-neutral-600 mt-2">For more detailed information, please contact the admin at the following email: mooneventorganizer@gmail.com</p
+            {{-- <a href="#" class="p-[16px_24px] rounded-xl bg-blue w-full text-white text-center flex items-center justify-center gap-3  hover:bg-[#06C755] transition-all duration-300">
               <div class="w-6 h-6">
                 <img src="{{asset('assets/icons/messages.svg')}}" alt="icon">
               </div>
               <span>Contact Travel Agent</span>
-            </a>
+            </a> --}}
           </div>
         </div>
     </section>

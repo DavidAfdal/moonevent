@@ -23,7 +23,6 @@ class PackageBooking extends Model
         'sub_total',
         'tax',
         'insurance',
-
     ];
 
     protected $cast = [

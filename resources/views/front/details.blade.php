@@ -62,7 +62,14 @@
             <p class="text-darkGrey text-sm tracking-035 leading-[22px]">Total Price</p>
             <p class="text-blue font-semibold text-lg leading-[26px] tracking-[0.6px]">Rp {{number_format($package_tours->price, 0, ',', '.')}}<span class="font-normal text-sx leading-[20px] tracking-035 text-darkGrey">/pack</span></p>
           </div>
+          @auth
+          @if(Auth::user()->hasRole('customer')) 
+            <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+          @endif
+          @endauth
+          @guest
           <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+          @endguest
         </div>
     </section>
     @endsection
