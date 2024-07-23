@@ -90,7 +90,8 @@ class PackageTourController extends Controller
     {
         //
         $categories = Category::orderByDesc('id')->get();
-        $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
+        $latestPhotos = PackagePhoto::orderByDesc('id')->where("package_tour_id", $packageTour["id"])->take(3)->get();
+        // dd($latestPhotos);
         return view('admin.package_tours.edit', compact('packageTour', 'latestPhotos', 'categories'));
     }
 

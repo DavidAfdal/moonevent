@@ -39,12 +39,12 @@
                         <h3 class="text-indigo-950 text-xl font-bold">Rp {{number_format($booking->total_amount, 0, ',', ',')}}</h3>
                     </div>
                     <div  class="hidden md:flex flex-col">
-                        <p class="text-slate-500 text-sm">Total Days</p>
-                        <h3 class="text-indigo-950 text-xl font-bold">{{$booking->tour->days}} Days</h3>
+                        <p class="text-slate-500 text-sm">Total Session</p>
+                        <h3 class="text-indigo-950 text-xl font-bold">{{$booking->tour->days}} Session</h3>
                     </div>
                     <div  class="hidden md:flex flex-col">
                         <p class="text-slate-500 text-sm">Quantity</p>
-                        <h3 class="text-indigo-950 text-xl font-bold">{{$booking->quantity}} People</h3>
+                        <h3 class="text-indigo-950 text-xl font-bold">{{$booking->quantity}} Pack</h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">
                         <a href="{{route('admin.package_bookings.show', $booking)}}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">

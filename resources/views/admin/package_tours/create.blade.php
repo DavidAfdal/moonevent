@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('New Tour') }}
+            {{ __('New Package Wedding') }}
         </h2>
     </x-slot>
 
@@ -74,7 +74,7 @@
                     <div class="flex items-center justify-end mt-4">
             
                         <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                            Add New Tour
+                            Add New Package
                         </button>
                     </div>
                 </form>

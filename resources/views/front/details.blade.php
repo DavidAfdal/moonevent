@@ -7,7 +7,7 @@
           </a>
           <p class="text-center m-auto font-semibold">Details</p>
           <a href="">
-            <img src="{{asset('assets/icons/more-dots.svg')}}" alt="more">
+            
           </a>
         </nav>
         <div id="image-details" class="px-4 flex flex-col gap-3">
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="mx-4 flex flex-col gap-3 bg-white p-[16px_24px] rounded-[22px]">
-          <h2 class="font-semibold">About Destination</h2>
+          <h2 class="font-semibold">About Package</h2>
           <p id="readMore" class="text-sm leading-[22px] tracking-035 text-darkGrey">
             {{substr($package_tours->about, 0, 100)}} 
             <button class="font-semibold text-blue" onclick="document.getElementById('readMore').classList.toggle('hidden'); document.getElementById('seeLess').classList.toggle('hidden');">Read More</button>

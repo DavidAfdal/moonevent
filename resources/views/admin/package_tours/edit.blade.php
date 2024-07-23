@@ -68,24 +68,26 @@
                     </div>
 
                     <hr class="my-5">
-
+                    
+                    
                     @forelse($latestPhotos as $photo)
                     <div class="mt-4">
                         <x-input-label for="photo" :value="__('photo')" />
-                        <img src="{{Storage::url($photo->photo)}}" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
+                        <img src="{{Storage::url($photo->photo)}}" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">         
                         <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photos[]"   autofocus autocomplete="photo" />
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     </div>
-                @empty
-                    <p>belum ada foto terbaru</p>
-                @endforelse
+                    @empty
+                        <p>belum ada foto terbaru</p>
+                     @endforelse
+                
                     
                         
 
                     <div class="flex items-center justify-end mt-4">
             
                         <button type="submit" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                            Update Tour
+                            Update Package
                         </button>
                     </div>
                 </form>

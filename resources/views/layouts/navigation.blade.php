@@ -41,6 +41,9 @@
                     <x-nav-link :href="route('admin.package_bookings.index')" :active="request()->routeIs('admin.package_bookings.index')">
                         {{ __('Package Bookings') }}
                     </x-nav-link>
+                    <x-nav-link :href="'https://app.crisp.chat/website/56d76d2e-7505-4643-a7d4-9e65ef83d7a5/inbox/session_4fe0f160-c1fd-40f3-a4c1-fd13eded282d/'" :active="request()->routeIs('')">
+                        {{ __('Chat') }}
+                    </x-nav-link>
                     @endrole
                 </div>
             </div>
@@ -122,6 +125,9 @@
 
                     <x-responsive-nav-link :href="route('admin.package_bookings.index')" :active="request()->routeIs('admin.package_bookings.index')">
                         {{ __('Package Bookings') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="'https://app.crisp.chat/website/56d76d2e-7505-4643-a7d4-9e65ef83d7a5/inbox/session_4fe0f160-c1fd-40f3-a4c1-fd13eded282d/'" :active="request()->routeIs('')">
+                        {{ __('chat') }}
                     </x-responsive-nav-link>
                     @endrole
         </div>

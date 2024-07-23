@@ -12,7 +12,7 @@
             @csrf
             @Method('PATCH')
           <div class="flex flex-col gap-3 px-4 ">
-            <p class="font-semibold">Detail Trip</p>
+            <p class="font-semibold">Detail Package</p>
             <div class="bg-white p-4 rounded-[26px] flex items-center gap-3">
               <div class="w-[72px] h-[72px] flex shrink-0 rounded-xl overflow-hidden">
                 <img src="{{Storage::url($packageBooking->tour->thumbnail)}}" class="w-full h-full object-cover object-center" alt="thumbnail">

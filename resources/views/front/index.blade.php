@@ -53,7 +53,8 @@
         <div id="recommendations" class="flex flex-col gap-3">
           <h2 class="font-semibold px-4">Wedding Package Recommendation</h2>
           <div class="main-carousel card-container">
-
+            {{-- live chat --}}
+            <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="56d76d2e-7505-4643-a7d4-9e65ef83d7a5";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
             @forelse($package_tours as $tour)
             <a href="{{route('front.details', $tour->slug)}}" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">

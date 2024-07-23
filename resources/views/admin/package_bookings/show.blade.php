@@ -74,7 +74,7 @@
                         </div>
         
                         <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Total Days</p>
+                            <p class="text-slate-500 text-sm">Total Session</p>
                             <h3 class="text-indigo-950 text-xl font-bold">
                                 {{$packageBooking->tour->days}} 
                             </h3>

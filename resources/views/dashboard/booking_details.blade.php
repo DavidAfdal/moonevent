@@ -81,6 +81,10 @@
           </div>
           <div class="flex flex-col gap-3 px-4 ">
             <p class="text-center text-neutral-600 mt-2">For more detailed information, please contact the admin at the following email: mooneventorganizer@gmail.com</p
+                
+                <p class="text-Right text-neutral-600 mt-2">082110361665 (Muna)</p>
+                <p class="text-Right text-neutral-600 mt-2">085780552201 (Lusy)</p>
+
             {{-- <a href="#" class="p-[16px_24px] rounded-xl bg-blue w-full text-white text-center flex items-center justify-center gap-3  hover:bg-[#06C755] transition-all duration-300">
               <div class="w-6 h-6">
                 <img src="{{asset('assets/icons/messages.svg')}}" alt="icon">
