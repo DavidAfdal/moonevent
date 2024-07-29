@@ -14,7 +14,8 @@ class PackageBookingController extends Controller
     public function index()
     {
         //
-        $package_bookings = PackageBooking::with(['customer', 'tour'])->orderByDesc('id')->paginate(10)->get();
+        $package_bookings = PackageBooking::with(['customer', 'tour'])->orderByDesc('id')->paginate(10);
+        dd($package_bookings);
         return view('admin.package_bookings.index', compact('package_bookings'));
     }
 
