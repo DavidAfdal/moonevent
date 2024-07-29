@@ -14,7 +14,7 @@ class PackageBookingController extends Controller
     public function index()
     {
         //
-        $package_bookings = PackageBooking::with(['customer', 'tour'])->orderByDesc('id')->paginate(10);
+        $package_bookings = PackageBooking::with(['customer', 'tour'])->orderByDesc('id')->paginate(10)->get();
         return view('admin.package_bookings.index', compact('package_bookings'));
     }
 
@@ -40,7 +40,7 @@ class PackageBookingController extends Controller
     public function show(PackageBooking $packageBooking)
     {
         //
-        
+
         return view('admin.package_bookings.show', compact('packageBooking'));
     }
 
