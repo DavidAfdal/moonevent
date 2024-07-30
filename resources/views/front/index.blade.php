@@ -15,7 +15,7 @@
             @endauth
             @guest
             <div class="w-12 h-12 border-4 border-white rounded-full overflow-hidden flex shrink-0 shadow-[6px_8px_20px_0_#00000008]">
-                <img src="assets/photos/pfp.png" class="w-full h-full object-cover object-center" alt="photo">
+                <img src="assets/logos/logo-moonevent.svg" class="w-full h-full object-cover object-center" alt="photo">
               </div>
               <div class="flex flex-col gap-1">
                 <p class="text-xs tracking-035">Welcome!</p>
@@ -30,7 +30,7 @@
             </div>
           </a>
         </nav>
-        <h1 class="font-semibold text-2xl leading-[36px] text-center">Moonevent Organizer <br>Your Partner Event Solution</h1>
+        <h1 class="font-semibold text-2xl leading-[36px] text-center">Moon event Organizer <br>Your Partner Event Solution</h1>
         <div id="categories" class="flex flex-col gap-3">
           <h2 class="font-semibold px-4">Categories</h2>
           <div class="main-carousel buttons-container">
@@ -83,9 +83,9 @@
                     </p>
                     <div class="flex items-center gap-1 justify-end">
                       <div class="w-4 h-4 flex shrink-0">
-                        <img src="assets/icons/Star.svg" alt="icon">
+                        
                       </div>
-                      <span class="font-semibold text-sm leading-[21px]">4.8</span>
+                     
                     </div>
                   </div>
                 </div>
@@ -112,21 +112,207 @@
         <div class="main-carousel card-container">
           
 
-          
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/DIAMOND.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/3LARAS.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/DOSHIN.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/SELERAUTAMA.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
           <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
             <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
               <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
                 <img src="{{asset('assets/vendor/AMARILIZ.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
-
               </div>
-              
             </div>
           </a>
-          
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/ANDAYU.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/ANNISA.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/ARASKIAND.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/AUF.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/BOYZ.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/CATERINDO.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/GINTO.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/GLORYON.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/MEDIA .jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/NBS.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/NENDANG.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/NENDIA.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/PEGADAIAN .jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/PESONAALAMANDA.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/PURANDEWI.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/RUANG GARASI .jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+          <a href="#" class="group px-2 first-of-type:pl-4 last-of-type:pr-4">
+            <div class="w-[288px] p-4 flex flex-col gap-3 rounded-[26px] bg-white shadow-[6px_8px_20px_0_#00000008]">
+              <div class="w-full h-[330px] rounded-xl flex shrink-0 overflow-hidden">
+                <img src="{{asset('assets/vendor/SIRIH GADING.jpg')}}" class="w-full h-full object-cover" alt="thumbnails">
+              </div>
+            </div>
+          </a>
+
 
 
         </div>
         </div>
+        
+        {{-- <div class="container">
+          <h2 class="font-semibold px-4">About us</h2>
+              <h2>Moonevent Organizer adalah perusahaan penyedia layanan jasa Wedding Organizer dan pengelola gedung JGU Auditorium yang terletak di Depok, Jawa Barat. Berdiri pada tanggal 26 Oktober 2020, kami berdedikasi untuk memberikan layanan terbaik dalam perencanaan acara dan penyewaan gedung.
+
+                </h2>
+
+          </div>
+          <div class="team-section">
+            <h2 class="font-semibold px-4">Our Admin Team</h2>
+              <div class="team-members">
+                  <img src="{{ asset('assets/thumbnails/TIM FORMAL.jpg') }}" alt="Our Team">
+              </div>
+          </div>
+          <div class="team-section">
+            <h2 class="font-semibold px-4">Our WO Team</h2>
+              <div class="team-members">
+                  <img src="{{ asset('assets/thumbnails/10 org.jpg') }}" alt="Our Team">
+              </div>
+          </div>
+      </div> --}}
+      
+      <div class="container mx-auto text-center">
+        <h2 class="font-semibold px-4 text-4xl mb-4">About us</h2>
+        <h2 class="text-lg">
+          Moonevent Organizer adalah perusahaan penyedia layanan jasa Wedding Organizer dan pengelola gedung JGU Auditorium yang terletak di Depok, Jawa Barat. Berdiri pada tanggal 26 Oktober 2020, kami berdedikasi untuk memberikan layanan terbaik dalam perencanaan acara dan penyewaan gedung.
+        </h2>
+      </div>
+      <div class="team-section mx-auto text-center mt-8">
+        <h2 class="font-semibold px-4 text-3xl mb-4">Our Admin Team</h2>
+        <div class="team-members">
+          <img src="{{ asset('assets/thumbnails/TIM FORMAL.jpg') }}" alt="Our Team" class="mx-auto">
+        </div>
+      </div>
+      <div class="team-section mx-auto text-center mt-8">
+        <h2 class="font-semibold px-4 text-3xl mb-4">Our WO Team</h2>
+        <div class="team-members">
+          <img src="{{ asset('assets/thumbnails/10 org.jpg') }}" alt="Our Team" class="mx-auto">
+        </div>
+      </div>
+      
+  
         <div id="explore" class="flex flex-col px-4 gap-3">
           <h2 class="font-semibold">More to Explore</h2>
           @forelse($package_tours_explore as $tour)
@@ -156,9 +342,9 @@
                   </p>
                   <div class="flex items-center gap-1 justify-end">
                     <div class="w-4 h-4 flex shrink-0">
-                      <img src="assets/icons/Star.svg" alt="icon">
+                      
                     </div>
-                    <span class="font-semibold text-sm leading-[21px]">4.8</span>
+                    
                   </div>
                 </div>
               </div>
