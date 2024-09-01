@@ -62,7 +62,7 @@
             <div class="bg-white p-[16px_24px] rounded-[26px] flex flex-col gap-3">
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Sub Total</p>
-                <p id="subtotal" class="font-semibold text-blue">Rp {{number_format($packageBooking->total_amount, 0, ',', ',')}}</p>
+                <p id="subtotal" class="font-semibold text-blue">Rp {{number_format($packageBooking->tour->price, 0, ',', ',')}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Insurance <span class="text-darkGrey">x<span id="total_quantity">{{$packageBooking->quantity}}</span></span></p>
@@ -75,7 +75,7 @@
               <hr>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px] h-[55px]">
                 <p>Total Payment</p>
-                <p id="tax" class="font-semibold text-lg tracking-[0.6px]">Rp 2.580.000</p>
+                <p id="tax" class="font-semibold text-lg tracking-[0.6px]">Rp {{number_format($packageBooking->total_amount, 0, ',', ',')}}</p>
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@
                   <p class="font-semibold text-sm tracking-035 leading-[22px]">
                         {{$booking->tour->name}}
                   </p>
-                  <p class="text-sm leading-[22px] tracking-035 text-darkGrey">{{$booking->tour->days}} days | 
+                  <p class="text-sm leading-[22px] tracking-035 text-darkGrey">{{$booking->tour->days}} session | 
                     {{$booking->quantity}} packs</p>
                     @if($booking->is_paid)
                   <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">

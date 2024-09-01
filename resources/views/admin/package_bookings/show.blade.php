@@ -97,7 +97,7 @@
                         <div class="flex flex-col">
                             <p class="text-slate-500 text-sm">Sub Total</p>
                             <h3 class="text-indigo-950 text-xl font-bold">
-                                Rp {{number_format($packageBooking->total_amount, 0, ',', ',')}}
+                                Rp {{number_format($packageBooking->tour->price, 0, ',', ',')}}
                             </h3>
                         </div>
         
@@ -118,7 +118,7 @@
                         <div class="flex flex-col">
                             <p class="text-slate-500 text-sm">Total Amount</p>
                             <h3 class="text-indigo-950 text-xl font-bold">
-                                Rp {{number_format($packageBooking->tour->price, 0, ',', ',')}}
+                                Rp {{number_format($packageBooking->total_amount, 0, ',', ',')}}
                             </h3>
                         </div>
                     </div>
