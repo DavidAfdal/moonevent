@@ -35,7 +35,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
+                initialView: 'dayGridMonth',
                 slotMinTime: '8:00:00',
                 slotMaxTime: '19:00:00',
                 events: @json($events),
