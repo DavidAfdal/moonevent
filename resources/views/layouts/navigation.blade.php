@@ -30,12 +30,12 @@
                         {{ __('Categories') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.package_banks.index')" :active="request()->routeIs('admin.package_banks.index')">
+                    {{-- <x-nav-link :href="route('admin.package_banks.index')" :active="request()->routeIs('admin.package_banks.index')">
                         {{ __('Banks') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
 
                     <x-nav-link :href="route('admin.package_tours.index')" :active="request()->routeIs('admin.package_tours.index')">
-                        {{ __('Package Wedding') }}
+                        {{ __('Package') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('admin.package_bookings.index')" :active="request()->routeIs('admin.package_bookings.index')">
@@ -115,12 +115,12 @@
                         {{ __('Categories') }}
                     </x-responsive-nav-link>
 
-                    <x-responsive-nav-link :href="route('admin.package_banks.index')" :active="request()->routeIs('admin.package_banks.index')">
+                    {{-- <x-responsive-nav-link :href="route('admin.package_banks.index')" :active="request()->routeIs('admin.package_banks.index')">
                         {{ __('Banks') }}
-                    </x-responsive-nav-link>
+                    </x-responsive-nav-link> --}}
 
                     <x-responsive-nav-link :href="route('admin.package_tours.index')" :active="request()->routeIs('admin.package_tours.index')">
-                        {{ __('Package Wedding') }}
+                        {{ __('Package') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link :href="route('admin.package_bookings.index')" :active="request()->routeIs('admin.package_bookings.index')">
