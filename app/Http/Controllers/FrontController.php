@@ -44,6 +44,10 @@ class FrontController extends Controller
         return view('front.book');
     }
 
+    public function calendarbooking(PackageTour $package_tours){
+        return view('front.calendarbooking');
+    }
+
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
         $user = Auth::user();
         $bank = PackageBank::orderByDesc('id')->first();
@@ -113,8 +117,8 @@ class FrontController extends Controller
     }
 
     public function book_payment(PackageBooking $packageBooking){
-        $pacakgaeTour = PackageTour::where('id', $packageBooking->package_tour_id);
-        return view('front.book_payment', compact('packageBooking', 'pacakgaeTour'));
+        $packageTour = PackageTour::where('id', $packageBooking->package_tour_id);
+        return view('front.book_payment', compact('packageBooking', 'packageTour'));
     }
 
     public function book_payment_store(StorePackageBookingCheckoutRequest $request, PackageBooking $packageBooking){

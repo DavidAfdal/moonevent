@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('venues', function (Blueprint $table) {
             $table->id();
+            $table->string('catering_name');
+            $table->string('icon');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
