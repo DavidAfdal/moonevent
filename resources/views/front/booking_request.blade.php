@@ -199,7 +199,10 @@
             </div>
             
             <!-- Confirm Button -->
-            <button type="submit" class="confirm-btn">Confirm</button>
+            <a href="{{ route('front.reservation.check') }}" class="confirm-btn text-center d-block text-decoration-none">
+                Confirm
+            </a>
+
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

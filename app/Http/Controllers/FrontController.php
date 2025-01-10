@@ -44,6 +44,10 @@ class FrontController extends Controller
         return view('front.book');
     }
 
+    public function checkReservation(){
+        return view('front.reservation');
+    }
+
     public function booking_request(Request $request){
         return view('front.booking_request');
     }

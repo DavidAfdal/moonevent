@@ -53,6 +53,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/book-finish', [FrontController::class, 'book_finish'])
             ->name('front.book_finish');
         
+            Route::get('/reservation/check', [FrontController::class, 'checkReservation'])
+            ->name('front.reservation.check');
+            
         });
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
