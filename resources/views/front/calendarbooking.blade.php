@@ -76,7 +76,7 @@
      
     </nav>
     <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8" ></div>
-    <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+    <a href="" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
     @php
     // Definisikan array events
     $events = [

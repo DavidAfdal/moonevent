@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('can:checkout package')->group(function () {
         Route::get('/book/calendarbooking', [FrontController::class, 'calendarbooking'])
-             ->name('front.calendarbooking'); 
+             ->name('front.calendarbooking');
+        
+        Route::get('/book/booking_request', [FrontController::class, 'booking_request'])
+             ->name('front.booking_request');
         
         Route::get('/book/{package_tours:slug}', [FrontController::class, 'book'])
             ->name('front.book');  

@@ -64,8 +64,10 @@
           </div>
           @auth
           @if(Auth::user()->hasRole('customer')) 
-            <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
-            {{-- <a href="{{route('front.calendarbooking', )}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a> --}}
+            {{-- <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+            <a href="{{route('front.calendarbooking', )}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a> --}}
+            <a href="{{route('front.booking_request', )}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+
           @endif
           @endauth
           @guest
