@@ -7,6 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .confirm-btn {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body class="font-poppins text-black">
 

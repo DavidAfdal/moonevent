@@ -24,10 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::middleware('can:checkout package')->group(function () {
-        Route::get('/book/calendarbooking', [FrontController::class, 'calendarbooking'])
+        Route::get('/book/calendarbooking/{package_tours:slug}', [FrontController::class, 'calendarbooking'])
              ->name('front.calendarbooking');
         
-        Route::get('/book/booking_request', [FrontController::class, 'booking_request'])
+        Route::get('/book/booking_request/{package_tours:slug}', [FrontController::class, 'booking_request'])
              ->name('front.booking_request');
         
         Route::get('/book/{package_tours:slug}', [FrontController::class, 'book'])
@@ -35,8 +35,6 @@ Route::middleware('auth')->group(function () {
         
          Route::post('/book/save/{package_tours:slug}', [FrontController::class, 'book_store'])
              ->name('front.book.store');
-
-         
          
         Route::get('/book/choose-bank/{packageBooking}/', [FrontController::class, 'choose_bank'])
             ->name('front.choose_bank');

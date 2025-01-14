@@ -48,12 +48,12 @@ class FrontController extends Controller
         return view('front.reservation');
     }
 
-    public function booking_request(Request $request){
-        return view('front.booking_request');
+    public function booking_request(PackageTour $package_tours){
+        return view('front.booking_request', compact('package_tours'));
     }
 
     public function calendarbooking(PackageTour $package_tours){
-        return view('front.calendarbooking');
+        return view('front.calendarbooking', compact('package_tours'));
     }
 
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
