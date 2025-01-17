@@ -8,7 +8,7 @@
           <p class="text-center m-auto font-semibold">Booking</p>
     </nav>
     <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8" ></div>
-    <a href="{{route('front.booking_request', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+    <button id='save_date' data-slug='{{$package_tours->slug}}' class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</button>
     @php
     // Definisikan array events
     $events = [
@@ -32,6 +32,41 @@ const datepicker = new Datepicker(calendarElement, {
     inline: true,
     todayHighlight: true,
 });
+calendarElement.addEventListener('changeDate', function (event) {
+            selectedDate = event.detail.date.toISOString().split('T')[0]; // Format as 'YYYY-MM-DD'
+        });
+        document.getElementById('save_date').addEventListener('click', function () {
+            const slug = this.dataset.slug;
+            console.log(selectedDate);
+            if (!selectedDate) {
+                document.getElementById('statusMessage').innerText = 'Please select a date.';
+                return;
+            }
+fetch(`{{ route("front.selected_Date", $package_tours->slug) }}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                body: JSON.stringify({
+                    selected_Date: selectedDate,
+                }),
+            })
+            .then((result) => {
+                result.text()
+            }).then(data => {
+                console.log(data); // Log raw response data
+    try {
+        const jsonData = JSON.parse(data); // Try parsing as JSON
+        console.log(jsonData);
+    } catch (e) {
+        console.error('Error parsing JSON:', e);
+    }
+})
+            .catch((err) => {
+           console.log(err);     
+            });
+        });
     });
 
     </script>

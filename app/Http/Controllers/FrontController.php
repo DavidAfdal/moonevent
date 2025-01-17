@@ -56,6 +56,18 @@ class FrontController extends Controller
         return view('front.calendarbooking', compact('package_tours'));
     }
 
+    public function calendarbooking_request(Request $request, PackageTour $package_tours){
+        $validated=$request->validate([
+            'selected_Date' => 'required|date'
+        ]);
+        dd($validated);
+        // $request -> session()->put('selected_Date', $validated['selected_Date']);
+        return response()->json([
+            'success' => true,
+            // 'redirect_url' => route('front.booking_request', $package_tours->slug) // Replace with the route you want to redirect to
+        ]);
+    }
+
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
         $user = Auth::user();
         $bank = PackageBank::orderByDesc('id')->first();

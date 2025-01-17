@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/book/booking_request/{package_tours:slug}', [FrontController::class, 'booking_request'])
              ->name('front.booking_request');
         
+        Route::post('/book/selected_Date/{package_tours:slug}', [FrontController::class, 'calendarbooking_request'])
+            ->name('front.selected_Date');
+        
         Route::get('/book/{package_tours:slug}', [FrontController::class, 'book'])
             ->name('front.book');  
         
