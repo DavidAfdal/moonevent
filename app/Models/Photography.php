@@ -10,7 +10,7 @@ class Photography extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'photography_name',
         'icon',
         'slug',
     ];

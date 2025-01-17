@@ -10,7 +10,7 @@ class MC extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'mc_name',
         'icon',
         'slug',
     ];

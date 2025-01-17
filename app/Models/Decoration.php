@@ -10,7 +10,7 @@ class Decoration extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'decoration_name',
         'icon',
         'slug',
     ];

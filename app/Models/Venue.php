@@ -10,7 +10,7 @@ class Venue extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'venue_name',
         'icon',
         'slug',
     ];

@@ -20,9 +20,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Venue</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="venue">
-                    <option value="venue1">Grand Ballroom</option>
-                    <option value="venue2">Outdoor Garden</option>
-                    <option value="venue3">Beachside</option>
+                    @forelse($venue as $item)
+                    <option value="{{$item->id}}" selected>{{$item->venue_name}}</option>
+                    @empty
+                    <option value="" selected>Tidak ada data</option>
+                    @endforelse
                 </select>
             </div>
 
@@ -42,9 +44,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Decoration</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="decoration">
-                    <option value="modern">Modern</option>
-                    <option value="classic">Classic</option>
-                    <option value="rustic">Rustic</option>
+                    @forelse($decoration as $item)
+                    <option value="{{$item->id}}" selected>{{$item->decoration_name}}</option>
+                    @empty
+                    <option value="" selected>Tidak ada data</option>
+                    @endforelse
                 </select>
             </div>
 
@@ -62,9 +66,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">MC</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="mc">
-                    <option value="professional">Professional</option>
-                    <option value="casual">Casual</option>
-                    <option value="bilingual">Bilingual</option>
+                    @forelse($MC as $item)
+                    <option value="{{$item->id}}" selected>{{$item->mc_name}}</option>
+                    @empty
+                    <option value="" selected>Tidak ada data</option>
+                    @endforelse
                 </select>
             </div>
 
@@ -72,9 +78,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Entertainment</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="entertainment">
-                    <option value="band">Live Band</option>
-                    <option value="dj">DJ Performance</option>
-                    <option value="acoustic">Acoustic</option>
+                    @forelse($entertainment as $item)
+                    <option value="{{$item->id}}" selected>{{$item->entertainment_name}}</option>
+                    @empty
+                    <option value="" selected>Tidak ada data</option>
+                    @endforelse
                 </select>
             </div>
 
@@ -82,9 +90,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Photography</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="photography">
-                    <option value="traditional">Traditional</option>
-                    <option value="candid">Candid</option>
-                    <option value="cinematic">Cinematic</option>
+                    @forelse($photography as $item)
+                    <option value="{{$item->id}}" selected>{{$item->photography_name}}</option>
+                    @empty
+                    <option value="" selected>Tidak ada data</option>
+                    @endforelse
                 </select>
             </div>
 

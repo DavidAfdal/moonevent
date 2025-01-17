@@ -16,6 +16,11 @@ use App\Models\PackageBooking;
 use App\Models\Category;
 use App\Models\Catering;
 use App\Models\MUA;
+use App\Models\Decoration;
+use App\Models\Entertainment;
+use App\Models\Photography;
+use App\Models\Venue;
+use App\Models\MC;
 
 
 class FrontController extends Controller
@@ -52,7 +57,13 @@ class FrontController extends Controller
     public function booking_request(PackageTour $package_tours){
         $catering = Catering::OrderByDesc('id')->get();
         $MUA = MUA::OrderByDesc('id')->get();
-        return view('front.booking_request', compact('package_tours', 'catering', 'MUA'));
+        $decoration = Decoration::OrderByDesc('id')->get();
+        $entertainment = Entertainment::OrderByDesc('id')->get();
+        $photography = Photography::OrderByDesc('id')->get();
+        $venue = Venue::OrderByDesc('id')->get();
+        $MC = MC::OrderByDesc('id')->get();
+
+        return view('front.booking_request', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC'));
     }
     
 

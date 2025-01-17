@@ -10,7 +10,7 @@ class MUA extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'mua_name',
         'icon',
         'slug',
     ];
