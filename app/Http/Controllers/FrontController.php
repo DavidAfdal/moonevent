@@ -21,6 +21,7 @@ use App\Models\Entertainment;
 use App\Models\Photography;
 use App\Models\Venue;
 use App\Models\MC;
+use App\Models\fashion_styling_and_makeup;
 
 
 class FrontController extends Controller
@@ -62,8 +63,9 @@ class FrontController extends Controller
         $photography = Photography::OrderByDesc('id')->get();
         $venue = Venue::OrderByDesc('id')->get();
         $MC = MC::OrderByDesc('id')->get();
+        $fashion_styling_and_makeup = fashion_styling_and_makeup::OrderByDesc('id')->get();
 
-        return view('front.booking_request', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC'));
+        return view('front.booking_request', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC', 'fashion_styling_and_makeup'));
     }
     
 
