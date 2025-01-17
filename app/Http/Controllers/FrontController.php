@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\PackageTour;
 use Illuminate\Http\Request;
 use App\Models\PackagePhoto;
-use App\Http\Controllers\PackageBookingController;
 use App\Http\Requests\StorePackageBookingRequest;
 use App\Http\Requests\StorePackageBookingCheckoutRequest;
 use App\Http\Requests\UpdatePackageBookingRequest;
@@ -57,22 +56,26 @@ class FrontController extends Controller
     }
 
     public function calendarbooking_request(Request $request, PackageTour $package_tours){
+
         $validated=$request->validate([
-            'selected_Date' => 'required|date'
+            'selected_Date' => 'required'
         ]);
-        dd($validated);
-        // $request -> session()->put('selected_Date', $validated['selected_Date']);
-        return response()->json([
-            'success' => true,
-            // 'redirect_url' => route('front.booking_request', $package_tours->slug) // Replace with the route you want to redirect to
-        ]);
+
+
+            // Check if the validation failed
+        if (!$validated) {
+            return response()->json(['error' => 'Invalid date format or missing date.'], 422);
+        }
+
+        $request -> session()->put('selected_Date', $validated['selected_Date']);
+        return redirect()->route('front.booking_request', $package_tours->slug);
     }
 
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
         $user = Auth::user();
         $bank = PackageBank::orderByDesc('id')->first();
         $packageBookingId = null;
-        
+
 
         DB::transaction(function() use ($request, $user, $package_tours, $bank, &$packageBookingId){
            $validated =  $request->validated();
@@ -96,7 +99,7 @@ class FrontController extends Controller
             $validated['tax'] = $tax;
             $validated['sub_total'] = $sub_total;
             $validated['total_amount'] = $sub_total + $tax + $insurance;
-           
+
             $packageBooking = PackageBooking::create($validated);
             $packageBookingId = $packageBooking->id;
         });
@@ -114,7 +117,7 @@ class FrontController extends Controller
             abort(403);
         }
 
-    
+
 
         $banks = PackageBank::all();
         $pacakgaeTour = PackageTour::where('id', $packageBooking->package_tour_id)->first();
@@ -122,7 +125,7 @@ class FrontController extends Controller
     }
 
     public function choose_bank_store(UpdatePackageBookingRequest $request, PackageBooking $packageBooking){
-        
+
         $user = Auth::user();
         if($packageBooking->user_id != $user->id){
             abort(403);

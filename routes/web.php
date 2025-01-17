@@ -26,37 +26,37 @@ Route::middleware('auth')->group(function () {
     Route::middleware('can:checkout package')->group(function () {
         Route::get('/book/calendarbooking/{package_tours:slug}', [FrontController::class, 'calendarbooking'])
              ->name('front.calendarbooking');
-        
+
         Route::get('/book/booking_request/{package_tours:slug}', [FrontController::class, 'booking_request'])
              ->name('front.booking_request');
-        
+
         Route::post('/book/selected_Date/{package_tours:slug}', [FrontController::class, 'calendarbooking_request'])
             ->name('front.selected_Date');
-        
+
         Route::get('/book/{package_tours:slug}', [FrontController::class, 'book'])
-            ->name('front.book');  
-        
+            ->name('front.book');
+
          Route::post('/book/save/{package_tours:slug}', [FrontController::class, 'book_store'])
              ->name('front.book.store');
-         
+
         Route::get('/book/choose-bank/{packageBooking}/', [FrontController::class, 'choose_bank'])
             ->name('front.choose_bank');
-        
+
         Route::patch('/book/choose-bank/{packageBooking}/save', [FrontController::class, 'choose_bank_store'])
             ->name('front.choose_bank_store');
-        
+
         Route::get('/book/payment/{packageBooking}/', [FrontController::class, 'book_payment'])
             ->name('front.book_payment');
-            
+
         Route::patch('/book/payment/{packageBooking}/save', [FrontController::class, 'book_payment_store'])
             ->name('front.book_payment_store');
-        
+
         Route::get('/book-finish', [FrontController::class, 'book_finish'])
             ->name('front.book_finish');
-        
+
             Route::get('/reservation/check', [FrontController::class, 'checkReservation'])
             ->name('front.reservation.check');
-            
+
         });
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
@@ -69,29 +69,29 @@ Route::middleware('auth')->group(function () {
         });
 
     Route::prefix('admin')->name('admin.')->group(function(){
-    
+
         Route::middleware('can:manage categories')->group(function () {
         Route::resource('categories', CategoryController::class);
         });
-    
-    
+
+
         Route::middleware('can:manage packages')->group(function () {
             Route::resource('package_tours', PackageTourController::class);
             });
-    
-    
+
+
         Route::middleware('can:manage package banks')->group(function () {
             Route::resource('package_banks', PackageBankController::class);
             });
-        
-    
+
+
         Route::middleware('can:manage transactions')->group(function () {
             Route::resource('package_bookings', PackageBookingController::class);
             });
     }) ;
 });
 
-   
+
 
 
 require __DIR__.'/auth.php';

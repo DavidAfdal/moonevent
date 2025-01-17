@@ -9,6 +9,11 @@
         <p class="text-center m-auto font-semibold">Booking</p>
   </nav>
     <div class="max-w-[400px] bg-[#F9F2EF] mx-auto px-4 py-8">
+        @if (session()->has('selected_Date'))
+    <p>Selected Date: {{ session('selected_Date') }}</p>
+@else
+    <p>No date selected yet.</p>
+@endif
         <h4 class="text-center text-2xl font-bold mb-6">Detail Wedding Package</h4>
         <form>
             <!-- Venue -->
@@ -20,7 +25,7 @@
                     <option value="venue3">Beachside</option>
                 </select>
             </div>
-            
+
             <!-- Catering -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Catering</label>
@@ -30,7 +35,7 @@
                     <option value="caterindo">Caterindo</option>
                 </select>
             </div>
-            
+
             <!-- Decoration -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Decoration</label>
@@ -40,7 +45,7 @@
                     <option value="rustic">Rustic</option>
                 </select>
             </div>
-            
+
             <!-- Fashion Styling and Makeup -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Fashion Styling and Makeup</label>
@@ -50,7 +55,7 @@
                     <option value="luxury">Luxury</option>
                 </select>
             </div>
-            
+
             <!-- MC -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">MC</label>
@@ -60,7 +65,7 @@
                     <option value="bilingual">Bilingual</option>
                 </select>
             </div>
-            
+
             <!-- Entertainment -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Entertainment</label>
@@ -70,7 +75,7 @@
                     <option value="acoustic">Acoustic</option>
                 </select>
             </div>
-            
+
             <!-- Photography -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Photography</label>
@@ -80,7 +85,7 @@
                     <option value="cinematic">Cinematic</option>
                 </select>
             </div>
-            
+
             <!-- Confirm Button -->
             <div class="mt-6">
                 <a href="{{ route('front.reservation.check') }}" class="block w-full text-center bg-indigo-600 text-white py-2 rounded-md shadow hover:bg-indigo-700 transition duration-200">
