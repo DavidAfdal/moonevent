@@ -41,8 +41,10 @@ const datepicker = new Datepicker(calendarElement, {
 
 
 calendarElement.addEventListener('changeDate', function (event) {
-            selectedDate = event.detail.date.toISOString().split('T')[0]; // Format as 'YYYY-MM-DD'
-            document.getElementById('selected_date').value = selectedDate;
+            selectedDate = event.detail.date.toISOString().split('T')[0];
+            const date = new Date(selectedDate);
+            date.setDate(date.getDate() + 1);
+            document.getElementById('selected_date').value = date.toISOString().split('T')[0];
         });
 
 
