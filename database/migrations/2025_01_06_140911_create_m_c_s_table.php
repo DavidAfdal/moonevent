@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('m_c_s', function (Blueprint $table) {
             $table->id();
-            $table->string('catering_name');
+            $table->string('mc_name');
             $table->string('icon');
             $table->softDeletes();
             $table->timestamps();

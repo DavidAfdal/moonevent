@@ -10,7 +10,7 @@ class Catering extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'name',
+        'catering_name',
         'icon',
         'slug',
         

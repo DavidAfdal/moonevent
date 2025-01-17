@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\PackageBooking;
 use App\Models\Category;
+use App\Models\Catering;
+use App\Models\MUA;
 
 
 class FrontController extends Controller
@@ -48,8 +50,12 @@ class FrontController extends Controller
     }
 
     public function booking_request(PackageTour $package_tours){
-        return view('front.booking_request', compact('package_tours'));
+        $catering = Catering::OrderByDesc('id')->get();
+        $MUA = MUA::OrderByDesc('id')->get();
+        return view('front.booking_request', compact('package_tours', 'catering', 'MUA'));
     }
+    
+
 
     public function calendarbooking(PackageTour $package_tours){
         return view('front.calendarbooking', compact('package_tours'));

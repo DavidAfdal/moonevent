@@ -30,9 +30,11 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Catering</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="catering">
-                    <option value="diamond" selected>Diamond Catering</option>
-                    <option value="nendang">Nendang Rasa</option>
-                    <option value="caterindo">Caterindo</option>
+                   @forelse($catering as $item)
+                   <option value="{{$item->id}}" selected>{{$item->catering_name}}</option>
+                   @empty
+                   <option value="" selected>Tidak ada data</option>
+                   @endforelse
                 </select>
             </div>
 
