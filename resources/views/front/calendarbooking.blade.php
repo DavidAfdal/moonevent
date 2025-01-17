@@ -19,21 +19,21 @@
     @endphp
 
     @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker.min.css">
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker-full.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                slotMinTime: '8:00:00',
-                slotMaxTime: '19:00:00',
-                events: @json($events),
-            });
-            calendar.render();
-        });
+            let selectedDate = null;
+
+
+const calendarElement = document.getElementById('calendar');
+const datepicker = new Datepicker(calendarElement, {
+    autohide: true, 
+    inline: true,
+    todayHighlight: true,
+});
+    });
+
     </script>
     </section>
     
