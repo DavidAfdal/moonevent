@@ -14,6 +14,15 @@
 @else
     <p>No date selected yet.</p>
 @endif
+@if($errors->any())
+    <div>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <h4 class="text-center text-2xl font-bold mb-6">Detail Wedding Package</h4>
         <form action='{{route('front.book.store', $package_tours)}}' method='POST'>
             @csrf
@@ -94,7 +103,7 @@
             <!-- Photography -->
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Photography</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="photography_id">
+                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="photographie_id">
                     @forelse($photography as $item)
                     <option value="{{$item->id}}" selected>{{$item->photography_name}}</option>
                     @empty
