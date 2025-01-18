@@ -7,7 +7,8 @@
           </a>
           <p class="text-center m-auto font-semibold">Booking</p>
     </nav>
-    <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8" ></div>
+    <div id="startDateDiv" data-start-date="{{ $startDate }}"></div>
+    <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8" class="custom-calendar"></div>
     <form id="booking_form" method="POST" action="{{ route('front.selected_Date', $package_tours->slug) }}">
         @csrf
         <input type="text" name="selected_Date" id="selected_date" class="hidden"/>
@@ -33,12 +34,50 @@
 
 const calendarElement = document.getElementById('calendar');
 
+const startDate = document.getElementById('startDateDiv').getAttribute('data-start-date');
+
+const parsedStartDate = startDate ? JSON.parse(startDate) : [];
+console.log(parsedStartDate)
+
+const bookedDates = Array.isArray(parsedStartDate)
+    ? parsedStartDate.map((date) => {
+        const dateBook = new Date(date);
+        dateBook.setDate(dateBook.getDate() - 1);
+        return dateBook.toISOString().split('T')[0];
+      })
+    : [];
+
+    console.log("Book Dates : ", bookedDates)
+
+
 const datepicker = new Datepicker(calendarElement, {
     autohide: true,
     inline: true,
     todayHighlight: true,
+    beforeShowDay: (date) => {
+        const formattedDate = date.toISOString().split('T')[0]; // Format date as 'YYYY-MM-DD'
+
+        if (bookedDates.includes(formattedDate)) {
+            return {
+                enabled: false, // Disable the date
+                classes: 'booked-date', // Add custom class for styling
+                tooltip: 'This date is unavailable', // Optional: Add a tooltip
+            };
+        }
+        return;
+    },
 });
 
+
+const style = document.createElement('style');
+style.innerHTML = `
+    .booked-date {
+        background-color: red !important; /* Red background for booked dates */
+        color: white !important;         /* White text for better contrast */
+        cursor: not-allowed !important; /* Show 'not-allowed' cursor */
+    }
+`;
+document.head.appendChild(style);
 
 calendarElement.addEventListener('changeDate', function (event) {
             selectedDate = event.detail.date.toISOString().split('T')[0];
