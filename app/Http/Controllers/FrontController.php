@@ -93,39 +93,33 @@ class FrontController extends Controller
 
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
         $user = Auth::user();
-        $bank = PackageBank::orderByDesc('id')->first();
         $packageBookingId = null;
 
 
-        DB::transaction(function() use ($request, $user, $package_tours, $bank, &$packageBookingId){
+        DB::transaction(function() use ($request, $user, $package_tours, &$packageBookingId){
            $validated =  $request->validated();
+            dd($validated);
+           $startDate = session('selected_Date');
+           $totalDays = 1;
 
-           $startDate = new Carbon($validated['start_date']);
-           $totalDays = $package_tours->days - 1;
+           $endDate = session('selected_Date');
 
-           $endDate = $startDate->addDays($totalDays);
-
-           $sub_total = $package_tours->price  * $validated['quantity'];
-           $insurance = 3000000 * $validated['quantity'];
-           $tax = $sub_total * 0.10;
+           $sub_total = $package_tours->price  * 1;
+           
 
             $validated['end_date'] = $endDate;
             $validated['user_id'] = $user->id;
-            $validated['is_paid'] = false;
-            $validated['proof'] = 'dummytrx.png';
             $validated['package_tour_id'] = $package_tours->id;
-            $validated['package_bank_id'] = $bank->id;
-            $validated['insurance'] = $insurance;
-            $validated['tax'] = $tax;
             $validated['sub_total'] = $sub_total;
-            $validated['total_amount'] = $sub_total + $tax + $insurance;
+            $validated['total_amount'] = $sub_total;
+            $validated['status'] = 'pending';
 
             $packageBooking = PackageBooking::create($validated);
             $packageBookingId = $packageBooking->id;
         });
 
         if ($packageBookingId) {
-            return redirect()->route('front.choose_bank', $packageBookingId);
+            return redirect()->route('front.reservation.check');
         } else {
             return back()->withErrors('failed to create booking.');
         }
