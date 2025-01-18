@@ -56,8 +56,8 @@
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Fashion Styling and Makeup</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="fashion_makeup">
-                    @forelse($fashion_styling_and_makeup as $item)
-                    <option value="{{$item->id}}" selected>{{$item->fashion_styling_and_makeup_name}}</option>
+                    @forelse($MUA as $item)
+                    <option value="{{$item->id}}" selected>{{$item->mua_name}}</option>
                     @empty
                     <option value="" selected>Tidak ada data</option>
                     @endforelse
