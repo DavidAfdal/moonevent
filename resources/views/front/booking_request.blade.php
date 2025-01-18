@@ -17,6 +17,7 @@
         <h4 class="text-center text-2xl font-bold mb-6">Detail Wedding Package</h4>
         <form>
             <!-- Venue -->
+            @if($package_tours->category->name=='WO')
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Venue</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="venue">
@@ -27,6 +28,7 @@
                     @endforelse
                 </select>
             </div>
+            @endif
 
             <!-- Catering -->
             <div class="mb-4">
