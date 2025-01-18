@@ -92,20 +92,23 @@ class FrontController extends Controller
     }
 
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
+
+
         $user = Auth::user();
         $packageBookingId = null;
 
 
+
         DB::transaction(function() use ($request, $user, $package_tours, &$packageBookingId){
-           $validated =  $request->validated();
-            dd($validated);
+           $validated = $request->validated();
+
            $startDate = session('selected_Date');
            $totalDays = 1;
 
            $endDate = session('selected_Date');
 
            $sub_total = $package_tours->price  * 1;
-           
+
 
             $validated['end_date'] = $endDate;
             $validated['user_id'] = $user->id;
@@ -113,6 +116,10 @@ class FrontController extends Controller
             $validated['sub_total'] = $sub_total;
             $validated['total_amount'] = $sub_total;
             $validated['status'] = 'pending';
+            $validated['start_date'] = $startDate;
+            $validated['total_days'] = $totalDays;
+            $validated["quantity"] = 1;
+
 
             $packageBooking = PackageBooking::create($validated);
             $packageBookingId = $packageBooking->id;

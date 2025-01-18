@@ -23,13 +23,13 @@ class StorePackageBookingRequest extends FormRequest
     {
         return [
             //
-           'venue_id' => ['string'],
-           'mc_id' => ['string', 'required'],
-           'catering_id' => ['string', 'required'],
-           'mua_id' => ['string', 'required'],
-           'entertainment_id' => ['string', 'required'],
-           'photography_id' => ['string', 'required'],
-           'decorations_idS' => ['string', 'required']
+        'venue_id' => [ 'nullable','integer'],
+        'mc_id' => ['required', 'integer'],
+        'catering_id' => ['required', 'integer'],
+        'mua_id' => ['required', 'integer'],
+        'entertainment_id' => ['required', 'integer'],
+        'photographie_id' => ['required', 'integer'],
+        'decoration_id' => ['required', 'integer'],
         ];
     }
 }
