@@ -65,11 +65,12 @@ class FrontController extends Controller
 
         return view('front.booking_request', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC',));
     }
-    
+
 
 
     public function calendarbooking(PackageTour $package_tours){
-        return view('front.calendarbooking', compact('package_tours'));
+        $startDate = PackageBooking::where('package_tour_id', $package_tours->id)->pluck('start_date');
+        return view('front.calendarbooking', compact('package_tours', "startDate"));
     }
 
     public function calendarbooking_request(Request $request, PackageTour $package_tours){
