@@ -11,18 +11,21 @@ class PackageBooking extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'status',
         'package_tour_id',
         'user_id',
+        'catering_id',
+        'decoration_id',
+        'photographie_id',
+        'mc_id',
+        'entertainment_id',
+        'mua_id',
+        'venue_id',
         'quantity',
+        'total_amount',
+        'sub_total',
         'start_date',
         'end_date',
-        'total_amount',
-        'is_paid',
-        'proof',
-        'package_bank_id',
-        'sub_total',
-        'tax',
-        'insurance',
     ];
 
     protected $cast = [
@@ -36,10 +39,6 @@ class PackageBooking extends Model
 
     public function tour(){
         return $this->belongsTo(PackageTour::class, 'package_tour_id');
-    }
-
-    public function bank(){
-        return $this->belongsTo(PackageBank::class, 'package_bank_id');
     }
 
 

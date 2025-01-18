@@ -69,7 +69,9 @@ class FrontController extends Controller
 
 
     public function calendarbooking(PackageTour $package_tours){
-        $startDate = PackageBooking::where('package_tour_id', $package_tours->id)->pluck('start_date');
+        $startDate = PackageBooking::where('package_tour_id', $package_tours->id)
+        ->where('status', 'success')
+        ->pluck('start_date');
         return view('front.calendarbooking', compact('package_tours', "startDate"));
     }
 
