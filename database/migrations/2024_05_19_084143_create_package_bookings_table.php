@@ -17,6 +17,13 @@ return new class extends Migration
             $table->foreignId('package_tour_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('package_bank_id')->constrained()->onDelete('cascade');
+            $table->foreignId('catering_id')->constrained()->onDelete('cascade');
+            $table->foreignId('decoration_id')->constrained()->onDelete('cascade');
+            $table->foreignId('photographie_id')->constrained()->onDelete('cascade');
+            $table->foreignId('mc_id')->constrained("m_c_s")->onDelete('cascade');
+            $table->foreignId('entertainment_id')->constrained()->onDelete('cascade');
+            $table->foreignId('mua_id')->constrained('m_u_a_s')->onDelete('cascade');;
+            $table->foreignId('venue_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('total_amount');
             $table->unsignedBigInteger('sub_total');

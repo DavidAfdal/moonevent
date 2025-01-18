@@ -41,5 +41,43 @@ class PackageBooking extends Model
     public function bank(){
         return $this->belongsTo(PackageBank::class, 'package_bank_id');
     }
-    
+
+
+    public function catering()
+    {
+        return $this->belongsTo(Catering::class, 'catering_id');
+    }
+
+    public function decoration()
+    {
+        return $this->belongsTo(Decoration::class, 'decoration_id');
+    }
+
+    public function photograph()
+    {
+        return $this->belongsTo(Photograph::class, 'photographie_id');
+    }
+
+    public function mc()
+    {
+        return $this->belongsTo(MC::class, 'm_cs_id'); // 'm_c_s' table
+    }
+
+    public function entertainment()
+    {
+        return $this->belongsTo(Entertainment::class, 'entertainment_id');
+    }
+
+    public function mua()
+    {
+        return $this->belongsTo(MUA::class, 'm_u_a_id'); // 'm_u_a_s' table
+    }
+
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class, 'venue_id');
+}
+
+
+
 }
