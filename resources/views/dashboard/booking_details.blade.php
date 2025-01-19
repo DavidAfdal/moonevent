@@ -60,22 +60,41 @@
           <div class="flex flex-col gap-3 px-4 ">
             <p class="font-semibold">Payment Summary</p>
             <div class="bg-white p-[16px_24px] rounded-[26px] flex flex-col gap-3">
-              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
-                <p>Sub Total</p>
-                <p id="subtotal" class="font-semibold text-blue">Rp {{number_format($packageBooking->tour->price, 0, ',', ',')}}</p>
-              </div>
-              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
-                <p>Insurance <span class="text-darkGrey">x<span id="total_quantity">{{$packageBooking->quantity}}</span></span></p>
-                <p id="insurance" class="font-semibold text-blue">Rp {{number_format($packageBooking->insurance, 0, ',', ',')}}</p>
-              </div>
-              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
-                <p>Tax 10%</p>
-                <p id="tax" class="font-semibold text-blue">Rp {{number_format($packageBooking->tax, 0, ',', ',')}}</p>
-              </div>
+
+    
               <hr>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px] h-[55px]">
                 <p>Total Payment</p>
                 <p id="tax" class="font-semibold text-lg tracking-[0.6px]">Rp {{number_format($packageBooking->total_amount, 0, ',', ',')}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 px-4 ">
+            <p class="font-semibold"></p>
+            <div class="bg-white p-[16px_24px] rounded-[26px] flex flex-col gap-3">
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>Catering </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->catering->catering_name}}</p>
+              </div>
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>decoration </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->decoration->decoration_name}}</p>
+              </div>
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>Fashion Styling and Makeup </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->mua->mua_name}}</p>
+              </div>
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>MC </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->mc->mc_name}}</p>
+              </div>
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>Entertainment </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->entertainment->entertainment_name}}</p>
+              </div>
+              <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                <p>Photography </p>
+                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->photograph->photography_name}}</p>
               </div>
             </div>
           </div>
