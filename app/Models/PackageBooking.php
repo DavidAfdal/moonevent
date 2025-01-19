@@ -54,12 +54,12 @@ class PackageBooking extends Model
 
     public function photograph()
     {
-        return $this->belongsTo(Photograph::class, 'photographie_id');
+        return $this->belongsTo(Photography::class, 'photographie_id');
     }
 
     public function mc()
     {
-        return $this->belongsTo(MC::class, 'm_cs_id'); // 'm_c_s' table
+        return $this->belongsTo(MC::class, 'mc_id'); // 'm_c_s' table
     }
 
     public function entertainment()
@@ -69,7 +69,7 @@ class PackageBooking extends Model
 
     public function mua()
     {
-        return $this->belongsTo(MUA::class, 'm_u_a_id'); // 'm_u_a_s' table
+        return $this->belongsTo(MUA::class, 'mua_id'); // 'm_u_a_s' table
     }
 
     public function venue()
