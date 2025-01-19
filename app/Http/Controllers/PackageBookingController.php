@@ -19,15 +19,23 @@ class PackageBookingController extends Controller
     }
 
     public function get_package_bookings(){
-        $bookings = PackageBooking::select(
+        $bookingsQuery = PackageBooking::select(
             'package_bookings.start_date',
             'package_bookings.end_date',
             'package_tours.name as package_name',
             'users.name as user_name'
         )
-        ->join('package_tours', 'package_bookings.package_tour_id', '=', 'package_tours.id') // Join package_tours
-        ->join('users', 'package_bookings.user_id', '=', 'users.id')                      // Join users
-        ->get();
+        ->join('package_tours', 'package_bookings.package_tour_id', '=', 'package_tours.id')
+        ->join('users', 'package_bookings.user_id', '=', 'users.id');
+
+
+
+        if (auth()->user()->hasRole('customer')) {
+            $bookingsQuery->where('package_bookings.user_id', auth()->id());
+        }
+
+
+        $bookings = $bookingsQuery->get();
 
         // Map the data into the required format
         $events = $bookings->map(function ($booking) {
@@ -38,30 +46,33 @@ class PackageBookingController extends Controller
             ];
         });
 
+        // dd($bookings);
 
         $bookings_bar = PackageBooking::select(
             DB::raw('MONTHNAME(start_date) as month'),
             DB::raw('SUM(total_amount) as total_amount')
         )
+        ->where('status', '=', 'success')//
         ->groupBy('month')
         ->orderBy(DB::raw('MONTH(start_date)'))
         ->get();
 
-        $booking_pie = PackageBooking::select(
-            'package_tours.name as package_name',
+         $booking_pie = PackageBooking::select(
+            'categories.name as category_name',
             DB::raw('SUM(package_bookings.total_amount) as total_amount')
         )
         ->join('package_tours', 'package_bookings.package_tour_id', '=', 'package_tours.id')
-        ->groupBy('package_tours.name')
+        ->join('categories', 'package_tours.category_id', '=', 'categories.id')
+        ->where('package_bookings.status', '=', 'success')
+        ->groupBy('categories.name')
         ->orderBy('total_amount', 'desc')
         ->get();
-
 
 
         $labels_bar = $bookings_bar->pluck('month');
         $data_bar = $bookings_bar->pluck('total_amount');
 
-        $labels_pie = $booking_pie->pluck('package_name');
+        $labels_pie = $booking_pie->pluck('category_name');
         $data_pie = $booking_pie->pluck('total_amount');
 
 

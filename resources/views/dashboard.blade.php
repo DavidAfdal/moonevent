@@ -6,14 +6,11 @@
     </x-slot>
 
     <div class="py-12">
-        {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div> --}}
+        @role("customer")
+        <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
+        @endrole
 
+        @role('super_admin')
         <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
 
         <div class="grid grid-cols-2 gap-2 max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
@@ -24,6 +21,7 @@
                 <canvas id="pieChart" class="w-full h-auto"></canvas>
             </div>
         </div>
+        @endrole
 
     </div>
 
@@ -36,6 +34,34 @@
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
 
+    @role("customer")
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                slotMinTime: '8:00:00',
+                slotMaxTime: '19:00:00',
+                events: @json($events),
+                eventClick: function(info) {
+                    alert('Event: ' + info.event.title);
+                    info.el.style.borderColor = 'red';
+                },
+                eventDidMount: function(info) {
+                    info.el.style.cursor = 'pointer';
+                }
+            });
+
+            calendar.render();
+
+
+        });
+    </script>
+    @endrole
+
+    @role("super_admin")
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
@@ -98,6 +124,8 @@
 
         });
     </script>
+    @endrole
+
     @endpush
 
 </x-app-layout>
