@@ -10,7 +10,7 @@
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen">
         <div class="w-full min-h-screen flex flex-col items-center justify-center py-[46px] px-4 gap-8">
           <div class="w-[calc(100%-26px)] rounded-[20px] overflow-hidden relative">
-            <img src="assets/backgrounds/Asset.png" class="w-full h-full object-contain" alt="background">
+            <img src="assets/backgrounds/moonevent.jpg" class="w-full h-full object-contain" alt="background">
           </div>
           <form method="POST" action="{{ route('login') }}" class="flex flex-col w-full bg-white p-[24px_16px] gap-8 rounded-[22px] items-center">
             @csrf
