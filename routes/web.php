@@ -14,9 +14,7 @@ Route::get('/category/{category:slug}', [FrontController::class, 'category'])->n
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
 Route::post('/test', [FrontController::class, 'book_store_test'])->name('front.test');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [PackageBookingController::class, 'get_package_bookings'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

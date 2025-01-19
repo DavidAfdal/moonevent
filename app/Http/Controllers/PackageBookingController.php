@@ -18,6 +18,57 @@ class PackageBookingController extends Controller
         return view('admin.package_bookings.index', compact('package_bookings'));
     }
 
+    public function get_package_bookings(){
+        $bookings = PackageBooking::select(
+            'package_bookings.start_date',
+            'package_bookings.end_date',
+            'package_tours.name as package_name',
+            'users.name as user_name'
+        )
+        ->join('package_tours', 'package_bookings.package_tour_id', '=', 'package_tours.id') // Join package_tours
+        ->join('users', 'package_bookings.user_id', '=', 'users.id')                      // Join users
+        ->get();
+
+        // Map the data into the required format
+        $events = $bookings->map(function ($booking) {
+            return [
+                'title' => $booking->package_name . ' - ' . $booking->user_name,
+                'start' => $booking->start_date,
+                'end' => $booking->end_date,
+            ];
+        });
+
+
+        $bookings_bar = PackageBooking::select(
+            DB::raw('MONTHNAME(start_date) as month'),
+            DB::raw('SUM(total_amount) as total_amount')
+        )
+        ->groupBy('month')
+        ->orderBy(DB::raw('MONTH(start_date)'))
+        ->get();
+
+        $booking_pie = PackageBooking::select(
+            'package_tours.name as package_name',
+            DB::raw('SUM(package_bookings.total_amount) as total_amount')
+        )
+        ->join('package_tours', 'package_bookings.package_tour_id', '=', 'package_tours.id')
+        ->groupBy('package_tours.name')
+        ->orderBy('total_amount', 'desc')
+        ->get();
+
+
+
+        $labels_bar = $bookings_bar->pluck('month');
+        $data_bar = $bookings_bar->pluck('total_amount');
+
+        $labels_pie = $booking_pie->pluck('package_name');
+        $data_pie = $booking_pie->pluck('total_amount');
+
+
+
+        return view('dashboard', compact('events', 'labels_bar', 'data_bar', 'labels_pie', 'data_pie'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
