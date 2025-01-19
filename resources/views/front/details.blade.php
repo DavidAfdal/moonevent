@@ -46,15 +46,27 @@
         </div>
         <div class="mx-4 flex flex-col gap-3 bg-white p-[16px_24px] rounded-[22px]">
           <h2 class="font-semibold">About Package</h2>
-          <p id="readMore" class="text-sm leading-[22px] tracking-035 text-darkGrey">
-            {{substr($package_tours->about, 0, 100)}} 
-            <button class="font-semibold text-blue" onclick="document.getElementById('readMore').classList.toggle('hidden'); document.getElementById('seeLess').classList.toggle('hidden');">Read More</button>
-          </p>
-          <p id="seeLess" class="hidden text-sm leading-[22px] tracking-035 text-darkGrey">
-            {{$package_tours->about}}
-            <button class="font-semibold text-blue" onclick="document.getElementById('readMore').classList.toggle('hidden'); document.getElementById('seeLess').classList.toggle('hidden');">See Less</button>
+          <p id="aboutText" class="text-sm leading-[22px] tracking-035 text-darkGrey">
+            {!! nl2br(e(substr($package_tours->about, 0, 100))) !!}
+            <span id="moreText" class="hidden">{!! nl2br(e(substr($package_tours->about, 100))) !!}</span>
+            <button id="toggleButton" class="font-semibold text-blue" onclick="toggleText()">Read More</button>
           </p>
         </div>
+
+        <script>
+          function toggleText() {
+            const moreText = document.getElementById('moreText');
+            const toggleButton = document.getElementById('toggleButton');
+
+            if (moreText.classList.contains('hidden')) {
+              moreText.classList.remove('hidden');
+              toggleButton.innerText = 'See Less';
+            } else {
+              moreText.classList.add('hidden');
+              toggleButton.innerText = 'Read More';
+            }
+          }
+        </script>
        
              
         <div class="navigation-bar fixed bottom-0 z-50 max-w-[640px] w-full h-[85px] bg-white rounded-t-[25px] flex items-center justify-between px-6">
@@ -71,7 +83,7 @@
           @endif
           @endauth
           @guest
-          <a href="{{route('front.book', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
+          <a href="{{route('front.calendarbooking', $package_tours->slug)}}" class="p-[16px_24px] rounded-xl bg-blue w-fit text-white hover:bg-[#06C755] transition-all duration-300">Book Now</a>
           @endguest
         </div>
     </section>

@@ -22,7 +22,7 @@
           <a href="{{route('dashboard.bookings.details', $booking->id)}}" class="card">
             <div class="bg-white p-4 rounded-[26px] flex items-center gap-4">
               <p class="text-center text-sm leading-[22px] tracking-035">
-                <span class="font-semibold text-2xl">{{date('M d,Y', strtotime($booking->start_date))}} - {{date('M d,Y', strtotime($booking->start_date))}}</span> </p>
+                <span class="font-semibold text-2xl">{{date('M d,Y', strtotime($booking->start_date))}}</span> </p>
               <div class="flex items-center gap-4">
                 <div class="w-[92px] h-[92px] flex shrink-0 rounded-xl overflow-hidden">
                   <img src="{{Storage::url($booking->tour->thumbnail)}}" class="w-full h-full object-cover object-center" alt="thumbnail">
@@ -31,9 +31,9 @@
                   <p class="font-semibold text-sm tracking-035 leading-[22px]">
                         {{$booking->tour->name}}
                   </p>
-                  <p class="text-sm leading-[22px] tracking-035 text-darkGrey">{{$booking->tour->days}} session | 
-                    {{$booking->quantity}} packs</p>
-                    @if($booking->is_paid)
+                  <p class="text-sm leading-[22px] tracking-035 text-darkGrey">
+                    </p>
+                    @if($booking->status=='success')
                   <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
                     <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Success Paid</span>
                   </div>

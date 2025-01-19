@@ -6,21 +6,22 @@
     </x-slot>
 
     <div class="py-12">
+
         @role("customer")
         <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
         @endrole
 
         @role('super_admin')
-        <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
+            <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
 
-        <div class="grid grid-cols-2 gap-2 max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
-            <div class="relative">
-                <canvas id="barChart" class="w-full h-auto"></canvas>
+            <div class="grid grid-cols-2 gap-2 max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
+                <div class="relative">
+                    <canvas id="barChart" class="w-full h-auto"></canvas>
+                </div>
+                <div class="relative">
+                    <canvas id="pieChart" class="w-full h-auto"></canvas>
+                </div>
             </div>
-            <div class="relative">
-                <canvas id="pieChart" class="w-full h-auto"></canvas>
-            </div>
-        </div>
         @endrole
 
     </div>

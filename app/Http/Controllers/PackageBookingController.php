@@ -122,7 +122,7 @@ class PackageBookingController extends Controller
         //
         DB::transaction(function()use ($packageBooking){
             $packageBooking->update([
-                'is_paid' => true,
+                'status' => 'success',
             ]);
         });
         return view('admin.package_bookings.show', compact('packageBooking'));

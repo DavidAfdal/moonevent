@@ -19,7 +19,7 @@
                         <p class="text-slate-500 text-sm">{{$packageBooking->tour->category->name}}</p>
                         </div>
                     </div> 
-                    @if($packageBooking->is_paid)
+                    @if($packageBooking->status=='success')
                         <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-green-500 text-white">
                             SUCCESS
                         </span>
@@ -66,24 +66,14 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-y-4">
-                        <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Quantity</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">
-                                {{$packageBooking->quantity}} 
-                            </h3>
-                        </div>
+                        
         
-                        <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Total Session</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">
-                                {{$packageBooking->tour->days}} 
-                            </h3>
-                        </div>
+                       
         
                         <div class="flex flex-col">
                             <p class="text-slate-500 text-sm">Date</p>
                             <h3 class="text-indigo-950 text-xl font-bold">
-                                {{date('M d,Y', strtotime($packageBooking->start_date))}} -  {{date('M d,Y', strtotime($packageBooking->start_date))}}
+                                {{date('M d,Y', strtotime($packageBooking->start_date))}}
                             </h3>
                         </div>
 
@@ -92,28 +82,21 @@
 
                 <hr class="my-5">
 
-                <div class="grid grid-cols-2 gap-5">
-                    <div class="flex flex-col gap-y-4">
-                        <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Sub Total</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">
-                                Rp {{number_format($packageBooking->tour->price, 0, ',', ',')}}
-                            </h3>
-                        </div>
+                <div class="flex flex-col gap-3 px-4 ">
+                    <p class="font-semibold"></p>
+                    <div class="bg-white p-[16px_24px] rounded-[26px] flex flex-col gap-3">
+                      <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                        <p>Catering </p>
+                        <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->catering->catering_name}}</p>
+                      </div>
+                      <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
+                        <p>decoration </p>
+                        <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->decoration->decoration_name}}</p>
+                      </div>
+                    </div>
+                  </div>
         
-                        <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Insurance</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">
-                                Rp {{number_format($packageBooking->insurance, 0, ',', ',')}}
-                            </h3>
-                        </div>
-        
-                        <div class="flex flex-col">
-                            <p class="text-slate-500 text-sm">Tax</p>
-                            <h3 class="text-indigo-950 text-xl font-bold">
-                                Rp {{number_format($packageBooking->tax, 0, ',', ',')}}
-                            </h3>
-                        </div>
+                        
 
                         <div class="flex flex-col">
                             <p class="text-slate-500 text-sm">Total Amount</p>
@@ -122,13 +105,7 @@
                             </h3>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-y-4">
-                        <h3 class="text-indigo-950 text-xl font-bold">
-                            Bukti Pembayaran
-                        </h3>
-        
-                        <img src="{{Storage::url($packageBooking->proof)}}" alt="" class="rounded-2xl object-cover w-[300px] h-[200px]">
-                    </div>
+                 
                 </div>
 
             </div>

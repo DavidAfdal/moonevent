@@ -24,7 +24,7 @@
                         </p>
                         </div>
                     </div> 
-                    @if($booking->is_paid)
+                    @if($booking->status=='success')
                         <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-green-500 text-white">
                             SUCCESS
                         </span>
