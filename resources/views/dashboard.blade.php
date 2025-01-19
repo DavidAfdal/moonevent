@@ -6,14 +6,16 @@
     </x-slot>
 
     <div class="py-12">
-        {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        @role('costumer')
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
             </div>
-        </div> --}}
-
+        </div>
+        @endrole
+        @role('super_admin')
         <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8 h-[500px]" ></div>
 
         <div class="grid grid-cols-2 gap-2 max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10">
@@ -24,7 +26,7 @@
                 <canvas id="pieChart" class="w-full h-auto"></canvas>
             </div>
         </div>
-
+        @endrole
     </div>
 
 
