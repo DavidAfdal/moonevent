@@ -43,7 +43,7 @@
                   </div>
                   @else
                   <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
-                  <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]"> PENDING</span>
+                  <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Pending</span>
                  </div>
                 @endif
                 </div>

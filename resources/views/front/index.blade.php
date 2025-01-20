@@ -30,7 +30,10 @@
             </div>
           </a>
         </nav>
-        <h1 class="font-semibold text-2xl leading-[36px] text-center">Moon event Organizer <br>Your Partner Event Solution</h1>
+        <div class="w-[calc(100%-5px)]  items-center justify-center rounded-[20px] overflow-hidden relative">
+          <img src="assets/backgrounds/moonevent.jpg" class="w-full h-full object-contain" alt="background">
+        </div>
+        <h1 class="font-semibold text-2xl leading-[36px] text-center">Your Partner Event Solution</h1>
         <div id="categories" class="flex flex-col gap-3">
           <h2 class="font-semibold px-4">Categories</h2>
           <div class="main-carousel buttons-container">
@@ -98,15 +101,6 @@
 
           </div>
         </div>
-        {{-- <div id="discover" class="px-4">
-          <div class="w-full h-[130px] flex flex-col gap-[10px] rounded-[22px] items-center overflow-hidden relative">
-            <img src="assets/backgrounds/Banner.png" class="w-full h-full object-cover object-center" alt="background">
-            <div class="absolute z-10 flex flex-col gap-[10px] transform -translate-y-1/2 top-1/2 left-4">
-              <p class="text-white font-semibold">Our Partner<br>Vendor</p>
-              <a href="" class="bg-[#4D73FF] p-[8px_24px] rounded-[10px] text-white font-semibold text-xs w-fit">See Vendor</a>
-            </div>
-          </div>
-        </div> --}}
         <div id="recommendations" class="flex flex-col gap-3">
           <h2 class="font-semibold px-4">Our Vendor</h2>
         <div class="main-carousel card-container">
@@ -271,27 +265,6 @@
 
         </div>
         </div>
-        
-        {{-- <div class="container">
-          <h2 class="font-semibold px-4">About us</h2>
-              <h2>Moonevent Organizer adalah perusahaan penyedia layanan jasa Wedding Organizer dan pengelola gedung JGU Auditorium yang terletak di Depok, Jawa Barat. Berdiri pada tanggal 26 Oktober 2020, kami berdedikasi untuk memberikan layanan terbaik dalam perencanaan acara dan penyewaan gedung.
-
-                </h2>
-
-          </div>
-          <div class="team-section">
-            <h2 class="font-semibold px-4">Our Admin Team</h2>
-              <div class="team-members">
-                  <img src="{{ asset('assets/thumbnails/TIM FORMAL.jpg') }}" alt="Our Team">
-              </div>
-          </div>
-          <div class="team-section">
-            <h2 class="font-semibold px-4">Our WO Team</h2>
-              <div class="team-members">
-                  <img src="{{ asset('assets/thumbnails/10 org.jpg') }}" alt="Our Team">
-              </div>
-          </div>
-      </div> --}}
       
       <div class="container mx-auto text-center">
         <h2 class="font-semibold px-4 text-4xl mb-4">About us</h2>

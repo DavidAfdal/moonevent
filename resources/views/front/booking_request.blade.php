@@ -1,116 +1,72 @@
 @extends('front.layouts.app')
 @section('content')
 
-<section class="max-w-[400px] bg-[#F9F2EF] mx-auto px-4 py-8">
-    <nav class="mt-8 px-4 w-full flex items-center justify-between">
-        <a href="{{route('front.calendarbooking', $package_tours->slug)}}">
-          <img src="{{asset('assets/icons/back.png')}}" alt="back">
+<section class="max-w-[400px] bg-[#F9F2EF] mx-auto px-4 py-8 rounded-lg shadow-md">
+    <!-- Navigation -->
+    <nav class="mt-4 px-4 w-full flex items-center justify-between">
+        <a href="{{route('front.calendarbooking', $package_tours->slug)}}" class="flex items-center">
+            <img src="{{asset('assets/icons/back.png')}}" alt="back" class="w-6 h-6">
         </a>
-        <p class="text-center m-auto font-semibold">Booking</p>
-  </nav>
-    <div class="max-w-[400px] bg-[#F9F2EF] mx-auto px-4 py-8">
-        @if (session()->has('selected_Date'))
-    <p>Selected Date: {{ session('selected_Date') }}</p>
-@else
-    <p>No date selected yet.</p>
-@endif
-@if($errors->any())
-    <div>
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+        <p class="text-center m-auto font-semibold text-lg">Booking</p>
+    </nav>
+
+    <!-- Image Header -->
+    <div class="w-full rounded-lg overflow-hidden mt-6 shadow-lg">
+        <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" class="w-full h-100 object-cover" alt="Moon Event">
     </div>
-@endif
+
+    <!-- Booking Details -->
+    <div class="bg-white mt-6 p-6 rounded-lg shadow">
+        <!-- Selected Date -->
+        @if (session()->has('selected_Date'))
+            <p class="text-sm font-medium mb-4">Selected Date: <span class="text-indigo-600">{{ session('selected_Date') }}</span></p>
+        @else
+            <p class="text-sm font-medium mb-4 text-red-500">No date selected yet.</p>
+        @endif
+
+        <!-- Errors -->
+        @if($errors->any())
+            <div class="bg-red-100 text-red-600 p-4 rounded-lg mb-4">
+                <ul class="list-disc pl-6">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <h4 class="text-center text-2xl font-bold mb-6">Detail Wedding Package</h4>
+
+        <!-- Form -->
         <form action='{{route('front.book.store', $package_tours)}}' method='POST'>
             @csrf
-            <!-- Venue -->
+
+            <!-- Dynamic Fields -->
             @if($package_tours->category->name=='PAKET ACARA')
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Venue</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="venue_id">
-                    @forelse($venue as $item)
-                    <option value="{{$item->id}}" selected>{{$item->venue_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
-         
+                @php
+                    $fields = [
+                        'Venue' => ['venue_id', $venue, 'venue_name'],
+                        'Catering' => ['catering_id', $catering, 'catering_name'],
+                        'Decoration' => ['decoration_id', $decoration, 'decoration_name'],
+                        'Fashion Styling and Makeup' => ['mua_id', $MUA, 'mua_name'],
+                        'MC' => ['mc_id', $MC, 'mc_name'],
+                        'Entertainment' => ['entertainment_id', $entertainment, 'entertainment_name'],
+                        'Photography' => ['photographie_id', $photography, 'photography_name'],
+                    ];
+                @endphp
 
-            <!-- Catering -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Catering</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="catering_id">
-                   @forelse($catering as $item)
-                   <option value="{{$item->id}}" selected>{{$item->catering_name}}</option>
-                   @empty
-                   <option value="" selected>Tidak ada data</option>
-                   @endforelse
-                </select>
-            </div>
-
-            <!-- Decoration -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Decoration</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="decoration_id">
-                    @forelse($decoration as $item)
-                    <option value="{{$item->id}}" selected>{{$item->decoration_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
-
-            <!-- Fashion Styling and Makeup -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Fashion Styling and Makeup</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="mua_id">
-                    @forelse($MUA as $item)
-                    <option value="{{$item->id}}" selected>{{$item->mua_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
-
-            <!-- MC -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">MC</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="mc_id">
-                    @forelse($MC as $item)
-                    <option value="{{$item->id}}" selected>{{$item->mc_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
-
-            <!-- Entertainment -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Entertainment</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="entertainment_id">
-                    @forelse($entertainment as $item)
-                    <option value="{{$item->id}}" selected>{{$item->entertainment_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
-
-            <!-- Photography -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium mb-2">Photography</label>
-                <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="photographie_id">
-                    @forelse($photography as $item)
-                    <option value="{{$item->id}}" selected>{{$item->photography_name}}</option>
-                    @empty
-                    <option value="" selected>Tidak ada data</option>
-                    @endforelse
-                </select>
-            </div>
+                @foreach($fields as $label => [$name, $items, $item_name])
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium mb-2">{{ $label }}</label>
+                        <select name="{{ $name }}" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
+                            @forelse($items as $item)
+                                <option value="{{ $item->id }}" selected>{{ $item->$item_name }}</option>
+                            @empty
+                                <option value="" selected>Tidak ada data</option>
+                            @endforelse
+                        </select>
+                    </div>
+                @endforeach
             @endif
 
             <!-- Confirm Button -->

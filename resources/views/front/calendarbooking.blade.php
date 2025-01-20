@@ -7,6 +7,9 @@
           </a>
           <p class="text-center m-auto font-semibold">Booking</p>
     </nav>
+    <div class="w-[calc(100%-1px)]  items-center justify-center rounded-[20px] overflow-hidden relative">
+        <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" class="w-full h-full object-contain" alt="background">
+      </div>
     <div id="startDateDiv" data-start-date="{{ $startDate }}"></div>
     <div id="calendar" class="max-w-7xl mx-auto sm:px-6 lg:px-8" class="custom-calendar"></div>
     <form id="booking_form" method="POST" action="{{ route('front.selected_Date', $package_tours->slug) }}">
