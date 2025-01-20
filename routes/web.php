@@ -77,7 +77,6 @@ Route::middleware('auth')->group(function () {
             Route::resource('package_tours', PackageTourController::class);
             });
 
-
         Route::middleware('can:manage package banks')->group(function () {
             Route::resource('package_banks', PackageBankController::class);
             });
@@ -86,7 +85,9 @@ Route::middleware('auth')->group(function () {
         Route::middleware('can:manage transactions')->group(function () {
             Route::resource('package_bookings', PackageBookingController::class);
             });
-    }) ;
+            Route::put('/declined/{packageBooking}', [PackageBookingController::class, 'declined'])
+        ->name('package_bookings.decline');
+    });
 });
 
 

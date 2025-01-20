@@ -35,9 +35,17 @@
                     </p>
                     @if($booking->status=='success')
                   <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
-                    <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Success Paid</span>
+                    <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Success</span>
                   </div>
-                  @endif
+                  @elseif($booking->status=='declined')
+                  <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
+                    <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Declined</span>
+                  </div>
+                  @else
+                  <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
+                  <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]"> PENDING</span>
+                 </div>
+                @endif
                 </div>
               </div>
             </div>

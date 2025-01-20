@@ -128,6 +128,12 @@ class PackageBookingController extends Controller
         return view('admin.package_bookings.show', compact('packageBooking'));
     }
 
+    public function declined(Request $request, PackageBooking $packageBooking) {
+        $packageBooking->update(['status' => 'declined',
+    ]);
+        return view('admin.package_bookings.show', compact('packageBooking'))->with('message', 'Order declined');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
