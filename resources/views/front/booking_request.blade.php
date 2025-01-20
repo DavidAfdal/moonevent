@@ -27,7 +27,7 @@
         <form action='{{route('front.book.store', $package_tours)}}' method='POST'>
             @csrf
             <!-- Venue -->
-            @if($package_tours->category->name=='WO')
+            @if($package_tours->category->name=='PAKET ACARA')
             <div class="mb-4">
                 <label class="block text-sm font-medium mb-2">Venue</label>
                 <select class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200" name="venue_id">
@@ -38,7 +38,7 @@
                     @endforelse
                 </select>
             </div>
-            @endif
+         
 
             <!-- Catering -->
             <div class="mb-4">
@@ -111,6 +111,7 @@
                     @endforelse
                 </select>
             </div>
+            @endif
 
             <!-- Confirm Button -->
             <div class="mt-6">

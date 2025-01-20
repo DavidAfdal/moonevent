@@ -25,27 +25,27 @@
                         </div>
                     </div> 
                     @if($booking->status=='success')
-                        <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-green-500 text-white">
-                            SUCCESS
-                        </span>
-                        @else
-                        <span class="w-fit text-sm font-bold py-2 px-3 rounded-full bg-orange-500 text-white">
-                            PENDING
-                        </span> 
-                        @endif
+                        <div class="success-badge w-fit border border-[#60A5FA] p-[4px_8px] rounded-lg bg-[#EFF6FF] flex items-center justify-center">
+                             <span class="text-xs leading-[22px] tracking-035 text-[#2563EB]">Success Paid</span>
+                        </div>
+                    @elseif($booking->status=='declined')
+                        <div class="declined-badge w-fit border border-[#F87171] p-[4px_8px] rounded-lg bg-[#FEE2E2] flex items-center justify-center">
+                            <span class="text-xs leading-[22px] tracking-035 text-[#B91C1C]">Declined</span>
+                        </div>
+                    @endif
 
                     <div  class="hidden md:flex flex-col">
                         <p class="text-slate-500 text-sm">Price</p>
                         <h3 class="text-indigo-950 text-xl font-bold">Rp {{number_format($booking->total_amount, 0, ',', ',')}}</h3>
                     </div>
-                    <div  class="hidden md:flex flex-col">
+                    {{-- <div  class="hidden md:flex flex-col">
                         <p class="text-slate-500 text-sm">Total Session</p>
                         <h3 class="text-indigo-950 text-xl font-bold">{{$booking->tour->days}} Session</h3>
                     </div>
                     <div  class="hidden md:flex flex-col">
                         <p class="text-slate-500 text-sm">Quantity</p>
                         <h3 class="text-indigo-950 text-xl font-bold">{{$booking->quantity}} Pack</h3>
-                    </div>
+                    </div> --}}
                     <div class="hidden md:flex flex-row items-center gap-x-3">
                         <a href="{{route('admin.package_bookings.show', $booking)}}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             Details

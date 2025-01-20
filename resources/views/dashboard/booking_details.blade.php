@@ -74,27 +74,27 @@
             <div class="bg-white p-[16px_24px] rounded-[26px] flex flex-col gap-3">
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Catering </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->catering->catering_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->catering)->catering_name}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>decoration </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->decoration->decoration_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->decoration)->decoration_name}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Fashion Styling and Makeup </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->mua->mua_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->mua)->mua_name}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>MC </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->mc->mc_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->mc)->mc_name}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Entertainment </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->entertainment->entertainment_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->entertainment)->entertainment_name}}</p>
               </div>
               <div class="flex justify-between items-center text-sm tracking-035 leading-[22px]">
                 <p>Photography </p>
-                <p id="subtotal" class="font-semibold text-blue">{{$packageBooking->photograph->photography_name}}</p>
+                <p id="subtotal" class="font-semibold text-blue">{{ optional($packageBooking->photograph)->photography_name}}</p>
               </div>
             </div>
           </div>

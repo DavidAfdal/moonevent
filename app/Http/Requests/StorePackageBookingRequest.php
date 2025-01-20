@@ -24,12 +24,12 @@ class StorePackageBookingRequest extends FormRequest
         return [
             //
         'venue_id' => [ 'nullable','integer'],
-        'mc_id' => ['required', 'integer'],
-        'catering_id' => ['required', 'integer'],
-        'mua_id' => ['required', 'integer'],
-        'entertainment_id' => ['required', 'integer'],
-        'photographie_id' => ['required', 'integer'],
-        'decoration_id' => ['required', 'integer'],
+        'mc_id' => ['nullable', 'integer'],
+        'catering_id' => ['nullable', 'integer'],
+        'mua_id' => ['nullable', 'integer'],
+        'entertainment_id' => ['nullable', 'integer'],
+        'photographie_id' => ['nullable', 'integer'],
+        'decoration_id' => ['nullable', 'integer'],
         ];
     }
 }
