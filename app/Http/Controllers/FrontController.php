@@ -33,6 +33,10 @@ class FrontController extends Controller
         return view('front.index', compact('package_tours', 'categories', 'package_tours_explore'));
     }
 
+    public function team(){
+        return view('team.team');
+    }
+
     public function category(Category $category){
         return view('front.category', compact('category'));
     }

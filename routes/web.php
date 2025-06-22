@@ -10,6 +10,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::get('/team',[FrontController::class,'team'])->name('front.team');
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
 Route::post('/test', [FrontController::class, 'book_store_test'])->name('front.test');
