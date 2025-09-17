@@ -13,7 +13,7 @@ class PackageTour extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'nama',
         'slug',
         'thumbnail',
         'about',
