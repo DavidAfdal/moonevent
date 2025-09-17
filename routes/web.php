@@ -13,6 +13,9 @@ Route::get('/', [FrontController::class, 'index'])->name('front.index');
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
 Route::post('/test', [FrontController::class, 'book_store_test'])->name('front.test');
+Route::get('/wedding-list', [FrontController::class, 'wedding_list'])->name('front.wedding_list');  
+Route::get('/book-test/{package_tours:slug}', [FrontController::class, 'book_test'])->name('front.book_test');  
+
 
 Route::get('/dashboard', [PackageBookingController::class, 'get_package_bookings'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -48,6 +51,8 @@ Route::middleware('auth')->group(function () {
 
         Route::patch('/book/payment/{packageBooking}/save', [FrontController::class, 'book_payment_store'])
             ->name('front.book_payment_store');
+        
+        
 
         Route::get('/book-finish', [FrontController::class, 'book_finish'])
             ->name('front.book_finish');

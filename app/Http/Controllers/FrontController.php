@@ -33,13 +33,25 @@ class FrontController extends Controller
         return view('front.index', compact('package_tours', 'categories', 'package_tours_explore'));
     }
 
+
+    public function wedding_list(){
+         $weddings = PackageTour::orderByDesc('id')->paginate(8);
+        return view('front.wedding_list', compact('weddings'));
+    }
+
+ 
     public function category(Category $category){
         return view('front.category', compact('category'));
     }
 
     public function details(PackageTour $package_tours){
         $latestPhotos = PackagePhoto::orderByDesc('id')->where("package_tour_id", $package_tours["id"])->take(3)->get();
-        return view('front.details', compact('package_tours', 'latestPhotos'));
+        $weddings = PackageTour::orderByDesc('id')->take(4)->get();
+        return view('front.details_wedding', compact('package_tours', 'latestPhotos', 'weddings'));
+    }
+
+    public function book_test(PackageTour $package_tours){
+        return view('front.booking_test', compact('package_tours'));
     }
 
     public function book(PackageTour $package_tours){
