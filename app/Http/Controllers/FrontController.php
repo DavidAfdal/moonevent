@@ -33,6 +33,13 @@ class FrontController extends Controller
         return view('front.index', compact('package_tours', 'categories', 'package_tours_explore'));
     }
 
+    public function index2(){
+        $categories = Category::orderByDesc('id')->get();
+        $package_tours = PackageTour::orderByDesc('id')->take(3)->get();
+        $package_tours_explore = PackageTour::orderByDesc('id')->get();
+        return view('front.index2', compact('package_tours', 'categories', 'package_tours_explore'));
+    }
+
     public function category(Category $category){
         return view('front.category', compact('category'));
     }
