@@ -41,8 +41,39 @@ class FrontController extends Controller
     }
 
 
-    public function wedding_list(){
-         $weddings = PackageTour::orderByDesc('id')->paginate(8);
+    public function wedding_list(Request $request){
+        $query = PackageTour::query();
+
+         // Filter berdasarkan nama kategori
+
+        if ($request->has('category') && $request->category != '' && $request->category != 'all') {
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('slug', $request->category); // filter berdasarkan slug
+            });
+         }
+
+        if ($request->has('location') && $request->location != '') {
+            // ubah slug jadi format nama di DB (contoh: "jakarta-barat" -> "Jakarta Barat")
+            $locationName = ucwords(str_replace('-', ' ', $request->location));
+            $query->where('location', $locationName);
+        }
+
+        // === Filter price (range) ===
+        if ($request->has('price') && $request->price != '') {
+            [$min, $max] = explode('-', $request->price);
+            $query->whereBetween('price', [(int) $min, (int) $max]);
+        }
+
+        // Filter lain (status, search, dsb.)
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'LIKE', '%' . $request->search . '%');
+        }
+
+        $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         return view('front.wedding_list', compact('weddings'));
     }
 
