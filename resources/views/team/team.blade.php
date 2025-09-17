@@ -1,431 +1,543 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tim Kami - Moon Event Organizer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            color: #333;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 40px;
-            background-color: #fff;
-            border-bottom: 1px solid #eee;
-        }
-        .navbar .logo img {
-            height: 40px;
-            vertical-align: middle;
-        }
-        .navbar nav a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: 16px;
-        }
-        .navbar nav a.active {
-            color: #FF7A59;
-            font-weight: 600;
-        }
-        .navbar .login-btn {
-            background-color: #FF7A59;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tim Kami - Moon Event Organizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #333;
+    }
 
-        /* Hero Section */
-        .hero-section {
-            background-image: url('background-team.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 0;
-        }
-        .hero-section .hero-content {
-            position: relative;
-            z-index: 1;
-            background-color: #ffffff39;
-            padding: 30px;
-            border-radius: 35px;
-            display: inline-block;
-        }
-        .hero-section h1 {
-            font-size: 48px;
-            margin: 0;
-            font-weight: 700;
-        }
-        .hero-section h1 span {
-            color: #FF7A59;
-        }
-        .hero-section p {
-            font-size: 20px;
-            margin-top: 10px;
-            font-weight: 400;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        /* Team Section */
-        .team-section {
-            padding: 40px 0;
-            text-align: left;
-        }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
 
-        /* Tabs */
-        .tabs {
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 30px;
-            display: inline-block;
-        }
-        .tabs button {
-            background: none;
-            border: none;
-            padding: 15px 25px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: 500;
-            color: #888;
-            position: relative;
-            bottom: -1px;
-        }
-        .tabs button.active {
-            color: #333;
-            font-weight: 600;
-            border-bottom: 3px solid #FF7A59;
-        }
+    .navbar .logo img {
+      height: 40px;
+      vertical-align: middle;
+    }
 
-        /* === ROLE FILTERS (FINAL UPDATE) === */
-        .role-filters-container {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-        }
+    .navbar nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+    }
 
-        .role-filters {
-            display: flex;
-            align-items: center;
-            background-color: #ffeae3;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            width: 100%;
-            padding: 7px 50px; /* Add padding to avoid content hiding under arrows */
-            box-sizing: border-box;
-        }
-        .role-filters::-webkit-scrollbar {
-            display: none;
-        }
+    .navbar nav a.active {
+      color: #FF7A59;
+      font-weight: 600;
+    }
 
-        .role-filters a {
-            background-color: transparent;
-            color: #a08c86;
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .role-filters a.active {    
-            background-color: #FF7A59;
-            color: white;
-            box-shadow: 0 3px 8px rgba(255, 122, 89, 0.4);
-        }
-        
-        .arrow-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #FF7A59;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            font-weight: 500;
-            cursor: pointer;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .arrow-btn.left {
-            left: 5px;
-            padding-right: 3px; /* visual alignment for arrow */
-        }
-        .arrow-btn.right {
-            right: 5px;
-            padding-left: 3px; /* visual alignment for arrow */
-        }
-        
-        /* === CARD STYLING SECTION === */
-        .team-member-card {
-            width: 360.43px;
-            height: 543px;
-            border-radius: 0 25px 0 25px;
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-            border: 2px solid #dfcdcb;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-            margin-top: 40px;
-        }
-        .card-image-container {
-            width: 269px;
-            height: 363px;
-            border-radius: 0 25px 0 25px;
-            border: 2px solid #dfcdcb;
-            overflow: hidden;
-            margin: 0 auto;
-            flex-shrink: 0;
-        }
-        .card-image-container img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-        }
-        .team-member-card .info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 15px 15px 0;
-            position: relative;
-        }
-        .member-name {
-            font-size: 24px;
-            font-weight: 600;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-        .love-icon {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            position: absolute;
-            top:0;
-        }
-        .member-aka {
-            margin: 0;
-            color: #777;
-            font-size: 16px;
-            text-align: left;
-        }
-        
-        hr.section-divider {
-            border: 0;  
-            border-top: 1px solid #eee;  
-            margin: 60px auto;
-            width: 100%;
-        }
+    .navbar .login-btn {
+      background-color: #FF7A59;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        /* Gallery Section */
-        .gallery-section { padding: 60px 0; }
-        .gallery-section h2 { font-size: 32px; font-weight: 600; line-height: 1.4; text-align: left; margin-bottom: 40px; }
-        .gallery-section h2 .orange-text { color: #FF7A59; }
-        .gallery-slider { display: flex; justify-content: center; position: relative; min-height: 455px; }
-        .gallery-slide { display: none; align-items: center; gap: 25px; }
-        .gallery-slide.active { display: flex; }
-        .side-images { display: flex; flex-direction: column; gap: 25px; }
-        .gallery-item { background-color: #fff; border: 2px solid #D6CFCF; border-radius: 15px; padding: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); box-sizing: border-box; }
-        .gallery-item.small-item { width: 268.71px; height: 195.84px; }
-        .gallery-item.main-item { width: 656px; height: 450.97px; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-        .slider-dots { text-align: center; margin-top: 30px; }
-        .slider-dots span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background-color: #D6CFCF; margin: 0 6px; cursor: pointer; transition: background-color 0.3s ease; }
-        .slider-dots span.active { background-color: #FF7A59; }
-    </style>
+    /* Hero Section */
+    .hero-section {
+      background-image: url('background-team.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .hero-section .hero-content {
+      position: relative;
+      z-index: 1;
+      background-color: #ffffff39;
+      padding: 30px;
+      border-radius: 35px;
+      display: inline-block;
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .hero-section h1 span {
+      color: #FF7A59;
+    }
+
+    .hero-section p {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 40px 0;
+      text-align: left;
+    }
+
+    /* Tabs */
+    .tabs {
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+
+    .tabs button {
+      background: none;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #888;
+      position: relative;
+      bottom: -1px;
+    }
+
+    .tabs button.active {
+      color: #333;
+      font-weight: 600;
+      border-bottom: 3px solid #FF7A59;
+    }
+
+    /* === ROLE FILTERS (FINAL UPDATE) === */
+    .role-filters-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .role-filters {
+      display: flex;
+      align-items: center;
+      background-color: #ffeae3;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      width: 100%;
+      padding: 7px 50px;
+      /* Add padding to avoid content hiding under arrows */
+      box-sizing: border-box;
+    }
+
+    .role-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .role-filters a {
+      background-color: transparent;
+      color: #a08c86;
+      padding: 10px 22px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .role-filters a.active {
+      background-color: #FF7A59;
+      color: white;
+      box-shadow: 0 3px 8px rgba(255, 122, 89, 0.4);
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #FF7A59;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .arrow-btn.left {
+      left: 5px;
+      padding-right: 3px;
+      /* visual alignment for arrow */
+    }
+
+    .arrow-btn.right {
+      right: 5px;
+      padding-left: 3px;
+      /* visual alignment for arrow */
+    }
+
+    /* === CARD STYLING SECTION === */
+    .team-member-card {
+      position: relative;
+      width: 360.43px;
+      height: 543px;
+      border-radius: 0 25px 0 25px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border: 2px solid #dfcdcb;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      margin-top: 40px;
+    }
+
+    .card-image-container {
+      width: 269px;
+      height: 363px;
+      border-radius: 0 25px 0 25px;
+      border: 2px solid #dfcdcb;
+      overflow: hidden;
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    .card-image-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .icon-love {
+      position: absolute;
+      top: 435px;
+      left: 35px;
+      width: 180px;
+    }
+
+    .team-member-card .info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15px 15px 0;
+    }
+
+    .member-name {
+      font-size: 24px;
+      padding-left: 25px;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .member-aka {
+      margin: 0;
+      color: #777;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    hr.section-divider {
+      border: 0;
+      border-top: 1px solid #eee;
+      margin: 60px auto;
+      width: 100%;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 60px 0;
+    }
+
+    .gallery-section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .gallery-section h2 .orange-text {
+      color: #FF7A59;
+    }
+
+    .gallery-slider {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      min-height: 455px;
+    }
+
+    .gallery-slide {
+      display: none;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .gallery-slide.active {
+      display: flex;
+    }
+
+    .side-images {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .gallery-item {
+      background-color: #fff;
+      border: 2px solid #D6CFCF;
+      border-radius: 15px;
+      padding: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+    }
+
+    .gallery-item.small-item {
+      width: 268.71px;
+      height: 195.84px;
+    }
+
+    .gallery-item.main-item {
+      width: 656px;
+      height: 450.97px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .slider-dots {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .slider-dots span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #D6CFCF;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .slider-dots span.active {
+      background-color: #FF7A59;
+    }
+  </style>
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" alt="Moon Event Organizer">
-        </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#" class="active">Team</a>
-            <a href="#">Service</a>
-            <a href="#">Reservasi</a>
-            <a href="#" class="login-btn">Login</a>
-        </nav>
-    </header>
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" alt="Moon Event Organizer">
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#" class="active">Team</a>
+      <a href="#">Service</a>
+      <a href="#">Reservasi</a>
+      <a href="#" class="login-btn">Login</a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero-section" style="background-image: url('{{ asset('assets/backgrounds/background-team.png') }}');">
-            <div class="hero-content">
-                <h1><span class="our-text">OUR</span> WEDDING PLANNER</h1>
-                <p>A team of highly skilled professional available to assist you</p>
+  <main>
+    <section class="hero-section"
+      style="background-image: url('{{ asset('assets/backgrounds/background-team.png') }}');">
+      <div class="hero-content">
+        <h1><span class="our-text">OUR</span> WEDDING PLANNER</h1>
+        <p>A team of highly skilled professional available to assist you</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="team-section">
+        <div class="tabs">
+          <button class="active">Team Wedding Organizer</button>
+          <button>Team Office</button>
+        </div>
+
+        <div class="role-filters-container">
+          <button class="arrow-btn left">&lsaquo;</button>
+          <div class="role-filters">
+            <a href="#" class="active">Event Coordinator</a>
+            <a href="#">Event Supervisor</a>
+            <a href="#">Facility Support</a>
+            <a href="#">VIP Management</a>
+            <a href="#">Food And Beverage</a>
+            <a href="#">Front Line</a>
+            <a href="#">Photograph</a>
+          </div>
+          <button class="arrow-btn right">&rsaquo;</button>
+        </div>
+
+        <div class="team-member-card">
+          <div class="card-image-container">
+            <img src="{{asset('assets/orang/ibu-munah.png')}}" alt="Foto Munahwati">
+          </div>
+          <div class="info">
+            <span class="member-name ">Munahwati</span>
+            <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
+            <p class="member-aka">A.K.A. Ibu Muna</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="gallery-section">
+        <h2>
+          <span class="orange-text">Signature Moments Crafted</span><br>
+          by <span class="orange-text">Our Wedding Dream Team</span>
+        </h2>
+
+        <div class="gallery-slider">
+          <div class="gallery-slide active">
+            <div class="side-images">
+              <div class="gallery-item small-item"><img src="gallery-1.jpg" alt="Team Photo 1"></div>
+              <div class="gallery-item small-item"><img src="gallery-3.jpg" alt="Team Photo 3"></div>
             </div>
-        </section>
-
-        <div class="container">
-            <section class="team-section">
-                <div class="tabs">
-                    <button class="active">Team Wedding Organizer</button>
-                    <button>Team Office</button>
-                </div>
-
-                <div class="role-filters-container">
-                    <button class="arrow-btn left">&lsaquo;</button>
-                    <div class="role-filters">
-                        <a href="#" class="active">Event Coordinator</a>
-                        <a href="#">Event Supervisor</a>
-                        <a href="#">Facility Support</a>
-                        <a href="#">VIP Management</a>
-                        <a href="#">Food And Beverage</a>
-                        <a href="#">Front Line</a>
-                        <a href="#">Photograph</a>
-                    </div>
-                    <button class="arrow-btn right">&rsaquo;</button>
-                </div>
-
-                <div class="team-member-card">
-                    <div class="card-image-container">
-                        <img src="{{asset('assets/orang/ibu-munah.png')}}" alt="Foto Munahwati">
-                    </div>
-                    <div class="info">
-                        <span class="member-name">Munahwati</span>
-                        <img src="{{asset('assets/iconcard/love.png')}}" alt="divider icon">
-                        <p class="member-aka">A.K.A. Ibu Muna</p>
-                    </div>
-                </div>
-            </section>
-
-            <hr class="section-divider">
-            
-            <section class="gallery-section">
-                <h2>
-                    <span class="orange-text">Signature Moments Crafted</span><br>
-                    by <span class="orange-text">Our Wedding Dream Team</span>
-                </h2>
-                
-                <div class="gallery-slider">
-                    <div class="gallery-slide active">
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="gallery-1.jpg" alt="Team Photo 1"></div>
-                            <div class="gallery-item small-item"><img src="gallery-3.jpg" alt="Team Photo 3"></div>
-                        </div>
-                        <div class="gallery-item main-item"><img src="{{asset('assets/photo_team/foto-team.png')}}" alt="Engagement Photo"></div>
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="gallery-2.jpg" alt="Team Photo 2"></div>
-                            <div class="gallery-item small-item"><img src="gallery-4.jpg" alt="Team Photo 4"></div>
-                        </div>
-                    </div>
-                    <div class="gallery-slide">
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/FFC0CB/000000?Text=Foto+5" alt="Team Photo 5"></div>
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/ADD8E6/000000?Text=Foto+7" alt="Team Photo 7"></div>
-                        </div>
-                        <div class="gallery-item main-item"><img src="https://via.placeholder.com/656x450/90EE90/000000?Text=Foto+Utama+2" alt="Main Photo 2"></div>
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/FFD700/000000?Text=Foto+6" alt="Team Photo 6"></div>
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
-                        </div>
-                    </div>
-                    <div class="gallery-slide">
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/DDA0DD/000000?Text=Foto+9" alt="Team Photo 9"></div>
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/87CEEB/000000?Text=Foto+11" alt="Team Photo 11"></div>
-                        </div>
-                        <div class="gallery-item main-item"><img src="https://via.placeholder.com/656x450/F0E68C/000000?Text=Foto+Utama+3" alt="Main Photo 3"></div>
-                        <div class="side-images">
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/E0FFFF/000000?Text=Foto+10" alt="Team Photo 10"></div>
-                            <div class="gallery-item small-item"><img src="https://via.placeholder.com/268x195/FAFAD2/000000?Text=Foto+12" alt="Team Photo 12"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider-dots">
-                    <span class="active"></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </section>
+            <div class="gallery-item main-item"><img src="{{asset('assets/photo_team/foto-team.png')}}"
+                alt="Engagement Photo"></div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img src="gallery-2.jpg" alt="Team Photo 2"></div>
+              <div class="gallery-item small-item"><img src="gallery-4.jpg" alt="Team Photo 4"></div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFC0CB/000000?Text=Foto+5" alt="Team Photo 5"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/ADD8E6/000000?Text=Foto+7" alt="Team Photo 7"></div>
+            </div>
+            <div class="gallery-item main-item"><img
+                src="https://via.placeholder.com/656x450/90EE90/000000?Text=Foto+Utama+2" alt="Main Photo 2"></div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFD700/000000?Text=Foto+6" alt="Team Photo 6"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="side-images">
+              <div class="gallery-item small-item">
+                <img src="https://via.placeholder.com/268x195/DDA0DD/000000?Text=Foto+9" alt="Team Photo 9" />
+              </div>
+              <div class="gallery-item small-item">
+                <img src="https://via.placeholder.com/268x195/87CEEB/000000?Text=Foto+11" alt="Team Photo 11">
+              </div>
+            </div>
+            <div class="gallery-item main-item">
+              <img src="https://via.placeholder.com/656x450/F0E68C/000000?Text=Foto+Utama+3" alt="Main Photo 3"></div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/E0FFFF/000000?Text=Foto+10" alt="Team Photo 10"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FAFAD2/000000?Text=Foto+12" alt="Team Photo 12"></div>
+            </div>
+          </div>
         </div>
-    </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Script for Gallery Slider
-            const dots = document.querySelectorAll('.slider-dots span');
-            const slides = document.querySelectorAll('.gallery-slide');
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                if (slides[index] && dots[index]) {
-                    slides[index].classList.add('active');
-                    dots[index].classList.add('active');
-                }
-            }
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => showSlide(index));
-            });
-            if(slides.length > 0) {
-               showSlide(0);
-            }
+        <div class="slider-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+    </div>
+  </main>
 
-            // === SCRIPT FOR ROLE FILTER SCROLLING (FINAL UPDATE) ===
-            const filtersContainer = document.querySelector('.role-filters');
-            const scrollRightBtn = document.querySelector('.arrow-btn.right');
-            const scrollLeftBtn = document.querySelector('.arrow-btn.left');
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Script for Gallery Slider
+      const dots = document.querySelectorAll('.slider-dots span');
+      const slides = document.querySelectorAll('.gallery-slide');
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (slides[index] && dots[index]) {
+          slides[index].classList.add('active');
+          dots[index].classList.add('active');
+        }
+      }
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+      });
+      if (slides.length > 0) {
+        showSlide(0);
+      }
 
-            // Scroll Right
-            if (scrollRightBtn) {
-                scrollRightBtn.addEventListener('click', () => {
-                    filtersContainer.scrollBy({ left: 350, behavior: 'smooth' });
-                });
-            }
-            
-            // Scroll Left
-            if (scrollLeftBtn) {
-                scrollLeftBtn.addEventListener('click', () => {
-                    filtersContainer.scrollBy({ left: -350, behavior: 'smooth' });
-                });
-            }
+      // === SCRIPT FOR ROLE FILTER SCROLLING (FINAL UPDATE) ===
+      const filtersContainer = document.querySelector('.role-filters');
+      const scrollRightBtn = document.querySelector('.arrow-btn.right');
+      const scrollLeftBtn = document.querySelector('.arrow-btn.left');
+
+      // Scroll Right
+      if (scrollRightBtn) {
+        scrollRightBtn.addEventListener('click', () => {
+          filtersContainer.scrollBy({ left: 350, behavior: 'smooth' });
         });
-    </script>
+      }
+
+      // Scroll Left
+      if (scrollLeftBtn) {
+        scrollLeftBtn.addEventListener('click', () => {
+          filtersContainer.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
 
 </body>
+
 </html>
