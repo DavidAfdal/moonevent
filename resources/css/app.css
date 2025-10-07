@@ -15,4 +15,23 @@
 #navbar.show {
   transform: translateY(0);
   opacity: 1;
+  background-color: white;
+}
+
+/* Style vendor */
+.carousel{
+  margin: 100px auto;
+  width: 90%;
+  border: 5px solid red;
+  display: flex;
+}
+
+.card{
+  width: 5em;
+  height: 1em;
+  background: cadetblue;
+  font-size: 3rem;
+  border-radius: .2em;
+  text-align: center;
+  align-items: center;
 }
