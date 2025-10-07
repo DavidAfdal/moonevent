@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
         // Toggle opacity and border classes
         thumbnailLinks.forEach(function(link) {
-          link.classList.remove('border-blue');
+          link.classList.remove('border-orange-500');
           link.classList.add('opacity-50');
         });
   
         clickedLink.classList.remove('opacity-50');
-        clickedLink.classList.add('border-blue');
+        clickedLink.classList.add('border-orange-500');
       });
     });
   });

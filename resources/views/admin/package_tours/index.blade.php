@@ -34,9 +34,9 @@
                         </h3>
                     </div>
                     <div  class="hidden md:flex flex-col">
-                        <p class="text-slate-500 text-sm">Total Days</p>
+                        <p class="text-slate-500 text-sm">Total Pax</p>
                         <h3 class="text-indigo-950 text-xl font-bold">
-                            {{$tour->days}} Days
+                            {{$tour->pax}} Pax
                         </h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">

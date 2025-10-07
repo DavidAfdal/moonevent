@@ -42,16 +42,18 @@ class PackageTourController extends Controller
     public function store(StorePackageTourRequest $request)
     {
         //
+        
         DB::transaction (function () use ($request){
             $validated = $request->validated();
 
             if($request->hasFile('thumbnail')){
-                $thumbnailPath = 
-                $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
+                $thumbnailPath = $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
                 $validated['thumbnail'] = $thumbnailPath;
             }
-            $validated['slug'] = Str::slug($validated['name']);
 
+            $validated['slug'] = Str::slug($validated['name']);
+            
+           
             $packageTour = PackageTour::create($validated);
 
             if($request->hasFile('photos')){
@@ -63,6 +65,8 @@ class PackageTourController extends Controller
                     ]);
                 }
             }
+
+
 
         });
 

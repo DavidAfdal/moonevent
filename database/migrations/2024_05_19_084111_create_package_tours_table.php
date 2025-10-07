@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('location');
             $table->text('about');
             $table->unsignedBigInteger('price');
-            $table->unsignedBigInteger('days');
+            $table->unsignedBigInteger('pax');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

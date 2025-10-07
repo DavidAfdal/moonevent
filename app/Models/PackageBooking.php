@@ -20,63 +20,68 @@ class PackageBooking extends Model
         'mc_id',
         'entertainment_id',
         'mua_id',
-        'venue_id',
         'quantity',
         'total_amount',
-        'sub_total',
-        'start_date',
-        'end_date',
+        'booking_date',
+        'booking_time',
     ];
 
-    protected $cast = [
-        'start_date' => 'date',
-        'end_date' => 'date',
+    protected $casts = [
+        'booking_date' => 'date',
+        'booking_time' => 'datetime:H:i', // supaya otomatis cast jam
     ];
 
-    public function customer(){
-        return $this->belongsTo(User::class, "user_id");
+    // 🔹 Relasi ke user (customer)
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function tour(){
+    // 🔹 Relasi ke paket tour
+    public function tour()
+    {
         return $this->belongsTo(PackageTour::class, 'package_tour_id');
     }
 
-
+    // 🔹 Relasi ke catering
     public function catering()
     {
         return $this->belongsTo(Catering::class, 'catering_id');
     }
 
+    // 🔹 Relasi ke decoration
     public function decoration()
     {
         return $this->belongsTo(Decoration::class, 'decoration_id');
     }
 
+    // 🔹 Relasi ke photography
     public function photograph()
     {
         return $this->belongsTo(Photography::class, 'photographie_id');
     }
 
+    // 🔹 Relasi ke MC
     public function mc()
     {
-        return $this->belongsTo(MC::class, 'mc_id'); // 'm_c_s' table
+        return $this->belongsTo(MC::class, 'mc_id'); // relasi ke tabel m_c_s
     }
 
+    // 🔹 Relasi ke entertainment
     public function entertainment()
     {
         return $this->belongsTo(Entertainment::class, 'entertainment_id');
     }
 
+    // 🔹 Relasi ke MUA
     public function mua()
     {
-        return $this->belongsTo(MUA::class, 'mua_id'); // 'm_u_a_s' table
+        return $this->belongsTo(MUA::class, 'mua_id'); // relasi ke tabel m_u_a_s
     }
 
+    // 🔹 Relasi ke Venue
     public function venue()
     {
         return $this->belongsTo(Venue::class, 'venue_id');
-}
-
-
-
+    }
 }

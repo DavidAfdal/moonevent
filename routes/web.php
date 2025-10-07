@@ -9,14 +9,13 @@ use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/index', [FrontController::class, 'index2'])->name('front.index2');
-Route::get('/', [FrontController::class, 'index'])->name('front.index');
+Route::get('/', [FrontController::class, 'index2'])->name('front.index');
 Route::get('/team',[FrontController::class,'team'])->name('front.team');
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
 Route::post('/test', [FrontController::class, 'book_store_test'])->name('front.test');
 Route::get('/wedding-list', [FrontController::class, 'wedding_list'])->name('front.wedding_list');  
-Route::get('/book-test/{package_tours:slug}', [FrontController::class, 'book_test'])->name('front.book_test');  
+ 
 
 
 Route::get('/dashboard', [PackageBookingController::class, 'get_package_bookings'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -45,6 +44,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/book/choose-bank/{packageBooking}/', [FrontController::class, 'choose_bank'])
             ->name('front.choose_bank');
 
+        Route::get('/book-test/{package_tours:slug}', [FrontController::class, 'book_test'])->name('front.book_test'); 
+        
         Route::patch('/book/choose-bank/{packageBooking}/save', [FrontController::class, 'choose_bank_store'])
             ->name('front.choose_bank_store');
 

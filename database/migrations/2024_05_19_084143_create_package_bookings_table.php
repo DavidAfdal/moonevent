@@ -21,15 +21,15 @@ return new class extends Migration
             $table->foreignId('photographie_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('mc_id')->nullable()->constrained("m_c_s")->onDelete('cascade');
             $table->foreignId('entertainment_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('mua_id')->nullable()->constrained('m_u_a_s')->onDelete('cascade');;
-            $table->foreignId('venue_id')->nullable()->constrained()->onDelete('set null');
-            $table->unsignedBigInteger('quantity');
+            $table->foreignId('mua_id')->nullable()->constrained('m_u_a_s')->onDelete('cascade');
             $table->unsignedBigInteger('total_amount');
-            $table->unsignedBigInteger('sub_total');
-            $table->date('start_date');
-            $table->date('end_date');
+
+            // ganti start_date & end_date dengan booking_date
+            $table->date('booking_date'); 
+            $table->time('booking_time'); // input jam acara
+
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamps();;
         });
     }
 

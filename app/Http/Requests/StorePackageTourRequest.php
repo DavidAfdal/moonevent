@@ -28,10 +28,9 @@ class StorePackageTourRequest extends FormRequest
             'thumbnail' => ['required', 'image', 'mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer'],
-            'days' => ['required', 'integer'],
+            'pax' => ['required', 'integer'],
             'about' => ['required', 'string', 'max:65535'],
-            'package_photos.*' => ['required', 'image', 'mimes:png,jpg,jpeg'],
-
+            'photos.*' => ['required', 'image', 'mimes:png,jpg,jpeg'],
         ];
     }
 }

@@ -22,14 +22,17 @@ class StorePackageBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-        'venue_id' => [ 'nullable','integer'],
-        'mc_id' => ['nullable', 'integer'],
-        'catering_id' => ['nullable', 'integer'],
-        'mua_id' => ['nullable', 'integer'],
-        'entertainment_id' => ['nullable', 'integer'],
-        'photographie_id' => ['nullable', 'integer'],
-        'decoration_id' => ['nullable', 'integer'],
+            'venue_id' => ['nullable', 'integer', 'exists:venues,id'],
+            'mc_id' => ['nullable', 'integer', 'exists:m_c_s,id'],
+            'catering_id' => ['nullable', 'integer', 'exists:caterings,id'],
+            'mua_id' => ['nullable', 'integer', 'exists:m_u_a_s,id'],
+            'entertainment_id' => ['nullable', 'integer', 'exists:entertainments,id'],
+            'photographie_id' => ['nullable', 'integer', 'exists:photographies,id'],
+            'decoration_id' => ['nullable', 'integer', 'exists:decorations,id'],
+
+            // 🔹 Field booking
+            'booking_date' => ['required', 'date', 'after_or_equal:today'],
+            'booking_time' => ['required', 'date_format:H:i'],
         ];
     }
 }
