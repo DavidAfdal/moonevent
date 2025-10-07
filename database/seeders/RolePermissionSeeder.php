@@ -24,7 +24,6 @@ class RolePermissionSeeder extends Seeder
             'manage packages banks',
             'checkout package',
             'view order'
-
         ];
         foreach ($permissions as $permission){
             Permission::firstOrCreate([
@@ -53,7 +52,6 @@ class RolePermissionSeeder extends Seeder
             'phone_number' => '62839439892',
             'avatar' => 'image/default-avatar.png',
             'password' => bcrypt('kusuma290303#*!')
-
         ]);
         $user->assignRole($superAdminRole);
     }

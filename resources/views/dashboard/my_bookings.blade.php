@@ -22,7 +22,7 @@
           <a href="{{route('dashboard.bookings.details', $booking->id)}}" class="card">
             <div class="bg-white p-4 rounded-[26px] flex items-center gap-4">
               <p class="text-center text-sm leading-[22px] tracking-035">
-                <span class="font-semibold text-2xl">{{date('M d,Y', strtotime($booking->start_date))}}</span> </p>
+                <span class="font-semibold text-2xl">{{date('M d,Y', strtotime($booking->booking_date))}}</span> </p>
               <div class="flex items-center gap-4">
                 <div class="w-[92px] h-[92px] flex shrink-0 rounded-xl overflow-hidden">
                   <img src="{{Storage::url($booking->tour->thumbnail)}}" class="w-full h-full object-cover object-center" alt="thumbnail">

@@ -47,8 +47,39 @@ class FrontController extends Controller
     }
 
 
-    public function wedding_list(){
-         $weddings = PackageTour::orderByDesc('id')->paginate(8);
+    public function wedding_list(Request $request){
+        $query = PackageTour::query();
+
+         // Filter berdasarkan nama kategori
+
+        if ($request->has('category') && $request->category != '' && $request->category != 'all') {
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('slug', $request->category); // filter berdasarkan slug
+            });
+         }
+
+        if ($request->has('location') && $request->location != '') {
+            // ubah slug jadi format nama di DB (contoh: "jakarta-barat" -> "Jakarta Barat")
+            $locationName = ucwords(str_replace('-', ' ', $request->location));
+            $query->where('location', $locationName);
+        }
+
+        // === Filter price (range) ===
+        if ($request->has('price') && $request->price != '') {
+            [$min, $max] = explode('-', $request->price);
+            $query->whereBetween('price', [(int) $min, (int) $max]);
+        }
+
+        // Filter lain (status, search, dsb.)
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where('title', 'LIKE', '%' . $request->search . '%');
+        }
+
+        $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         return view('front.wedding_list', compact('weddings'));
     }
 
@@ -65,7 +96,14 @@ class FrontController extends Controller
     }
 
     public function book_test(PackageTour $package_tours){
-        return view('front.booking_test', compact('package_tours'));
+        $catering = Catering::OrderByDesc('id')->get();
+        $MUA = MUA::OrderByDesc('id')->get();
+        $decoration = Decoration::OrderByDesc('id')->get();
+        $entertainment = Entertainment::OrderByDesc('id')->get();
+        $photography = Photography::OrderByDesc('id')->get();
+        $venue = Venue::OrderByDesc('id')->get();
+        $MC = MC::OrderByDesc('id')->get();
+        return view('front.booking_test', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC'));
     }
 
     public function book(PackageTour $package_tours){
@@ -118,43 +156,32 @@ class FrontController extends Controller
 
     public function book_store(StorePackageBookingRequest $request, PackageTour $package_tours){
 
-
+    
         $user = Auth::user();
-        $packageBookingId = null;
+    $packageBookingId = null;
 
+    DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
+        $validated = $request->validated();
 
+        // Hitung total langsung dari harga paket
+        $totalAmount = $package_tours->price;
 
-        DB::transaction(function() use ($request, $user, $package_tours, &$packageBookingId){
-           $validated = $request->validated();
+        // Assign data tambahan ke validated
+        $validated['user_id'] = $user->id;
+        $validated['package_tour_id'] = $package_tours->id;
+        $validated['total_amount'] = $totalAmount;
+        $validated['status'] = 'pending';
 
-           $startDate = session('selected_Date');
-           $totalDays = 1;
+        // Simpan ke database
+        $packageBooking = PackageBooking::create($validated);
+        $packageBookingId = $packageBooking->id;
+    });
 
-           $endDate = session('selected_Date');
-
-           $sub_total = $package_tours->price  * 1;
-
-
-            $validated['end_date'] = $endDate;
-            $validated['user_id'] = $user->id;
-            $validated['package_tour_id'] = $package_tours->id;
-            $validated['sub_total'] = $sub_total;
-            $validated['total_amount'] = $sub_total;
-            $validated['status'] = 'pending';
-            $validated['start_date'] = $startDate;
-            $validated['total_days'] = $totalDays;
-            $validated["quantity"] = 1;
-
-
-            $packageBooking = PackageBooking::create($validated);
-            $packageBookingId = $packageBooking->id;
-        });
-
-        if ($packageBookingId) {
-            return redirect()->route('front.reservation.check');
-        } else {
-            return back()->withErrors('failed to create booking.');
-        }
+    if ($packageBookingId) {
+        return redirect()->route('front.reservation.check');
+    } else {
+        return back()->withErrors('failed to create booking.');
+    }
     }
 
     public function choose_bank(PackageBooking $packageBooking){

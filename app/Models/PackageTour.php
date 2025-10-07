@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\PackageTour;
+
 
 
 class PackageTour extends Model
@@ -13,13 +13,13 @@ class PackageTour extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'nama',
+        'name',
         'slug',
         'thumbnail',
         'about',
         'location',
         'price',
-        'days',
+        'pax',
         'category_id'
 
     ];

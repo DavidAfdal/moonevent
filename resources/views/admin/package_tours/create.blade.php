@@ -54,11 +54,11 @@
                         <x-text-input id="price" class="block mt-1 w-full" type="number" name="price" :value="old('price')" required autofocus autocomplete="price" />
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
-
+                    
                     <div class="mt-4">
-                        <x-input-label for="days" :value="__('days')" />
-                        <x-text-input id="days" class="block mt-1 w-full" type="text" name="days" :value="old('days')" required autofocus autocomplete="days" />
-                        <x-input-error :messages="$errors->get('days')" class="mt-2" />
+                        <x-input-label for="pax" :value="__('pax')" />
+                        <x-text-input id="pax" class="block mt-1 w-full" type="number" min="0" max="2000" step="50" name="pax" :value="old('pax')" required autofocus autocomplete="pax" />
+                        <x-input-error :messages="$errors->get('pax')" class="mt-2" />
                     </div>
 
                     <hr class="my-5">

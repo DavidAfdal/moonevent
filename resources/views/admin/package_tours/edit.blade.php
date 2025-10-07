@@ -61,10 +61,10 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="days" :value="__('days')" />
-                        <x-text-input id="days" class="block mt-1 w-full" type="text" name="days"
-                        value="{{$packageTour->days}}" required autofocus autocomplete="days" />
-                        <x-input-error :messages="$errors->get('days')" class="mt-2" />
+                        <x-input-label for="pax" :value="__('pax')" />
+                        <x-text-input id="pax" class="block mt-1 w-full" type="text" name="pax"
+                        value="{{$packageTour->pax}}" required autofocus autocomplete="pax" />
+                        <x-input-error :messages="$errors->get('pax')" class="mt-2" />
                     </div>
 
                     <hr class="my-5">
