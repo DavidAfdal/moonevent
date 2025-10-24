@@ -5,6 +5,8 @@
 
    @push('styles')
  <style>
+     /* LOAD FONTS */
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
     /* General Styling */
     body {
       font-family: 'Poppins', sans-serif;
@@ -89,9 +91,11 @@
     }
 
     .hero-section h1 {
+      font-family: 'Cinzel', serif;
       font-size: 48px;
       margin: 0;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .hero-section h1 span {
@@ -99,9 +103,12 @@
     }
 
     .hero-section p {
-      font-size: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 20px;   /* tetap seperti semula */
       margin-top: 10px;
-      font-weight: 400;
+      font-weight: 525;
+      letter-spacing: .5px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tambahkan baris ini */
     }
 
     /* Team Section */
@@ -154,7 +161,7 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       width: 100%;
-      padding: 7px 50px;
+      padding: 7px 0;
       /* Add padding to avoid content hiding under arrows */
       box-sizing: border-box;
     }
@@ -173,6 +180,14 @@
       font-weight: 500;
       white-space: nowrap;
       flex-shrink: 0;
+    }
+
+    .role-filters button:first-child {
+      margin-left: 50px;
+    }
+
+    .role-filters button:last-child {
+      margin-right: 50px;
     }
 
     .role-filters button.active {
@@ -262,7 +277,7 @@
     }
 
     .member-name {
-      font-size: 24px;
+      font-size: 20px;
       padding-left: 25px;
       font-weight: 600;
       text-align: left;
@@ -301,20 +316,29 @@
     }
 
     .gallery-slider {
-      display: flex;
-      justify-content: center;
       position: relative;
       min-height: 455px;
     }
 
     .gallery-slide {
-      display: none;
+      display: flex; /* Ubah dari 'none' ke 'flex' agar layout internalnya siap */
       align-items: center;
       gap: 25px;
+      
+      /* Tambahan untuk animasi fade */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      justify-content: center; /* Menggantikan 'justify-content' yang dihapus dari parent */
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
     }
 
     .gallery-slide.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
     }
 
     .side-images {
@@ -415,74 +439,158 @@
              'photo' => asset('assets/orang/ibu-munah.png')
          ],
          [
-             'name' => 'Budi Santoso',
-             'aka' => 'Pak Budi',
+             'name' => 'Rara',
+             'aka' => 'Tante Rara',
              'role' => 'Event Supervisor',
-             'photo' => asset('assets/orang/pak-budi.png')
+             'photo' => asset('assets/orang/tante-rara.png')
          ],
          [
-             'name' => 'Siti Rahmawati',
-             'aka' => 'Mbak Siti',
+             'name' => 'Edi Kurniawan',
+             'aka' => 'Om Edi',
              'role' => 'Facility Support',
-             'photo' => asset('assets/orang/mbak-siti.png')
+             'photo' => asset('assets/orang/om_edi.png')
          ],
          [
-             'name' => 'Munahwati',
-             'aka' => 'Ibu Muna',
-             'role' => 'Event Coordinator',
-             'photo' => asset('assets/orang/ibu-munah.png')
-         ],
-         [
-             'name' => 'Budi Santoso',
-             'aka' => 'Pak Budi',
+             'name' => 'Kusumawardhana H.S',
+             'aka' => 'Aa Dhana',
              'role' => 'Event Supervisor',
-             'photo' => asset('assets/orang/pak-budi.png')
+             'photo' => asset('assets/orang/aa_dhana.png')
          ],
          [
-             'name' => 'Siti Rahmawati',
-             'aka' => 'Mbak Siti',
+             'name' => 'Bimo Akbar Adhimukti',
+             'aka' => 'Abang Bimo',
              'role' => 'Facility Support',
-             'photo' => asset('assets/orang/mbak-siti.png')
+             'photo' => asset('assets/orang/abang-bimo.png')
          ],
          [
-             'name' => 'Andi Saputra',
-             'aka' => 'Mas Andi',
+             'name' => 'Dias Hafizhan',
+             'aka' => 'Abang Hafiz',
+             'role' => 'VIP Management',
+             'photo' => asset('assets/orang/abang-dias.jpg')
+         ],
+         [
+             'name' => 'Fadli',
+             'aka' => 'Mas Fadli',
              'role' => 'VIP Management',
              'photo' => asset('assets/orang/mas-andi.png')
          ],
          [
-             'name' => 'Rizky Hidayat',
-             'aka' => 'Rizky',
+             'name' => 'Rizma',
+             'aka' => 'Mba Rizma',
+             'role' => 'VIP Management',
+             'photo' => asset('assets/orang/mas-andi.png')
+         ],
+         [
+             'name' => 'Aulia',
+             'aka' => 'Kak Aulia',
+             'role' => 'Food And Beverage',
+             'photo' => asset('assets/orang/rizky.png')
+         ],
+         [
+             'name' => 'Dian',
+             'aka' => 'Mas Dian',
+             'role' => 'Food And Beverage',
+             'photo' => asset('assets/orang/rizky.png')
+         ],
+         [
+             'name' => 'Ayu',
+             'aka' => 'Ibu Ayu',
+             'role' => 'Food And Beverage',
+             'photo' => asset('assets/orang/ibu-ayu.jpg')
+         ],
+         [
+             'name' => 'Hamam',
+             'aka' => 'Mas Hamam',
              'role' => 'Front Line',
+             'photo' => asset('assets/orang/rizky.png')
+         ],
+         [
+             'name' => 'Rangga',
+             'aka' => 'Aa Rangga',
+             'role' => 'Front Line',
+             'photo' => asset('assets/orang/rizky.png')
+         ],
+         [
+             'name' => 'Arsya',
+             'aka' => 'Abang Arsya',
+             'role' => 'Front Line',
+             'photo' => asset('assets/orang/rizky.png')
+         ],
+         [
+             'name' => 'Fatur',
+             'aka' => 'Mas Fatur',
+             'role' => 'Photograp',
              'photo' => asset('assets/orang/rizky.png')
          ],
      ];
 
      $teamOffice = [
          [
-             'name' => 'Dewi Kartika',
-             'aka' => 'Dewi',
-             'role' => 'Admin Finance',
-             'photo' => asset('assets/orang/dewi.png')
+             'name' => 'Munahwati',
+             'aka' => 'Ibu Muna',
+             'role' => 'President Director',
+             'photo' => asset('assets/orang/ibu-munah.png')
          ],
          [
-             'name' => 'Reza Pratama',
-             'aka' => 'Reza',
-             'role' => 'Marketing Executive',
-             'photo' => asset('assets/orang/reza.png')
+             'name' => 'Lucy',
+             'aka' => 'Tante Lucy',
+             'role' => 'Head Of Sales',
+             'photo' => asset('assets/orang/tante-lucy.png')
          ],
          [
-             'name' => 'Fauzan Hakim',
-             'aka' => 'Fauzan',
-             'role' => 'Human Resources',
-             'photo' => asset('assets/orang/fauzan.png')
+             'name' => 'Edi',
+             'aka' => 'Om Edi',
+             'role' => 'Head Of Banquet',
+             'photo' => asset('assets/orang/om_edi.png')
+         ],
+         [
+             'name' => 'Naura',
+             'aka' => 'Kak Naura',
+             'role' => 'Secretary',
+             'photo' => asset('assets/orang/kak-naura.jpg')
+         ],
+         [
+             'name' => 'Kusumawardhana H.S',
+             'aka' => 'Aa Dhana',
+             'role' => 'Supervisor Event',
+             'photo' => asset('assets/orang/aa_dhana.png')
+         ],
+         [
+             'name' => 'Bimo Akbar Adhimukti',
+             'aka' => 'Abang Bimo',
+             'role' => 'Admin',
+             'photo' => asset('assets/orang/abang-bimo.png')
+         ],
+         [
+             'name' => 'Nazra',
+             'aka' => 'Kak Nazra',
+             'role' => 'Public Relations',
+             'photo' => asset('assets/orang/kak-nazra.png')
+         ],
+         [
+             'name' => 'David Afdal Kaizar',
+             'aka' => 'Bung David',
+             'role' => 'Tim IT',
+             'photo' => asset('assets/orang/bung-david.jpg')
+         ],
+         [  
+             'name' => 'Dias Hafizhan',
+             'aka' => 'Abang Dias',
+             'role' => 'Tim IT',
+             'photo' => asset('assets/orang/abang-dias.jpg')
+         ],
+         [
+             'name' => 'I Kadek Andika D.P',
+             'aka' => 'Bung Kadek',
+             'role' => 'Tim IT',
+             'photo' => asset('assets/orang/bung-kadek.jpg')
          ],
      ];
       @endphp
       
       {{-- office secttion --}}
       <div class="tab-content hidden" id="office">
-        <div class="grid grid-cols-3 gap-4 w-full" id="office">
+        <div class="grid grid-cols-3 gap-7 w-full" id="office">
           @foreach ( $teamOffice as $member)
           <div class="w-full">
 
@@ -515,7 +623,7 @@
                 <button  class="role-tab" data-role="VIP Management">VIP Management</button>
                 <button  class="role-tab" data-role="Food And Beverage">Food And Beverage</button>
                 <button  class="role-tab" data-role="Front Line">Front Line</button>
-                <button class="role-tab" data-role="Photograp">hPhotograph</button>
+                <button class="role-tab" data-role="Photograp">Photograph</button>
               </div>
             <button class="arrow-btn right">&rsaquo;</button>
          </div>
@@ -649,42 +757,61 @@
     });
   </script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const tabs = document.querySelectorAll(".tab-btn")
-      const contents = document.querySelectorAll(".tab-content")
-      const tabsRole = document.querySelectorAll(".role-tab")
-      const cards = document.querySelectorAll(".wedding-card")
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll(".tab-btn")
+    const contents = document.querySelectorAll(".tab-content")
+    const tabsRole = document.querySelectorAll(".role-tab")
+    const cards = document.querySelectorAll(".wedding-card")
+    // Definisikan container scroll di sini agar bisa diakses
+    const filtersContainer = document.querySelector('.role-filters'); // <-- BARIS BARU (Pindah dari blok script atas jika ada)
 
 
-      tabs.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          tabs.forEach(b => b.classList.remove('active'))
-          contents.forEach(content => content.classList.add("hidden"))
+    tabs.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        tabs.forEach(b => b.classList.remove('active'))
+        contents.forEach(content => content.classList.add("hidden"))
 
-          btn.classList.add("active")
-          const target = btn.dataset.target
-          console.log(target)
-          document.getElementById(target).classList.remove("hidden")
-        })
-      })
-
-      tabsRole.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabsRole.forEach(B => B.classList.remove("active"))
-          cards.forEach(card => card.classList.remove("hidden"))
-          btn.classList.add("active")
-          const role = btn.dataset.role
-          cards.forEach(card => {
-            if (card.dataset.role === role) {
-               card.classList.remove("hidden")
-            } else {
-                card.classList.add("hidden")
-            }
-          } )
-          console.log("test")
-        })
+        btn.classList.add("active")
+        const target = btn.dataset.target
+        console.log(target)
+        document.getElementById(target).classList.remove("hidden")
       })
     })
-  </script>
+
+    tabsRole.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabsRole.forEach(B => B.classList.remove("active"))
+        cards.forEach(card => card.classList.remove("hidden"))
+        btn.classList.add("active")
+        const role = btn.dataset.role
+        cards.forEach(card => {
+          if (card.dataset.role === role) {
+             card.classList.remove("hidden")
+          } else {
+              card.classList.add("hidden")
+          }
+        } )
+        console.log("test")
+
+        // === LOGIKA AUTO-SCROLL SAAT TOMBOL DI-KLIK ===
+        // 1. Hitung posisi untuk menengahkan tombol
+        const containerWidth = filtersContainer.clientWidth;
+        const buttonWidth = btn.offsetWidth;
+        const buttonLeft = btn.offsetLeft; // Jarak tombol dari sisi kiri container
+
+        // 2. Tentukan target scroll: (Posisi tombol) - (Setengah lebar container) + (Setengah lebar tombol)
+        const targetScrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2); // <-- BARIS BARU
+
+        // 3. Lakukan scroll dengan mulus (smooth)
+        filtersContainer.scrollTo({ // <-- BARIS BARU
+          left: targetScrollLeft, // <-- BARIS BARU
+          behavior: 'smooth' // <-- BARIS BARU
+        }); // <-- BARIS BARU
+        // ===============================================
+
+      })
+    })
+  })
+</script>
 @endpush
