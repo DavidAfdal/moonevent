@@ -1,120 +1,151 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="{{asset('output.css')}}" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
-<body class="font-poppins text-black">
-    <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen">
-        <div class="w-full min-h-screen flex flex-col items-center justify-center py-[46px] px-4 gap-8">
-          <div class="w-[calc(100%-26px)] rounded-[20px] overflow-hidden relative">
-            <img src="assets/backgrounds/moonevent.jpg" class="w-full h-full object-contain" alt="background">
-          </div>
-          <form action="{{ route('register') }}" method="POST" class="flex flex-col w-full bg-white p-[24px_16px] gap-8 rounded-[22px] items-center" enctype="multipart/form-data">
-            @csrf
-            <div class="flex flex-col gap-1 text-center">
-              <h1 class="font-semibold text-2xl leading-[42px] ">Sign Up</h1>
-              <p class="text-sm leading-[25px] tracking-[0.6px] text-darkGrey">Enter valid data to create your account</p>
-            </div>
-            <div class="flex flex-col gap-[15px] w-full max-w-[311px]">
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Avatar</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300 overflow-hidden">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/gallery-2.svg" alt="icon">
-                  </div>
-                  <button type="button" id="upload-file" class="flex items-center gap-3">
-                    <div id="chosse-file-dummy-btn" class="border border-[#8D9397] bg-[#F3F4F8] py-1 px-2 rounded-lg text-nowrap text-sm leading-[22px] tracking-035 h-fit">Choose File</div>
-                    <div>
-                      <p id="placeholder" class="text-nowrap text-[#BFBFBF] text-sm tracking-035 leading-[22px] text-left">No file chosen</p>
-                      <div id="file-info" class="hidden flex flex-row flex-nowrap gap-3 items-center">
-                        <span id="fileName" class="text-sm tracking-035 leading-[22px] text-nowrap"></span>
-                      </div>
-                    </div>
-                    <input type="file" name="avatar" id="file" class="hidden">
-                  </button>
-                </div>
-              </div>
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Full Name</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/user-flat-black.svg" alt="icon">
-                  </div>
-                  <input type="text" name="name" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Write your full name">
-                </div>
-              </div>
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Phone Number</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/call.svg" alt="icon">
-                  </div>
-                  <input type="tel" name="phone_number" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your valid phone number">
-                </div>
-              </div>
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Email Address</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/sms.svg" alt="icon">
-                  </div>
-                  <input type="email" name="email" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your email address">
-                </div>
-              </div>
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Password</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/password-lock.svg" alt="icon">
-                  </div>
-                  <input type="password" id="password" name="password" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Enter your valid password">
-                  <button type="button" class="reveal-password w-4 h-4 flex shrink-0" onclick="togglePasswordVisibility('password', this)">
-                    <img src="assets/icons/password-eye.svg" class="see-password" alt="icon">
-                    <img src="assets/icons/password-eye-slash.svg" class="hide-password hidden" alt="icon">
-                  </button>
-                </div>
-              </div>
-              <div class="flex flex-col gap-1 w-full">
-                <p class="font-semibold">Confirm Password</p>
-                <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
-                  <div class="w-4 h-4 flex shrink-0">
-                    <img src="assets/icons/password-lock.svg" alt="icon">
-                  </div>
-                  <input type="password" name="password_confirmation" id="confirm-password" name="" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Confirm your valid password">
-                  <button type="button" class="reveal-password w-4 h-4 flex shrink-0" onclick="togglePasswordVisibility('confirm-password', this)">
-                    <img src="assets/icons/password-eye.svg" class="see-password" alt="icon">
-                    <img src="assets/icons/password-eye-slash.svg" class="hide-password hidden" alt="icon">
-                  </button>
-                </div>
-              </div>
-            </div>
-            <button type="submit" class="bg-[#4D73FF] p-[16px_24px] w-full max-w-[311px] rounded-[10px] text-center text-white font-semibold hover:bg-[#06C755] transition-all duration-300">Sign up</button>
-            <p class="text-center text-sm tracking-035 text-darkGrey">Already have account? 
-                <a href="{{route('login')}}" class="text-[#4D73FF] font-semibold tracking-[0.6px]">Sign In</a></p>
-          </form>
+@extends('front.layouts.app')
+
+@push("styles")
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .entryarea-float {
+      position: relative;
+      height: 55px;
+      line-height: 55px;
+      box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 0px 0px 1px rgba(25, 28, 33, 0.08);
+      border-radius: 10px;
+    }
+
+    .labelline-float {
+      position: absolute;
+      color: black;
+      transition: 0.2s ease;
+      /* padding: 0 25px; */
+      margin: 0 20px;
+      top: 15px;
+      line-height: 80px;
+      z-index: 1;
+    }
+
+    .input-float:focus,
+    .input-float:valid {
+      color: #FF7043;
+      border-width: 2px;
+      border-color: #FF7043;
+    }
+
+    .input-float:focus+.labelline-float,
+    .input-float:valid+.labelline-float {
+      color: #FF7043;
+      background-color: white;
+      height: 30px;
+      /* line-height: 30px; */
+      /* padding: 0 12px; */
+      transform: translate(-15px, -28px) scale(0.88);
+      z-index: 1111;
+    }
+  </style>
+@endpush
+
+@section('content')
+  <section class="px-5 md:px-0 lg:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto">
+
+      <div class="relative w-full h-[450px] md:h-[550px] lg:h-[600px] overflow-hidden bg-white">
+
+        <div
+          class="absolute top-5 left-5 w-[65%] md:w-[60%] lg:w-[55%] h-[200px] md:h-[300px] lg:h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1663076211121-36754a46de8d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500"
+            alt="Pasangan di Jembatan Pegunungan" class="w-full h-full object-cover">
         </div>
-    </section>
 
-    <script src="js/reveal-password.js"></script>
-    <script>
-      document.getElementById('upload-file').addEventListener('click', function() {
-          // Trigger the file input
-          document.getElementById('file').click();
-      });
+        <div
+          class="absolute top-[120px] md:top-[190px] lg:top-[150px] right-0 md:right-4 lg:right-10 w-[45%] h-[190px] md:h-[250px] lg:h-[300px] z-20 rounded-2xl p-2 bg-white overflow-hidden shadow-2xl">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1711132425055-1c289c69b950?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHdlZGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500"
+            alt="Pasangan di Tepi Danau" class="w-full h-full object-cover rounded-2xl">
+        </div>
 
-      document.getElementById('file').addEventListener('change', function() {
-          // Get the file name
-          var fileName = this.files[0].name;
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 w-4/5 md:w-full max-w-[500px] z-30">
+          <div class="text-center">
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-800">
+              Secure Your Next Adventure
+            </h1>
+            <p class="text-sm lg:text-base text-black/70">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sint!
+            </p>
+          </div>
+        </div>
 
-          // Update the file name text and show the file info
-          document.getElementById('fileName').textContent = fileName;
-          document.getElementById('file-info').classList.remove('hidden');
-          document.getElementById('placeholder').classList.add('hidden');
-          document.getElementById('chosse-file-dummy-btn').classList.add('hidden');
-      });
-    </script>
-</body>
-</html>
+        <div class="absolute top-[-20px] right-[20px] h-40 rounded-full ">
+          <a href="/"
+            class="flex items-center gap-5 border-2 border-[#FF7043]/80 w-fit flex-shrink-0 rounded-full px-3 py-1 group text-[#FF7043] hover:text-white hover:bg-[#FF7043] font-semibold transition-all duration-300 mt-10">
+            <i class="fa-solid fa-house w-fit h-auto rounded-full flex-shrink-0 p-2 transition duration-300"></i>
+          </a>
+        </div>
+        <div class="absolute bottom-[-50px] left-[-50px] w-40 h-40 rounded-full bg-pink-300/40"></div>
+      </div>
+
+      <div class="py-10 px-5 md:px-10 flex flex-col justify-center">
+
+        <div class="flex items-center justify-center gap-4">
+          <img class="rounded-full w-12 h-12 object-cover" alt="Ellipse" src="../assets/backgrounds/moonevent.jpg" />
+          <p class="font-bold text-lg text-gray-800">Moon Event Organizer</p>
+        </div>
+
+        <div class="mt-6 text-center">
+          <h1 class="text-3xl md:text-4xl font-semibold text-gray-900">
+            Create Your <span class="text-[#FF7043]">Account</span>
+          </h1>
+          <p class="max-w-md text-black/70 text-sm md:text-base mx-auto mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+
+        <form action="">
+          <div class="md:max-w-lg mx-auto mt-5 md:mt-8">
+            <div class="entryarea-float w-full">
+              <input type="text" name="user_name" placeholder=" " required
+                class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+              <div class="labelline-float text-lg text-black/70">
+                Fullname
+              </div>
+            </div>
+            <div class="entryarea-float w-full mt-6">
+              <input type="email" name="user_name" placeholder=" " required
+                class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+              <div class="labelline-float text-base md:text-lg text-black/70">
+                Email
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div class="entryarea-float w-full">
+                <input type="password" name="user_name" placeholder=" " required
+                  class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-lg md:line-clamp-1 lg:text-lg text-black/70">
+                  Confirm Password
+                </div>
+              </div>
+              <div class="entryarea-float w-full">
+                <input type="password" name="user_name" placeholder=" " required
+                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-base md:text-lg text-black/70">
+                  Password
+                </div>
+              </div>
+            </div>
+
+            <button type="submit"
+              class="bg-[#FF7043] hover:bg-opacity-90 transition text-white font-semibold text-base md:text-lg w-full mt-8 mb-5 py-3 rounded-xl shadow-lg">
+              REGISTER
+            </button>
+
+            <p class="text-black/70 text-center text-sm">
+              Already have an account? <a href="/login" class="text-[#FF7043] font-bold hover:underline">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+@endsection
