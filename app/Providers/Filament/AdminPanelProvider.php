@@ -2,7 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\CustomDashboard;
 use App\Filament\Widgets\BookingChart;
+use App\Filament\Widgets\PackageWeddingChart;
 use App\Filament\Widgets\StatsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -37,11 +39,12 @@ class AdminPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
-                Dashboard::class,
+                CustomDashboard::class
             ])
             ->widgets([
-                StatsOverview::class,
-                BookingChart::class
+                // StatsOverview::class,
+                // BookingChart::class,
+                // PackageWeddingChart::class
             ])
             ->middleware([
                 EncryptCookies::class,
