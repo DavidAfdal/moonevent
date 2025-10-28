@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         PhotographySeeder::class,
         McSeeder::class,
         EntertainmentSeeder::class,
-        MuaSeeder::class,
-        VenueSeeder::class,]);
+        MuaSeeder::class,]);
     }
 }
