@@ -41,8 +41,21 @@ class FrontController extends Controller
     public function services(){
         return view('front.services');
     }
+
+    public function login(){
+        return view('front.login');
+    }
+
     public function team(){
         return view('team.team');
+    }
+
+    public function success(){
+        return view('front.success');
+    }
+
+    public function history(){
+        return view('front.history');
     }
 
 

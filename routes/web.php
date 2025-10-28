@@ -12,6 +12,8 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [FrontController::class, 'index2'])->name('front.index');
 Route::get('/about', [FrontController::class, 'about'])->name('front.about');
 Route::get('/services', [FrontController::class, 'services'])->name('front.services');
+Route::get('/success', [FrontController::class, 'success'])->name('front.success');
+Route::get('/history', [FrontController::class, 'history'])->name('front.history');
 Route::get('/team',[FrontController::class,'team'])->name('front.team');
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
