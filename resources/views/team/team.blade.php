@@ -528,79 +528,6 @@
             ],
           ];
 
-     $teamOffice = [
-         [
-             'name' => 'Munahwati',
-             'aka' => 'Ibu Muna',
-             'role' => 'President Director',
-             'photo' => asset('assets/orang/ibu-munah.png')
-         ],
-         [
-             'name' => 'Lucy',
-             'aka' => 'Tante Lucy',
-             'role' => 'Head Of Sales',
-             'photo' => asset('assets/orang/tante-lucy.png')
-         ],
-         [
-             'name' => 'Edi',
-             'aka' => 'Om Edi',
-             'role' => 'Head Of Banquet',
-             'photo' => asset('assets/orang/om_edi.png')
-         ],
-         [
-             'name' => 'Naura',
-             'aka' => 'Kak Naura',
-             'role' => 'Secretary',
-             'photo' => asset('assets/orang/kak-naura.jpg')
-         ],
-         [
-             'name' => 'Kusumawardhana H.S',
-             'aka' => 'Aa Dhana',
-             'role' => 'Supervisor Event',
-             'photo' => asset('assets/orang/aa_dhana.png')
-         ],
-         [
-             'name' => 'Bimo Akbar Adhimukti',
-             'aka' => 'Abang Bimo',
-             'role' => 'Admin',
-             'photo' => asset('assets/orang/abang-bimo.png')
-         ],
-         [
-             'name' => 'Nazra',
-             'aka' => 'Kak Nazra',
-             'role' => 'Public Relations',
-             'photo' => asset('assets/orang/kak-nazra.png')
-         ],
-         [
-             'name' => 'David Afdal Kaizar',
-             'aka' => 'Bung David',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/bung-david.jpg')
-         ],
-         [  
-             'name' => 'Dias Hafizhan',
-             'aka' => 'Abang Dias',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/abang-dias.jpg')
-         ],
-         [
-             'name' => 'I Kadek Andika D.P',
-             'aka' => 'Bung Kadek',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/bung-kadek.jpg')
-         ],
-     ];
-      @endphp
-      
-      {{-- office secttion --}}
-      <div class="tab-content hidden" id="office">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5 lg:gap-7 w-full" id="office">
-          @foreach ( $teamOffice as $member)
-          <div class="w-full">
-            <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
-            <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
-            <div class="team-member-card">
-                <div class="card-image-container">
           $teamOffice = [
             [
               'name' => 'Munahwati',
@@ -703,10 +630,6 @@
               <button class="role-tab" data-role="Photograp">Photograph</button>
             </div>
             <button class="arrow-btn right">&rsaquo;</button>
-         </div>
-         <div class="grid Wgrid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5 lg:gap-7 w-full">
-           @foreach ( $teamWeddingOrganizer as $member)
-            <div class="team-member-card wedding-card flex items-center justify-center" data-role="{{ $member['role'] }}">
           </div>
           <div class="grid grid-cols-3 w-full">
             @foreach ($teamWeddingOrganizer as $member)
