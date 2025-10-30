@@ -27,102 +27,64 @@
     </div>
     <div
       class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] mt-14 rounded-lg p-4">
-      <div class="bg-white p-3 mb-5 rounded-lg flex flex-wrap justify-between">
+      @php
+      $myBookings = Auth::user()->bookings
+      @endphp
+      
+      @foreach ($myBookings as $booking )
+         @php
+            $status = $booking->status; // ambil status dari booking
+
+            $colors = [
+                'success' => 'bg-[#10B981]/30 text-[#10B981]',   // green
+                'rejected' => 'bg-[#EF4444]/30 text-[#EF4444]', // red
+                'pending' => 'bg-[#F59E0B]/30 text-[#F59E0B]',  // amber
+                'on-progress' => 'bg-[#FF7043]/40 text-[#FF7043]', // orange
+            ];
+
+            $colorClass = $colors[$status] ?? 'bg-gray-300 text-gray-700';
+            $label = match($status) {
+                'success' => 'Success',
+                'rejected' => 'Rejected',
+                'pending' => 'Pending',
+                'on-progress' => 'On-Progress',
+                default => ucfirst($status),
+            };
+        @endphp
+       <div class="bg-white p-3 mb-5 rounded-lg flex flex-wrap justify-between">
         <div class="flex items-start gap-8">
           <div
             class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] rounded-lg p-2">
             <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
+              src="{{ Storage::url($booking->tour->thumbnail) }}"
               alt="" class="w-[150px] h-[150px] object-cover rounded-lg">
           </div>
           <div class="max-w-md">
             <h1 class="text-2xl font-semibold">
-              Wedding Kusuma & Nessi | JGU Balroom Depok
+              Wedding {{$booking->customer->name}} | {{$booking->tour->name}}
             </h1>
-            <p class="text-black/70 text-base mt-2">Oct 27, 2025</p>
+            <p class="text-black/70 text-base mt-2">{{$booking->booking_date}}</p>
             <div class="flex items-center gap-2 mt-3">
               <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                200 pax
+                {{$booking->tour->pax}} pax
               </p>
               <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                Wedding
+                {{$booking->tour->category->name}}
               </p>
             </div>
           </div>
         </div>
         <div class="flex flex-col items-end gap-6">
           <p class="text-xl font-medium">
-            Rp. 15.000.000
+            Rp. {{number_format($booking->total_amount, 0 ,",", ".")}}
           </p>
-          <p class="w-fit px-3 py-1 bg-[#FF7043]/40 text-[#FF7043] rounded-lg text-sm cursor-pointer font-medium">
-            On-Progress
-          </p>
+            <p class="w-fit px-3 py-1 rounded-lg text-sm cursor-pointer font-medium {{ $colorClass }}">
+                {{ $label }}
+            </p>
         </div>
       </div>
-      <div class="bg-white p-3 mb-5 rounded-lg flex flex-wrap justify-between">
-        <div class="flex items-start gap-8">
-          <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] rounded-lg p-2">
-            <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
-              alt="" class="w-[150px] h-[150px] object-cover rounded-lg">
-          </div>
-          <div class="max-w-md">
-            <h1 class="text-2xl font-semibold">
-              Wedding Kusuma & Nessi | JGU Balroom Depok
-            </h1>
-            <p class="text-black/70 text-base mt-2">Oct 27, 2025</p>
-            <div class="flex items-center gap-2 mt-3">
-              <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                200 pax
-              </p>
-              <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                Wedding
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col items-end gap-6">
-          <p class="text-xl font-medium">
-            Rp. 15.000.000
-          </p>
-          <p class="w-fit px-3 py-1 bg-green-600 text-white rounded-lg text-sm cursor-pointer font-medium">
-            Success
-          </p>
-        </div>
-      </div>
-      <div class="bg-white p-3 mb-5 rounded-lg flex flex-wrap justify-between">
-        <div class="flex items-start gap-8">
-          <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] rounded-lg p-2">
-            <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
-              alt="" class="w-[150px] h-[150px] object-cover rounded-lg">
-          </div>
-          <div class="max-w-md">
-            <h1 class="text-2xl font-semibold">
-              Wedding Kusuma & Nessi | JGU Balroom Depok
-            </h1>
-            <p class="text-black/70 text-base mt-2">Oct 27, 2025</p>
-            <div class="flex items-center gap-2 mt-3">
-              <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                200 pax
-              </p>
-              <p class="w-fit px-3 py-1 border border-gray-400 rounded-lg text-sm cursor-pointer font-medium">
-                Wedding
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col items-end gap-6">
-          <p class="text-xl font-medium">
-            Rp. 15.000.000
-          </p>
-          <p class="w-fit px-3 py-1 bg-[#FF7043]/40 text-[#FF7043] rounded-lg text-sm cursor-pointer font-medium">
-            On-Progress
-          </p>
-        </div>
-      </div>
+      @endforeach
+    
     </div>
   </section>
 @endsection

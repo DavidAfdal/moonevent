@@ -590,10 +590,9 @@
       
       {{-- office secttion --}}
       <div class="tab-content hidden" id="office">
-        <div class="grid grid-cols-3 gap-7 w-full" id="office">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5 lg:gap-7 w-full" id="office">
           @foreach ( $teamOffice as $member)
           <div class="w-full">
-
             <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
             <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
             <div class="team-member-card">
@@ -627,9 +626,9 @@
               </div>
             <button class="arrow-btn right">&rsaquo;</button>
          </div>
-         <div class="grid grid-cols-3 w-full">
+         <div class="grid Wgrid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5 lg:gap-7 w-full">
            @foreach ( $teamWeddingOrganizer as $member)
-            <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
+            <div class="team-member-card wedding-card flex items-center justify-center" data-role="{{ $member['role'] }}">
                 <div class="card-image-container">
                     <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
                 </div>

@@ -21,6 +21,8 @@ class MUAResource extends Resource
 {
     protected static ?string $model = MUA::class;
 
+      protected static ?string $navigationLabel = 'MUA';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static string | UnitEnum | null $navigationGroup = 'Sub Menu';
 
