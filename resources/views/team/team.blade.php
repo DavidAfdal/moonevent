@@ -1,12 +1,12 @@
-
 @extends('front.layouts.app')
 
-  @section('title', 'Tim Kami - Moon Event Organizer')
+@section('title', 'Tim Kami - Moon Event Organizer')
 
-   @push('styles')
- <style>
-     /* LOAD FONTS */
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+@push('styles')
+  <style>
+    /* LOAD FONTS */
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+
     /* General Styling */
     body {
       font-family: 'Poppins', sans-serif;
@@ -104,11 +104,13 @@
 
     .hero-section p {
       font-family: 'Cinzel', serif;
-      font-size: 20px;   /* tetap seperti semula */
+      font-size: 20px;
+      /* tetap seperti semula */
       margin-top: 10px;
       font-weight: 525;
       letter-spacing: .5px;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tambahkan baris ini */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      /* Tambahkan baris ini */
     }
 
     /* Team Section */
@@ -321,16 +323,18 @@
     }
 
     .gallery-slide {
-      display: flex; /* Ubah dari 'none' ke 'flex' agar layout internalnya siap */
+      display: flex;
+      /* Ubah dari 'none' ke 'flex' agar layout internalnya siap */
       align-items: center;
       gap: 25px;
-      
+
       /* Tambahan untuk animasi fade */
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      justify-content: center; /* Menggantikan 'justify-content' yang dihapus dari parent */
+      justify-content: center;
+      /* Menggantikan 'justify-content' yang dihapus dari parent */
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
@@ -393,325 +397,326 @@
       background-color: #FF7A59;
     }
   </style>
-  @endpush
+@endpush
 
 
- @section('content')
- 
- {{-- <header class="navbar">
-   <div class="logo">
-     <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" alt="Moon Event Organizer">
-   </div>
-   <nav>
-     <a href="#">Home</a>
-     <a href="#">About</a>
-     <a href="#" class="active">Team</a>
-     <a href="#">Service</a>
-     <a href="#">Reservasi</a>
-     <a href="#" class="login-btn">Login</a>
-   </nav>
- </header> --}}
+@section('content')
 
- <main>
-   <section class="hero-section"
-     style="background-image: url('{{ asset('assets/backgrounds/background-team.png') }}');">
-     <div class="hero-content">
-       <h1><span class="our-text">OUR</span> WEDDING PLANNER</h1>
-       <p>A team of highly skilled professional available to assist you</p>
-     </div>
-   </section>
+  {{-- <header class="navbar">
+    <div class="logo">
+      <img src="{{asset('assets/backgrounds/moonevent.jpg')}}" alt="Moon Event Organizer">
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#" class="active">Team</a>
+      <a href="#">Service</a>
+      <a href="#">Reservasi</a>
+      <a href="#" class="login-btn">Login</a>
+    </nav>
+  </header> --}}
 
-   <div class="container-team">
-     <section class="team-section">
-       <div class="tabs">
-         <button class="tab-btn active" data-target="wedding">Team Wedding Organizer</button>
-         <button class="tab-btn" data-target="office">Team Office</button>
-       </div>
+  <main>
+    <section class="hero-section"
+      style="background-image: url('https://images.unsplash.com/photo-1529636798458-92182e662485?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=869');">
+      <div class="hero-content">
+        <h1><span class="our-text">OUR</span> WEDDING PLANNER</h1>
+        <p>A team of highly skilled professional available to assist you</p>
+      </div>
+    </section>
 
-      
-      @php
-      
-       $teamWeddingOrganizer = [
-         [
-             'name' => 'Munahwati',
-             'aka' => 'Ibu Muna',
-             'role' => 'Event Coordinator',
-             'photo' => asset('assets/orang/ibu-munah.png')
-         ],
-         [
-             'name' => 'Rara',
-             'aka' => 'Tante Rara',
-             'role' => 'Event Supervisor',
-             'photo' => asset('assets/orang/tante-rara.png')
-         ],
-         [
-             'name' => 'Edi Kurniawan',
-             'aka' => 'Om Edi',
-             'role' => 'Facility Support',
-             'photo' => asset('assets/orang/om_edi.png')
-         ],
-         [
-             'name' => 'Kusumawardhana H.S',
-             'aka' => 'Aa Dhana',
-             'role' => 'Event Supervisor',
-             'photo' => asset('assets/orang/aa_dhana.png')
-         ],
-         [
-             'name' => 'Bimo Akbar Adhimukti',
-             'aka' => 'Abang Bimo',
-             'role' => 'Facility Support',
-             'photo' => asset('assets/orang/abang-bimo.png')
-         ],
-         [
-             'name' => 'Dias Hafizhan',
-             'aka' => 'Abang Hafiz',
-             'role' => 'VIP Management',
-             'photo' => asset('assets/orang/abang-dias.jpg')
-         ],
-         [
-             'name' => 'Fadli',
-             'aka' => 'Mas Fadli',
-             'role' => 'VIP Management',
-             'photo' => asset('assets/orang/mas-andi.png')
-         ],
-         [
-             'name' => 'Rizma',
-             'aka' => 'Mba Rizma',
-             'role' => 'VIP Management',
-             'photo' => asset('assets/orang/mas-andi.png')
-         ],
-         [
-             'name' => 'Aulia',
-             'aka' => 'Kak Aulia',
-             'role' => 'Food And Beverage',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-         [
-             'name' => 'Dian',
-             'aka' => 'Mas Dian',
-             'role' => 'Food And Beverage',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-         [
-             'name' => 'Ayu',
-             'aka' => 'Ibu Ayu',
-             'role' => 'Food And Beverage',
-             'photo' => asset('assets/orang/ibu-ayu.jpg')
-         ],
-         [
-             'name' => 'Hamam',
-             'aka' => 'Mas Hamam',
-             'role' => 'Front Line',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-         [
-             'name' => 'Rangga',
-             'aka' => 'Aa Rangga',
-             'role' => 'Front Line',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-         [
-             'name' => 'Arsya',
-             'aka' => 'Abang Arsya',
-             'role' => 'Front Line',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-         [
-             'name' => 'Fatur',
-             'aka' => 'Mas Fatur',
-             'role' => 'Photograp',
-             'photo' => asset('assets/orang/rizky.png')
-         ],
-     ];
+    <div class="container-team">
+      <section class="team-section">
+        <div class="tabs">
+          <button class="tab-btn active" data-target="wedding">Team Wedding Organizer</button>
+          <button class="tab-btn" data-target="office">Team Office</button>
+        </div>
 
-     $teamOffice = [
-         [
-             'name' => 'Munahwati',
-             'aka' => 'Ibu Muna',
-             'role' => 'President Director',
-             'photo' => asset('assets/orang/ibu-munah.png')
-         ],
-         [
-             'name' => 'Lucy',
-             'aka' => 'Tante Lucy',
-             'role' => 'Head Of Sales',
-             'photo' => asset('assets/orang/tante-lucy.png')
-         ],
-         [
-             'name' => 'Edi',
-             'aka' => 'Om Edi',
-             'role' => 'Head Of Banquet',
-             'photo' => asset('assets/orang/om_edi.png')
-         ],
-         [
-             'name' => 'Naura',
-             'aka' => 'Kak Naura',
-             'role' => 'Secretary',
-             'photo' => asset('assets/orang/kak-naura.jpg')
-         ],
-         [
-             'name' => 'Kusumawardhana H.S',
-             'aka' => 'Aa Dhana',
-             'role' => 'Supervisor Event',
-             'photo' => asset('assets/orang/aa_dhana.png')
-         ],
-         [
-             'name' => 'Bimo Akbar Adhimukti',
-             'aka' => 'Abang Bimo',
-             'role' => 'Admin',
-             'photo' => asset('assets/orang/abang-bimo.png')
-         ],
-         [
-             'name' => 'Nazra',
-             'aka' => 'Kak Nazra',
-             'role' => 'Public Relations',
-             'photo' => asset('assets/orang/kak-nazra.png')
-         ],
-         [
-             'name' => 'David Afdal Kaizar',
-             'aka' => 'Bung David',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/bung-david.jpg')
-         ],
-         [  
-             'name' => 'Dias Hafizhan',
-             'aka' => 'Abang Dias',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/abang-dias.jpg')
-         ],
-         [
-             'name' => 'I Kadek Andika D.P',
-             'aka' => 'Bung Kadek',
-             'role' => 'Tim IT',
-             'photo' => asset('assets/orang/bung-kadek.jpg')
-         ],
-     ];
-      @endphp
-      
-      {{-- office secttion --}}
-      <div class="tab-content hidden" id="office">
-        <div class="grid grid-cols-3 gap-7 w-full" id="office">
-          @foreach ( $teamOffice as $member)
-          <div class="w-full">
 
-            <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
-            <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
-            <div class="team-member-card">
-                <div class="card-image-container">
+        @php
+
+          $teamWeddingOrganizer = [
+            [
+              'name' => 'Munahwati',
+              'aka' => 'Ibu Muna',
+              'role' => 'Event Coordinator',
+              'photo' => asset('assets/orang/ibu-munah.png')
+            ],
+            [
+              'name' => 'Rara',
+              'aka' => 'Tante Rara',
+              'role' => 'Event Supervisor',
+              'photo' => asset('assets/orang/tante-rara.png')
+            ],
+            [
+              'name' => 'Edi Kurniawan',
+              'aka' => 'Om Edi',
+              'role' => 'Facility Support',
+              'photo' => asset('assets/orang/om_edi.png')
+            ],
+            [
+              'name' => 'Kusumawardhana H.S',
+              'aka' => 'Aa Dhana',
+              'role' => 'Event Supervisor',
+              'photo' => asset('assets/orang/aa_dhana.png')
+            ],
+            [
+              'name' => 'Bimo Akbar Adhimukti',
+              'aka' => 'Abang Bimo',
+              'role' => 'Facility Support',
+              'photo' => asset('assets/orang/abang-bimo.png')
+            ],
+            [
+              'name' => 'Dias Hafizhan',
+              'aka' => 'Abang Hafiz',
+              'role' => 'VIP Management',
+              'photo' => asset('assets/orang/abang-dias.jpg')
+            ],
+            [
+              'name' => 'Fadli',
+              'aka' => 'Mas Fadli',
+              'role' => 'VIP Management',
+              'photo' => asset('assets/orang/mas-andi.png')
+            ],
+            [
+              'name' => 'Rizma',
+              'aka' => 'Mba Rizma',
+              'role' => 'VIP Management',
+              'photo' => asset('assets/orang/mas-andi.png')
+            ],
+            [
+              'name' => 'Aulia',
+              'aka' => 'Kak Aulia',
+              'role' => 'Food And Beverage',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+            [
+              'name' => 'Dian',
+              'aka' => 'Mas Dian',
+              'role' => 'Food And Beverage',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+            [
+              'name' => 'Ayu',
+              'aka' => 'Ibu Ayu',
+              'role' => 'Food And Beverage',
+              'photo' => asset('assets/orang/ibu-ayu.jpg')
+            ],
+            [
+              'name' => 'Hamam',
+              'aka' => 'Mas Hamam',
+              'role' => 'Front Line',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+            [
+              'name' => 'Rangga',
+              'aka' => 'Aa Rangga',
+              'role' => 'Front Line',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+            [
+              'name' => 'Arsya',
+              'aka' => 'Abang Arsya',
+              'role' => 'Front Line',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+            [
+              'name' => 'Fatur',
+              'aka' => 'Mas Fatur',
+              'role' => 'Photograp',
+              'photo' => asset('assets/orang/rizky.png')
+            ],
+          ];
+
+          $teamOffice = [
+            [
+              'name' => 'Munahwati',
+              'aka' => 'Ibu Muna',
+              'role' => 'President Director',
+              'photo' => asset('assets/orang/ibu-munah.png')
+            ],
+            [
+              'name' => 'Lucy',
+              'aka' => 'Tante Lucy',
+              'role' => 'Head Of Sales',
+              'photo' => asset('assets/orang/tante-lucy.png')
+            ],
+            [
+              'name' => 'Edi',
+              'aka' => 'Om Edi',
+              'role' => 'Head Of Banquet',
+              'photo' => asset('assets/orang/om_edi.png')
+            ],
+            [
+              'name' => 'Naura',
+              'aka' => 'Kak Naura',
+              'role' => 'Secretary',
+              'photo' => asset('assets/orang/kak-naura.jpg')
+            ],
+            [
+              'name' => 'Kusumawardhana H.S',
+              'aka' => 'Aa Dhana',
+              'role' => 'Supervisor Event',
+              'photo' => asset('assets/orang/aa_dhana.png')
+            ],
+            [
+              'name' => 'Bimo Akbar Adhimukti',
+              'aka' => 'Abang Bimo',
+              'role' => 'Admin',
+              'photo' => asset('assets/orang/abang-bimo.png')
+            ],
+            [
+              'name' => 'Nazra',
+              'aka' => 'Kak Nazra',
+              'role' => 'Public Relations',
+              'photo' => asset('assets/orang/kak-nazra.png')
+            ],
+            [
+              'name' => 'David Afdal Kaizar',
+              'aka' => 'Bung David',
+              'role' => 'Tim IT',
+              'photo' => asset('assets/orang/bung-david.jpg')
+            ],
+            [
+              'name' => 'Dias Hafizhan',
+              'aka' => 'Abang Dias',
+              'role' => 'Tim IT',
+              'photo' => asset('assets/orang/abang-dias.jpg')
+            ],
+            [
+              'name' => 'I Kadek Andika D.P',
+              'aka' => 'Bung Kadek',
+              'role' => 'Tim IT',
+              'photo' => asset('assets/orang/bung-kadek.jpg')
+            ],
+          ];
+        @endphp
+
+        {{-- office secttion --}}
+        <div class="tab-content hidden" id="office">
+          <div class="grid grid-cols-3 gap-7 w-full" id="office">
+            @foreach ($teamOffice as $member)
+              <div class="w-full">
+
+                <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
+                <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
+                <div class="team-member-card">
+                  <div class="card-image-container">
                     <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
-                </div>
-                <div class="info">
+                  </div>
+                  <div class="info">
                     <span class="member-name ">{{ $member['name'] }}</span>
                     <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
                     <p class="member-aka">A.K.A {{$member['aka'] }}</p>
+                  </div>
                 </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+        {{-- end office section --}}
+
+        {{-- wedding section --}}
+        <div class="tab-content" id="wedding">
+          <div class="role-filters-container">
+            <button class="arrow-btn left">&lsaquo;</button>
+            <div class="role-filters">
+              <button class="role-tab" data-role="Event Coordinator">Event Coordinator</button>
+              <button class="role-tab" data-role="Event Supervisor">Event Supervisor</button>
+              <button class="role-tab" data-role="Facility Support">Facility Support</button>
+              <button class="role-tab" data-role="VIP Management">VIP Management</button>
+              <button class="role-tab" data-role="Food And Beverage">Food And Beverage</button>
+              <button class="role-tab" data-role="Front Line">Front Line</button>
+              <button class="role-tab" data-role="Photograp">Photograph</button>
+            </div>
+            <button class="arrow-btn right">&rsaquo;</button>
+          </div>
+          <div class="grid grid-cols-3 w-full">
+            @foreach ($teamWeddingOrganizer as $member)
+              <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
+                <div class="card-image-container">
+                  <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
+                </div>
+                <div class="info">
+                  <span class="member-name ">{{ $member['name'] }}</span>
+                  <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
+                  <p class="member-aka">A.K.A {{$member['aka'] }}</p>
+                </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+        {{-- end wedding section --}}
+
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="gallery-section">
+        <h2>
+          <span class="orange-text">Signature Moments Crafted</span><br>
+          by <span class="orange-text">Our Wedding Dream Team</span>
+        </h2>
+
+        <div class="gallery-slider">
+          <div class="gallery-slide active">
+            <div class="side-images">
+              <div class="gallery-item small-item"><img src="gallery-1.jpg" alt="Team Photo 1"></div>
+              <div class="gallery-item small-item"><img src="gallery-3.jpg" alt="Team Photo 3"></div>
+            </div>
+            <div class="gallery-item main-item"><img src="{{asset('assets/photo_team/foto-team.png')}}"
+                alt="Engagement Photo"></div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img src="gallery-2.jpg" alt="Team Photo 2"></div>
+              <div class="gallery-item small-item"><img src="gallery-4.jpg" alt="Team Photo 4"></div>
             </div>
           </div>
-            @endforeach
-        </div>
-      </div>
-      {{-- end office section --}}
-
-      {{-- wedding section --}}
-      <div class="tab-content" id="wedding">
-         <div class="role-filters-container">
-            <button class="arrow-btn left">&lsaquo;</button>
-              <div class="role-filters">
-                <button class="role-tab" data-role="Event Coordinator">Event Coordinator</button>
-                <button class="role-tab" data-role="Event Supervisor">Event Supervisor</button>
-                <button  class="role-tab" data-role="Facility Support">Facility Support</button>
-                <button  class="role-tab" data-role="VIP Management">VIP Management</button>
-                <button  class="role-tab" data-role="Food And Beverage">Food And Beverage</button>
-                <button  class="role-tab" data-role="Front Line">Front Line</button>
-                <button class="role-tab" data-role="Photograp">Photograph</button>
-              </div>
-            <button class="arrow-btn right">&rsaquo;</button>
-         </div>
-         <div class="grid grid-cols-3 w-full">
-           @foreach ( $teamWeddingOrganizer as $member)
-            <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
-                <div class="card-image-container">
-                    <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
-                </div>
-                <div class="info">
-                    <span class="member-name ">{{ $member['name'] }}</span>
-                    <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
-                    <p class="member-aka">A.K.A {{$member['aka'] }}</p>
-                </div>
+          <div class="gallery-slide">
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFC0CB/000000?Text=Foto+5" alt="Team Photo 5"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/ADD8E6/000000?Text=Foto+7" alt="Team Photo 7"></div>
             </div>
-          @endforeach
-         </div>
-       </div>
-      {{-- end wedding section --}}
+            <div class="gallery-item main-item"><img
+                src="https://via.placeholder.com/656x450/90EE90/000000?Text=Foto+Utama+2" alt="Main Photo 2"></div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFD700/000000?Text=Foto+6" alt="Team Photo 6"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <div class="side-images">
+              <div class="gallery-item small-item">
+                <img src="https://via.placeholder.com/268x195/DDA0DD/000000?Text=Foto+9" alt="Team Photo 9" />
+              </div>
+              <div class="gallery-item small-item">
+                <img src="https://via.placeholder.com/268x195/87CEEB/000000?Text=Foto+11" alt="Team Photo 11">
+              </div>
+            </div>
+            <div class="gallery-item main-item">
+              <img src="https://via.placeholder.com/656x450/F0E68C/000000?Text=Foto+Utama+3" alt="Main Photo 3">
+            </div>
+            <div class="side-images">
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/E0FFFF/000000?Text=Foto+10" alt="Team Photo 10"></div>
+              <div class="gallery-item small-item"><img
+                  src="https://via.placeholder.com/268x195/FAFAD2/000000?Text=Foto+12" alt="Team Photo 12"></div>
+            </div>
+          </div>
+        </div>
 
-     </section>
-
-     <hr class="section-divider">
-
-     <section class="gallery-section">
-       <h2>
-         <span class="orange-text">Signature Moments Crafted</span><br>
-         by <span class="orange-text">Our Wedding Dream Team</span>
-       </h2>
-
-       <div class="gallery-slider">
-         <div class="gallery-slide active">
-           <div class="side-images">
-             <div class="gallery-item small-item"><img src="gallery-1.jpg" alt="Team Photo 1"></div>
-             <div class="gallery-item small-item"><img src="gallery-3.jpg" alt="Team Photo 3"></div>
-           </div>
-           <div class="gallery-item main-item"><img src="{{asset('assets/photo_team/foto-team.png')}}"
-               alt="Engagement Photo"></div>
-           <div class="side-images">
-             <div class="gallery-item small-item"><img src="gallery-2.jpg" alt="Team Photo 2"></div>
-             <div class="gallery-item small-item"><img src="gallery-4.jpg" alt="Team Photo 4"></div>
-           </div>
-         </div>
-         <div class="gallery-slide">
-           <div class="side-images">
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/FFC0CB/000000?Text=Foto+5" alt="Team Photo 5"></div>
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/ADD8E6/000000?Text=Foto+7" alt="Team Photo 7"></div>
-           </div>
-           <div class="gallery-item main-item"><img
-               src="https://via.placeholder.com/656x450/90EE90/000000?Text=Foto+Utama+2" alt="Main Photo 2"></div>
-           <div class="side-images">
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/FFD700/000000?Text=Foto+6" alt="Team Photo 6"></div>
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
-           </div>
-         </div>
-         <div class="gallery-slide">
-           <div class="side-images">
-             <div class="gallery-item small-item">
-               <img src="https://via.placeholder.com/268x195/DDA0DD/000000?Text=Foto+9" alt="Team Photo 9" />
-             </div>
-             <div class="gallery-item small-item">
-               <img src="https://via.placeholder.com/268x195/87CEEB/000000?Text=Foto+11" alt="Team Photo 11">
-             </div>
-           </div>
-           <div class="gallery-item main-item">
-             <img src="https://via.placeholder.com/656x450/F0E68C/000000?Text=Foto+Utama+3" alt="Main Photo 3"></div>
-           <div class="side-images">
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/E0FFFF/000000?Text=Foto+10" alt="Team Photo 10"></div>
-             <div class="gallery-item small-item"><img
-                 src="https://via.placeholder.com/268x195/FAFAD2/000000?Text=Foto+12" alt="Team Photo 12"></div>
-           </div>
-         </div>
-       </div>
-
-       <div class="slider-dots">
-         <span class="active"></span>
-         <span></span>
-         <span></span>
-       </div>
-     </section>
-   </div>
- </main>
- @endsection
+        <div class="slider-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+    </div>
+  </main>
+@endsection
 
 @push('before-scripts')
   <script>
@@ -757,61 +762,61 @@
     });
   </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const tabs = document.querySelectorAll(".tab-btn")
-    const contents = document.querySelectorAll(".tab-content")
-    const tabsRole = document.querySelectorAll(".role-tab")
-    const cards = document.querySelectorAll(".wedding-card")
-    // Definisikan container scroll di sini agar bisa diakses
-    const filtersContainer = document.querySelector('.role-filters'); // <-- BARIS BARU (Pindah dari blok script atas jika ada)
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabs = document.querySelectorAll(".tab-btn")
+      const contents = document.querySelectorAll(".tab-content")
+      const tabsRole = document.querySelectorAll(".role-tab")
+      const cards = document.querySelectorAll(".wedding-card")
+      // Definisikan container scroll di sini agar bisa diakses
+      const filtersContainer = document.querySelector('.role-filters'); // <-- BARIS BARU (Pindah dari blok script atas jika ada)
 
 
-    tabs.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        tabs.forEach(b => b.classList.remove('active'))
-        contents.forEach(content => content.classList.add("hidden"))
+      tabs.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          tabs.forEach(b => b.classList.remove('active'))
+          contents.forEach(content => content.classList.add("hidden"))
 
-        btn.classList.add("active")
-        const target = btn.dataset.target
-        console.log(target)
-        document.getElementById(target).classList.remove("hidden")
+          btn.classList.add("active")
+          const target = btn.dataset.target
+          console.log(target)
+          document.getElementById(target).classList.remove("hidden")
+        })
       })
-    })
 
-    tabsRole.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabsRole.forEach(B => B.classList.remove("active"))
-        cards.forEach(card => card.classList.remove("hidden"))
-        btn.classList.add("active")
-        const role = btn.dataset.role
-        cards.forEach(card => {
-          if (card.dataset.role === role) {
-             card.classList.remove("hidden")
-          } else {
+      tabsRole.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabsRole.forEach(B => B.classList.remove("active"))
+          cards.forEach(card => card.classList.remove("hidden"))
+          btn.classList.add("active")
+          const role = btn.dataset.role
+          cards.forEach(card => {
+            if (card.dataset.role === role) {
+              card.classList.remove("hidden")
+            } else {
               card.classList.add("hidden")
-          }
-        } )
-        console.log("test")
+            }
+          })
+          console.log("test")
 
-        // === LOGIKA AUTO-SCROLL SAAT TOMBOL DI-KLIK ===
-        // 1. Hitung posisi untuk menengahkan tombol
-        const containerWidth = filtersContainer.clientWidth;
-        const buttonWidth = btn.offsetWidth;
-        const buttonLeft = btn.offsetLeft; // Jarak tombol dari sisi kiri container
+          // === LOGIKA AUTO-SCROLL SAAT TOMBOL DI-KLIK ===
+          // 1. Hitung posisi untuk menengahkan tombol
+          const containerWidth = filtersContainer.clientWidth;
+          const buttonWidth = btn.offsetWidth;
+          const buttonLeft = btn.offsetLeft; // Jarak tombol dari sisi kiri container
 
-        // 2. Tentukan target scroll: (Posisi tombol) - (Setengah lebar container) + (Setengah lebar tombol)
-        const targetScrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2); // <-- BARIS BARU
+          // 2. Tentukan target scroll: (Posisi tombol) - (Setengah lebar container) + (Setengah lebar tombol)
+          const targetScrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2); // <-- BARIS BARU
 
-        // 3. Lakukan scroll dengan mulus (smooth)
-        filtersContainer.scrollTo({ // <-- BARIS BARU
-          left: targetScrollLeft, // <-- BARIS BARU
-          behavior: 'smooth' // <-- BARIS BARU
-        }); // <-- BARIS BARU
-        // ===============================================
+          // 3. Lakukan scroll dengan mulus (smooth)
+          filtersContainer.scrollTo({ // <-- BARIS BARU
+            left: targetScrollLeft, // <-- BARIS BARU
+            behavior: 'smooth' // <-- BARIS BARU
+          }); // <-- BARIS BARU
+          // ===============================================
 
+        })
       })
     })
-  })
-</script>
+  </script>
 @endpush

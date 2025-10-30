@@ -106,65 +106,67 @@
               <div class="entryarea-float w-full">
                 <input type="text" name="name" placeholder=" " required
                   class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-  
+
                 <div class="labelline-float text-lg text-black/70">
                   Fullname
                 </div>
               </div>
               <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
-           
-             
+
+
             <div>
-                <div class="entryarea-float w-full mt-6">
-                  <input type="email" name="email" placeholder=" " required
-                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-    
-                  <div class="labelline-float text-base md:text-lg text-black/70">
-                    Email
-                  </div>
+              <div class="entryarea-float w-full mt-6">
+                <input type="email" name="email" placeholder=" " required
+                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-base md:text-lg text-black/70">
+                  Email
                 </div>
-                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
+              </div>
+              <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <div>
-                <div class="entryarea-float w-full mt-6">
-                  <input type="text" name="phone_number" placeholder=" " required
-                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-    
-                  <div class="labelline-float text-base md:text-lg text-black/70">
-                    Phone Number
-                  </div>
+              <div class="entryarea-float w-full mt-6">
+                <input type="text" name="phone_number" placeholder=" " required
+                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-base md:text-lg text-black/70">
+                  Phone Number
                 </div>
-                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+              </div>
+              <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
 
-              <div class="container-field">
-                <div class="entryarea-float w-full">
-                  <input type="password" name="password" placeholder=" " required
-                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-  
-                  <div class="labelline-float text-base md:text-lg text-black/70">
-                    Password
-                  </div>
+              <div class="entryarea-float w-full mt-6 relative">
+                <input type="password" name="password" id="password" placeholder=" " required
+                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-base md:text-lg text-black/70">
+                  Password
                 </div>
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+                <!-- 👁️ Icon Mata -->
+                <i id="togglePassword"
+                  class="fa-solid fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer z-20"></i>
               </div>
-              
-              <div class="container-field">
-                <div class="entryarea-float w-full">
-                  <input type="password" name="password_confirmation" placeholder=" " required
-                    class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-  
-                  <div class="labelline-float text-lg md:line-clamp-1 lg:text-lg text-black/70">
-                    Confirm Password
-                  </div>
+
+              <div class="entryarea-float w-full mt-6 relative">
+                <input type="password" name="password" id="password" placeholder=" " required
+                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+
+                <div class="labelline-float text-base md:text-lg text-black/70">
+                  Confirm Password
                 </div>
-                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+                <!-- 👁️ Icon Mata -->
+                <i id="togglePassword"
+                  class="fa-solid fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer z-20"></i>
               </div>
-             
+
             </div>
 
             <button type="submit"
@@ -180,4 +182,17 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+  </script>
 @endsection
