@@ -76,8 +76,7 @@
         <div class="absolute top-[-20px] right-[20px] h-40 rounded-full ">
           <a href="/"
             class="flex items-center gap-5 border-2 border-[#FF7043]/80 w-fit flex-shrink-0 rounded-full px-3 py-1 group text-[#FF7043] hover:text-white hover:bg-[#FF7043] font-semibold transition-all duration-300 mt-10">
-            <i
-              class="fa-solid fa-house w-fit h-auto rounded-full flex-shrink-0 p-2 transition duration-300"></i>
+            <i class="fa-solid fa-house w-fit h-auto rounded-full flex-shrink-0 p-2 transition duration-300"></i>
           </a>
         </div>
         <div class="absolute bottom-[-50px] left-[-50px] w-40 h-40 rounded-full bg-pink-300/40"></div>
@@ -99,36 +98,43 @@
           </p>
         </div>
 
-      
 
-        <form method="POST" action="{{ route("login") }}" >
+
+        <form method="POST" action="{{ route("login") }}">
           @csrf
           <div class="md:max-w-md mx-auto mt-5 md:mt-8">
 
             @if($errors->any())
-                @foreach($errors->all() as $e)
-                  <div class="w-full h-fit py-2 mb-4  bg-red-400/50 border border-red-500 rounded-lg text-center  text-red-500 mx-auto">{{ $e }}</div>
-                @endforeach
-             @endif
+              @foreach($errors->all() as $e)
+                <div
+                  class="w-full h-fit py-2 mb-4  bg-red-400/50 border border-red-500 rounded-lg text-center  text-red-500 mx-auto">
+                  {{ $e }}
+                </div>
+              @endforeach
+            @endif
 
             <div class="entryarea-float w-full">
               <input type="email" name="email" placeholder="" value="{{ old('email') }}" required
                 class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
               <div class="labelline-float text-lg text-black/70">
-                 Email
+                Email
               </div>
             </div>
-            <div class="entryarea-float w-full mt-6">
-              <input type="password" name="password" placeholder=" " required
+            <div class="entryarea-float w-full mt-6 relative">
+              <input type="password" name="password" id="password" placeholder=" " required
                 class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
               <div class="labelline-float text-base md:text-lg text-black/70">
                 Password
               </div>
+
+              <!-- 👁️ Icon Mata -->
+              <i id="togglePassword"
+                class="fa-solid fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer z-20"></i>
             </div>
 
-            
+
 
             <button type="submit"
               class="bg-[#FF7043] hover:bg-opacity-90 transition text-white font-semibold text-base md:text-lg w-full mt-8 mb-5 py-3 rounded-xl shadow-lg">
@@ -145,4 +151,17 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+  </script>
 @endsection

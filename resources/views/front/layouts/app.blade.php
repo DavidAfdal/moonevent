@@ -46,6 +46,9 @@
     @yield('content')
     @stack('before-scripts')
     @stack('after-scripts')
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history']))
+        <x-footer />
+    @endif
 </body>
 
 </html>
