@@ -21,6 +21,7 @@ class MCResource extends Resource
 {
     protected static ?string $model = MC::class;
 
+    protected static ?string $navigationLabel = 'MC';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Microphone;
      protected static string | UnitEnum | null $navigationGroup = 'Sub Menu';
 

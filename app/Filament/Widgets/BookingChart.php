@@ -11,7 +11,7 @@ class BookingChart extends ChartWidget
 {
     protected ?string $heading = 'Booking Chart';
     protected ?int $maxheight = 800;
-    protected string|int|array $columnSpan = 8;
+    protected string|int|array $columnSpan = 6;
     
        // 🎚️ Dropdown filter di kanan atas chart
     protected function getFilters(): ?array

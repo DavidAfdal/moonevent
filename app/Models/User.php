@@ -42,6 +42,12 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(PackageBooking::class);
     }
 
+    public function getRoleNameAttribute()
+    {
+        return $this->getRoleNames()->first() ?? '-';
+    }
+    
+
     /**
      * Get the attributes that should be cast.
      *
@@ -54,6 +60,7 @@ class User extends Authenticatable implements FilamentUser
             'password' => 'hashed',
         ];
     }
+    
 
     public function canAccessPanel(Panel $panel): bool
     {

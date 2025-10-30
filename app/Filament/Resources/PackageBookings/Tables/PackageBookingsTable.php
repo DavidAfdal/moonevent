@@ -28,7 +28,7 @@ class PackageBookingsTable
                     ->sortable(),
                 TextColumn::make('tour.name')
                     ->label("Package")
-                    ->sortable(),
+                    ->badge(),
                 TextColumn::make('total_amount')
                     ->label("  Total")
                     ->formatStateUsing(fn ($state) => 'Rp ' . number_format($state, 0, ',', '.'))
