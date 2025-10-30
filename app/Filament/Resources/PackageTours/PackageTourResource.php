@@ -15,19 +15,22 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class PackageTourResource extends Resource
 {
     protected static ?string $model = PackageTour::class;
 
-     protected static ?string $navigationLabel = 'Package Wedding';
+    protected static ?string $navigationLabel = 'Wedding List';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static string | UnitEnum | null $navigationGroup = 'Main Menu';
 
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function getPluralLabel(): ?string
     {
-        return 'Package Wedding';
+        return 'Wedding';
     }
 
     public static function form(Schema $schema): Schema

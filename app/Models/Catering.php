@@ -13,7 +13,6 @@ class Catering extends Model
         'catering_name',
         'icon',
         'slug',
-        
     ];
 
     public function bookings(){

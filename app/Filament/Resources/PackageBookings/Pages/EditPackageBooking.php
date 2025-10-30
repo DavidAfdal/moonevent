@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\PackageBookings\Pages;
 
 use App\Filament\Resources\PackageBookings\PackageBookingResource;
-use Filament\Actions\DeleteAction;
+use App\Models\PackageBooking;
+use Filament\Actions\Action;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
-use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditPackageBooking extends EditRecord
@@ -21,10 +21,24 @@ class EditPackageBooking extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
-            DeleteAction::make(),
             ForceDeleteAction::make(),
             RestoreAction::make(),
+            Action::make('approve')
+                ->color("success")
+                ->action(function (array $data, PackageBooking $record) {
+                    $record->update([
+                        'status' => 'success'
+                    ]);
+                })
+                ->successNotificationTitle('Approved Booking'),
+            Action::make('rejected')
+                ->color("danger")
+                 ->action(function (array $data, PackageBooking $record) {
+                    $record->update([
+                        'status' => 'rejected'
+                    ]);
+                })
+                ->successNotificationTitle('Rejected Booking'),
         ];
     }
 }

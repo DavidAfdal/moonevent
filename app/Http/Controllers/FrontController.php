@@ -100,7 +100,9 @@ class FrontController extends Controller
         }
 
         $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
-        return view('front.wedding_list', compact('weddings'));
+        $categories = Category::orderByDesc('id')->get();
+        
+        return view('front.wedding_list', compact('weddings', 'categories'));
     }
 
  

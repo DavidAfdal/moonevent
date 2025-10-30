@@ -8,23 +8,65 @@
           Moon Event Organizer
         </div>
       </div>
-      <div class="flex gap-8 items-center relative">
-        <a href="{{route('front.index')}}">
-          Home
-        </a>
-        <a href="">
-          About
-        </a>
-        <a href="{{route('front.team')}}">
-          Team
-        </a>
-        <a href="">
-          Service
-        </a>
-        <a href="{{route('front.wedding_list')}}">
-          Reservasi
-        </a>
-        <span class="absolute top-0 right-[7.9rem] h-full w-[2px] bg-orange-500 transform translate-x-full"></span>
-        <a href="{{route('login')}}" class="px-8 py-3 bg-[#FF7043] rounded-lg text-white font-semibold">Login</a>
+      <div class="flex gap-4 items-center">
+
+         <div class="flex gap-8 items-center">
+           <a href="{{route('front.index')}}">
+             Home
+           </a>
+           <a href="{{ route('front.about') }}">
+             About
+           </a>
+           <a href="{{route('front.team')}}">
+             Team
+           </a>
+           <a href="{{route('front.services') }}">
+             Service
+           </a>
+           <a href="{{route('front.wedding_list')}}">
+             Reservasi
+           </a>
+         </div>
+
+        <div class="flex h-fit">
+          <span class="grow w-0.5 bg-orange-500 mr-4"></span>
+          @auth
+                  <div class="hidden sm:flex sm:items-center">
+                  <x-dropdown align="right" width="48">
+                      <x-slot name="trigger">
+                          <button class="inline-flex size-8 items-center border border-transparent text-sm leading-4 font-medium rounded-full text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                              
+                          </button>
+                      </x-slot>
+  
+                      <x-slot name="content">
+                          <x-dropdown-link :href="route('profile.edit')">
+                              {{ __('Profile') }}
+                          </x-dropdown-link>
+
+                          <x-dropdown-link :href="route('dashboard.bookings')">
+                              {{ __('My Booking') }}
+                          </x-dropdown-link>
+  
+                          <!-- Authentication -->
+                          <form method="POST" action="{{ route('logout') }}">
+                              @csrf
+  
+                              <x-dropdown-link :href="route('logout')"
+                                      onclick="event.preventDefault();
+                                                  this.closest('form').submit();">
+                                  {{ __('Log Out') }}
+                              </x-dropdown-link>
+                          </form>
+                      </x-slot>
+                  </x-dropdown>
+              </div>
+          @endauth
+          
+          @guest
+            <a href="{{route('login')}}" class="px-8 py-3 bg-[#FF7043] rounded-lg text-white font-semibold">Login</a>
+          @endguest
+          
+        </div>
       </div>
 </nav>

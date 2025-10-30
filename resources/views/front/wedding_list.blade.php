@@ -9,7 +9,7 @@
             <h2 class="text-2xl font-semibold">
                 Our Beautiful Wedding Moments
             </h2>
-            <x-filter-tab-wedding/>
+            <x-filter-tab-wedding :categories="$categories"/>
         </div>
 
         <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 mt-8">

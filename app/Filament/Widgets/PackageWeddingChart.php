@@ -10,7 +10,7 @@ class PackageWeddingChart extends ChartWidget
 {
     protected ?string $heading = 'Package Wedding Chart';
      protected ?int $height = 300;
-    protected string|int|array $columnSpan = 1;
+    protected string|int|array $columnSpan = 4;
 
     protected function getData(): array
     {

@@ -12,12 +12,10 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [FrontController::class, 'index2'])->name('front.index');
 Route::get('/about', [FrontController::class, 'about'])->name('front.about');
 Route::get('/services', [FrontController::class, 'services'])->name('front.services');
-Route::get('/success', [FrontController::class, 'success'])->name('front.success');
-Route::get('/history', [FrontController::class, 'history'])->name('front.history');
+
 Route::get('/team',[FrontController::class,'team'])->name('front.team');
 Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
-Route::post('/test', [FrontController::class, 'book_store_test'])->name('front.test');
 Route::get('/wedding-list', [FrontController::class, 'wedding_list'])->name('front.wedding_list');  
  
 
@@ -63,43 +61,43 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/book-finish', [FrontController::class, 'book_finish'])
             ->name('front.book_finish');
-
-            Route::get('/reservation/check', [FrontController::class, 'checkReservation'])
+        Route::get('/reservation/check', [FrontController::class, 'success'])
             ->name('front.reservation.check');
+        // Route::get('/reservation/check', [FrontController::class, 'checkReservation'])
+        //     ->name('front.reservation.check');
 
         });
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
                 Route::middleware('can:view order')->group(function () {
-                Route::get('my-booking', [DashboardController::class, 'my_booking'])
-                    ->name('bookings');
+                Route::get('/my-bookings', [FrontController::class, 'history'])->name('bookings');
                 Route::get('/my-bookings/details/{packageBooking}', [DashboardController::class, 'my_bookings_details'])
                     ->name('bookings.details');
             });
         });
 
-    Route::prefix('admin')->name('admin.')->group(function(){
+    // Route::prefix('admin')->name('admin.')->group(function(){
 
-        Route::middleware('can:manage categories')->group(function () {
-        Route::resource('categories', CategoryController::class);
-        });
-
-
-        Route::middleware('can:manage packages')->group(function () {
-            Route::resource('package_tours', PackageTourController::class);
-            });
-
-        Route::middleware('can:manage package banks')->group(function () {
-            Route::resource('package_banks', PackageBankController::class);
-            });
+    //     Route::middleware('can:manage categories')->group(function () {
+    //     Route::resource('categories', CategoryController::class);
+    //     });
 
 
-        Route::middleware('can:manage transactions')->group(function () {
-            Route::resource('package_bookings', PackageBookingController::class);
-            });
-            Route::put('/declined/{packageBooking}', [PackageBookingController::class, 'declined'])
-        ->name('package_bookings.decline');
-    });
+    //     Route::middleware('can:manage packages')->group(function () {
+    //         Route::resource('package_tours', PackageTourController::class);
+    //         });
+
+    //     Route::middleware('can:manage package banks')->group(function () {
+    //         Route::resource('package_banks', PackageBankController::class);
+    //         });
+
+
+    //     Route::middleware('can:manage transactions')->group(function () {
+    //         Route::resource('package_bookings', PackageBookingController::class);
+    //         });
+    //         Route::put('/declined/{packageBooking}', [PackageBookingController::class, 'declined'])
+    //     ->name('package_bookings.decline');
+    // });
 });
 
 

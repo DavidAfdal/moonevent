@@ -99,18 +99,28 @@
           </p>
         </div>
 
-        <form action="">
+      
+
+        <form method="POST" action="{{ route("login") }}" >
+          @csrf
           <div class="md:max-w-md mx-auto mt-5 md:mt-8">
+
+            @if($errors->any())
+                @foreach($errors->all() as $e)
+                  <div class="w-full h-fit py-2 mb-4  bg-red-400/50 border border-red-500 rounded-lg text-center  text-red-500 mx-auto">{{ $e }}</div>
+                @endforeach
+             @endif
+
             <div class="entryarea-float w-full">
-              <input type="text" name="user_name" placeholder=" " required
+              <input type="email" name="email" placeholder="" value="{{ old('email') }}" required
                 class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
               <div class="labelline-float text-lg text-black/70">
-                Username or Email
+                 Email
               </div>
             </div>
             <div class="entryarea-float w-full mt-6">
-              <input type="text" name="user_name" placeholder=" " required
+              <input type="password" name="password" placeholder=" " required
                 class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
               <div class="labelline-float text-base md:text-lg text-black/70">
@@ -118,10 +128,14 @@
               </div>
             </div>
 
+            
+
             <button type="submit"
               class="bg-[#FF7043] hover:bg-opacity-90 transition text-white font-semibold text-base md:text-lg w-full mt-8 mb-5 py-3 rounded-xl shadow-lg">
               LOG IN
             </button>
+
+
 
             <p class="text-black/70 text-center text-sm">
               Don't Have an account ? <a href="/register" class="text-[#FF7043] font-bold hover:underline">Register</a>

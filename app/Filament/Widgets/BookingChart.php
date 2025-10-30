@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\DB;
 class BookingChart extends ChartWidget
 {
     protected ?string $heading = 'Booking Chart';
-    protected ?int $height = 300;
-    protected string|int|array $columnSpan = 2;
+    protected ?int $maxheight = 800;
+    protected string|int|array $columnSpan = 8;
     
        // 🎚️ Dropdown filter di kanan atas chart
     protected function getFilters(): ?array
