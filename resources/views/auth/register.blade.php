@@ -98,41 +98,73 @@
           </p>
         </div>
 
-        <form action="">
+        <form method="POST" action="{{ route('register') }}">
+          @csrf
           <div class="md:max-w-lg mx-auto mt-5 md:mt-8">
-            <div class="entryarea-float w-full">
-              <input type="text" name="user_name" placeholder=" " required
-                class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
-              <div class="labelline-float text-lg text-black/70">
-                Fullname
-              </div>
-            </div>
-            <div class="entryarea-float w-full mt-6">
-              <input type="email" name="user_name" placeholder=" " required
-                class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-
-              <div class="labelline-float text-base md:text-lg text-black/70">
-                Email
-              </div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div>
               <div class="entryarea-float w-full">
-                <input type="password" name="user_name" placeholder=" " required
+                <input type="text" name="name" placeholder=" " required
                   class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-
-                <div class="labelline-float text-lg md:line-clamp-1 lg:text-lg text-black/70">
-                  Confirm Password
+  
+                <div class="labelline-float text-lg text-black/70">
+                  Fullname
                 </div>
               </div>
-              <div class="entryarea-float w-full">
-                <input type="password" name="user_name" placeholder=" " required
-                  class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
-
-                <div class="labelline-float text-base md:text-lg text-black/70">
-                  Password
+              <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+           
+             
+            <div>
+                <div class="entryarea-float w-full mt-6">
+                  <input type="email" name="email" placeholder=" " required
+                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+    
+                  <div class="labelline-float text-base md:text-lg text-black/70">
+                    Email
+                  </div>
                 </div>
+                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
+
+            <div>
+                <div class="entryarea-float w-full mt-6">
+                  <input type="text" name="phone_number" placeholder=" " required
+                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+    
+                  <div class="labelline-float text-base md:text-lg text-black/70">
+                    Phone Number
+                  </div>
+                </div>
+                <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+
+              <div class="container-field">
+                <div class="entryarea-float w-full">
+                  <input type="password" name="password" placeholder=" " required
+                    class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+  
+                  <div class="labelline-float text-base md:text-lg text-black/70">
+                    Password
+                  </div>
+                </div>
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
               </div>
+              
+              <div class="container-field">
+                <div class="entryarea-float w-full">
+                  <input type="password" name="password_confirmation" placeholder=" " required
+                    class="input-float absolute w-full text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
+  
+                  <div class="labelline-float text-lg md:line-clamp-1 lg:text-lg text-black/70">
+                    Confirm Password
+                  </div>
+                </div>
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+              </div>
+             
             </div>
 
             <button type="submit"

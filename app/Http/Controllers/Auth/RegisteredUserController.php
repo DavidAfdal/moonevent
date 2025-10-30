@@ -32,18 +32,15 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone_number' => ['required', 'string', 'max:20'],
-            'avatar' => ['required', 'image', 'mimes:png,jpg,jpeg'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        if($request->hasFile('avatar')){
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
-        }
+
         $user = User::create([
             'name' => $request->name,
+            'avatar'=> 'image/default-avatar.png',
             'phone_number' => $request->phone_number,
-            'avatar' => $avatarPath,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
@@ -54,6 +51,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('front.index', absolute: false));
     }
 }

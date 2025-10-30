@@ -17,15 +17,30 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class PackageBookingResource extends Resource
 {
     protected static ?string $model = PackageBooking::class;
     protected static ?string $navigationLabel = 'Bookings';
+    protected static string | UnitEnum| null $navigationGroup = 'Main Menu';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::CalendarDays;
 
-     public static function getRecordTitle($record): ?string
+
+    public static function getNavigationBadge(): ?string
+    {
+       return static::getModel()::where('status', '=', 'pending')->count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::where('status', '=', 'pending')->count() > 10 ? 'warning' : 'primary';
+    }
+    
+
+
+    public static function getRecordTitle($record): ?string
     {
         return 'Booking ' . ($record->customer?->name ?? 'Unknown');
     }

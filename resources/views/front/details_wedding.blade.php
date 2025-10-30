@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('content')
-<section class="max-w-[1440px] mx-auto px-4 py-10" >
+<section class="max-w-[1440px] mx-auto px-4 py-10 mt-20" >
   <div class="grid md:grid-cols-2 gap-6" x-data="{ tab: 'crew' }">
     <div>
         <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">

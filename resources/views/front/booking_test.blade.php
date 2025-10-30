@@ -2,8 +2,13 @@
 
 @section('content')
 <section class="bg-[#F5F5F5]">
-    <div class="max-w-[1440px] mx-auto py-12 px-4 ">
+    <div class="max-w-[1440px] mx-auto py-12 px-4 mt-20">
         <h2 class="text-2xl font-bold mb-8">Secure Your Wedding Organizer Today – Fast And Hassle-Free!</h2>
+         @if($errors->any())
+                @foreach($errors->all() as $e)
+                  <div class="w-full h-fit py-2 mb-4  bg-red-400/50 border border-red-500 rounded-lg text-center  text-red-500 mx-auto">{{ $e }}</div>
+                @endforeach
+        @endif
         <form method="POST" action='{{route('front.book.store', $package_tours)}}' class="grid grid-cols-1  lg:grid-cols-3 gap-8">
             @csrf
             {{-- Left Sidebar --}}
