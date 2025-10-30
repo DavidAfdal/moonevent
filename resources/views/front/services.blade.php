@@ -11,53 +11,53 @@
   @php
     $servicesWedding = [
       [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
+        'icon' => 'fa-solid fa-calendar-check',
+        'title' => 'Wedding Planning & Coordination',
+        'desc' => 'From concept to celebration, we organize every detail for a smooth and stress-free wedding day.'
+      ],
+      [
+        'icon' => 'fa-solid fa-paintbrush',
+        'title' => 'Design & Decoration',
+        'desc' => 'Transforming your vision into reality with beautiful themes, floral designs, and elegant styling.'
+      ],
+      [
+        'icon' => 'fa-solid fa-handshake',
+        'title' => 'Venue & Vendor Management',
+        'desc' => 'Connecting you with trusted venues and professional vendors suited to your preferences and budget.'
+      ],
+      [
+        'icon' => 'fa-solid fa-camera-retro',
+        'title' => 'Photography & Videography',
+        'desc' => 'Capturing every beautiful moment so your love story lasts forever.'
+      ],
+      [
+        'icon' => 'fa-solid fa-magic',
+        'title' => 'Makeup & Styling',
         'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
       ],
       [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
-        'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
-      ],
-      [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
-        'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
-      ],
-      [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
-        'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
-      ],
-      [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
-        'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
-      ],
-      [
-        'icon' => 'fa-regular fa-bell',
-        'title' => 'Customs Brokerage',
-        'desc' => 'Navigating customs with ease, ensuring your goods clear borders swiftly and compliantly.'
+        'icon' => 'fa-solid fa-music',
+        'title' => 'Entertainment & Lighting',
+        'desc' => 'Adding joy and atmosphere through music, performances, and stunning lighting arrangements.'
       ],
     ];
 
     $portofolio = [
       [
-        'number' => '25',
-        'title' => 'Years of Industry Experience',
+        'number' => '15+',
+        'title' => 'Years of Wedding Experience',
       ],
       [
-        'number' => '300+',
-        'title' => 'Employees for Your Success',
+        'number' => '50+',
+        'title' => 'Professional Planners & Designers',
       ],
       [
-        'number' => '500+',
-        'title' => 'Satisfied Clients Worldwide',
+        'number' => '90+',
+        'title' => 'Happy Couples',
       ],
       [
         'number' => '99%',
-        'title' => 'On-Time Delivery',
+        'title' => 'Client Satisfaction Rate',
       ],
     ];
 
@@ -99,13 +99,13 @@
             Wedding Services
           </h2>
           <p class="max-w-[500px] md:max-w-[550px] lg:max-w-[760px] text-base text-white">
-            Our comprehensive logistics solution is designed to optimize your supply chain and enhance your business
-            operations.
+            We provide end-to-end wedding planning and design services to bring your vision to life with precision and
+            care.
           </p>
           <div class="flex items-center gap-3 mt-8">
             <span class="bg-[#FF7043] w-4 h-4 rounded-full flex-shrink-0"></span>
             <p class="text-white text-base font-medium">
-              CUSTOM SOLUTIONS FOR EVERY NEED
+              Personalized Solutions for Every Couple
             </p>
           </div>
         </div>
@@ -123,11 +123,10 @@
             </p>
           </div>
           <h1 class=" text-2xl md:text-3xl lg:text-5xl/snug font-semibold mt-5 md:mt-8">
-            Join a Growing Community of Business and Logistics Partners
+            Connecting Couples with the Best in the Wedding Industry
           </h1>
           <p class="text-black/70 text-sm md:text-base max-w-[550px] mt-5">
-            Join a dynamic community of businesses and logistics partners,
-            optimizing supply chains and driving growth.
+            Be part of a passionate community that celebrates love, creativity, and unforgettable wedding experiences.
           </p>
           <a href=""
             class="flex items-center gap-5 border border-black max-w-[160px] rounded-full px-3 py-2 group font-semibold transition-all duration-300 mt-10">
@@ -159,16 +158,15 @@
         <div class="flex justify-center items-center gap-3 mt-8">
           <span class="bg-[#FF7043] w-4 h-4 rounded-full flex-shrink-0"></span>
           <p class="text-black text-base font-medium">
-            LOGISTIC SERVICES
+            WEDDING SERVICES
           </p>
         </div>
         <h1 class="text-3xl/snug md:text-4xl/snug lg:text-5xl/snug font-semibold mt-5 md:mt-5 lg:mt-8">
-          Comprehensive Logix Services Tailored to
-          Meet Your Unique Needs
+          Personalized Wedding Experiences for Every Couple
         </h1>
         <p class="text-black/70 text-sm md:text-base mt-5">
-          Our vision is to be the leading logistics partner, known for excellence in supply chain management, innovation,
-          and customer satisfaction, while exceeding expectations and driving success for our clients globally.
+          We aim to craft weddings that reflect your story — combining creativity, precision, and heartfelt care to make
+          your special day truly unforgettable.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20">
@@ -200,16 +198,15 @@
           </p>
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5">
-          Our Proven Process for Excellence
+          Our Proven Process for a Perfect Celebration
         </h1>
       </div>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-2 md:gap-14 lg:gap-8">
         <div class="">
           <p class="text-black/70 text-sm md:text-base mb-10 md:mb-20">
-            Our process is simple yet effective. Every project is different, but
-            we've seen thousands of them since we first launched. Our
-            experience is your asset.
+            Our process is simple yet meaningful. Every love story is unique, and we ensure your wedding reflects your
+            personality and dreams beautifully.
           </p>
           <img
             src="https://images.unsplash.com/photo-1761116362962-3cd736532ea2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2VkZGluZ3xlbnwwfDB8Mnx8fDI%3D&auto=format&fit=crop&q=60&w=500"
@@ -219,108 +216,43 @@
           <div class="border-y border-[#FF7043] flex items-start py-8 gap-8">
             <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">01</h1>
             <div class="">
-              <h2 class="text-xl md:text-2xl mb-3 font-semibold">In-Depth Consultation</h2>
+              <h2 class="text-xl md:text-2xl mb-3 font-semibold">Initial Consultation</h2>
               <p class="text-black/70 text-sm md:text-base max-w-[350px] md:w-full">
-                Carefully assessing your logistics needs to
-                ensure tailored and effective solutions.
+                Understanding your love story, style, and vision to design a wedding that’s uniquely yours.
               </p>
             </div>
           </div>
-          <div class=" flex items-start py-8 gap-8">
-            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">01</h1>
+          <div class=" flex items-start gap-8">
+            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">02</h1>
             <div class="">
-              <h2 class="text-xl md:text-2xl mb-3 font-semibold">In-Depth Consultation</h2>
+              <h2 class="text-xl md:text-2xl mb-3 font-semibold">Concept & Planning</h2>
               <p class="text-black/70 text-sm md:text-base max-w-[350px] md:w-full">
-                Carefully assessing your logistics needs to
-                ensure tailored and effective solutions.
+                Creating a detailed plan that captures your dream theme, timeline, and every special moment.
               </p>
             </div>
           </div>
-          <div class=" flex items-start py-8 gap-8">
-            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">01</h1>
+          <div class=" flex items-start gap-8">
+            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">03</h1>
             <div class="">
-              <h2 class="text-xl md:text-2xl mb-3 font-semibold">In-Depth Consultation</h2>
+              <h2 class="text-xl md:text-2xl mb-3 font-semibold">Design & Preparation</h2>
               <p class="text-black/70 text-sm md:text-base max-w-[350px] md:w-full">
-                Carefully assessing your logistics needs to
-                ensure tailored and effective solutions.
+                Coordinating vendors, decorations, and styling to bring your concept to life seamlessly.
               </p>
             </div>
           </div>
-          <div class=" flex items-start py-8 gap-8">
-            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">01</h1>
+          <div class=" flex items-start gap-8">
+            <h1 class="text-7xl md:text-7xl lg:text-8xl text-[#FF7043]/70">04</h1>
             <div class="">
-              <h2 class="text-xl md:text-2xl mb-3 font-semibold">In-Depth Consultation</h2>
+              <h2 class="text-xl md:text-2xl mb-3 font-semibold">The Wedding Day</h2>
               <p class="text-black/70 text-sm md:text-base max-w-[350px] md:w-full">
-                Carefully assessing your logistics needs to
-                ensure tailored and effective solutions.
+                Executing every detail flawlessly so you can simply relax, smile, and enjoy your unforgettable day.
               </p>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
-
-    <!-- footer -->
-    <div class="w-full py-20 px-[20px] md:px-[65px]">
-      <div class="max-w-[1200px] mx-auto">
-        <div class="flex items-center justify-center gap-2">
-          <img class="rounded-full w-[55px] h-[55px] object-cover" alt="Ellipse"
-            src="../assets/backgrounds/moonevent.jpg" />
-          <p class="font-bold text-lg">Moon Event Organizer</p>
-        </div>
-
-        <ul
-          class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[550px] my-7">
-          <li class="py-3 px-3 border-b-2 border-black">
-            <a href="">Home</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">About</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Team</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Services</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Reservasi</a>
-          </li>
-        </ul>
-
-        <div class="md:max-w-[850px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Contact</h2>
-            <p class="my-3 text-gray-700">JGU Depok</p>
-            <p class="text-gray-700">+627876124734</p>
-          </div>
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Working Hours</h2>
-            <p class="my-3 text-gray-700">Monday-Friday : 08:00 - 05:00</p>
-            <p class="text-gray-700">Saturday-Sunday : 08:00 - 05:00</p>
-          </div>
-        </div>
-
-        <div class="flex max-w-36 mx-auto my-10 justify-between">
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-instagram text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-tiktok text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-facebook text-lg"></i>
-          </a>
-        </div>
-
-        <p class="text-center text-gray-700">Copyright by <span class="font-semibold">Moon Event Organizer</span> -
-          Powered by <span class="font-semibold">Team Programmer Moon Event Organizer</span></p>
-      </div>
-    </div>
-
   </section>
 
 

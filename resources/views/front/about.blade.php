@@ -56,9 +56,8 @@
         <h1 class="max-w-[750px] text-center mx-auto text-3xl md:text-5xl font-semibold md:mb-7">
           Let us Make the Wedding of <span class="text-[#FF7043]/90">Your Dreams</span>
         </h1>
-        <p class="text-black opacity-70 max-w-[650px] mx-auto my-7 md:my-10 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti inventore sapiente accusantium fugiat earum
-          dicta.
+        <p class="text-black opacity-70 w-full md:max-w-[550px] mx-auto my-7 md:my-10 text-center">
+          Our team ensures every moment is beautifully planned, perfectly executed, and truly unforgettable.
         </p>
         <div class="grid grid-cols-2 gap-5 h-[450px] w-full max-w-4xl mx-auto">
 
@@ -86,12 +85,11 @@
     <!-- Section History -->
     <div class="my-28 px-[20px] md:px-[65px] max-w-[750px] mx-auto text-center">
       <h1 class="text-3xl md:text-4xl font-semibold mb-5">
-        Creating the best wedding experiences since 2010
+        Designing timeless weddings since 2010
       </h1>
       <p class="text-sm md:text-base text-black opacity-70">
-        We will take care of everything for you — from event planning and curation to design and production.Cum sociis
-        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio, dapibus ac facilisis
-        in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        We take care of everything — from concept creation to complete event production.
+        Our expertise ensures your special day is seamless, stunning, and truly unforgettable.
       </p>
     </div>
 
@@ -141,8 +139,7 @@
         </div>
         <div class="flex items-end justify-end mt-5">
           <p class="w-full md:max-w-[450px] text-black/70">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident repellat cumque error officia eius
-            dolorem.
+            Behind every unforgettable celebration is a team that truly cares about turning your vision into reality.
           </p>
         </div>
       </div>
@@ -172,16 +169,16 @@
 
       <div class="">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-                    place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
+                        place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
           @foreach ($teamWeddingOrganizer as $member)
             <div class="relative w-full h-[500px] md:h-[543px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.07)]
-                                border-2 border-[#dfcdcb] rounded-[0_25px_0_25px]
-                                p-[30px] md:p-[40px] flex flex-col box-border cursor-pointer"
+                                        border-2 border-[#dfcdcb] rounded-[0_25px_0_25px]
+                                        p-[30px] md:p-[40px] flex flex-col box-border cursor-pointer"
               data-role="{{ $member['role'] }}">
 
               <!-- Card Image -->
               <div class="w-full h-[300px] md:h-[363px] rounded-[0_25px_0_25px] border-2 border-[#dfcdcb]
-                                  overflow-hidden mx-auto flex-shrink-0">
+                                          overflow-hidden mx-auto flex-shrink-0">
                 <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}" class="w-full h-full object-cover block">
               </div>
 
@@ -295,7 +292,8 @@
 
     <!-- Section Contact -->
     <div class="px-[20px] md:px-[65px]">
-      <div class="grid grid-cols-1 gap-10 md:gap-5 md:grid-cols-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 md:p-8 rounded-2xl">
+      <div
+        class="grid grid-cols-1 gap-10 md:gap-5 md:grid-cols-2 shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5 md:p-8 rounded-2xl">
         <div class="">
           <h1 class="text-3xl md:text-4xl font-semibold mb-4">Send Us a Message</h1>
           <p class="text-black text-sm md:text-base opacity-70 mb-10">
@@ -380,69 +378,6 @@
         </div>
       </div>
     </div>
-
-
-    <!-- Footer -->
-    <div class="w-full py-20 px-[20px] md:px-[65px]">
-      <div class="max-w-[1200px] mx-auto">
-        <div class="flex items-center justify-center gap-2">
-          <img class="rounded-full w-[55px] h-[55px] object-cover" alt="Ellipse"
-            src="../assets/backgrounds/moonevent.jpg" />
-          <p class="font-bold text-lg">Moon Event Organizer</p>
-        </div>
-
-        <ul
-          class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[550px] my-7">
-          <li class="py-3 px-3 border-b-2 border-black">
-            <a href="">Home</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">About</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Team</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Services</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Reservasi</a>
-          </li>
-        </ul>
-
-        <div class="md:max-w-[850px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Contact</h2>
-            <p class="my-3 text-gray-700">JGU Depok</p>
-            <p class="text-gray-700">+627876124734</p>
-          </div>
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Working Hours</h2>
-            <p class="my-3 text-gray-700">Monday-Friday : 08:00 - 05:00</p>
-            <p class="text-gray-700">Saturday-Sunday : 08:00 - 05:00</p>
-          </div>
-        </div>
-
-        <div class="flex max-w-36 mx-auto my-10 justify-between">
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-instagram text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-tiktok text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-facebook text-lg"></i>
-          </a>
-        </div>
-
-        <p class="text-center text-gray-700">Copyright by <span class="font-semibold">Moon Event Organizer</span> -
-          Powered by <span class="font-semibold">Team Programmer Moon Event Organizer</span></p>
-      </div>
-    </div>
-
-
   </section>
 
 

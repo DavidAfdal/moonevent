@@ -6,7 +6,8 @@
 
 
 #navbar {
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+  background-color: transparent;
 }
 
 #navbar.hidden {
@@ -17,18 +18,29 @@
 #navbar.show {
   transform: translateY(0);
   opacity: 1;
-  background-color: white;
 }
 
+/* Tambahan saat scroll ke bawah */
+#navbar.scrolled {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+#navbar.transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+
 /* Style vendor */
-.carousel{
+.carousel {
   margin: 100px auto;
   width: 90%;
   border: 5px solid red;
   display: flex;
 }
 
-.card{
+.card {
   width: 5em;
   height: 1em;
   background: cadetblue;

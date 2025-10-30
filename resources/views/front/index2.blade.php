@@ -108,7 +108,8 @@
       </div>
 
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-9 lg:gap-16 mt-12 lg:items-center">
-        <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
+          data-aos-delay="300">
           <img src="{{ asset('assets/photo_team/foto-team.png') }}" alt=""
             class="w-full object-cover h-[300px] md:h-[400px]">
         </div>
@@ -138,7 +139,7 @@
 
     <!-- Services sectcion -->
     <div class="bg-gray-100 py-10 my-32">
-      <div class="px-[20px] md:px-[65px]">
+      <div class="px-[20px] md:px-[65px]" data-aos="fade-up" data-aos-duration="1000">
         <div class="text-center">
           <section class="flex items-center justify-center my-5">
             <div class="flex items-center w-full max-w-md">
@@ -171,7 +172,8 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <i class="fa-solid fa-people-group text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">Event Coordination</h2>
@@ -180,7 +182,8 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
             <i class="fa-solid fa-handshake text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">Vendor & Venue Consultation</h2>
@@ -190,7 +193,8 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <i class="fa-solid fa-paintbrush text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">Design & Decoration</h2>
@@ -199,7 +203,8 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
             <i class="fa-solid fa-user-friends text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">Guest Management</h2>
@@ -209,7 +214,8 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
             <i class="fa-solid fa-camera-retro text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">VenPhotography & Videography</h2>
@@ -226,7 +232,7 @@
 
     <!-- On Instagram -->
     <div class="my-28 md:my-36 px-[20px] md:px-[65px]">
-      <div class="text-center">
+      <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
         <section class="flex items-center justify-center my-5">
           <div class="flex items-center w-full max-w-md">
             <!-- Garis kiri -->
@@ -245,67 +251,51 @@
           Complete wedding care, from planning to design.
         </h1>
       </div>
+
+      @php
+        $instagram = [
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '200'
+          ],
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '300'
+          ],
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '400'
+          ],
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '500'
+          ],
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '600'
+          ],
+          [
+            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+            'dad' => '700'
+          ],
+        ];
+      @endphp
+
+
+
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-5 mt-10">
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
+        @foreach ($instagram as $item)
+          <div class="w-full relative group cursor-pointer" data-oas-anchor="#section-one" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay={{ $item['dad'] }}>
+            <img src={{ $item['img'] }} alt="" class="w-full h-[280px] rounded-lg md:h-auto object-cover">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
+                                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+              <i class="fa-brands fa-instagram text-lg"></i>
+              <p>View Instagram</p>
+            </div>
           </div>
-        </div>
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
-          </div>
-        </div>
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
-          </div>
-        </div>
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
-          </div>
-        </div>
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
-          </div>
-        </div>
-        <div class="w-full relative group cursor-pointer"> {{-- Tambahkan class 'group' pada parent relative --}}
-          <img src="{{ asset('assets/photos/cardWedding.png') }}" alt=""
-            class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-            <i class="fa-brands fa-instagram text-lg"></i>
-            <p>View Instagram</p>
-          </div>
-        </div>
+        @endforeach
 
       </div>
     </div>
@@ -422,67 +412,7 @@
     </div>
     </div>
 
-    <!-- Footer -->
-    <div class="w-full py-20 px-[20px] md:px-[65px]">
-      <div class="max-w-[1200px] mx-auto">
-        <div class="flex items-center justify-center gap-2">
-          <img class="rounded-full w-[55px] h-[55px] object-cover" alt="Ellipse"
-            src="../assets/backgrounds/moonevent.jpg" />
-          <p class="font-bold text-lg">Moon Event Organizer</p>
-        </div>
 
-        <ul
-          class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[550px] my-7">
-          <li class="py-3 px-3 border-b-2 border-black">
-            <a href="">Home</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">About</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Team</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Services</a>
-          </li>
-          <li class="py-3 px-3">
-            <a href="">Reservasi</a>
-          </li>
-        </ul>
-
-        <div class="md:max-w-[850px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Contact</h2>
-            <p class="my-3 text-gray-700">JGU Depok</p>
-            <p class="text-gray-700">+627876124734</p>
-          </div>
-          <div
-            class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
-            <h2 class="text-xl font-semibold">Working Hours</h2>
-            <p class="my-3 text-gray-700">Monday-Friday : 08:00 - 05:00</p>
-            <p class="text-gray-700">Saturday-Sunday : 08:00 - 05:00</p>
-          </div>
-        </div>
-
-        <div class="flex max-w-36 mx-auto my-10 justify-between">
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-instagram text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-tiktok text-lg"></i>
-          </a>
-          <a href="" class="px-3 py-1 bg-orange-500/40">
-            <i class="fa-brands fa-facebook text-lg"></i>
-          </a>
-        </div>
-
-        <p class="text-center text-gray-700">Copyright by <span class="font-semibold">Moon Event Organizer</span> -
-          Powered by <span class="font-semibold">Team Programmer Moon Event Organizer</span></p>
-      </div>
-    </div>
-
-    
     <script>
       AOS.init({
         once: false,
@@ -615,26 +545,26 @@
       });
 
 
-      document.addEventListener("DOMContentLoaded", function () {
-        let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   let lastScrollTop = 0;
+      //   const navbar = document.getElementById("navbar");
 
-        window.addEventListener("scroll", function () {
-          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      //   window.addEventListener("scroll", function () {
+      //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-          if (scrollTop > lastScrollTop) {
-            // Scroll ke bawah -> sembunyikan navbar
-            navbar.classList.remove("show");
-            navbar.classList.add("hidden");
-          } else {
-            // Scroll ke atas -> tampilkan navbar dengan animasi
-            navbar.classList.remove("hidden");
-            navbar.classList.add("show");
-          }
+      //     if (scrollTop > lastScrollTop) {
+      //       // Scroll ke bawah -> sembunyikan navbar
+      //       navbar.classList.remove("show");
+      //       navbar.classList.add("hidden");
+      //     } else {
+      //       // Scroll ke atas -> tampilkan navbar dengan animasi
+      //       navbar.classList.remove("hidden");
+      //       navbar.classList.add("show");
+      //     }
 
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-      });
+      //     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      //   });
+      // });
 
 
       // Number wedding
@@ -693,8 +623,8 @@
 
             // Ganti isi konten testimonial
             slide.innerHTML = `
-                                                          <p class="text-lg italic text-gray-800">${testimonials[currentIndex].text}</p>
-                                                        `;
+                                                              <p class="text-lg italic text-gray-800">${testimonials[currentIndex].text}</p>
+                                                            `;
             clientName.textContent = testimonials[currentIndex].name;
 
             // Reset posisi dari arah berlawanan sebelum masuk
