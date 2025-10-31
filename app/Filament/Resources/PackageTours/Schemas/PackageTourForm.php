@@ -30,8 +30,31 @@ class PackageTourForm
                     ->required(),
                 TextInput::make('price')
                     ->required()
-                    ->numeric()
-                    ->prefix('Rp'),
+                    ->prefix('Rp')
+                    ->extraInputAttributes([
+                        'x-data' => '{}',
+                        'x-on:input' => "
+                            let start = \$el.selectionStart;
+                            let end = \$el.selectionEnd;
+
+                            let raw = \$el.value.replace(/[^0-9]/g, '');
+                            if (raw) {
+                                let formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                                \$el.value = formatted;
+
+                                // Hitung posisi caret biar gak loncat
+                                let diff = formatted.length - raw.length;
+                                \$nextTick(() => {
+                                    \$el.setSelectionRange(start + diff, end + diff);
+                                });
+                            } else {
+                                \$el.value = '';
+                            }
+                        ",
+                    ])
+                    ->dehydrateStateUsing(fn($state) => 
+                        (int) preg_replace('/[^0-9]/', '', (string) $state)
+                    ),     
                 TextInput::make('pax')
                     ->required()
                     ->numeric(),

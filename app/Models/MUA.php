@@ -11,8 +11,6 @@ class MUA extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'mua_name',
-        'icon',
-        'slug',
     ];
 
     public function bookings(){

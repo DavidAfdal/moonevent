@@ -18,7 +18,7 @@ class PackageBookingForm
                     ->relationship('tour', 'name')
                     ->disabled()
                     ->required(),
-                SELECT::make('user_id')
+                Select::make('user_id')
                     ->relationship('customer', 'name')
                     ->disabled()
                     ->required(),

@@ -102,6 +102,15 @@
           @csrf
           <div class="md:max-w-lg mx-auto mt-5 md:mt-8">
 
+             @if($errors->any())
+              @foreach($errors->all() as $e)
+                <div
+                  class="w-full h-fit py-2 mb-4  bg-red-400/50 border border-red-500 rounded-lg text-center  text-red-500 mx-auto">
+                  {{ $e }}
+                </div>
+              @endforeach
+            @endif
+
             <div>
               <div class="entryarea-float w-full">
                 <input type="text" name="name" placeholder=" " required
@@ -155,7 +164,7 @@
               </div>
 
               <div class="entryarea-float w-full mt-6 relative">
-                <input type="password" name="password" id="password" placeholder=" " required
+                <input type="password" name="password_confirmation" id="password_confirmation" placeholder=" " required
                   class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
                 <div class="labelline-float text-base md:text-lg text-black/70">
@@ -163,7 +172,7 @@
                 </div>
 
                 <!-- 👁️ Icon Mata -->
-                <i id="togglePassword"
+                <i id="togglePassword_confirmation"
                   class="fa-solid fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer z-20"></i>
               </div>
 
@@ -187,6 +196,9 @@
     const togglePassword = document.getElementById("togglePassword");
     const password = document.getElementById("password");
 
+    const togglePasswordConfirmation = document.getElementById("togglePassword_confirmation");
+    const passwordConfirmation = document.getElementById("password_confirmation");
+
     togglePassword.addEventListener("click", () => {
       const type = password.getAttribute("type") === "password" ? "text" : "password";
       password.setAttribute("type", type);
@@ -194,5 +206,15 @@
       togglePassword.classList.toggle("fa-eye");
       togglePassword.classList.toggle("fa-eye-slash");
     });
+
+    togglePasswordConfirmation.addEventListener("click", () => {
+      const type =  passwordConfirmation.getAttribute("type") === "password" ? "text" : "password";
+      passwordConfirmation.setAttribute("type", type);
+
+      togglePasswordConfirmation.classList.toggle("fa-eye");
+      togglePasswordConfirmation.classList.toggle("fa-eye-slash");
+    });
+
+
   </script>
 @endsection

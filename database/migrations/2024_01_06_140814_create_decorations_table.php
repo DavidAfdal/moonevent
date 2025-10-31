@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('decorations', function (Blueprint $table) {
             $table->id();
             $table->string('decoration_name');
-            $table->string('icon');
+
             $table->softDeletes();
             $table->timestamps();
         });

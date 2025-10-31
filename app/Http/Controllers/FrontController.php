@@ -11,7 +11,6 @@ use App\Http\Requests\UpdatePackageBookingRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\PackageBank;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use App\Models\PackageBooking;
 use App\Models\Category;
 use App\Models\Catering;
@@ -19,7 +18,6 @@ use App\Models\MUA;
 use App\Models\Decoration;
 use App\Models\Entertainment;
 use App\Models\Photography;
-use App\Models\Venue;
 use App\Models\MC;
 
 
@@ -50,8 +48,8 @@ class FrontController extends Controller
         return view('team.team');
     }
 
-    public function success(){
-        return view('front.success');
+    public function success(PackageBooking $packageBooking){
+        return view('front.success', compact('packageBooking'));
     }
 
     public function history(){
@@ -123,9 +121,8 @@ class FrontController extends Controller
         $decoration = Decoration::OrderByDesc('id')->get();
         $entertainment = Entertainment::OrderByDesc('id')->get();
         $photography = Photography::OrderByDesc('id')->get();
-        $venue = Venue::OrderByDesc('id')->get();
         $MC = MC::OrderByDesc('id')->get();
-        return view('front.booking_test', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC'));
+        return view('front.booking_test', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography', 'MC'));
     }
 
     public function book(PackageTour $package_tours){
@@ -146,7 +143,7 @@ class FrontController extends Controller
         $decoration = Decoration::OrderByDesc('id')->get();
         $entertainment = Entertainment::OrderByDesc('id')->get();
         $photography = Photography::OrderByDesc('id')->get();
-        $venue = Venue::OrderByDesc('id')->get();
+
         $MC = MC::OrderByDesc('id')->get();
 
         return view('front.booking_request', compact('package_tours', 'catering', 'MUA', 'decoration', 'entertainment', 'photography','venue', 'MC',));
@@ -180,9 +177,9 @@ class FrontController extends Controller
 
     
         $user = Auth::user();
-    $packageBookingId = null;
+        $packageBookingId = null;
 
-    DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
+        DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
         $validated = $request->validated();
 
         // Hitung total langsung dari harga paket
@@ -200,7 +197,7 @@ class FrontController extends Controller
     });
 
     if ($packageBookingId) {
-        return redirect()->route('front.reservation.check');
+        return redirect()->route('front.reservation.check', $packageBookingId);
     } else {
         return back()->withErrors('failed to create booking.');
     }

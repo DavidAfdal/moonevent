@@ -16,13 +16,11 @@ class PhotographySeeder extends Seeder
         DB::table('photographies')->insert([
     [
         'photography_name' => 'Wedding Photography',
-        'icon' => 'photo1.png',
         'created_at' => now(),
         'updated_at' => now(),
     ],
     [
         'photography_name' => 'Outdoor Photography',
-        'icon' => 'photo2.png',
         'created_at' => now(),
         'updated_at' => now(),
     ],

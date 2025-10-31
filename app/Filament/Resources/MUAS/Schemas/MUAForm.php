@@ -13,8 +13,6 @@ class MUAForm
             ->components([
                 TextInput::make('mua_name')
                     ->required(),
-                TextInput::make('icon')
-                    ->required(),
             ]);
     }
 }

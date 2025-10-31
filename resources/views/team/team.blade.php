@@ -594,7 +594,7 @@
 
         {{-- office secttion --}}
         <div class="tab-content hidden" id="office">
-          <div class="grid grid-cols-3 gap-7 w-full" id="office">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full" id="office">
             @foreach ($teamOffice as $member)
               <div class="w-full">
 
@@ -631,7 +631,7 @@
             </div>
             <button class="arrow-btn right">&rsaquo;</button>
           </div>
-          <div class="grid grid-cols-3 w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full">
             @foreach ($teamWeddingOrganizer as $member)
               <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
                 <div class="card-image-container">
@@ -650,7 +650,7 @@
 
       </section>
 
-      <hr class="section-divider">
+      {{-- <hr class="section-divider">
 
       <section class="gallery-section">
         <h2>
@@ -712,7 +712,7 @@
           <span class="active"></span>
           <span></span>
           <span></span>
-        </div>
+        </div> --}}
       </section>
     </div>
   </main>

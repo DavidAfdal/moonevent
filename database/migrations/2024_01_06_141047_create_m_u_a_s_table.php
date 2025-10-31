@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('m_u_a_s', function (Blueprint $table) {
             $table->id();
             $table->string('mua_name');
-            $table->string('icon');
             $table->softDeletes();
             $table->timestamps();
         });

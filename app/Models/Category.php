@@ -13,9 +13,7 @@ class Category extends Model
 
     protected $fillable = [
         'name',
-        'icon',
-        'slug',
-        
+        'slug'
     ];
 
     public function tours(){

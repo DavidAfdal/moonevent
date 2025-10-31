@@ -11,8 +11,6 @@ class Catering extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'catering_name',
-        'icon',
-        'slug',
     ];
 
     public function bookings(){

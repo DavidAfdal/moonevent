@@ -10,9 +10,7 @@ class Entertainment extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'entertainment_name',
-        'icon',
-        'slug',
+        'entertainment_name'
     ];
 
     public function bookings(){

@@ -52,26 +52,4 @@ class StatsOverview extends StatsOverviewWidget
             ->color('info'),
     ];
 }
-    // protected function getStats(): array
-    // {
-    //     return [
-    //         Stat::make('Total Categories', Category::count())
-    //             ->description('Jumlah kategori terdaftar')
-    //             ->descriptionIcon('heroicon-o-rectangle-stack')
-    //             ->chart([7, 2, 10, 3, 15, 4, 17])
-    //             ->color('success'),
-
-    //         Stat::make('Total Packages', PackageTour::count())
-    //             ->description('Jumlah paket booking')
-    //             ->descriptionIcon('heroicon-o-briefcase')
-    //             ->chart([7, 2, 10, 3, 15, 4, 17])
-    //             ->color('warning'),
-
-    //         Stat::make('Total Users', User::count())
-    //             ->description('Jumlah pengguna sistem')
-    //             ->descriptionIcon('heroicon-o-users')
-    //             ->chart([7, 2, 10, 3, 15, 4, 17])
-    //             ->color('info'),
-    //     ];
-    // }
 }

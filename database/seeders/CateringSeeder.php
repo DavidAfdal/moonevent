@@ -16,13 +16,11 @@ class CateringSeeder extends Seeder
          DB::table('caterings')->insert([
             [
                 'catering_name' => 'Delicious Catering',
-                'icon' => 'catering1.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'catering_name' => 'Luxury Foods',
-                'icon' => 'catering2.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

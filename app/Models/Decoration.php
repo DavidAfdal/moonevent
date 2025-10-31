@@ -10,9 +10,7 @@ class Decoration extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'decoration_name',
-        'icon',
-        'slug',
+        'decoration_name'
     ];
 
     public function bookings(){

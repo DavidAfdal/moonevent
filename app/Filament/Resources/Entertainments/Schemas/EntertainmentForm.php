@@ -12,9 +12,7 @@ class EntertainmentForm
         return $schema
             ->components([
                 TextInput::make('entertainment_name')
-                    ->required(),
-                TextInput::make('icon')
-                    ->required(),
+                    ->required()
             ]);
     }
 }

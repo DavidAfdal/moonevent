@@ -25,9 +25,21 @@
       <div class="hidden sm:flex sm:items-center">
         <x-dropdown align="right" width="48">
           <x-slot name="trigger">
-            <button
-              class="inline-flex size-8 items-center border border-transparent text-sm leading-4 font-medium rounded-full text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-            </button>
+           <button
+                    class="inline-flex items-center justify-center size-8 border border-transparent text-sm leading-4 font-medium rounded-full  hover:opacity-90 focus:outline-none transition ease-in-out duration-150">
+                    
+                    @php
+                        $user = Auth::user();
+                        $avatarUrl = "https://ui-avatars.com/api/?name=" . urlencode($user->name) . "&background=F87B1B&color=fff";
+                    @endphp
+
+                    
+                    <img
+                        src="{{ $avatarUrl }}"
+                        alt="{{ $user->name }}"
+                        class="rounded-full w-8 h-8 object-cover"
+                    />
+                </button>
           </x-slot>
 
           <x-slot name="content">
