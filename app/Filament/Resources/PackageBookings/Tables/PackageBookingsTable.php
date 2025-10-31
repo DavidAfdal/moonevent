@@ -25,7 +25,8 @@ class PackageBookingsTable
         return $table
             ->columns([
                 TextColumn::make('customer.name')
-                    ->sortable(),
+                    ->sortable()
+                    ->searchable(),
                 TextColumn::make('tour.name')
                     ->label("Package")
                     ->badge(),
@@ -47,7 +48,6 @@ class PackageBookingsTable
                         'success' => 'success',
                         'rejected' => 'danger',
                     })
-                    ->searchable(),
             ])
             ->filters([
                  Filter::make('date_range')
@@ -67,7 +67,13 @@ class PackageBookingsTable
                             'pending' => 'Pending',
                             'success' => 'Success',
                             'rejected' => 'Rejected',
-                    ])
+                    ]), 
+                    SelectFilter::make('tour_id')
+                    ->multiple()
+                    ->label('Package')
+                    ->relationship('tour', 'name')
+                    ->searchable()
+        ->preload(),
             ])
             ->recordActions([
                 ViewAction::make(),

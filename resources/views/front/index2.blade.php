@@ -128,7 +128,7 @@
             omnis nisi laudantium earum sunt.
           </p>
 
-          <a href=""
+          <a href="{{ route('front.about') }}"
             class="px-7 py-2 border border-[#FF7043] rounded-3xl font-semibold text-lg text-[#FF7043] hover:bg-[#FF7043] hover:text-white transition-all duration-300">
             About
           </a>
@@ -403,10 +403,10 @@
           <p class="text-base md:text-lg mb-6">
             From concept and styling to full event production, we’ll make your special day seamless and unforgettable.
           </p>
-          <button
+          <a href="{{ route('front.wedding_list') }}"
             class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300">
             Book a Consultation
-          </button>
+          </a>
         </div>
       </div>
     </div>

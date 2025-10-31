@@ -26,13 +26,6 @@ class CategoryForm
                     ->disabled()
                     ->dehydrated()
                     ->required(),
-
-                FileUpload::make('icon')
-                    ->label('Category Icon')
-                    ->required()
-                    ->directory('icons')
-                    ->disk('public')
-                    ->rules(['mimes:png,jpg,jpeg']),
             ]);
     }
 }

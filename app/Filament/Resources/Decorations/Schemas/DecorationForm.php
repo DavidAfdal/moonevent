@@ -12,9 +12,7 @@ class DecorationForm
         return $schema
             ->components([
                 TextInput::make('decoration_name')
-                    ->required(),
-                TextInput::make('icon')
-                    ->required(),
+                    ->required()
             ]);
     }
 }

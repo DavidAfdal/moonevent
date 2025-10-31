@@ -12,9 +12,7 @@ class CateringForm
         return $schema
             ->components([
                 TextInput::make('catering_name')
-                    ->required(),
-                TextInput::make('icon')
-                    ->required(),
+                    ->required()
             ]);
     }
 }

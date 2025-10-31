@@ -25,6 +25,7 @@ class RolePermissionSeeder extends Seeder
             'checkout package',
             'view order'
         ];
+
         foreach ($permissions as $permission){
             Permission::firstOrCreate([
                 'name' => $permission
@@ -49,10 +50,11 @@ class RolePermissionSeeder extends Seeder
         $user = User::create([
             'name' => 'super admin',
             'email' => 'super@admin.com',
-            'phone_number' => '62839439892',
+            'phone_number' => '0839439892',
             'avatar' => 'image/default-avatar.png',
             'password' => bcrypt('kusuma290303#*!')
         ]);
+        
         $user->assignRole($superAdminRole);
     }
 }

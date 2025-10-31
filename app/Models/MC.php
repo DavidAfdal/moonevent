@@ -11,8 +11,6 @@ class MC extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'mc_name',
-        'icon',
-        'slug',
     ];
 
     public function bookings(){

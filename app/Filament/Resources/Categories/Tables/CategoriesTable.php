@@ -8,7 +8,6 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
@@ -21,7 +20,6 @@ class CategoriesTable
             ->columns([
                 TextColumn::make("name")->sortable()->searchable(),
                 TextColumn::make("slug"),
-                ImageColumn::make("icon")->disk('public')
             ])
             ->defaultSort("name")
             ->filters([

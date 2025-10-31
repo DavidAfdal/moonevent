@@ -12,9 +12,7 @@ class PhotographyForm
         return $schema
             ->components([
                 TextInput::make('photography_name')
-                    ->required(),
-                TextInput::make('icon')
-                    ->required(),
+                    ->required()
             ]);
     }
 }

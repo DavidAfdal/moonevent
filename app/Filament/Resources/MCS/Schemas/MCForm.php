@@ -13,8 +13,6 @@ class MCForm
             ->components([
                 TextInput::make('mc_name')
                     ->required(),
-                TextInput::make('icon')
-                    ->required(),
             ]);
     }
 }

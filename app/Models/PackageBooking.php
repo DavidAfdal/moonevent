@@ -79,9 +79,4 @@ class PackageBooking extends Model
         return $this->belongsTo(MUA::class, 'mua_id'); // relasi ke tabel m_u_a_s
     }
 
-    // 🔹 Relasi ke Venue
-    public function venue()
-    {
-        return $this->belongsTo(Venue::class, 'venue_id');
-    }
 }

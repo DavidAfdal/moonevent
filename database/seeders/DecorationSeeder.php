@@ -16,13 +16,11 @@ class DecorationSeeder extends Seeder
         DB::table('decorations')->insert([
     [
         'decoration_name' => 'Elegant Decoration',
-        'icon' => 'decoration1.png',
         'created_at' => now(),
         'updated_at' => now(),
     ],
     [
         'decoration_name' => 'Classic Theme',
-        'icon' => 'decoration2.png',
         'created_at' => now(),
         'updated_at' => now(),
     ],

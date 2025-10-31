@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 @section('content')
-<section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col pb-[120px] ">
+<section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
     <x-hero-list-wedding/>
     
     <div class="w-full max-w-[1440px] mx-auto px-4">
@@ -96,38 +96,37 @@
 
         {{-- Swiper Container --}}
         <div class="md:max-w-[1440px] mx-auto h-full">
-            <div class="swiper px-4 min-h-[240px]">
+            <div class="swiper px-4 min-h-60">
                 <div class="swiper-wrapper">
-    
-                    {{-- Slide 1 --}}
-                    <div class="swiper-slide">
-                        <x-testimonial-card
-                            name="Robert Fox"
-                            date="March 23, 2025"
-                            avatar="{{ asset('images/avatars/robert.jpg') }}"
-                            message="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                        />
-                    </div>
-    
-                    {{-- Slide 2 --}}
-                    <div class="swiper-slide">
-                        <x-testimonial-card
-                            name="Cody Fisher"
-                            date="August 7, 2023"
-                            avatar="{{ asset('images/avatars/cody.jpg') }}"
-                            message="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                        />
-                    </div>
-    
-                    {{-- Slide 3 --}}
-                    <div class="swiper-slide">
-                        <x-testimonial-card
-                            name="Floyd Miles"
-                            date="August 2, 2024"
-                            avatar="{{ asset('images/avatars/floyd.jpg') }}"
-                            message="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-                        />
-                    </div>
+                    @php
+                        $testimonials = [
+                            [
+                                'name' => 'Robert Fox',
+                                'date' => 'March 23, 2025',
+                                'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+                            ],
+                            [
+                                'name' => 'Cody Fisher',
+                                'date' => 'August 7, 2023',
+                                'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+                            ],
+                            [
+                                'name' => 'Floyd Miles',
+                                'date' => 'August 2, 2024',
+                                'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+                            ],
+                        ];
+                    @endphp
+                        @foreach ($testimonials as $t)
+                            <div class="swiper-slide">
+                                <x-testimonial-card
+                                    :name="$t['name']"
+                                    :date="$t['date']"
+                                    :avatar="'https://ui-avatars.com/api/?name=' . urlencode($t['name']) . '&background=F87B1B&color=fff'"
+                                    :message="$t['message']"
+                                />
+                            </div>
+                        @endforeach
                     
                 </div>
     

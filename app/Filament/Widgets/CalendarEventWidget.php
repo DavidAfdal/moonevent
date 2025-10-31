@@ -52,6 +52,7 @@ class CalendarEventWidget extends Widget implements HasForms
                     'id'  => $b->id,
                     'title' => "{$b->package_name} - {$b->user_name}",
                     'start' => "{$date}T{$timestr}",
+                    'end'   => "{$date}T{$timestr}",
                     'color' => match ($b->status) {
                         'success' => '#16a34a', 
                         'pending' => '#f59e0b',
@@ -90,7 +91,6 @@ class CalendarEventWidget extends Widget implements HasForms
             'customer' => $this->eventModel->customer->name,
         ];
 
-        // Membuka modal
         $this->dispatch('open-modal', id: 'event-view-modal');
     }
     

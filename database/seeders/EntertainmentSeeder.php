@@ -16,19 +16,16 @@ class EntertainmentSeeder extends Seeder
         DB::table('entertainments')->insert([
             [
                 'entertainment_name' => 'Live Band',
-                'icon' => 'band.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'entertainment_name' => 'DJ Performance',
-                'icon' => 'dj.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'entertainment_name' => 'Traditional Dance',
-                'icon' => 'dance.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

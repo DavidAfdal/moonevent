@@ -33,7 +33,7 @@
 @endpush
 
 @section('content')
-  <section class="px-[20px] md:px-[65px] grid grid-cols-1 md:grid-cols-2 md:gap-7">
+  <section class="px-[20px] md:px-[65px] grid grid-cols-1 md:grid-cols-2 md:gap-7 mt-10">
 
     <!-- Firework Container -->
     <div id="fireworks-container" class="hidden fixed inset-0 z-[9999] pointer-events-none bg-transparent"></div>
@@ -49,7 +49,7 @@
         If there's anything you need before your arrival, please don't hesitate to reach out to your host!
       </p>
       <div class="flex flex-wrap items-center gap-3 md:gap-3 lg:gap-4">
-        <a href="" class="bg-[#FF7043] rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
+        <a href="https://wa.link/yiggct" class="bg-[#FF7043] rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
           Confirm to Whatsapp
         </a>
         <a href="/"
@@ -66,39 +66,43 @@
         <div class="flex items-center justify-between p-10 shadow-xl rounded-2xl">
           <div>
             <h1 class="text-2xl md:text-2xl lg:text-4xl font-semibold mb-3">
-              Rp. 15.000.000
+              Rp. {{ number_format($packageBooking->total_amount, 0, ",", ".") }}
             </h1>
-            <p class="text-base">Payment Success</p>
+            <p class="text-base">Booking Success</p>
           </div>
           <i
             class="fa-solid fa-check text-2xl w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center bg-[#FF7043]/50 text-[#FF7043] rounded-full"></i>
         </div>
 
         <div class="w-full mx-auto mt-5 bg-white p-6 md:p-6 lg:p-8 rounded-2xl shadow-xl">
-          <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-8">Payment details</h1>
+          <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 mb-8">Booking details</h1>
+          @php
 
+              $datetime = \Illuminate\Support\Carbon::parse($packageBooking->booking_date)
+                  ->setTimeFrom(\Illuminate\Support\Carbon::parse($packageBooking->booking_time));
+          @endphp
           <div class="flex justify-between items-center mb-5">
             <span class="md:text-base lg:text-lg font-medium text-gray-600">Date</span>
-            <span class="md:text-base lg:text-lg font-semibold text-gray-900">Jul 25, 2023 05:07:03 AM</span>
+            <span class="md:text-base lg:text-lg font-semibold text-gray-900">{{ $datetime->format('M d, Y h:i:s A') }}</span>
           </div>
 
           <div class="flex justify-between items-center mb-5">
             <span class="md:text-base lg:text-lg font-medium text-gray-600">Username</span>
-            <span class="md:text-base lg:text-lg font-semibold text-gray-900">Kusuma Wardana</span>
+            <span class="md:text-base lg:text-lg font-semibold text-gray-900">{{ $packageBooking->customer->name }}</span>
           </div>
 
           <div class="flex justify-between items-center mb-5">
             <span class="md:text-base lg:text-lg font-medium text-gray-600">Amount</span>
-            <span class="md:text-lg lg:text-xl font-bold text-gray-900">Rp. 15.000.000</span>
+            <span class="md:text-lg lg:text-xl font-bold text-gray-900">Rp. {{ number_format($packageBooking->total_amount, 0, ",", ".") }}</span>
           </div>
 
-          <div class="flex justify-between items-center mb-5">
+          {{-- <div class="flex justify-between items-center mb-5">
             <span class="md:text-base lg:text-lg font-medium text-gray-600">Payment method</span>
             <span class="md:text-base lg:text-lg font-semibold text-gray-900">Credit Card</span>
-          </div>
+          </div> --}}
 
           <div class="flex justify-between items-center mb-8">
-            <span class="md:text-base lg:text-lg font-medium text-gray-600">Payment status</span>
+            <span class="md:text-base lg:text-lg font-medium text-gray-600">Booking Status</span>
             <div class="flex items-center gap-3 md:text-base lg:text-lg font-semibold text-green-600">
               <i
                 class="fa-solid fa-check text-base w-5 h-5 md:w-5 md:h-5 lg:w-7 lg:h-7 flex items-center justify-center bg-[#FF7043]/50 text-[#FF7043] rounded-full"></i>

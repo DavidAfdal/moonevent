@@ -28,17 +28,17 @@ protected function getData(): array
 
         // Filter berdasarkan waktu
         $query->when($filter === 'today', function ($q) {
-            $q->whereDate('package_bookings.created_at', Carbon::today());
+            $q->whereDate('package_bookings.booking_date', Carbon::today());
         })
         ->when($filter === 'week', function ($q) {
-            $q->whereBetween('package_bookings.created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+            $q->whereBetween('package_bookings.booking_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
         })
         ->when($filter === 'month', function ($q) {
-            $q->whereMonth('package_bookings.created_at', Carbon::now()->month)
-              ->whereYear('package_bookings.created_at', Carbon::now()->year);
+            $q->whereMonth('package_bookings.booking_date', Carbon::now()->month)
+              ->whereYear('package_bookings.booking_date', Carbon::now()->year);
         })
         ->when($filter === 'year', function ($q) {
-            $q->whereYear('package_bookings.created_at', Carbon::now()->year);
+            $q->whereYear('package_bookings.booking_date', Carbon::now()->year);
         });
 
         $booking_bar = $query

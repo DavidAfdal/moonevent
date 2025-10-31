@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('entertainments', function (Blueprint $table) {
             $table->id();
             $table->string('entertainment_name');
-            $table->string('icon');
             $table->softDeletes();
             $table->timestamps();
         });

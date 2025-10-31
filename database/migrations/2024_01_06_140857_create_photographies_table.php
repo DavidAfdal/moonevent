@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('photographies', function (Blueprint $table) {
             $table->id();
             $table->string('photography_name');
-            $table->string('icon');
             $table->softDeletes();
             $table->timestamps();
         });
