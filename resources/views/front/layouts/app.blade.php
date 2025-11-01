@@ -40,7 +40,7 @@
 </head>
 
 <body class="font-poppins text-black">
-    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history']))
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history', 'front.reservation.check', 'bookings']))
         <x-navbar />
     @endif
     @yield('content')
