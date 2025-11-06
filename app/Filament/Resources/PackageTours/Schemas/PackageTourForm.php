@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PackageTours\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -42,7 +43,6 @@ class PackageTourForm
                                 let formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
                                 \$el.value = formatted;
 
-                                // Hitung posisi caret biar gak loncat
                                 let diff = formatted.length - raw.length;
                                 \$nextTick(() => {
                                     \$el.setSelectionRange(start + diff, end + diff);
@@ -63,8 +63,12 @@ class PackageTourForm
                 Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required(),
-                Textarea::make('about')
-                    ->required()
+                MarkdownEditor::make('general_information')
+                    ->label("General Information"),
+                MarkdownEditor::make('legal_services')
+                    ->label("KUA Legal Services"),
+                MarkdownEditor::make('event_crew')
+                    ->label("Our Event Crew")
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail')
                     ->label('Thumbnail')

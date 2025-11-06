@@ -252,7 +252,7 @@
         </h1>
       </div>
 
-      @php
+      {{-- @php
         $instagram = [
           [
             'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
@@ -279,25 +279,25 @@
             'dad' => '700'
           ],
         ];
-      @endphp
+      @endphp --}}
 
 
 
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-5 mt-10">
         @foreach ($instagram as $item)
           <div class="w-full relative group cursor-pointer" data-oas-anchor="#section-one" data-aos="fade-up"
-            data-aos-duration="1000" data-aos-delay={{ $item['dad'] }}>
-            <img src={{ $item['img'] }} alt="" class="w-full h-[280px] rounded-lg md:h-auto object-cover">
+            data-aos-duration="1000" data-aos-delay="100">
+            <img src={{ Storage::url($item->thumbnail) }} alt="" class="w-full h-[280px] rounded-lg md:h-auto object-cover">
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
                                 justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
                                 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
-              <p>View Instagram</p>
+              <a href="{{ $item->link }}">View Instagram</a>
             </div>
           </div>
         @endforeach
 
-      </div>
+      </div>      
     </div>
 
 

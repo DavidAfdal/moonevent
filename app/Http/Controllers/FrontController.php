@@ -19,7 +19,7 @@ use App\Models\Decoration;
 use App\Models\Entertainment;
 use App\Models\Photography;
 use App\Models\MC;
-
+use App\Models\Portofolio;
 
 class FrontController extends Controller
 {
@@ -61,7 +61,8 @@ class FrontController extends Controller
         $categories = Category::orderByDesc('id')->get();
         $package_tours = PackageTour::orderByDesc('id')->take(3)->get();
         $package_tours_explore = PackageTour::orderByDesc('id')->get();
-        return view('front.index2', compact('package_tours', 'categories', 'package_tours_explore'));
+        $instagram = Portofolio::orderByDesc("created_at")->limit(6)->get();
+        return view('front.index2', compact('package_tours', 'categories', 'package_tours_explore', 'instagram'));
     }
 
 
@@ -153,7 +154,7 @@ class FrontController extends Controller
 
     public function calendarbooking(PackageTour $package_tours){
         $startDate = PackageBooking::where('status', 'success')
-        ->pluck('start_date');
+        ->pluck('booking_date');
         return view('front.calendarbooking', compact('package_tours', "startDate"));
     }
 
@@ -179,28 +180,55 @@ class FrontController extends Controller
         $user = Auth::user();
         $packageBookingId = null;
 
-        DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
-        $validated = $request->validated();
+        try {
+            DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
+                $validated = $request->validated();
 
-        // Hitung total langsung dari harga paket
-        $totalAmount = $package_tours->price;
+                $existing = PackageBooking::whereDate('booking_date', $validated['booking_date'])
+                    ->lockForUpdate()
+                    ->first();
 
-        // Assign data tambahan ke validated
-        $validated['user_id'] = $user->id;
-        $validated['package_tour_id'] = $package_tours->id;
-        $validated['total_amount'] = $totalAmount;
-        $validated['status'] = 'pending';
+                if ($existing) {
+                    throw new \Exception('This date has already been booked by another user.');
+                }
 
-        // Simpan ke database
-        $packageBooking = PackageBooking::create($validated);
-        $packageBookingId = $packageBooking->id;
-    });
+                $totalAmount = $package_tours->price;
 
-    if ($packageBookingId) {
-        return redirect()->route('front.reservation.check', $packageBookingId);
-    } else {
-        return back()->withErrors('failed to create booking.');
-    }
+                $phoneNumber =  $validated['phone_number'];
+                if (!str_starts_with($phoneNumber, '0')) {
+                    $phoneNumber = '0' . $phoneNumber;
+                }
+
+                $validated['user_id'] = $user->id;
+                $validated['package_tour_id'] = $package_tours->id;
+                $validated['total_amount'] = $totalAmount;
+                $validated['status'] = 'pending';
+
+                $user->name = $request->username;
+                $user->phone_number = $phoneNumber;
+                $user->save();
+
+                $packageBooking = PackageBooking::create($validated);
+                $packageBookingId = $packageBooking->id;
+            });
+
+            if ($packageBookingId) {
+                return redirect()->route('front.reservation.check', $packageBookingId);
+            }
+
+             return redirect()
+                    ->back()
+                    ->withInput()
+                    ->withErrors('failed to create booking.');
+
+        } catch (\Exception $e) {
+
+             return redirect()
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['booking_date' => $e->getMessage()]);
+                
+        }
     }
 
     public function choose_bank(PackageBooking $packageBooking){

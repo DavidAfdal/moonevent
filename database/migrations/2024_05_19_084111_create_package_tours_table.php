@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('slug');
             $table->string('thumbnail');
             $table->string('location');
-            $table->text('about');
+            $table->longtext('event_crew')->nullable();
+            $table->longtext('legal_services')->nullable();
+            $table->longtext('general_information')->nullable();
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('pax');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');

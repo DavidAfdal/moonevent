@@ -20,8 +20,10 @@ class PackageTour extends Model
         'location',
         'price',
         'pax',
-        'category_id'
-
+        'category_id',
+        "event_crew",
+        "legal_services",
+        "general_information"
     ];
 
     public function category(){
