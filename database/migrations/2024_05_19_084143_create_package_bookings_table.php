@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('package_bookings', function (Blueprint $table) {
             $table->id();
-            $table->string("status");
+            $table->string("status")->default('pending');
             $table->foreignId('package_tour_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('catering_id')->nullable()->constrained()->onDelete('cascade');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('total_amount');
 
             // ganti start_date & end_date dengan booking_date
-            $table->date('booking_date'); 
+            $table->date('booking_date')->unique(); 
             $table->time('booking_time'); // input jam acara
 
             $table->softDeletes();

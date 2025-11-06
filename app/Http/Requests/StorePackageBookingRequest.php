@@ -29,7 +29,8 @@ class StorePackageBookingRequest extends FormRequest
             'entertainment_id' => ['nullable', 'integer', 'exists:entertainments,id'],
             'photographie_id' => ['nullable', 'integer', 'exists:photographies,id'],
             'decoration_id' => ['nullable', 'integer', 'exists:decorations,id'],
-
+            'username' => ["required", "string"],
+            'phone_number' => ["required", 'string'],
             // 🔹 Field booking
             'booking_date' => ['required', 'date', 'after_or_equal:today'],
             'booking_time' => ['required', 'date_format:H:i'],

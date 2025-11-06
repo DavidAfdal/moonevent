@@ -41,52 +41,42 @@
       <!-- Tabs -->
       <div class="mt-8">
         <div class="flex space-x-4 border-b">
-          <button @click="tab = 'crew'" :class="tab === 'crew' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
-                  class="border-b-2 py-2 px-4 font-semibold">Our Event Crew</button>
-          <button @click="tab = 'kua'" :class="tab === 'kua' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
-                  class="border-b-2 py-2 px-4 font-semibold">KUA Legal Services</button>
-          <button @click="tab = 'info'" :class="tab === 'info' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
+          @if ($package_tours->general_information)
+                 <button @click="tab = 'info'" :class="tab === 'info' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
                   class="border-b-2 py-2 px-4 font-semibold">General Information</button>
+          @endif
+          @if ($package_tours->legal_services)
+             <button @click="tab = 'kua'" :class="tab === 'kua' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
+                  class="border-b-2 py-2 px-4 font-semibold">KUA Legal Services</button>
+          @endif
+          @if ($package_tours->event_crew)
+             <button @click="tab = 'crew'" :class="tab === 'crew' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
+                  class="border-b-2 py-2 px-4 font-semibold">Our Event Crew</button>
+         
+          @endif
         </div>
 
         <!-- Tab Content -->
         <div class="mt-4 text-gray-700 space-y-2 text-sm leading-relaxed">
-          
-          <div x-show="tab === 'crew'" x-transition>
-            <ul class="list-disc list-inside">
-              <li>Pendamping CPW & Keluarga</li>
-              <li>Pendamping CPP & Keluarga</li>
-              <li>Stage Manager</li>
-              <li>Pendamping MC</li>
-              <li>Stopper</li>
-              <li>Catering & Kebersihan</li>
-              <li>Pendamping Penerima Tamu</li>
-              <li>Koordinator Tamu VIP</li>
-              <li>Usher VIP</li>
-              <li>Checker: Masa Persiapan - 3x Meeting</li>
-              <li>Undangan Technical Meeting</li>
-              <li>Buku Panduan & Rundown Acara</li>
-              <li>Naskah Akad Nikah & Resepsi</li>
-            </ul>
-          </div>
 
-          <!-- KUA Legal Services -->
-          <div x-show="tab === 'kua'" x-transition>
-            <p>✅ Konsultasi legalitas akad nikah</p>
-            <p>✅ Pendaftaran KUA setempat</p>
-            <p>✅ Pengurusan dokumen pernikahan</p>
-            <p>✅ Pendampingan saat akad</p>
-          </div>
+          @if ($package_tours->general_information)
+              <div x-show="tab === 'info'" x-transition>
+                  {!! Str::markdown($package_tours->general_information) !!}
+              </div>
+          @endif
 
-          <!-- General Information -->
-          <div x-show="tab === 'info'" x-transition>
-            <p>📍 Lokasi: Menara 165 - Jakarta Selatan</p>
-            <p>🕒 Durasi Acara: 6 jam</p>
-            <p>🍽️ Tersedia opsi catering</p>
-            <p>🎤 Entertainment & MC bisa request</p>
-            <p>📷 Dokumentasi tersedia</p>
-          </div>
+          @if ($package_tours->legal_services)
+               <div x-show="tab === 'kua'" x-transition>
+                 {!! str($package_tours->legal_services)->markdown()->sanitizeHtml() !!}
+               </div>
+          @endif
 
+          @if ($package_tours->event_crew)
+                <div x-show="tab === 'crew'" x-transition>
+                   {!! str($package_tours->event_crew)->markdown()->sanitizeHtml() !!}
+                </div>
+          @endif
+         
         </div>
       </div>
       

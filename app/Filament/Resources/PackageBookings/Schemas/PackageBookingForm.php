@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PackageBookings\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
@@ -15,12 +16,25 @@ class PackageBookingForm
         return $schema
             ->components([
                 Select::make('package_tour_id')
+                    ->label("Wedding Package")
                     ->relationship('tour', 'name')
-                    ->disabled()
+                    ->live()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if ($state) {
+                            $tour = \App\Models\PackageTour::find($state);
+                            $set('total_amount', $tour?->price ?? 0);
+                        } else {
+                            $set('total_amount', 0);
+                        }
+                    })
                     ->required(),
                 Select::make('user_id')
-                    ->relationship('customer', 'name')
-                    ->disabled()
+                    ->label("costumer")
+                    ->relationship(
+                          name: 'customer',
+                          titleAttribute: 'name',
+                          modifyQueryUsing: fn ($query) => $query->whereHas('roles', fn ($q) => $q->where('name', 'customer'))
+                    )
                     ->required(),
                 Select::make('catering_id')
                     ->relationship('catering', 'catering_name')
@@ -42,10 +56,21 @@ class PackageBookingForm
                     ->required(),
                 TextInput::make('total_amount')
                     ->required()
-                    ->disabled()
                     ->numeric(),
                 DatePicker::make('booking_date')
-                    ->required(),
+                    ->required()
+                    ->rules([
+                        'unique:package_bookings,booking_date',
+                    ])
+                    ->extraAttributes(['x-init' => "
+                        const bookedDates = " . json_encode(\App\Models\PackageBooking::pluck('booking_date')->toArray()) . ";
+                        this._flatpickr.config.disable = bookedDates;
+                        this._flatpickr.config.onDayCreate.push(function(dObj, dStr, fp, dayElem) {
+                            if (bookedDates.includes(dayElem.dateObj.toISOString().split('T')[0])) {
+                                dayElem.classList.add('bg-red-500', 'text-white', 'rounded-full');
+                            }
+                        });
+                    "]),
                 TimePicker::make('booking_time')
                     ->required(),
             ]);

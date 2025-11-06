@@ -27,6 +27,12 @@ class MCResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'mc_name';
 
+    public static function getPluralLabel(): ?string
+    {
+        return 'MC';
+    }
+
+
     public static function form(Schema $schema): Schema
     {
         return MCForm::configure($schema);

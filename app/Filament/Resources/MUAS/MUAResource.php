@@ -28,6 +28,12 @@ class MUAResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'mua_name';
 
+    public static function getPluralLabel(): ?string
+    {
+        return 'MUA';
+    }
+
+
     public static function form(Schema $schema): Schema
     {
         return MUAForm::configure($schema);
