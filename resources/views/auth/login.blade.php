@@ -44,9 +44,10 @@
 
 @section('content')
   <section class="px-5 md:px-0 lg:px-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full max-w-7xl mx-auto">
 
-      <div class="relative w-full h-[450px] md:h-[550px] lg:h-[600px] overflow-hidden bg-white">
+      <div class="relative w-full min-h-[450px] sm:min-h-[550px] md:min-h-[550px] lg:h-screen overflow-visible lg:overflow-hidden bg-white
+">
 
         <div
           class="absolute top-5 left-5 w-[65%] md:w-[60%] lg:w-[55%] h-[200px] md:h-[300px] lg:h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
@@ -86,7 +87,7 @@
 
         <div class="flex items-center justify-center gap-4">
           <img class="rounded-full w-12 h-12 object-cover" alt="Ellipse" src="../assets/backgrounds/moonevent.jpg" />
-          <p class="font-bold text-lg text-gray-800">Moon Event Organizer</p>
+          <p class="font-bold md:text-base lg:text-lg text-gray-800">Moon Event Organizer</p>
         </div>
 
         <div class="mt-6 text-center">

@@ -44,9 +44,9 @@
 
 @section('content')
   <section class="px-5 md:px-0 lg:px-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 w-full max-w-7xl mx-auto">
 
-      <div class="relative w-full h-[450px] md:h-[550px] lg:h-[600px] overflow-hidden bg-white">
+      <div class="relative w-full min-h-[450px] sm:min-h-[550px] md:min-h-[550px] lg:h-screen overflow-visible lg:overflow-hidden bg-white">
 
         <div
           class="absolute top-5 left-5 w-[65%] md:w-[60%] lg:w-[55%] h-[200px] md:h-[300px] lg:h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
@@ -148,9 +148,9 @@
               <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 md:mt-5 lg:mt-6">
 
-              <div class="entryarea-float w-full mt-6 relative">
+              <div class="entryarea-float w-full  relative">
                 <input type="password" name="password" id="password" placeholder=" " required
                   class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 
@@ -163,7 +163,7 @@
                   class="fa-solid fa-eye absolute right-5 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer z-20"></i>
               </div>
 
-              <div class="entryarea-float w-full mt-6 relative">
+              <div class="entryarea-float w-full relative">
                 <input type="password" name="password_confirmation" id="password_confirmation" placeholder=" " required
                   class="input-float absolute w-full text-lg md:text-xl py-[26px] px-[30px] h-[20px] rounded-xl border border-[#f0ffff] bg-transparent transition ease duration-100 z-10 focus:outline-none">
 

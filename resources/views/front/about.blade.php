@@ -59,7 +59,8 @@
         <p class="text-black opacity-70 w-full md:max-w-[550px] mx-auto my-7 md:my-10 text-center">
           Our team ensures every moment is beautifully planned, perfectly executed, and truly unforgettable.
         </p>
-        <div class="grid grid-cols-2 gap-5 h-[450px] w-full max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 gap-5 w-full max-w-4xl mx-auto
+                grid-auto-rows-[150px] md:grid-auto-rows-[200px] lg:grid-auto-rows-[940px]">
 
           <div class="rounded-xl overflow-hidden row-span-2">
             <img
@@ -78,7 +79,9 @@
               src="https://images.unsplash.com/photo-1504993945773-3f38e1b6a626?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500"
               alt="Wedding Photo 3" class="object-cover w-full h-full" />
           </div>
+
         </div>
+
       </div>
     </div>
 
@@ -101,7 +104,7 @@
         </p>
         <img
           src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2VkZGluZ3xlbnwwfDF8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
-          class="rounded-t-full object-cover w-full h-[480px] md:h-[550px]" alt="">
+          class="w-full min-h-[300px] md:min-h-[450px] lg:max-h-[580px] object-cover rounded-t-full" alt="">
       </div>
       <div class="flex flex-col justify-center items-center text-center">
         <div class="max-w-[450px] mx-auto">
@@ -169,16 +172,16 @@
 
       <div class="">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-                        place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
+                              place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
           @foreach ($teamWeddingOrganizer as $member)
-            <div class="relative w-full h-[500px] md:h-[543px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.07)]
-                                        border-2 border-[#dfcdcb] rounded-[0_25px_0_25px]
-                                        p-[30px] md:p-[40px] flex flex-col box-border cursor-pointer"
+            <div class="relative w-full min-h-[500px] md:h-[543px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.07)]
+                                                    border-2 border-[#dfcdcb] rounded-[0_25px_0_25px]
+                                                    p-[30px] md:p-[40px] flex flex-col box-border cursor-pointer"
               data-role="{{ $member['role'] }}">
 
               <!-- Card Image -->
               <div class="w-full h-[300px] md:h-[363px] rounded-[0_25px_0_25px] border-2 border-[#dfcdcb]
-                                          overflow-hidden mx-auto flex-shrink-0">
+                                                      overflow-hidden mx-auto flex-shrink-0">
                 <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}" class="w-full h-full object-cover block">
               </div>
 

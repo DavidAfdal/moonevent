@@ -91,7 +91,7 @@
       <div class="relative w-full">
         <img
           src="https://images.unsplash.com/photo-1503314885798-a70f8f9028d3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=869"
-          alt="" class="w-full object-cover h-[400px] rounded-2xl">
+          alt="" class="w-full object-cover max-h-[400px] rounded-2xl">
         <div
           class="text-center absolute w-full top-0 h-full bg-black bg-opacity-20 rounded-lg flex flex-col items-center justify-center ">
           <h2
@@ -210,7 +210,7 @@
           </p>
           <img
             src="https://images.unsplash.com/photo-1761116362962-3cd736532ea2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2VkZGluZ3xlbnwwfDB8Mnx8fDI%3D&auto=format&fit=crop&q=60&w=500"
-            class="w-[550px] h-[270px] object-cover mb-14 md:mb-0" alt="">
+            class="min-w-[550px] max-h-[270px] object-cover mb-14 md:mb-0" alt="">
         </div>
         <div class="flex flex-col gap-7 md:gap-20">
           <div class="border-y border-[#FF7043] flex items-start py-8 gap-8">
