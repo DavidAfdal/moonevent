@@ -40,13 +40,13 @@
 </head>
 
 <body class="font-poppins text-black">
-    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history', 'front.reservation.check', 'bookings']))
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history', 'front.reservation.check', 'dashboard.bookings']))
         <x-navbar />
     @endif
     @yield('content')
     @stack('before-scripts')
     @stack('after-scripts')
-    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history']))
+    @if (!in_array(Route::currentRouteName(), ['login', 'register', 'front.success', 'front.history', 'dashboard.bookings', 'profile']))
         <x-footer />
     @endif
 </body>

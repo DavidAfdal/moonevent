@@ -37,7 +37,7 @@
     <!-- Hero section -->
     <div class="w-full h-auto relative">
 
-      <img class="w-full h-[500px] object-cover" alt="Ellipse" src="{{ asset('assets/thumbnails/heroImage.png') }}" />
+      <img class="w-full min-h-[500px] object-cover" alt="Ellipse" src="{{ asset('assets/thumbnails/heroImage.png') }}" />
 
       <div
         class="text-center absolute w-full top-0 h-full bg-black bg-opacity-20 rounded-lg flex flex-col items-center justify-center ">
@@ -48,7 +48,7 @@
 
             <!-- Tulisan -->
             <span class="mx-4 text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-widest">
-              Wedding Planner
+              Moonevent Organizer
             </span>
 
             <!-- Garis kanan -->
@@ -56,41 +56,51 @@
           </div>
         </section>
         <h2
-          class="text-white max-w-[450px] md:max-w-[650px] lg:max-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-5 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
-          Crafting Ever After Moments with Moon Event Organizer
+          class="text-white min-w-[450px] md:min-w-[650px] lg:min-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-3 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
+          Your Partner Event Solution
         </h2>
       </div>
 
       <!-- Number wedding -->
       <div
         class="w-full px-[20px] md:px-[65px] absolute top-[26rem] animate__animated animate__fadeInUp animate__duration-3s">
+
         <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-6 px-8 py-8 md:py-20 items-center bg-gradient-to-r from-[#FF7043] via-[#FD1D1D] to-[#FCB045] rounded-xl">
-          <div class="text-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-5 font-semibold text-white num" data-val="1245">0</p>
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 px-8 bg-gradient-to-r from-[#FF7043] via-[#FD1D1D] to-[#FCB045] rounded-xl min-h-[250px] md:min-h-[220px] lg:min-h-[260px] items-center">
+
+          <div class="flex flex-col items-center">
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="1245">0</p>
             <p class="text-white">Happy Couples</p>
           </div>
-          <div class="text-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-5 font-semibold text-white num" data-val="946">0</p>
+
+          <div class="flex flex-col items-center">
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="946">0</p>
             <p class="text-white">Wedding</p>
           </div>
-          <div class="text-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-5 font-semibold text-white num" data-val="156">0</p>
+
+          <div class="flex flex-col items-center">
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="156">0</p>
             <p class="text-white">Vendor</p>
           </div>
-          <div class="text-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-3 md:mb-5 font-semibold text-white num" data-val="35">0+</p>
+
+          <div class="flex flex-col items-center">
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="35">0+</p>
             <p class="text-white">Location</p>
           </div>
+
         </div>
+
       </div>
+
 
     </div>
 
     <!-- About Section -->
     <div class="px-[20px] md:px-[65px]" id="section-one">
       <div class="text-center mt-60">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">About Company</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">
+          Company Profile
+        </h1>
         <section class="flex items-center justify-center mt-5 mb-10">
           <div class="flex items-center w-full max-w-xs">
             <!-- Garis kiri -->
@@ -111,7 +121,7 @@
         <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="300">
           <img src="{{ asset('assets/photo_team/foto-team.png') }}" alt=""
-            class="w-full object-cover h-[300px] md:h-[400px]">
+            class="w-full object-cover mix-h-[300px] md:h-[400px]">
         </div>
         <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
           <h1 class="text-2xl md:text-xl lg:text-3xl font-semibold md:leading-normal mb-5 md:mb-5 lg:mb-7">
@@ -162,7 +172,7 @@
 
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 md:mt-16 mb-11">
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300">
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center">
             <i class="fa-regular fa-calendar-check text-xl"></i>
             <div class="">
               <h2 class="text-xl font-bold my-2">Personalized Wedding Planning</h2>
@@ -172,7 +182,7 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <i class="fa-solid fa-people-group text-xl"></i>
             <div class="">
@@ -182,7 +192,7 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
             <i class="fa-solid fa-handshake text-xl"></i>
             <div class="">
@@ -193,7 +203,7 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <i class="fa-solid fa-paintbrush text-xl"></i>
             <div class="">
@@ -203,7 +213,7 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
             <i class="fa-solid fa-user-friends text-xl"></i>
             <div class="">
@@ -214,7 +224,7 @@
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300"
+            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
             <i class="fa-solid fa-camera-retro text-xl"></i>
             <div class="">
@@ -253,51 +263,59 @@
       </div>
 
       {{-- @php
-        $instagram = [
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '200'
-          ],
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '300'
-          ],
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '400'
-          ],
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '500'
-          ],
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '600'
-          ],
-          [
-            'img' => "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-            'dad' => '700'
-          ],
-        ];
+      $instagram = [
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '200'
+      ],
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '300'
+      ],
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '400'
+      ],
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '500'
+      ],
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '600'
+      ],
+      [
+      'img' =>
+      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
+      'dad' => '700'
+      ],
+      ];
       @endphp --}}
 
 
 
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-5 mt-10">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-5 mt-16">
         @foreach ($instagram as $item)
           <div class="w-full relative group cursor-pointer" data-oas-anchor="#section-one" data-aos="fade-up"
             data-aos-duration="1000" data-aos-delay="100">
-            <img src={{ Storage::url($item->thumbnail) }} alt="" class="w-full h-[280px] rounded-lg md:h-auto object-cover">
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+            <img src={{ Storage::url($item->thumbnail) }} alt=""
+              class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
+                                                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
-              <a href="{{ $item->link }}">View Instagram</a>
+              <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
           </div>
         @endforeach
 
-      </div>      
+      </div>
     </div>
 
 
@@ -393,7 +411,7 @@
 
 
     <!-- Mid Banner -->
-    <div class="relative max-w-full mx-auto pt-28 bg-cover bg-center h-[550px]"
+    <div class="relative max-w-full mx-auto pt-28 bg-cover bg-center min-h-[550px]"
       style="background-image: url('{{ asset('assets/backgrounds/midBanner.avif') }}'); background-position: center; background-attachment: fixed;">
       <div class="absolute inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center">
         <div class="text-center max-w-[850px] text-white px-4">
@@ -623,8 +641,8 @@
 
             // Ganti isi konten testimonial
             slide.innerHTML = `
-                                                              <p class="text-lg italic text-gray-800">${testimonials[currentIndex].text}</p>
-                                                            `;
+                                                                          <p class="text-lg italic text-gray-800">${testimonials[currentIndex].text}</p>
+                                                                        `;
             clientName.textContent = testimonials[currentIndex].name;
 
             // Reset posisi dari arah berlawanan sebelum masuk
