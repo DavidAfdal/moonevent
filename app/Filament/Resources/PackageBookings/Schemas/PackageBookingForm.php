@@ -71,7 +71,11 @@ class PackageBookingForm
                             }
                         });
                     "]),
-                TimePicker::make('booking_time')
+                Select::make('booking_time')
+                ->options([
+                    "Pagi",
+                    "Malam"
+                ])
                     ->required(),
             ]);
     }

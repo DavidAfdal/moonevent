@@ -26,7 +26,7 @@ return new class extends Migration
 
             // ganti start_date & end_date dengan booking_date
             $table->date('booking_date')->unique(); 
-            $table->time('booking_time'); // input jam acara
+            $table->string('booking_time', 50);
 
             $table->softDeletes();
             $table->timestamps();;

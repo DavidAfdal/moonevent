@@ -16,6 +16,10 @@
                 {{-- User Detail --}}
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-lg font-semibold mb-4">Enter Your Detail</h3>
+                    <div class="flex gap-4 mb-4">
+                        <p class="text-lg text-semibold  bg-amber-400/40 text-amber-500 p-4 rounded-lg border border-amber-500">Morning: 08.00 - 13.00</p>
+                        <p class="text-lg text-semibold  bg-indigo-600/40 text-indigo-700 p-4 rounded-lg border border-indigo-700">Night: 15.00 - 21.00</p>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium">Username</label>
@@ -34,9 +38,10 @@
                             </div>
                             <div class="w-full">
                                 <label class="block text-sm font-medium">Time</label>
-                                <input name="booking_time" type="time" 
-                                    class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500" 
-                                    required value="09:00">
+                                <select name="booking_time" class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500">
+                                    <option value="Pagi">Morning</option>
+                                    <option value="Malam">Night</option>
+                                 </select>
                             </div>
                         </div>
 
@@ -57,56 +62,58 @@
                         
                     </div>
                 </div>
-        
-                {{-- Add Wedding Package --}}
+                
+                @if ($package_tours->category->is_wedding)     
                 <div class="bg-white p-6 rounded-lg shadow">
                     <h3 class="text-lg font-semibold mb-4">Add Wedding Package</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     
                          <x-wedding-package-select 
-        name="decoration_id" 
-        label="Decoration" 
-        icon="assets/icons/decoration.svg" 
-        :options="$decoration->pluck('decoration_name', 'id')" 
-    />
+                            name="decoration_id" 
+                            label="Decoration" 
+                            icon="assets/icons/decoration.svg" 
+                            :options="$decoration->pluck('decoration_name', 'id')" 
+                        />
 
-    <x-wedding-package-select 
-        name="mua_id"     
-        label="Fashion, Styling & Makeup" 
-        icon="assets/icons/fashion.svg" 
-        :options="$MUA->pluck('mua_name', 'id')" 
-    />
+                        <x-wedding-package-select 
+                            name="mua_id"     
+                            label="Fashion, Styling & Makeup" 
+                            icon="assets/icons/fashion.svg" 
+                            :options="$MUA->pluck('mua_name', 'id')" 
+                        />
 
-    <x-wedding-package-select 
-        name="catering_id"   
-        label="Catering" 
-        icon="assets/icons/catering.svg" 
-        :options="$catering->pluck('catering_name', 'id')" 
-    />
+                        <x-wedding-package-select 
+                            name="catering_id"   
+                            label="Catering" 
+                            icon="assets/icons/catering.svg" 
+                            :options="$catering->pluck('catering_name', 'id')" 
+                        />
 
-    <x-wedding-package-select 
-        name="entertainment_id" 
-        label="Entertainment" 
-        icon="assets/icons/entertaiment.svg" 
-        :options="$entertainment->pluck('entertainment_name', 'id')" 
-    />
+                        <x-wedding-package-select 
+                            name="entertainment_id" 
+                            label="Entertainment" 
+                            icon="assets/icons/entertaiment.svg" 
+                            :options="$entertainment->pluck('entertainment_name', 'id')" 
+                        />
 
-    <x-wedding-package-select 
-        name="mc_id"         
-        label="Master of Ceremony (MC)" 
-        icon="assets/icons/mc.svg" 
-        :options="$MC->pluck('mc_name','id')" 
-    />
+                        <x-wedding-package-select 
+                            name="mc_id"         
+                            label="Master of Ceremony (MC)" 
+                            icon="assets/icons/mc.svg" 
+                            :options="$MC->pluck('mc_name','id')" 
+                        />
 
-    <x-wedding-package-select 
-        name="photographie_id" 
-        label="Photography" 
-        icon="assets/icons/photo.svg" 
-        :options="$photography->pluck('photography_name', 'id')" 
-    />
+                        <x-wedding-package-select 
+                            name="photographie_id" 
+                            label="Photography" 
+                            icon="assets/icons/photo.svg" 
+                            :options="$photography->pluck('photography_name', 'id')" 
+                        />
 
                     </div>
                 </div>
+                @endif
+                {{-- Add Wedding Package --}}
         
                 {{-- Consultation Notice --}}
                 <div class="bg-white p-6 rounded-lg shadow text-sm">
