@@ -150,6 +150,11 @@
       width: 100%;
       display: flex;
       align-items: center;
+      /* PERBAIKAN 1: 
+        Beri padding agar ada ruang untuk tombol panah.
+      */
+      padding: 0 50px;
+      box-sizing: border-box;
     }
 
     .role-filters {
@@ -185,11 +190,13 @@
     }
 
     .role-filters button:first-child {
-      margin-left: 50px;
+      /* PERBAIKAN 2: Kurangi margin ini, karena padding sudah ada di container */
+      margin-left: 10px;
     }
 
     .role-filters button:last-child {
-      margin-right: 50px;
+      /* PERBAIKAN 3: Kurangi margin ini */
+      margin-right: 10px;
     }
 
     .role-filters button.active {
@@ -219,12 +226,14 @@
     }
 
     .arrow-btn.left {
+      /* PERBAIKAN 4: Posisikan panah di dalam area padding container */
       left: 5px;
       padding-right: 3px;
       /* visual alignment for arrow */
     }
 
     .arrow-btn.right {
+      /* PERBAIKAN 5: Posisikan panah di dalam area padding container */
       right: 5px;
       padding-left: 3px;
       /* visual alignment for arrow */
@@ -233,6 +242,7 @@
     /* === CARD STYLING SECTION === */
     .team-member-card {
       position: relative;
+      /* INI MASALAHNYA: Lebar dan tinggi tetap */
       width: 360.43px;
       height: 543px;
       border-radius: 0 25px 0 25px;
@@ -247,6 +257,7 @@
     }
 
     .card-image-container {
+      /* INI JUGA MASALAH: Lebar dan tinggi tetap */
       width: 269px;
       height: 363px;
       border-radius: 0 25px 0 25px;
@@ -265,6 +276,7 @@
 
     .icon-love {
       position: absolute;
+      /* INI JUGA MASALAH: Posisi pixel tetap */
       top: 435px;
       left: 35px;
       width: 180px;
@@ -395,6 +407,103 @@
 
     .slider-dots span.active {
       background-color: #FF7A59;
+    }
+
+    
+    /* ============================================
+     PENYESUAIAN RESPONSIVE (MOBILE)
+    ============================================
+    */
+
+    @media (max-width: 768px) {
+      
+      .container-team {
+        padding: 15px;
+      }
+
+      /* 1. Perbaiki Hero Section */
+      .hero-section {
+        padding: 60px 15px; /* Kurangi padding */
+      }
+      .hero-section h1 {
+        font-size: 30px; /* Perkecil font dari 48px */
+      }
+      .hero-section p {
+        font-size: 16px; /* Perkecil font dari 20px */
+      }
+      .hero-section .hero-content {
+        padding: 20px;
+        border-radius: 25px;
+      }
+
+      /* 2. Perbaiki Tabs Utama */
+      .tabs {
+        width: 100%;
+        display: flex;
+      }
+      .tabs button {
+        flex: 1; /* Buat tombol 'Wedding' dan 'Office' sama rata */
+        padding: 15px 10px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      /* 3. Perbaiki Filter Role */
+      .role-filters-container {
+        padding: 0 45px; /* Sedikit kurangi padding panah di mobile */
+      }
+
+      /* 4. Perbaiki Card Tim (INI YANG UTAMA) */
+      .team-member-card {
+        width: 90%; /* Ganti dari 360.43px menjadi persentase */
+        max-width: 350px; /* Batas atas agar tidak terlalu besar */
+        height: auto;     /* GANTI DARI 543px MENJADI OTOMATIS */
+        margin-left: auto;  /* Pusatkan card */
+        margin-right: auto; /* Pusatkan card */
+        margin-top: 25px;
+        padding: 20px; /* Sedikit kurangi padding di mobile */
+      }
+
+      /* 5. Perbaiki Kontainer Gambar di dalam Card */
+      .card-image-container {
+        width: 100%;    /* Ganti dari 269px menjadi 100% (penuh) */
+        height: auto;  /* Biarkan tinggi otomatis */
+        aspect-ratio: 3 / 4; /* Jaga rasio gambar 3:4 */
+        border-radius: 0 20px 0 20px;
+      }
+
+      /* 6. Perbaiki Posisi Ikon 'Love' */
+      .icon-love {
+        position: absolute;
+        top: auto;    /* Hapus 'top: 435px' */
+        bottom: 60px; /* Posisikan 60px dari Bawah card */
+        left: 25px;   /* Sesuaikan 'left: 35px' */
+        width: 160px; /* Mungkin perkecil sedikit */
+      }
+
+      /* 7. Perbaiki info text */
+      .team-member-card .info {
+          padding: 10px 0 0 0; /* Sesuaikan padding info */
+          text-align: left;
+      }
+      .member-name {
+        font-size: 18px; /* Perkecil sedikit font */
+        padding-left: 15px; /* Kurangi padding */
+        margin-bottom: 5px;
+      }
+      .member-aka {
+        font-size: 15px; /* Perkecil sedikit font */
+        padding-left: 15px;
+      }
+
+      /* 8. Perbaiki Tampilan Grid (untuk Team Office & Wedding) */
+      /* Ini akan menumpuk card jadi 1 kolom di mobile */
+      .grid.grid-cols-1,
+      .grid.md\:grid-cols-2,
+      .grid.lg\:grid-cols-3,
+      .grid.md\:grid-cols-3 {
+          grid-template-columns: 1fr;
+      }
     }
   </style>
 @endpush
@@ -536,8 +645,8 @@
               'photo' => asset('assets/orang/ibu-munah.png')
             ],
             [
-              'name' => 'Lucy',
-              'aka' => 'Tante Lucy',
+              'name' => 'Lusy',
+              'aka' => 'Tante Lusy',
               'role' => 'Head Of Sales',
               'photo' => asset('assets/orang/tante-lucy.png')
             ],
@@ -566,10 +675,10 @@
               'photo' => asset('assets/orang/abang-bimo.png')
             ],
             [
-              'name' => 'Nazra',
-              'aka' => 'Kak Nazra',
+              'name' => 'Ayu',
+              'aka' => 'Ibu Ayu',
               'role' => 'Public Relations',
-              'photo' => asset('assets/orang/kak-nazra.png')
+              'photo' => asset('assets/orang/ibu-ayu.jpg')
             ],
             [
               'name' => 'David Afdal Kaizar',
@@ -593,11 +702,75 @@
         @endphp
 
         {{-- office secttion --}}
+        {{-- office section (ORG CHART) --}}
         <div class="tab-content hidden" id="office">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full" id="office">
-            @foreach ($teamOffice as $member)
-              <div class="w-full">
+          @php
+            // Pisahkan role
+            $director = null;
+            $tier1 = [];
+            $others = [];
 
+            foreach ($teamOffice as $m) {
+              if ($m['role'] === 'President Director') {
+                $director = $m;
+              } elseif (in_array($m['role'], ['Head Of Sales', 'Head Of Banquet', 'Supervisor Event'])) {
+                $tier1[] = $m;
+              } else {
+                $others[] = $m;
+              }
+            }
+
+            // Urutkan baris kedua: Sales -> Banquet -> Supervisor
+            $order = ['Head Of Sales', 'Head Of Banquet', 'Supervisor Event'];
+            usort($tier1, function ($a, $b) use ($order) {
+              return array_search($a['role'], $order) <=> array_search($b['role'], $order);
+            });
+          @endphp
+
+          {{-- TOP: President Director di tengah --}}
+          @if ($director)
+            <div class="w-full flex justify-center mb-8">
+              <div class="w-full max-w-[360px]">
+                <p class="font-bold text-lg mb-2 text-center">{{ $director['role'] }}</p>
+                <div class="mx-auto w-24 h-[2px] bg-black"></div>
+                <div class="team-member-card mx-auto">
+                  <div class="card-image-container">
+                    <img src="{{ $director['photo'] }}" alt="Foto {{ $director['name'] }}">
+                  </div>
+                  <div class="info">
+                    <span class="member-name ">{{ $director['name'] }}</span>
+                    <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love" alt="divider icon">
+                    <p class="member-aka">A.K.A {{ $director['aka'] }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endif
+
+          {{-- ROW 2: 3 posisi sejajar (Sales, Banquet, Supervisor) --}}
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-10">
+            @foreach ($tier1 as $member)
+              <div class="w-full">
+                <p class="font-bold text-lg mb-2 text-center md:text-left">{{ $member['role'] }}</p>
+                <div class="w-[calc(100%-20px)] h-[2px] bg-black md:w-full"></div>
+                <div class="team-member-card">
+                  <div class="card-image-container">
+                    <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
+                  </div>
+                  <div class="info">
+                    <span class="member-name ">{{ $member['name'] }}</span>
+                    <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love" alt="divider icon">
+                    <p class="member-aka">A.K.A {{ $member['aka'] }}</p>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+          </div>
+
+          {{-- Sisanya tampil biasa di bawah --}}
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full">
+            @foreach ($others as $member)
+              <div class="w-full">
                 <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
                 <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
                 <div class="team-member-card">
@@ -606,8 +779,8 @@
                   </div>
                   <div class="info">
                     <span class="member-name ">{{ $member['name'] }}</span>
-                    <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
-                    <p class="member-aka">A.K.A {{$member['aka'] }}</p>
+                    <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love" alt="divider icon">
+                    <p class="member-aka">A.K.A {{ $member['aka'] }}</p>
                   </div>
                 </div>
               </div>
@@ -624,6 +797,7 @@
               <button class="role-tab" data-role="Event Coordinator">Event Coordinator</button>
               <button class="role-tab" data-role="Event Supervisor">Event Supervisor</button>
               <button class="role-tab" data-role="Facility Support">Facility Support</button>
+              <button class="role-tab" data-role="Bride, Grooms, & Family">Bride, Grooms, & Family</button>
               <button class="role-tab" data-role="VIP Management">VIP Management</button>
               <button class="role-tab" data-role="Food And Beverage">Food And Beverage</button>
               <button class="role-tab" data-role="Front Line">Front Line</button>
@@ -686,7 +860,7 @@
               <div class="gallery-item small-item"><img
                   src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
             </div>
-          </div>
+          </div>  
           <div class="gallery-slide">
             <div class="side-images">
               <div class="gallery-item small-item">
