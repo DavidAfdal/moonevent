@@ -79,11 +79,10 @@
           @php
 
               $datetime = \Illuminate\Support\Carbon::parse($packageBooking->booking_date)
-                  ->setTimeFrom(\Illuminate\Support\Carbon::parse($packageBooking->booking_time));
           @endphp
           <div class="flex justify-between items-center mb-5">
             <span class="md:text-base lg:text-lg font-medium text-gray-600">Date</span>
-            <span class="md:text-base lg:text-lg font-semibold text-gray-900">{{ $datetime->format('M d, Y h:i:s A') }}</span>
+            <span class="md:text-base lg:text-lg font-semibold text-gray-900">{{ $datetime->format('M d, Y ') }}</span>
           </div>
 
           <div class="flex justify-between items-center mb-5">

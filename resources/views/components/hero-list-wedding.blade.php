@@ -1,16 +1,16 @@
 <div class="relative bg-cover bg-center min-h-[60vh] flex items-center justify-center text-white"
          style="background-image: url('/assets/backgrounds/hero-wedding-list.png');">
          {{-- {{ asset('images/hero-background.jpg') }} --}}
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div> {{-- dark overlay --}}
+    <div class="absolute inset-0 bg-[#232323] bg-opacity-60"></div> {{-- dark overlay --}}
     
     <div class="relative z-10 px-4 sm:px-6">
+      
         <h1 class="text-4xl text-center sm:text-5xl sm:text-left font-bold leading-tight">
-            Dream <span class="text-orange-500">Wedding</span> Starts Here<br>
+             <span class="text-orange-500">Your Event</span> Starts Here<br>
             Crafted by <span class="text-orange-500">Moon Event Organizer</span>
         </h1>
         <p class="mt-4 text-sm text-center sm:text-xl sm:text-left text-gray-200">
-            Explore Curated Wedding Packages And Venues By Moon Event Organizer.
-            Personalized For Your Dream Day Wherever, Whenever.
+           Your Partner Event Solution
         </p>
         <div class="max-w-4xl mx-auto">
             <form  method="GET"

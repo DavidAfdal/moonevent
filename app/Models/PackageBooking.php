@@ -28,7 +28,6 @@ class PackageBooking extends Model
 
     protected $casts = [
         'booking_date' => 'date',
-        'booking_time' => 'datetime:H:i', // supaya otomatis cast jam
     ];
 
     // 🔹 Relasi ke user (customer)
