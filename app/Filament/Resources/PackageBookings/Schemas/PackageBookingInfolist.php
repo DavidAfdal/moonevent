@@ -70,7 +70,6 @@ class PackageBookingInfolist
 
                             TextEntry::make('booking_time')
                                 ->label('Booking Time')
-                                ->time('H:i')
                                 ->color('info'),
                         ]),
                 ]),
