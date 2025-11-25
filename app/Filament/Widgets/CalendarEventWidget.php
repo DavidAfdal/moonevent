@@ -46,13 +46,27 @@ class CalendarEventWidget extends Widget implements HasForms
         $events = $bookings
             ->filter(fn ($b) => $b->status !== 'declined')
             ->map(function ($b) {
-                $timestr = $b->booking_time->format('H:i:s');
-                $date =  Carbon::parse($b->booking_date)->format("Y-m-d");
+                  $date = Carbon::parse($b->booking_date)->format('Y-m-d');
+                  switch (strtolower($b->booking_time)) {
+                    case 'morning':
+                        $start = '08:00:00';
+                        $end   = '13:00:00';
+                        break;
+
+                    case 'night':
+                        $start = '15:00:00';
+                        $end   = '21:00:00';
+                        break;
+
+                    default:
+                        $start = '08:00:00';
+                        $end   = '13:00:00';
+                }
                 return [
                     'id'  => $b->id,
                     'title' => "{$b->package_name} - {$b->user_name}",
-                    'start' => "{$date}T{$timestr}",
-                    'end'   => "{$date}T{$timestr}",
+                   'start' => "{$date}T{$start}",
+        
                     'color' => match ($b->status) {
                         'success' => '#16a34a', 
                         'pending' => '#f59e0b',
@@ -80,14 +94,14 @@ class CalendarEventWidget extends Widget implements HasForms
             return;
         }
         
-        $timestr = $this->eventModel->booking_time->format('H:i:s');
+
         $date =  Carbon::parse($this->eventModel->booking_date)->format("Y-m-d");
         $title = "{$this->eventModel->tour->name} - {$this->eventModel->customer->name}";
         // Mengisi form/modal dengan data event
         $this->eventData = [
             'title' => $title,
             'booking_date' => $date,
-            'booking_time' => $timestr,
+            'booking_time' =>  $this->eventModel->booking_time,
             'customer' => $this->eventModel->customer->name,
         ];
 

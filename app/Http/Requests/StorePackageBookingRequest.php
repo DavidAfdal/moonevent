@@ -33,7 +33,7 @@ class StorePackageBookingRequest extends FormRequest
             'phone_number' => ["required", 'string'],
             // 🔹 Field booking
             'booking_date' => ['required', 'date', 'after_or_equal:today'],
-            'booking_time' => ['required', 'date_format:H:i'],
+            'booking_time' => ['required',],
         ];
     }
 }

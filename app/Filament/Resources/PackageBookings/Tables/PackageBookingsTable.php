@@ -38,10 +38,9 @@ class PackageBookingsTable
                     ->date()
                     ->sortable(),
                 TextColumn::make('booking_time')
-                    ->time()
-                    ->formatStateUsing(fn ($state) => $state->format('H:i'))
+                    ->badge()
                     ->sortable(),
-                 TextColumn::make('status')
+                TextColumn::make('status')
                     ->badge()
                      ->color(fn (string $state): string => match ($state) {
                         'pending' => 'warning',
@@ -77,6 +76,7 @@ class PackageBookingsTable
             ])
             ->recordActions([
                 ViewAction::make(),
+                  EditAction::make(),
                Action::make('approve')
                     ->color('success')
                     ->icon(Heroicon::CheckCircle)

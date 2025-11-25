@@ -43,12 +43,6 @@ class UserForm
                 ->options(Role::pluck('name', 'name'))
                 ->searchable()
                 ->required(),
-
-            FileUpload::make('avatar')
-                ->label('Avatar')
-                ->directory('avatars')
-                ->disk('public')
-                ->imageEditor(),
             ]);
     }
 }

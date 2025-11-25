@@ -493,14 +493,10 @@
       /* 6. Perbaiki Posisi Ikon 'Love' */
       .icon-love {
         position: absolute;
-        top: auto;
-        /* Hapus 'top: 435px' */
-        bottom: 60px;
-        /* Posisikan 60px dari Bawah card */
-        left: 25px;
-        /* Sesuaikan 'left: 35px' */
-        width: 160px;
-        /* Mungkin perkecil sedikit */
+        top: auto;    /* Hapus 'top: 435px' */
+        bottom: 45px; /* Posisikan 60px dari Bawah card */
+        left: 10px;   /* Sesuaikan 'left: 35px' */
+        width: 160px; /* Mungkin perkecil sedikit */
       }
 
       /* 7. Perbaiki info text */
@@ -511,11 +507,9 @@
       }
 
       .member-name {
-        font-size: 18px;
-        /* Perkecil sedikit font */
-        padding-left: 15px;
-        /* Kurangi padding */
-        margin-bottom: 5px;
+        font-size: 18px; /* Perkecil sedikit font */
+        padding-left: 15px; /* Kurangi padding */
+        margin-bottom: 10px;
       }
 
       .member-aka {
@@ -741,18 +735,37 @@
             foreach ($teamOffice as $m) {
               if ($m['role'] === 'President Director') {
                 $director = $m;
-              } elseif (in_array($m['role'], ['Head Of Sales', 'Head Of Banquet', 'Supervisor Event'])) {
-                $tier1[] = $m;
               } else {
                 $others[] = $m;
               }
             }
 
-            // Urutkan baris kedua: Sales -> Banquet -> Supervisor
-            $order = ['Head Of Sales', 'Head Of Banquet', 'Supervisor Event'];
-            usort($tier1, function ($a, $b) use ($order) {
-              return array_search($a['role'], $order) <=> array_search($b['role'], $order);
-            });
+             // Role prioritas
+          $priority = ['Head Of Sales', 'Head Of Banquet', 'Supervisor Event'];
+
+          // Lakukan stable sort: 3 role pertama di depan, lainnya tetap urutan asli
+          usort($others, function ($a, $b) use ($priority) {
+
+              $indexA = array_search($a['role'], $priority);
+              $indexB = array_search($b['role'], $priority);
+
+              $aIsPriority = $indexA !== false;
+              $bIsPriority = $indexB !== false;
+
+              // Jika dua2nya adalah role prioritas — sort by priority order
+              if ($aIsPriority && $bIsPriority) {
+                  return $indexA <=> $indexB;
+              }
+
+              // Jika hanya A yang prioritas → A di depan
+              if ($aIsPriority) return -1;
+
+              // Jika hanya B yang prioritas → B di depan
+              if ($bIsPriority) return 1;
+
+              // Jika dua2nya bukan prioritas → JANGAN diubah urutannya
+              return 0; // penting: biar stable (tidak merusak urutan asli)
+          });
           @endphp
 
           {{-- TOP: President Director di tengah --}}
@@ -776,31 +789,70 @@
           @endif
 
           {{-- ROW 2: 3 posisi sejajar (Sales, Banquet, Supervisor) --}}
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full mb-10">
-            @foreach ($tier1 as $member)
-              <div class="w-full">
-                <p class="font-bold text-lg mb-2 text-center md:text-left">{{ $member['role'] }}</p>
-                <div class="w-[calc(100%-20px)] h-[2px] bg-black md:w-full"></div>
-                <div class="team-member-card">
-                  <div class="card-image-container">
+{{-- <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-4 w-full">
+    @foreach ($tier1 as $i => $member)
+        <div 
+            class="
+                w-full
+                @if ($loop->iteration === 1 || $loop->iteration === 2)
+                        md:col-span-2  lg:col-span-1
+                @endif
+                @if ($loop->iteration === 3)
+                        md:col-start-2  md:col-end-4 lg:col-start-auto lg:col-span-1
+                @endif
+            "
+        >
+            <p class="
+              w-full
+              text-center 
+              font-bold 
+              text-lg mb-2 
+               @if ($loop->iteration === 3)
+                  md:text-center
+               @else
+                  md:text-left
+               @endif
+              
+            ">
+              {{ $member['role'] }}
+            </p>
+
+            <div 
+            class="
+                w-24 mx-auto 
+                @if ($loop->iteration === 3)
+                       md:w-full md:mx-auto 
+                @else
+                       md:w-[calc(100%-20px)]
+                @endif
+                h-[2px] bg-black
+            ">
+
+            </div>
+
+            <div class="team-member-card">
+                <div class="card-image-container">
                     <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
-                  </div>
-                  <div class="info">
-                    <span class="member-name ">{{ $member['name'] }}</span>
-                    <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love" alt="divider icon">
-                    <p class="member-aka">A.K.A {{ $member['aka'] }}</p>
-                  </div>
                 </div>
-              </div>
-            @endforeach
-          </div>
+                <div class="info">
+                    <span class="member-name">{{ $member['name'] }}</span>
+                    <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love">
+                    <p class="member-aka">A.K.A {{ $member['aka'] }}</p>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div> --}}
+
+
+
 
           {{-- Sisanya tampil biasa di bawah --}}
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full">
             @foreach ($others as $member)
               <div class="w-full">
-                <p class="font-bold text-lg mb-2">{{ $member['role'] }}</p>
-                <div class="w-[calc(100%-20px)] h-[2px] bg-black"></div>
+                <p class="text-center font-bold text-lg mb-2 md:text-left">{{ $member['role'] }}</p>
+                <div class="w-24 mx-auto md:w-[calc(100%-20px)] h-[2px] bg-black"></div>
                 <div class="team-member-card">
                   <div class="card-image-container">
                     <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
