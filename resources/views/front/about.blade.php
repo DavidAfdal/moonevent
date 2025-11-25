@@ -45,6 +45,75 @@
     .input-field-float:focus+.input-underline::after {
       width: 100%;
     }
+
+    .team-member-card {
+      position: relative;
+      width: 360.43px;
+      height: 543px;
+      border-radius: 0 25px 0 25px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border: 2px solid #dfcdcb;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      margin-top: 40px;
+    }
+
+    .card-image-container {
+      width: 269px;
+      height: 363px;
+      border-radius: 0 25px 0 25px;
+      border: 2px solid #dfcdcb;
+      overflow: hidden;
+      margin: 0 auto;
+      flex-shrink: 0;
+    }
+
+    .card-image-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .icon-love {
+      position: absolute;
+      top: 435px;
+      left: 35px;
+      width: 180px;
+    }
+
+    .team-member-card .info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 15px 15px 0;
+    }
+
+    .member-name {
+      font-size: 20px;
+      padding-left: 25px;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .member-aka {
+      margin: 0;
+      color: #777;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    hr.section-divider {
+      border: 0;
+      border-top: 1px solid #eee;
+      margin: 60px auto;
+      width: 100%;
+    }
   </style>
 @endpush
 @section('content')
@@ -60,7 +129,7 @@
           Our team ensures every moment is beautifully planned, perfectly executed, and truly unforgettable.
         </p>
         <div class="grid grid-cols-2 gap-5 w-full max-w-4xl mx-auto
-                grid-auto-rows-[150px] md:grid-auto-rows-[200px] lg:grid-auto-rows-[940px]">
+                    grid-auto-rows-[150px] md:grid-auto-rows-[200px] lg:grid-auto-rows-[940px]">
 
           <div class="rounded-xl overflow-hidden row-span-2">
             <img
@@ -172,36 +241,17 @@
 
       <div class="">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
-                              place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
+                                  place-items-center gap-5 lg:gap-8 mt-20 mx-auto">
           @foreach ($teamWeddingOrganizer as $member)
-            <div class="relative w-full min-h-[500px] md:h-[543px] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.07)]
-                                                    border-2 border-[#dfcdcb] rounded-[0_25px_0_25px]
-                                                    p-[30px] md:p-[40px] flex flex-col box-border cursor-pointer"
-              data-role="{{ $member['role'] }}">
-
-              <!-- Card Image -->
-              <div class="w-full h-[300px] md:h-[363px] rounded-[0_25px_0_25px] border-2 border-[#dfcdcb]
-                                                      overflow-hidden mx-auto flex-shrink-0">
-                <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}" class="w-full h-full object-cover block">
+            <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
+              <div class="card-image-container">
+                <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
               </div>
-
-              <!-- Info -->
-              <div class="flex-grow flex flex-col justify-center pt-[10px] md:pt-[15px] px-[15px] relative">
-
-                <span class="text-xl md:text-[24px] font-semibold pl-[25px] text-left mb-[10px]">
-                  {{ $member['name'] }}
-                </span>
-
-                <!-- Love Icon -->
-                <img src="{{asset('assets/iconcard/love.png')}}" alt="divider icon"
-                  class="absolute w-[180px] left-[10px] top-[45px] md:left-[14px] md:top-[30px]">
-
-                <p class="text-[16px] text-[#777] text-left m-0">
-                  A.K.A {{ $member['aka'] }}
-                </p>
-
+              <div class="info">
+                <span class="member-name ">{{ $member['name'] }}</span>
+                <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
+                <p class="member-aka">A.K.A {{$member['aka'] }}</p>
               </div>
-
             </div>
 
           @endforeach

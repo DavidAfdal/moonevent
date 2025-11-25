@@ -95,7 +95,7 @@
             Welcome to <span class="text-[#FF7043]">Moon Event</span>
           </h1>
           <p class="max-w-md text-black/70 text-sm md:text-base mx-auto mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            your partner event solution.
           </p>
         </div>
 
@@ -103,7 +103,7 @@
 
         <form method="POST" action="{{ route("login") }}">
           @csrf
-          <div class="md:max-w-md mx-auto mt-5 md:mt-8">
+          <div class="md:max-w-lg mx-auto mt-5 md:mt-8">
 
             @if($errors->any())
               @foreach($errors->all() as $e)

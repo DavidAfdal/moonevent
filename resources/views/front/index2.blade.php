@@ -175,7 +175,7 @@
             class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center">
             <i class="fa-regular fa-calendar-check text-xl"></i>
             <div class="">
-              <h2 class="text-xl font-bold my-2">Personalized Wedding Planning</h2>
+              <h2 class="text-xl font-bold my-2">Wedding Organizer</h2>
               <p class="text-sm text-black opacity-70">We provide tailored planning services to ensure every detail of
                 your
                 wedding matches your vision.</p>
@@ -186,7 +186,7 @@
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <i class="fa-solid fa-people-group text-xl"></i>
             <div class="">
-              <h2 class="text-xl font-bold my-2">Event Coordination</h2>
+              <h2 class="text-xl font-bold my-2">Event Organizer</h2>
               <p class="text-sm text-black opacity-70">Our team coordinates the entire event, from the ceremony to the
                 reception, so everything runs smoothly.</p>
             </div>
@@ -196,7 +196,7 @@
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
             <i class="fa-solid fa-handshake text-xl"></i>
             <div class="">
-              <h2 class="text-xl font-bold my-2">Vendor & Venue Consultation</h2>
+              <h2 class="text-xl font-bold my-2">Wedding Planner</h2>
               <p class="text-sm text-black opacity-70">We connect you with trusted vendors and venues that suit your
                 budget
                 and preferences.</p>
@@ -207,7 +207,7 @@
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <i class="fa-solid fa-paintbrush text-xl"></i>
             <div class="">
-              <h2 class="text-xl font-bold my-2">Design & Decoration</h2>
+              <h2 class="text-xl font-bold my-2">Function Hall Management</h2>
               <p class="text-sm text-black opacity-70">From themes to floral arrangements, we create stunning decorations
                 that reflect your unique style.</p>
             </div>
@@ -262,43 +262,6 @@
         </h1>
       </div>
 
-      {{-- @php
-      $instagram = [
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '200'
-      ],
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '300'
-      ],
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '400'
-      ],
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '500'
-      ],
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '600'
-      ],
-      [
-      'img' =>
-      "https://images.unsplash.com/flagged/photo-1620830102229-9db5c00d4afc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmd8ZW58MHwwfDB8fHwy&auto=format&fit=crop&q=60&w=500",
-      'dad' => '700'
-      ],
-      ];
-      @endphp --}}
-
-
-
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-5 mt-16">
         @foreach ($instagram as $item)
           <div class="w-full relative group cursor-pointer" data-oas-anchor="#section-one" data-aos="fade-up"
@@ -307,8 +270,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                        justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                                                                                                    justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                                                                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -320,114 +283,158 @@
 
 
     <!-- Testimonial Section -->
-    <div class="px-[20px] md:px-[65px]">
-      <div class="text-center py-20 bg-gray-300">
-        <!-- Bagian Judul -->
-        <section class="flex items-center justify-center mb-5">
-          <div class="flex items-center w-full max-w-xs">
+    <div class="mb-32 px-[20px] md:px-[65px]">
+      <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
+        <section class="flex items-center justify-center my-5">
+          <div class="flex items-center w-full max-w-md">
+            <!-- Garis kiri -->
             <div class="flex-grow border-t md:border-t-2 border-[#FF7043]"></div>
+
+            <!-- Tulisan -->
             <span class="mx-4 text-sm md:text-base font-semibold text-[#FF7043] tracking-widest">
-              TESTIMONIALS
+              TESTIMONIAL
             </span>
+
+            <!-- Garis kanan -->
             <div class="flex-grow border-t md:border-t-2 border-[#FF7043]"></div>
           </div>
         </section>
+        <h1 class="text-2xl md:text-4xl lg:text-4xl font-semibold max-w-[650px] mx-auto">
+          What our clients have to say.
+        </h1>
+      </div>
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
-        <h1 class="text-2xl md:text-4xl lg:text-4xl font-semibold">What our clients have to say...</h1>
+          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
 
-        <!-- Bagian Slider -->
-        <div class="mt-10 md:mt-14 relative">
-          <i class="fa-solid fa-quote-left text-2xl md:text-4xl text-orange-500 mb-4"></i>
-
-          <!-- Container -->
-          <div id="testimonial-container"
-            class="overflow-hidden max-w-[410px] md:max-w-[850px] mx-auto h-[150px] relative">
-            <div id="testimonial-slide" class="transition-all duration-700 ease-in-out translate-x-0 opacity-100">
-              <p class="text-base md:text-lg italic text-gray-800">
-                “Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos iste voluptas consequuntur
-                cupiditate sequi numquam placeat.”
-              </p>
-            </div>
+          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
+            </h2>
+            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
           </div>
 
-          <!-- Nama & Navigasi -->
-          <div class="flex max-w-[1100px] mx-auto justify-around md:justify-between items-center md:mt-8">
-            <i id="prevBtn"
-              class="fa-solid fa-chevron-left hover:bg-white transition-all duration-300 cursor-pointer p-2 rounded-full"></i>
-            <p id="client-name" class="font-semibold text-lg">Kusuma & Nessie</p>
-            <i id="nextBtn"
-              class="fa-solid fa-chevron-right hover:bg-white transition-all duration-300 cursor-pointer p-2 rounded-full"></i>
+          <div class="absolute top-10 px-5 z-20">
+            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+              <i class="fa-solid fa-play"></i> Play Video
+            </a>
+          </div>
+        </div>
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+
+          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+
+          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
+            </h2>
+            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
+          </div>
+
+          <div class="absolute top-10 px-5 z-20">
+            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+              <i class="fa-solid fa-play"></i> Play Video
+            </a>
+          </div>
+        </div>
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
+          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+
+          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+
+          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
+            </h2>
+            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
+          </div>
+
+          <div class="absolute top-10 px-5 z-20">
+            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+              <i class="fa-solid fa-play"></i> Play Video
+            </a>
+          </div>
+        </div>
+        
+
+
+      </div>
+
+
+      <!-- Vendor Section -->
+      <div class="relative overflow-hidden py-20 bg-gray-100">
+        <!-- Track carousel -->
+        <div class="flex animate-infinite-scroll">
+          <!-- Grup 1 -->
+          <div class="flex items-center justify-center gap-10 shrink-0 px-10">
+            <img src="{{ asset('assets/vendor/AUF.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
+            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="GINTO Vendor">
+            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="CATERINDO Vendor">
+            <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="DIAMOND Vendor">
+            <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
+            <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/NBS.jpg') }}"
+              class="w-[150px] h-[150px] rounded-full object-cover shadow-md" alt="">
+          </div>
+
+          <!-- Grup duplikat untuk looping tanpa jeda -->
+          <div class="flex items-center justify-center gap-10 shrink-0 px-10" aria-hidden="true">
+            <img src="{{ asset('assets/vendor/AUF.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
+            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="GINTO Vendor">
+            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="CATERINDO Vendor">
+            <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="DIAMOND Vendor">
+            <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
+            <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/NBS.jpg') }}"
+              class="w-[150px] h-[150px] rounded-full object-cover shadow-md" alt="">
           </div>
         </div>
       </div>
-    </div>
 
 
-    <!-- Vendor Section -->
-    <div class="relative overflow-hidden py-20 bg-gray-100">
-      <!-- Track carousel -->
-      <div class="flex animate-infinite-scroll">
-        <!-- Grup 1 -->
-        <div class="flex items-center justify-center gap-10 shrink-0 px-10">
-          <img src="{{ asset('assets/vendor/AUF.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-          <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="GINTO Vendor">
-          <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-            alt="CATERINDO Vendor">
-          <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-            alt="DIAMOND Vendor">
-          <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-          <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-          <img src="{{ asset('assets/vendor/NBS.jpg') }}" class="w-[150px] h-[150px] rounded-full object-cover shadow-md"
-            alt="">
-        </div>
-
-        <!-- Grup duplikat untuk looping tanpa jeda -->
-        <div class="flex items-center justify-center gap-10 shrink-0 px-10" aria-hidden="true">
-          <img src="{{ asset('assets/vendor/AUF.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-          <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="GINTO Vendor">
-          <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-            alt="CATERINDO Vendor">
-          <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-            alt="DIAMOND Vendor">
-          <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-          <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
-            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-          <img src="{{ asset('assets/vendor/NBS.jpg') }}" class="w-[150px] h-[150px] rounded-full object-cover shadow-md"
-            alt="">
+      <!-- Mid Banner -->
+      <div class="relative max-w-full mx-auto pt-28 bg-cover bg-center min-h-[550px]"
+        style="background-image: url('{{ asset('assets/backgrounds/midBanner.avif') }}'); background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center">
+          <div class="text-center max-w-[850px] text-white px-4">
+            <h1 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4">
+              Let Us Plan Your Dream Wedding
+            </h1>
+            <p class="text-base md:text-lg mb-6">
+              From concept and styling to full event production, we’ll make your special day seamless and
+              unforgettable.
+            </p>
+            <a href="{{ route('front.wedding_list') }}"
+              class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300">
+              Book a Consultation
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-
-
-    <!-- Mid Banner -->
-    <div class="relative max-w-full mx-auto pt-28 bg-cover bg-center min-h-[550px]"
-      style="background-image: url('{{ asset('assets/backgrounds/midBanner.avif') }}'); background-position: center; background-attachment: fixed;">
-      <div class="absolute inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center">
-        <div class="text-center max-w-[850px] text-white px-4">
-          <h1 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Let Us Plan Your Dream Wedding
-          </h1>
-          <p class="text-base md:text-lg mb-6">
-            From concept and styling to full event production, we’ll make your special day seamless and unforgettable.
-          </p>
-          <a href="{{ route('front.wedding_list') }}"
-            class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300">
-            Book a Consultation
-          </a>
-        </div>
-      </div>
-    </div>
     </div>
 
 
@@ -604,63 +611,9 @@
       })
 
       //  Slider testimonial
-      document.addEventListener("DOMContentLoaded", function () {
-        const testimonials = [
-          {
-            name: "Bimo & Ra",
-            text: "“Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos iste voluptas consequuntur cupiditate sequi numquam placeat.”",
-          },
-          {
-            name: "Rafi & Citra",
-            text: "“Moon Event Organizer made our wedding perfect! Their professionalism and creativity were beyond expectations.”",
-          },
-          {
-            name: "Adit & Laila",
-            text: "“Everything went smoothly, and we couldn’t have asked for a better team. Highly recommended!”",
-          },
-        ];
 
-        let currentIndex = 0;
-        const slide = document.getElementById("testimonial-slide");
-        const clientName = document.getElementById("client-name");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
 
-        // Fungsi animasi
-        function animateSlide(direction) {
-          // animasi keluar
-          slide.classList.remove("translate-x-0", "opacity-100");
-          slide.classList.add(direction === "next" ? "-translate-x-full" : "translate-x-full", "opacity-0");
 
-          setTimeout(() => {
-            // Ubah index testimonial
-            currentIndex =
-              direction === "next"
-                ? (currentIndex + 1) % testimonials.length
-                : (currentIndex - 1 + testimonials.length) % testimonials.length;
-
-            // Ganti isi konten testimonial
-            slide.innerHTML = `
-                                                                          <p class="text-lg italic text-gray-800">${testimonials[currentIndex].text}</p>
-                                                                        `;
-            clientName.textContent = testimonials[currentIndex].name;
-
-            // Reset posisi dari arah berlawanan sebelum masuk
-            slide.classList.remove("-translate-x-full", "translate-x-full");
-            slide.classList.add(direction === "next" ? "translate-x-full" : "-translate-x-full");
-
-            // Animasi masuk
-            setTimeout(() => {
-              slide.classList.remove("translate-x-full", "-translate-x-full", "opacity-0");
-              slide.classList.add("translate-x-0", "opacity-100");
-            }, 50);
-          }, 300); // waktu tunggu animasi keluar
-        }
-
-        // Event tombol
-        nextBtn.addEventListener("click", () => animateSlide("next"));
-        prevBtn.addEventListener("click", () => animateSlide("prev"));
-      });
 
       document.addEventListener('DOMContentLoaded', () => {
         AOS.init({
@@ -670,6 +623,8 @@
           easing: 'ease-in-out', // Kurva easing default
         });
       });
+
+
 
     </script>
   </section>
