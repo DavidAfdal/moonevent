@@ -655,7 +655,7 @@
             ],
             [
               'name' => 'Muhammad Fadhshifa',
-              'aka' => 'Kak Ifad',
+              'aka' => 'Ifad',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/i.jpg')
             ],
