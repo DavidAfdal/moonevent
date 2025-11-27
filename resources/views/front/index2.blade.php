@@ -69,22 +69,26 @@
           class="grid grid-cols-2 md:grid-cols-4 gap-6 px-8 bg-gradient-to-r from-[#FF7043] via-[#FD1D1D] to-[#FCB045] rounded-xl min-h-[250px] md:min-h-[220px] lg:min-h-[260px] items-center">
 
           <div class="flex flex-col items-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="1245">0</p>
-            <p class="text-white">Happy Couples</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="50"
+              data-category="withPlus">0</p>
+            <p class="text-white">Room Only</p>
           </div>
 
           <div class="flex flex-col items-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="946">0</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="100"
+              data-category="withPlus">0</p>
             <p class="text-white">Wedding</p>
           </div>
 
           <div class="flex flex-col items-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="156">0</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="30"
+              data-category="withPlus">0</p>
             <p class="text-white">Vendor</p>
           </div>
 
           <div class="flex flex-col items-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="35">0+</p>
+            <p class="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4 font-semibold text-white num" data-val="3"
+              data-category="noPlus">0</p>
             <p class="text-white">Location</p>
           </div>
 
@@ -128,14 +132,18 @@
             We Are a team of passionate and experience wedding planners
           </h1>
           <p class="md:text-base lg:text-base text-black opacity-70 font-light mb-3">
-            Moonevent is a wedding organizer company that handles
-            weddings from planning to execution.We manage the
-            concept, decoration, vendors, and event coordination professionally.Our goal is to create a beautiful and
-            memorable wedding experience.
+            Moon Event Organizer is a professional company specializing in venue management, event organizing, and wedding
+            organizing.
+          </p>
+          <p class="md:text-base lg:text-base font-light text-black opacity-70 mb-5">
+            Founded in October 2020 as PT. Moon Event Kreasindo and led by Mrs. Munahwati—a former MICE Manager at The
+            Kasablanka Hall and General Manager of Marketing at Menara 165—Moon Event has built a strong foundation of
+            industry expertise.
           </p>
           <p class="md:text-base lg:text-base font-light text-black opacity-70 mb-9">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sint voluptatibus amet officia blanditiis rerum
-            omnis nisi laudantium earum sunt.
+            With this experience, Moon Event has become a trusted partner for managing venues and delivering events of all
+            scales, driven by a commitment to Professionalism, Creativity, and Quality Service.
+
           </p>
 
           <a href="{{ route('front.about') }}"
@@ -170,67 +178,57 @@
           </h1>
         </div>
 
-        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 md:mt-16 mb-11">
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-12 md:mt-16 mb-11">
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center">
-            <i class="fa-regular fa-calendar-check text-xl"></i>
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
             <div class="">
-              <h2 class="text-xl font-bold my-2">Wedding Organizer</h2>
-              <p class="text-sm text-black opacity-70">We provide tailored planning services to ensure every detail of
-                your
-                wedding matches your vision.</p>
+              <i
+                class="fa-regular fa-calendar-check w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
+              <h3 class="text-lg md:text-xl font-semibold my-4">
+                Wedding Organizer
+              </h3>
+              <p class="text-black/70 text-sm md:text-base group-hover:text-white transition-all duration-300">
+                We provide tailored planning services to ensure every detail of your wedding matches your vision.
+              </p>
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
-            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <i class="fa-solid fa-people-group text-xl"></i>
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div class="">
-              <h2 class="text-xl font-bold my-2">Event Organizer</h2>
-              <p class="text-sm text-black opacity-70">Our team coordinates the entire event, from the ceremony to the
-                reception, so everything runs smoothly.</p>
+              <i
+                class="fa-solid fa-people-group w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
+              <h3 class="text-lg md:text-xl font-semibold my-4">
+                Event Organizer
+              </h3>
+              <p class="text-black/70 text-sm md:text-base group-hover:text-white transition-all duration-300">
+                Our team coordinates the entire event, from the ceremony to the reception, so everything runs smoothly.
+              </p>
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
-            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-            <i class="fa-solid fa-handshake text-xl"></i>
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
             <div class="">
-              <h2 class="text-xl font-bold my-2">Wedding Planner</h2>
-              <p class="text-sm text-black opacity-70">We connect you with trusted vendors and venues that suit your
-                budget
-                and preferences.</p>
+              <i
+                class="fa-solid fa-handshake w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
+              <h3 class="text-lg md:text-xl font-semibold my-4">
+                Wedding Planner
+              </h3>
+              <p class="text-black/70 text-sm md:text-base group-hover:text-white transition-all duration-300">
+                We connect you with trusted vendors and venues that suit your budget and preferences.
+              </p>
             </div>
           </div>
           <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
-            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <i class="fa-solid fa-paintbrush text-xl"></i>
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <div class="">
-              <h2 class="text-xl font-bold my-2">Function Hall Management</h2>
-              <p class="text-sm text-black opacity-70">From themes to floral arrangements, we create stunning decorations
-                that reflect your unique style.</p>
-            </div>
-          </div>
-          <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
-            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-            <i class="fa-solid fa-user-friends text-xl"></i>
-            <div class="">
-              <h2 class="text-xl font-bold my-2">Guest Management</h2>
-              <p class="text-sm text-black opacity-70">We assist with invitations, RSVP tracking, and guest coordination
-                to
-                simplify your wedding day.</p>
-            </div>
-          </div>
-          <div
-            class="w-full px-8 cursor-pointer py-6 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white transition transform hover:scale-100 hover:shadow-2xl duration-300 min-h-[180px] md:min-h-[200px] lg:min-h-[200px] flex flex-col justify-center"
-            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-            <i class="fa-solid fa-camera-retro text-xl"></i>
-            <div class="">
-              <h2 class="text-xl font-bold my-2">VenPhotography & Videography</h2>
-              <p class="text-sm text-black opacity-70">Capture every special moment with professional photo and video
-                documentation.</p>
+              <i
+                class="fa-solid fa-paintbrush w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
+              <h3 class="text-lg md:text-xl font-semibold my-4">
+                Function Hall Management
+              </h3>
+              <p class="text-black/70 text-sm md:text-base group-hover:text-white transition-all duration-300">
+                From themes to floral arrangements, we create stunning decorations that reflect your unique style.
+              </p>
             </div>
           </div>
 
@@ -270,8 +268,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                    justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                                                                                                                    justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                                                                                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -318,7 +316,8 @@
           </div>
 
           <div class="absolute top-10 px-5 z-20">
-            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+            <a href=""
+              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
               <i class="fa-solid fa-play"></i> Play Video
             </a>
           </div>
@@ -337,7 +336,8 @@
           </div>
 
           <div class="absolute top-10 px-5 z-20">
-            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+            <a href=""
+              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
               <i class="fa-solid fa-play"></i> Play Video
             </a>
           </div>
@@ -356,12 +356,13 @@
           </div>
 
           <div class="absolute top-10 px-5 z-20">
-            <a href="" class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+            <a href=""
+              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
               <i class="fa-solid fa-play"></i> Play Video
             </a>
           </div>
         </div>
-        
+
 
 
       </div>
@@ -606,6 +607,9 @@
           valueDisplay.textContent = startValue
           if (startValue === endValue) {
             clearInterval(counter)
+            if (valueDisplay.getAttribute('data-category') === 'withPlus') {
+              valueDisplay.textContent = `${startValue}+`
+            }
           }
         }, duration)
       })
