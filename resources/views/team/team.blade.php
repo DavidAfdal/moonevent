@@ -151,8 +151,8 @@
       display: flex;
       align-items: center;
       /* PERBAIKAN 1: 
-        Beri padding agar ada ruang untuk tombol panah.
-      */
+            Beri padding agar ada ruang untuk tombol panah.
+          */
       padding: 0 50px;
       box-sizing: border-box;
     }
@@ -409,28 +409,34 @@
       background-color: #FF7A59;
     }
 
-    
+
     /* ============================================
-     PENYESUAIAN RESPONSIVE (MOBILE)
-    ============================================
-    */
+         PENYESUAIAN RESPONSIVE (MOBILE)
+        ============================================
+        */
 
     @media (max-width: 768px) {
-      
+
       .container-team {
         padding: 15px;
       }
 
       /* 1. Perbaiki Hero Section */
       .hero-section {
-        padding: 60px 15px; /* Kurangi padding */
+        padding: 60px 15px;
+        /* Kurangi padding */
       }
+
       .hero-section h1 {
-        font-size: 30px; /* Perkecil font dari 48px */
+        font-size: 30px;
+        /* Perkecil font dari 48px */
       }
+
       .hero-section p {
-        font-size: 16px; /* Perkecil font dari 20px */
+        font-size: 16px;
+        /* Perkecil font dari 20px */
       }
+
       .hero-section .hero-content {
         padding: 20px;
         border-radius: 25px;
@@ -441,8 +447,10 @@
         width: 100%;
         display: flex;
       }
+
       .tabs button {
-        flex: 1; /* Buat tombol 'Wedding' dan 'Office' sama rata */
+        flex: 1;
+        /* Buat tombol 'Wedding' dan 'Office' sama rata */
         padding: 15px 10px;
         font-size: 15px;
         text-align: center;
@@ -450,25 +458,35 @@
 
       /* 3. Perbaiki Filter Role */
       .role-filters-container {
-        padding: 0 45px; /* Sedikit kurangi padding panah di mobile */
+        padding: 0 45px;
+        /* Sedikit kurangi padding panah di mobile */
       }
 
       /* 4. Perbaiki Card Tim (INI YANG UTAMA) */
       .team-member-card {
-        width: 90%; /* Ganti dari 360.43px menjadi persentase */
-        max-width: 350px; /* Batas atas agar tidak terlalu besar */
-        height: auto;     /* GANTI DARI 543px MENJADI OTOMATIS */
-        margin-left: auto;  /* Pusatkan card */
-        margin-right: auto; /* Pusatkan card */
+        width: 90%;
+        /* Ganti dari 360.43px menjadi persentase */
+        max-width: 350px;
+        /* Batas atas agar tidak terlalu besar */
+        height: auto;
+        /* GANTI DARI 543px MENJADI OTOMATIS */
+        margin-left: auto;
+        /* Pusatkan card */
+        margin-right: auto;
+        /* Pusatkan card */
         margin-top: 25px;
-        padding: 20px; /* Sedikit kurangi padding di mobile */
+        padding: 20px;
+        /* Sedikit kurangi padding di mobile */
       }
 
       /* 5. Perbaiki Kontainer Gambar di dalam Card */
       .card-image-container {
-        width: 100%;    /* Ganti dari 269px menjadi 100% (penuh) */
-        height: auto;  /* Biarkan tinggi otomatis */
-        aspect-ratio: 3 / 4; /* Jaga rasio gambar 3:4 */
+        width: 100%;
+        /* Ganti dari 269px menjadi 100% (penuh) */
+        height: auto;
+        /* Biarkan tinggi otomatis */
+        aspect-ratio: 3 / 4;
+        /* Jaga rasio gambar 3:4 */
         border-radius: 0 20px 0 20px;
       }
 
@@ -483,16 +501,20 @@
 
       /* 7. Perbaiki info text */
       .team-member-card .info {
-          padding: 10px 0 0 0; /* Sesuaikan padding info */
-          text-align: left;
+        padding: 10px 0 0 0;
+        /* Sesuaikan padding info */
+        text-align: left;
       }
+
       .member-name {
         font-size: 18px; /* Perkecil sedikit font */
         padding-left: 15px; /* Kurangi padding */
         margin-bottom: 10px;
       }
+
       .member-aka {
-        font-size: 15px; /* Perkecil sedikit font */
+        font-size: 15px;
+        /* Perkecil sedikit font */
         padding-left: 15px;
       }
 
@@ -502,7 +524,7 @@
       .grid.md\:grid-cols-2,
       .grid.lg\:grid-cols-3,
       .grid.md\:grid-cols-3 {
-          grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -923,26 +945,29 @@
             </div>
             <button class="arrow-btn right">&rsaquo;</button>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7 w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-7">
             @foreach ($teamWeddingOrganizer as $member)
-              <div class="team-member-card wedding-card" data-role="{{ $member['role'] }}">
-                <div class="card-image-container">
-                  <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
-                </div>
-                <div class="info">
-                  <span class="member-name ">{{ $member['name'] }}</span>
-                  <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love" alt="divider icon">
-                  <p class="member-aka">A.K.A {{$member['aka'] }}</p>
-                </div>
-              </div>
+                  <div class="team-member-card w-[290px] md:w-[360.43px] h-[400px] md:h-[543px] wedding-card"
+                    data-role="{{ $member['role'] }}">
+                    <div class="card-image-container w-[250px] md:w-[269px] h-[280px] md:h-[363px]">
+                      <img src="{{ $member['photo'] }}" alt="Foto {{ $member['name'] }}">
+                    </div>
+                    <div class="info">
+                      <span class="member-name">{{ $member['name'] }}</span>
+                      <img src="{{asset('assets/iconcard/love.png')}}" class="icon-love top-[320px] md:top-[435px] left-[10px] md:left-[35px]" alt="divider icon">
+                      <p class="member-aka">A.K.A {{ $member['aka'] }}</p>
+                    </div>
+                  </div>
             @endforeach
           </div>
+
         </div>
         {{-- end wedding section --}}
 
       </section>
 
-      {{-- <hr class="section-divider">
+      {{--
+      <hr class="section-divider">
 
       <section class="gallery-section">
         <h2>
@@ -978,7 +1003,7 @@
               <div class="gallery-item small-item"><img
                   src="https://via.placeholder.com/268x195/FFA07A/000000?Text=Foto+8" alt="Team Photo 8"></div>
             </div>
-          </div>  
+          </div>
           <div class="gallery-slide">
             <div class="side-images">
               <div class="gallery-item small-item">

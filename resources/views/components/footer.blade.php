@@ -28,8 +28,10 @@
       <div
         class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
         <h2 class="text-xl font-semibold">Contact</h2>
-        <p class="my-3 text-gray-700">JGU Depok</p>
-        <p class="text-gray-700">+627876124734</p>
+        <p class="my-3 text-gray-700 te">KAMPUS JAKARTA GLOBAL UNIVERSITY (JGU),
+          GRAND DEPOK CITY, JL. BOULEVARD RAYA NO.2
+          KOTA DEPOK 16412</p>
+        <p class="text-gray-700">0821-1036-1665</p>
       </div>
       <div
         class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
