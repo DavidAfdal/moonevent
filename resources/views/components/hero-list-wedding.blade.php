@@ -5,6 +5,7 @@
 ])
 
 <div class="relative bg-cover bg-center min-h-[60vh] flex items-center justify-center text-white"
+<div class="relative bg-cover bg-center min-h-[85vh] flex items-center justify-center text-white"
          style="background-image: url('/assets/backgrounds/hero-wedding-list.png');">
          {{-- {{ asset('images/hero-background.jpg') }} --}}
     <div class="absolute inset-0 bg-[#232323] bg-opacity-60"></div> {{-- dark overlay --}}
