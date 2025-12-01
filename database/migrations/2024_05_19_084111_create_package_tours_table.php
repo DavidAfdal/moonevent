@@ -22,7 +22,7 @@ return new class extends Migration
             $table->longtext('legal_services')->nullable();
             $table->longtext('general_information')->nullable();
             $table->unsignedBigInteger('price');
-            $table->unsignedBigInteger('pax')->default(0);
+            $table->unsignedBigInteger('pax')->nullable()->default(0);;
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
