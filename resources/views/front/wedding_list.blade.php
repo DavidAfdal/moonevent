@@ -2,7 +2,11 @@
 
 @section('content')
 <section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
-    <x-hero-list-wedding/>
+    <x-hero-list-wedding
+        :locations="$locations"
+        :paxOptions="$paxOptions"
+        :priceOptions="$priceOptions"
+    />
     
     <div class="w-full max-w-[1440px] mx-auto px-4">
         <div class="w-full flex flex-col md:flex-row items-center justify-between mt-8 ">

@@ -8,4 +8,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePackageTour extends CreateRecord
 {
     protected static string $resource = PackageTourResource::class;
+
+    public function getTitle(): string
+    {
+        return 'Create Wedding';
+    }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\PackageTours;
+namespace App\Filament\Resources\Testimonis;
 
-use App\Filament\Resources\PackageTours\Pages\CreatePackageTour;
-use App\Filament\Resources\PackageTours\Pages\EditPackageTour;
-use App\Filament\Resources\PackageTours\Pages\ListPackageTours;
-use App\Filament\Resources\PackageTours\Schemas\PackageTourForm;
-use App\Filament\Resources\PackageTours\Tables\PackageToursTable;
-use App\Models\PackageTour;
+use App\Filament\Resources\Testimonis\Pages\CreateTestimoni;
+use App\Filament\Resources\Testimonis\Pages\EditTestimoni;
+use App\Filament\Resources\Testimonis\Pages\ListTestimonis;
+use App\Filament\Resources\Testimonis\Schemas\TestimoniForm;
+use App\Filament\Resources\Testimonis\Tables\TestimonisTable;
+use App\Models\Testimoni;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,30 +17,25 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-class PackageTourResource extends Resource
+class TestimoniResource extends Resource
 {
-    protected static ?string $model = PackageTour::class;
+    protected static ?string $model = Testimoni::class;
 
-    protected static ?string $navigationLabel = 'Weddings';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static string | UnitEnum | null $navigationGroup = 'Main Menu';
 
-    protected static ?string $recordTitleAttribute = 'name';
 
-    public static function getPluralLabel(): ?string
-    {
-        return 'Weddings';
-    }
+    protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {
-        return PackageTourForm::configure($schema);
+        return TestimoniForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return PackageToursTable::configure($table);
+        return TestimonisTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -53,9 +48,9 @@ class PackageTourResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListPackageTours::route('/'),
-            'create' => CreatePackageTour::route('/create'),
-            'edit' => EditPackageTour::route('/{record}/edit'),
+            'index' => ListTestimonis::route('/'),
+            'create' => CreateTestimoni::route('/create'),
+            'edit' => EditTestimoni::route('/{record}/edit'),
         ];
     }
 

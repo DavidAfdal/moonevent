@@ -56,7 +56,6 @@ class PackageTourForm
                         (int) preg_replace('/[^0-9]/', '', (string) $state)
                     ),     
                 TextInput::make('pax')
-                    ->required()
                     ->numeric(),
                 TextInput::make('location')
                     ->required(),
