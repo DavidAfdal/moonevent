@@ -84,7 +84,15 @@ class FrontController extends Controller
             $query->where('location', $locationName);
         }
 
+       
+
         // === Filter price (range) ===
+        if ($request->has('pax') && $request->pax != '') {
+            [$min, $max] = explode('-', $request->pax);
+            $query->whereBetween('pax', [(int) $min, (int) $max]);
+        }
+
+        //filter pax
         if ($request->has('price') && $request->price != '') {
             [$min, $max] = explode('-', $request->price);
             $query->whereBetween('price', [(int) $min, (int) $max]);
@@ -98,6 +106,7 @@ class FrontController extends Controller
         if ($request->has('search') && $request->search != '') {
             $query->where('title', 'LIKE', '%' . $request->search . '%');
         }
+
 
         $maxPrice = PackageTour::max('price'); // harga tertinggi
         $step = 50000000; // 50 juta
@@ -116,10 +125,28 @@ class FrontController extends Controller
             $start = $end;
         }
 
+        $maxPax = PackageTour::max('pax');
+        $paxStep = 250; 
+        $paxOptions = [];
+
+        $startPax = 0;
+        while ($startPax < $maxPax) {
+            $endPax = $startPax + $paxStep;
+
+            $paxOptions[] = [
+                'value' => $startPax.'-'.$endPax,
+                'label' => $startPax.'-'.$endPax
+            ];
+
+            $startPax = $endPax;
+        }
+
+
+
         $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         $categories = Category::orderByDesc('id')->get();
         $locations = PackageTour::distinct()->pluck('location');
-        $paxOptions = PackageTour::distinct()->pluck('pax');
+        
         
         return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions'));
     }
