@@ -62,13 +62,13 @@
             alt="Pasangan di Tepi Danau" class="w-full h-full object-cover rounded-2xl">
         </div>
 
-        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 w-4/5 md:w-full max-w-[500px] z-30">
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 w-4/5 md:w-full max-w-[600px] mt-10 z-30">
           <div class="text-center">
             <h1 class="text-xl md:text-2xl lg:text-3xl font-bold mb-2 text-gray-800">
-              Secure Your Next Adventure
+              Begin Planning Your Perfect Event
             </h1>
             <p class="text-sm lg:text-base text-black/70">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, sint!
+              Share your ideas with us, and we’ll help you turn your vision into a beautifully executed celebration.
             </p>
           </div>
         </div>

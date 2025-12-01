@@ -6,21 +6,21 @@
       <p class="font-bold text-lg">Moon Event Organizer</p>
     </div>
 
-    <ul class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[550px] my-7">
-      <li class="py-3 px-3 border-b-2 border-black">
-        <a href="">Home</a>
+    <ul class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[650px] my-7">
+      <li class="py-3 px-3 border-b-2 border-[#FF7043]">
+        <a href="/">Home</a>
       </li>
       <li class="py-3 px-3">
-        <a href="">About</a>
+        <a href="/about">About</a>
       </li>
       <li class="py-3 px-3">
-        <a href="">Team</a>
+        <a href="/team">Team</a>
       </li>
       <li class="py-3 px-3">
-        <a href="">Services</a>
+        <a href="/services">Services</a>
       </li>
       <li class="py-3 px-3">
-        <a href="">Reservasi</a>
+        <a href="/wedding-list">Reservasi</a>
       </li>
     </ul>
 
@@ -36,20 +36,17 @@
       <div
         class="w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] text-center py-8">
         <h2 class="text-xl font-semibold">Working Hours</h2>
-        <p class="my-3 text-gray-700">Monday-Friday : 08:00 - 05:00</p>
-        <p class="text-gray-700">Saturday-Sunday : 08:00 - 05:00</p>
+        <p class="my-6 text-gray-700">Monday-Friday : 09:00 - 05:00</p>
+        <p class="text-gray-700">Saturday-Sunday : 09:00 - 05:00</p>
       </div>
     </div>
 
-    <div class="flex max-w-36 mx-auto my-10 justify-between">
-      <a href="" class="px-3 py-1 bg-orange-500/40">
+    <div class="flex gap-6 justify-center items-center mx-auto my-10 ">
+      <a href="https://www.instagram.com/mooneventorganizer/" target="_blank" class="px-3 py-1 bg-orange-500/40">
         <i class="fa-brands fa-instagram text-lg"></i>
       </a>
-      <a href="" class="px-3 py-1 bg-orange-500/40">
+      <a href="https://www.tiktok.com/@moonevent" target="_blank" class="px-3 py-1 bg-orange-500/40">
         <i class="fa-brands fa-tiktok text-lg"></i>
-      </a>
-      <a href="" class="px-3 py-1 bg-orange-500/40">
-        <i class="fa-brands fa-facebook text-lg"></i>
       </a>
     </div>
 
