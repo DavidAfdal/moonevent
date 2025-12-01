@@ -569,109 +569,109 @@
           $teamWeddingOrganizer = [
             [
               'name' => 'Munahwati',
-              'aka' => 'Ibu Muna',
+              'aka' => 'Muna',
               'role' => 'Event Coordinator',
               'photo' => asset('assets/orang/ibu-munah.png')
             ],
             [
               'name' => 'Indira Zahra Putri',
-              'aka' => 'Tante Rara',
+              'aka' => 'Indira',
               'role' => 'Event Supervisor', 'Bride, Grooms, & Family',
               'photo' => asset('assets/orang/rara.jpg')
             ],
             [
               'name' => 'Edi Kurniawan',
-              'aka' => 'Om Edi',
+              'aka' => 'Edi',
               'role' => 'Facility Support',
               'photo' => asset('assets/orang/om_edi.png')
             ],
             [
               'name' => 'Kusumawardhana H.S',
-              'aka' => 'Aa Dhana',
+              'aka' => 'Kusuma',
               'role' => 'Event Supervisor',
               'photo' => asset('assets/orang/aa_dhana.png')
             ],
             [
               'name' => 'Dias Hafizhan',
-              'aka' => 'Abang Hafiz',
+              'aka' => 'Dias',
               'role' => 'VIP Management',
               'photo' => asset('assets/orang/abang-dias.jpg')
             ],
             [
-              'name' => 'Fadli',
-              'aka' => 'Mas Fadli',
+              'name' => 'Fadly Firdaus',
+              'aka' => 'Fadli',
               'role' => 'VIP Management',
               'photo' => asset('assets/orang/Fadly.jpg')
             ],
             [
-              'name' => 'Rizma',
-              'aka' => 'Mba Rizma',
+              'name' => 'Risma Nurdiyani',
+              'aka' => 'Risma',
               'role' => 'VIP Management',
               'photo' => asset('assets/orang/risma.jpg')
             ],
             [
-              'name' => 'Aulia',
-              'aka' => 'Kak Aulia',
+              'name' => 'Aulia Rahmi',
+              'aka' => 'Aulia',
               'role' => 'Food & Beverage',
               'photo' => asset('assets/orang/aulia.jpg')
             ],
             [
               'name' => 'Masdian Hafizh',
-              'aka' => 'Mas Dian',
+              'aka' => 'Masdian',
               'role' => 'Food & Beverage',
-              'photo' => asset('assets/orang/dian.png')
+              'photo' => asset('assets/orang/masdian.jpg')
             ],
             [
               'name' => 'Ayu Puspita Ningrum',
-              'aka' => 'Ibu Ayu',
+              'aka' => 'Ayu',
               'role' => 'Food & Beverage',
               'photo' => asset('assets/orang/ibu-ayu.jpg')
             ],
             [
-              'name' => 'Hamam',
-              'aka' => 'Mas Hamam',
+              'name' => 'Bintang Faith Hamam',
+              'aka' => 'Hamam',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/hamam.jpg')
             ],
             [
               'name' => 'Kusumadirangga H.S',
-              'aka' => 'Aa Rangga',
+              'aka' => 'Rangga',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/rangga.jpg')
             ],
             [
-              'name' => 'Arsya',
-              'aka' => 'Abang Arsya',
+              'name' => 'Arsya Rivaldo',
+              'aka' => 'Arsya',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/arsya.jpg')
             ],
             [
               'name' => 'M. Iqbal Hidayat',
-              'aka' => 'Abang Iqbal',
+              'aka' => 'Iqbal',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/iqbal.jpg')
             ],
             [
               'name' => 'Muhammad Reza',
-              'aka' => 'Abang Reza',
+              'aka' => 'Reza',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/Muhammad-Reza.jpg')
             ],
             [
               'name' => 'Ade Dwi Putra',
-              'aka' => 'Mas Putra',
+              'aka' => 'Putra',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/putra.jpg')
             ],
             [
               'name' => 'Agung maulana',
-              'aka' => 'Mas Agung',
+              'aka' => 'Agung',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/agung.jpg')
             ],
             [
               'name' => 'Fazilla',
-              'aka' => 'Kak Ila',
+              'aka' => 'Ila',
               'role' => 'Front Line',
               'photo' => asset('assets/orang/ila.jpg')
             ],
@@ -679,23 +679,23 @@
               'name' => 'Muhammad Fadhshifa',
               'aka' => 'Ifad',
               'role' => 'Front Line',
-              'photo' => asset('assets/orang/i.jpg')
+              'photo' => asset('assets/orang/ifad.jpg')
             ],
             [
-              'name' => 'Fatur',
-              'aka' => 'Mas Fatur',
+              'name' => 'Mirza Fahtur',
+              'aka' => 'Fathur',
               'role' => 'Photograph',
               'photo' => asset('assets/orang/fathur.jpg')
             ],
             [
               'name' => 'Naura Nisrina',
-              'aka' => 'Aura',
+              'aka' => 'Naura',
               'role' => 'Bride, Grooms, & Family',
               'photo' => asset('assets/orang/aura.jpg')
             ],
             [
               'name' => 'Lusy Destiani',
-              'aka' => 'Tante Lusy',
+              'aka' => 'Lusy',
               'role' => 'Bride, Grooms, & Family',
               'photo' => asset('assets/orang/tante-lucy.png')
             ],
@@ -704,79 +704,79 @@
           $teamOffice = [
             [
               'name' => 'Munahwati',
-              'aka' => 'Ibu Muna',
+              'aka' => 'Muna',
               'role' => 'President Director',
               'photo' => asset('assets/orang/ibu-munah.png')
             ],
             [
               'name' => 'Lusy Destiani',
-              'aka' => 'Tante Lusy',
+              'aka' => 'Lusy',
               'role' => 'Head Of Operational',
               'photo' => asset('assets/orang/tante-lucy.png')
             ],
             [
               'name' => 'Edi',
-              'aka' => 'Om Edi',
+              'aka' => 'Edi',
               'role' => 'Head Of Banquet',
               'photo' => asset('assets/orang/om_edi.png')
             ],
             [
               'name' => 'Kusumawardhana H.S',
-              'aka' => 'Aa Dhana',
+              'aka' => 'Kusuma',
               'role' => 'Head Of Event & IT',
               'photo' => asset('assets/orang/aa_dhana.png')
             ],
             [
               'name' => 'Susiyana',
-              'aka' => 'Ibu Susy',
+              'aka' => 'Susy',
               'role' => 'Finance & Tax',
               'photo' => asset('assets/orang/susy.jpg')
             ],
             [
               'name' => 'Naura',
-              'aka' => 'Kak Naura',
+              'aka' => 'Naura',
               'role' => 'Public Relation & Secretary',
               'photo' => asset('assets/orang/kak-naura.jpg')
             ],
             [
               'name' => 'Ayu Puspita Ningrum',
-              'aka' => 'Ibu Ayu',
+              'aka' => 'Ayu',
               'role' => 'Event Support',
               'photo' => asset('assets/orang/ibu-ayu.jpg')
             ],
             [
               'name' => 'Masdian Hafizh',
-              'aka' => 'Mas Dian',
+              'aka' => 'Masdian',
               'role' => 'Banquet',
-              'photo' => asset('assets/orang/dian.png')
+              'photo' => asset('assets/orang/masdian.jpg')
             ],
             [
               'name' => 'Fadhilah',
-              'aka' => 'Mas Fadhilah',
+              'aka' => 'Fadhilah',
               'role' => 'Banquet',
               'photo' => asset('assets/orang/Fadhilah.png')
             ],
             [
               'name' => 'Kusumadirangga H.S',
-              'aka' => 'Aa Rangga',
+              'aka' => 'Rangga',
               'role' => 'Event & IT Support',
               'photo' => asset('assets/orang/rangga.jpg')
             ],
             [
               'name' => 'David Afdal Kaizar',
-              'aka' => 'Bung David',
+              'aka' => 'David',
               'role' => 'Tim IT',
               'photo' => asset('assets/orang/bung-david.jpg')
             ],
             [
               'name' => 'Dias Hafizhan',
-              'aka' => 'Abang Dias',
+              'aka' => 'Dias',
               'role' => 'Tim IT',
               'photo' => asset('assets/orang/abang-dias.jpg')
             ],
             [
               'name' => 'I Kadek Andika D.P',
-              'aka' => 'Bung Kadek',
+              'aka' => 'Kadek',
               'role' => 'Tim IT',
               'photo' => asset('assets/orang/bung-kadek.jpg')
             ],

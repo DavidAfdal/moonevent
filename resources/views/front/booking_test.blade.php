@@ -118,6 +118,7 @@
                 {{-- Consultation Notice --}}
                 <div class="bg-white p-6 rounded-lg shadow text-sm">
                     <h3 class="text-lg font-semibold mb-4">Consultation Notice</h3>
+                    {{-- <div class="flex flex-col gap-2"> {!! Str::markdown($package_tours->general_information) !!}</div> --}}
                     <ul class="list-disc pl-5 space-y-2 text-gray-700">
                         <li><strong>Free Of Charge:</strong> This booking is intended for consultation purposes only. You will not be charged any fees for reserving this session.</li>
                         <li><strong>Planning Discussion:</strong> During the consultation, we will discuss your wedding ideas, preferences, and how we can help make your day special.</li>

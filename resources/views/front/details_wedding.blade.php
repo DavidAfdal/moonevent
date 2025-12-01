@@ -4,7 +4,7 @@
 <section class="max-w-[1440px] mx-auto px-4 py-10 mt-20" >
   <div class="grid md:grid-cols-2 gap-6" x-data="{ tab: 'crew' }">
     <div>
-        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+        <div class="max-w-[400px] max-h-[400px] mx-auto rounded-lg overflow-hidden">
             <img id="image-thumbnail" src="{{ Storage::url($package_tours->thumbnail) }}" alt="Main Wedding" class="object-cover w-full h-full">
         </div>
 
