@@ -131,7 +131,7 @@
 
           <div class="rounded-xl overflow-hidden row-span-2">
             <img
-              src="https://images.unsplash.com/photo-1606216794079-73f85bbd57d5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d2VkZGluZ3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&q=60&w=500"
+              src='assets/photo_team/TIM2.jpg'
               alt="Wedding Photo 1" class="object-cover w-full h-full" />
           </div>
 
@@ -168,7 +168,7 @@
           ABOUT US
         </p>
         <img
-          src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2VkZGluZ3xlbnwwfDF8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
+          src="{{ asset('assets/photo_team/tim4.jpg') }}"
           class="w-full min-h-[300px] md:min-h-[450px] lg:max-h-[580px] object-cover rounded-t-full" alt=""
           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
       </div>
@@ -374,7 +374,7 @@
         <div class="">
           <h1 class="text-3xl md:text-4xl font-semibold mb-4">Send Us a Message</h1>
           <p class="text-black text-sm md:text-base opacity-70 mb-10">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, temporibus!
+            For inquiries or event consultations, feel free to contact us. Our team is ready to provide the support you need.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-7">
             <div class="">
@@ -396,30 +396,30 @@
               <div class="">
                 <h3 class="font-semibold mb-2">Working Hours</h3>
                 <p class="text-black opacity-70 text-sm">
-                  Monday-Friday : 08:00 - 05:00
+                  Monday-Friday : 09:00 - 05:00
                 </p>
                 <p class="text-black opacity-70 text-sm">
-                  Saturday-Sunday : 08:00 - 05:00
+                  Saturday-Sunday : 09:00 - 05:00
                 </p>
               </div>
             </div>
           </div>
           <div class="flex items-center gap-4">
-            <a href=""
+            <a href="https://www.instagram.com/mooneventorganizer/" target="_blank"
               class="bg-[#FF7043] py-4 w-[50px] flex items-center justify-center text-white rounded-full text-xl">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href=""
+            <a href="https://www.tiktok.com/@moonevent" target="_blank"
               class="bg-[#FF7043] py-4 w-[50px] flex items-center justify-center text-white rounded-full text-xl">
               <i class="fa-brands fa-tiktok"></i>
             </a>
           </div>
         </div>
         <div class="bg-gray-400/30 rounded-2xl">
-          <form action="">
+          <form action="https://formsubmit.co/anindiakayla09@gmail.com" method="POST" autoComplete="off">
             <div class="max-w-lg mx-auto px-4 bg-transparent">
               <div class="input-container-float w-full h-12 mt-10">
-                <input type="text" id="floating-input-1" placeholder=" "
+                <input type="text" name="name" id="floating-input-1" placeholder=" "required
                   class="input-field-float w-full h-full bg-transparent text-gray-800 text-lg focus:outline-none pt-2">
                 <label for="floating-input-1" class="input-label-float text-black/50 text-lg font-normal">
                   Your Name
@@ -427,7 +427,7 @@
                 <span class="input-underline"></span>
               </div>
               <div class="input-container-float w-full h-12 mt-7">
-                <input type="email" id="floating-input-1" placeholder=" "
+                <input type="email" name="email" id="floating-input-1" placeholder=" " required
                   class="input-field-float w-full h-full bg-transparent text-gray-800 text-lg focus:outline-none pt-2">
                 <label for="floating-input-1" class="input-label-float text-black/50 text-lg font-normal">
                   Your Email
@@ -435,7 +435,7 @@
                 <span class="input-underline"></span>
               </div>
               <div class="input-container-float mt-7 w-full h-24">
-                <textarea id="floating-input-message" placeholder=" " rows="3"
+                <textarea id="floating-input-message" name="pesan" required placeholder=" " rows="3"
                   class="input-field-float input-field-textarea w-full h-full bg-transparent text-gray-800 text-lg focus:outline-none pt-2"></textarea>
 
                 <label for="floating-input-message" class="input-label-float text-black/50 text-lg font-normal">
@@ -446,6 +446,7 @@
             </div>
             <div class="flex items-end justify-end font-semibold pb-5 px-[50px]">
               <button
+              type="submit"
                 class="py-2 px-4 bg-[#FF7043] hover:bg-[#E5633C] transition-all duration-300 text-white rounded-xl mt-10">
                 Submit
               </button>

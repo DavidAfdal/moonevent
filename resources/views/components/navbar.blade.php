@@ -10,11 +10,11 @@
     </div>
   </div>
 
-  <div class="hidden md:flex gap-6 lg:gap-8 items-center text-[16px] lg:text-[17px] font-medium">
+  <div class="hidden md:hidden lg:flex  gap-6 lg:gap-8 items-center text-[16px] lg:text-[17px] font-medium">
     <a href="{{ route('front.index') }}" class="hover:text-[#FF7043] transition">Home</a>
     <a href="{{ route('front.about') }}" class="hover:text-[#FF7043] transition">About</a>
     <a href="{{ route('front.team') }}" class="hover:text-[#FF7043] transition">Team</a>
-    <a href="{{ route('front.services') }}" class="hover:text-[#FF7043] transition">Service</a>
+    <a href="{{ route('front.services') }}" class="hover:text-[#FF7043] transition">Services</a>
     <a href="{{ route('front.wedding_list') }}" class="hover:text-[#FF7043] transition">Reservasi</a>
   </div>
 
@@ -59,13 +59,13 @@
 
     @guest
       <a href="{{ route('login') }}"
-        class="px-6 py-2 lg:px-8 lg:py-3 bg-[#FF7043] rounded-lg text-white font-semibold hover:bg-[#ff5722] transition">
+        class="hidden md:hidden lg:block px-6 py-2 lg:px-8 lg:py-3 bg-[#FF7043] rounded-lg text-white font-semibold hover:bg-[#ff5722] transition">
         Login
       </a>
     @endguest
   </div>
 
-  <button id="menu-toggle" class="block md:hidden text-2xl text-[#1b1b1b] focus:outline-none">
+  <button id="menu-toggle" class="block md:block lg:hidden text-2xl text-[#1b1b1b] focus:outline-none">
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
