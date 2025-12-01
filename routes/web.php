@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::middleware('can:checkout package')->group(function () {
+    Route::middleware('can:checkout_package')->group(function () {
         Route::get('/book/calendarbooking/{package_tours:slug}', [FrontController::class, 'calendarbooking'])
              ->name('front.calendarbooking');
 
@@ -69,7 +69,7 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::prefix('dashboard')->name('dashboard.')->group(function () {
-                Route::middleware('can:view order')->group(function () {
+                Route::middleware('can:view_order')->group(function () {
                 Route::get('/my-bookings', [FrontController::class, 'history'])->name('bookings');
                 Route::get('/my-bookings/details/{packageBooking}', [DashboardController::class, 'my_bookings_details'])
                     ->name('bookings.details');

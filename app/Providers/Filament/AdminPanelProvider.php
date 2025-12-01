@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\CustomDashboard;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use App\Filament\Widgets\BookingChart;
 use App\Filament\Widgets\CalendarEventWidget;
 use App\Filament\Widgets\PackageWeddingChart;
@@ -62,6 +63,9 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->plugins([
+                FilamentShieldPlugin::make(),
+            ])
             ->renderHook(PanelsRenderHook::BODY_END, fn() => <<<HTML
                 <script>
                     if(localStorage.getItem('collapsedGroups') === 'null') {
@@ -69,6 +73,7 @@ class AdminPanelProvider extends PanelProvider
                     }
                 </script>
             HTML)
+            ->authGuard('web')            // pakai guard 'web' (atau 'filament' kalau kamu sudah buat)
             ->authMiddleware([
                 Authenticate::class,
             ]);

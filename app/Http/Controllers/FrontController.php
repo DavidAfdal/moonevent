@@ -20,6 +20,7 @@ use App\Models\Entertainment;
 use App\Models\Photography;
 use App\Models\MC;
 use App\Models\Portofolio;
+use App\Models\Testimoni;
 
 class FrontController extends Controller
 {
@@ -62,7 +63,8 @@ class FrontController extends Controller
         $package_tours = PackageTour::orderByDesc('id')->take(3)->get();
         $package_tours_explore = PackageTour::orderByDesc('id')->get();
         $instagram = Portofolio::orderByDesc("created_at")->limit(6)->get();
-        return view('front.index2', compact('package_tours', 'categories', 'package_tours_explore', 'instagram'));
+        $testimoni = Testimoni::orderByDesc("created_at")->limit(3)->get();
+        return view('front.index2', compact('package_tours', 'categories', 'package_tours_explore', 'instagram', "testimoni"));
     }
 
 
@@ -78,7 +80,6 @@ class FrontController extends Controller
          }
 
         if ($request->has('location') && $request->location != '') {
-            // ubah slug jadi format nama di DB (contoh: "jakarta-barat" -> "Jakarta Barat")
             $locationName = ucwords(str_replace('-', ' ', $request->location));
             $query->where('location', $locationName);
         }
@@ -98,10 +99,29 @@ class FrontController extends Controller
             $query->where('title', 'LIKE', '%' . $request->search . '%');
         }
 
+        $maxPrice = PackageTour::max('price'); // harga tertinggi
+        $step = 50000000; // 50 juta
+        $priceOptions = [];
+
+        $start = 0;
+
+        while ($start < $maxPrice) {
+            $end = $start + $step;
+
+            $priceOptions[] = [
+                'value' => $start.'-'.$end,
+                'label' => 'Rp ' . number_format($start, 0, ',', '.') . ' - Rp ' . number_format($end, 0, ',', '.')
+            ];
+
+            $start = $end;
+        }
+
         $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         $categories = Category::orderByDesc('id')->get();
+        $locations = PackageTour::distinct()->pluck('location');
+        $paxOptions = PackageTour::distinct()->pluck('pax');
         
-        return view('front.wedding_list', compact('weddings', 'categories'));
+        return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions'));
     }
 
  
