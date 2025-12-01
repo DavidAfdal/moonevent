@@ -1,3 +1,10 @@
+@props([
+    'locations' => [],
+    'paxOptions' => [],
+    'priceOptions' => []
+])
+
+<div class="relative bg-cover bg-center min-h-[60vh] flex items-center justify-center text-white"
 <div class="relative bg-cover bg-center min-h-[85vh] flex items-center justify-center text-white"
          style="background-image: url('/assets/backgrounds/hero-wedding-list.png');">
          {{-- {{ asset('images/hero-background.jpg') }} --}}
@@ -13,57 +20,85 @@
            Your Partner Event Solution
         </p>
         <div class="max-w-4xl mx-auto">
-            <form  method="GET"
-              class="bg-white shadow-lg rounded-xl mt-8 p-4  flex flex-wrap items-center gap-4 w-fit mb-8">
 
-                @if(request('category'))
-                    <input type="hidden" name="category" value="{{ request('category') }}">
-                @endif
+  <form method="GET"
+    class="bg-white shadow-lg rounded-xl mt-8 p-6 flex flex-col gap-6 w-full max-w-5xl mx-auto">
 
-                <div class="flex flex-1 min-w-[200px] flex-col md:block md:flex-none">
-                    <label for="location" class="text-sm text-gray-600 mb-1">Select Location</label>
-                    <div class="flex items-center border rounded-md px-3 py-2 w-full">
-                        <span class="text-gray-500 mr-2">📍</span>
-                        <select name="location" class="outline-none bg-transparent text-sm text-gray-700 w-full">
-                            <option value="">Select Location</option>
-                            <option value="jakarta-selatan" {{ request('location') == 'jakarta-selatan' ? 'selected' : '' }}>Jakarta Selatan</option>
-                            <option value="jakarta-barat" {{ request('location') == 'jakarta-barat' ? 'selected' : '' }}>Jakarta Barat</option>
-                        </select>
-                    </div>
-                </div>
+    @if(request('category'))
+        <input type="hidden" name="category" value="{{ request('category') }}">
+    @endif
 
-              <div class="flex flex-1 min-w-[200px] flex-col md:block  md:flex-none">
-                <label for="price" class="text-sm text-gray-600 mb-1">Price</label>
-                <div class="flex items-center border rounded-md px-3 py-2 w-full sm:w-auto">
-                    <span class="text-gray-500 mr-2">💰</span>
-                    <select name="price" class="outline-none bg-transparent text-sm text-gray-700 w-full">
-                        <option value="0-15000000" {{ request('price') == '0-15000000' ? 'selected' : '' }}>
-                            Rp. 0 - Rp. 15.000.000
+    {{-- FILTERS BARIS ATAS --}}
+    <div class="flex items-center gap-6">
+
+        {{-- Location --}}
+        <div class="flex-grow" style="flex-grow:1; min-width: 150px;">
+            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Select Location</label>
+            <div class="flex items-center border rounded-md px-3 py-2 bg-white">
+                <span class="text-gray-500 mr-2">📍</span>
+                <select name="location" id="location" class="outline-none bg-transparent text-sm text-gray-700 w-full">
+                    <option value="">Select Location</option>
+                    @foreach($locations as $loc)
+                        @php
+                            $slug = strtolower(str_replace(' ', '-', $loc));
+                        @endphp
+                        <option value="{{ $slug }}" {{ request('location') == $slug ? 'selected' : '' }}>
+                            {{ $loc }}
                         </option>
-                        <option value="15000000-30000000" {{ request('price') == '15000000-30000000' ? 'selected' : '' }}>
-                            Rp. 15.000.000 - Rp. 30.000.000
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        {{-- Price (lebih lebar) --}}
+        <div class="flex-grow" style="flex-grow:2; min-width: 250px;">
+            <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Price</label>
+            <div class="flex items-center border rounded-md px-3 py-2 bg-white">
+                <span class="text-gray-500 mr-2">💰</span>
+                <select name="price" id="price" class="outline-none bg-transparent text-sm text-gray-700 w-full">
+                    <option value="">Select Price Range</option>
+                    @foreach($priceOptions as $p)
+                        <option value="{{ $p['value'] }}" {{ request('price') == $p['value'] ? 'selected' : '' }}>
+                            {{ $p['label'] }}
                         </option>
-                    </select>
-                </div>
+                    @endforeach
+                </select>
             </div>
+        </div>
 
-            <div class="flex flex-1 min-w-[200px] flex-col md:block md:flex-none">
-                <label for="pax" class="text-sm text-gray-600 mb-1">Pax</label>
-                <div class="flex items-center border rounded-md px-3 py-2 w-full sm:w-auto">
-                    <span class="text-gray-500 mr-2">👥</span>
-                    <select name="pax" class="outline-none bg-transparent text-sm text-gray-700 w-full">
-                        <option value="500" {{ request('pax') == '500' ? 'selected' : '' }}>500</option>
-                        <option value="1000" {{ request('pax') == '1000' ? 'selected' : '' }}>1000</option>
-                    </select>
-                </div>
+        {{-- Pax --}}
+        <div class="flex-grow" style="flex-grow:1; min-width: 150px;">
+            <label for="pax" class="block text-sm font-medium text-gray-700 mb-1">Pax</label>
+            <div class="flex items-center border rounded-md px-3 py-2 bg-white">
+                <span class="text-gray-500 mr-2">👥</span>
+                <select name="pax" id="pax" class="outline-none bg-transparent text-sm text-gray-700 w-full">
+                    <option value="">Select Pax</option>
+                    @foreach($paxOptions as $pax)
+                        <option value="{{ $pax }}" {{ request('pax') == $pax ? 'selected' : '' }}>
+                            {{ $pax }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
-            
-                <button type="submit"
-                        class="flex flex-1 min-w-[200px] flex-col md:block  md:flex-none md:min-w-0 bg-orange-500 text-white px-5 py-2 rounded-md hover:bg-orange-600 transition-all text-sm font-medium mt-5">
-                    Search
-                </button>
+        </div>
 
-            </form>
+    </div>
+
+    {{-- BUTTONS BARIS BAWAH --}}
+    <div class="flex justify-end gap-4">
+        <button type="submit"
+            class="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-all text-sm font-medium">
+            Search
+        </button>
+        <a href="{{ url()->current() }}"
+            class="bg-gray-200 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-300 transition-all text-sm font-medium text-center">
+            Reset
+        </a>
+    </div>
+
+</form>
+
+
         </div>
     </div>
 </div>

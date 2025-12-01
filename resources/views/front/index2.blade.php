@@ -306,69 +306,51 @@
         </h1>
       </div>
       <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
-          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <img src="{{ asset('assets/thumbnails/wo10.jpg') }}" alt=""
-            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
-          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
 
-          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-            </h2>
-            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
+      @foreach ($testimoni as $video)
+
+          <div id="videoCard"
+            data-embed="{{ $video->video_link }}"
+            class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
+
+          <!-- ================= IMAGE WRAPPER ================= -->
+              <div id="imageWrapper" class="w-full h-full relative">
+                <img src="{{ Storage::url($video->thumbnail) }}"
+                  class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+
+                <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+
+                <div id="textOverlay" class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+                  <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+                    "{{ $video->desc }} "
+                  </h2>
+                  <p class="text-sm md:text-sm lg:text-base">{{ $video->title }}</p>
+                </div>
+
+                <div id="buttonPlay" class="absolute top-10 px-5 z-20">
+                  <button onclick="playReels()"
+                    class="btn-play bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+                    <i class="fa-solid fa-play"></i> Play Video
+                  </button>
+                </div>
+              </div>
+
+          <!-- ================= VIDEO REELS ================= -->
+              <div id="videoWrapper" class="hidden w-full h-full absolute inset-0 rounded-3xl">
+                      <iframe id="ytPlayer"
+                          class="w-full h-full rounded-3xl"
+                          src=""
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen>
+                  </iframe>
+                </div>
+
           </div>
+          
+      @endforeach
 
-          <div class="absolute top-10 px-5 z-20">
-            <a href=""
-              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-              <i class="fa-solid fa-play"></i> Play Video
-            </a>
-          </div>
-        </div>
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
-          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <img src="{{ asset('assets/thumbnails/wo8.JPG') }}" alt=""
-            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
-
-          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
-
-          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-            </h2>
-            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
-          </div>
-
-          <div class="absolute top-10 px-5 z-20">
-            <a href=""
-              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-              <i class="fa-solid fa-play"></i> Play Video
-            </a>
-          </div>
-        </div>
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
-          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <img src="{{ asset('assets/thumbnails/wo.jpg') }}" alt=""
-            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
-
-          <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
-
-          <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-              "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-            </h2>
-            <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
-          </div>
-
-          <div class="absolute top-10 px-5 z-20">
-            <a href=""
-              class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-              <i class="fa-solid fa-play"></i> Play Video
-            </a>
-          </div>
-        </div>
 
 
 
@@ -381,7 +363,9 @@
         <div class="flex animate-infinite-scroll w-[1340%] md:w-[470%]">
           <!-- Grup 1 -->
           <div class="flex items-center justify-center gap-10 shrink-0 px-10">
-            <img src="{{ asset('assets/vendor/ANDAYU.jpg') }}"
+            <img src="{{ asset(path: 'assets/vendor/AUF.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
+            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="Andayu Vendor">
             <img src="{{ asset('assets/vendor/BOYZ.jpg') }}"
@@ -462,9 +446,21 @@
         </div>
       </div>
     </div>
+  </section>
+@endsection
+
+@push('after-scripts')
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="{{asset('js/flickity-slider.js')}}"></script>
+  <script src="{{asset('js/two-lines-text.js')}}"></script>
 
 
-    <script>
+      <script>
       AOS.init({
         once: false,
         offset: 100
@@ -656,16 +652,46 @@
 
 
     </script>
-  </section>
-@endsection
 
-@push('after-scripts')
+  <script>
+function playReels() {
+    document.querySelectorAll(".btn-play").forEach(btn => {
+        btn.addEventListener("click", function () {
 
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <!-- JavaScript -->
+            const currentCard = this.closest("#videoCard");
+            const allCards = document.querySelectorAll("#videoCard");
 
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="{{asset('js/flickity-slider.js')}}"></script>
-  <script src="{{asset('js/two-lines-text.js')}}"></script>
+            allCards.forEach(card => {
+                const iframe = card.querySelector("iframe");
+                const imageWrapper = card.querySelector("#imageWrapper");
+                const videoWrapper = card.querySelector("#videoWrapper");
+
+                if (card !== currentCard) {
+                    if (iframe) iframe.src = "";
+                    if (videoWrapper) videoWrapper.classList.add("hidden");
+                    if (imageWrapper) imageWrapper.classList.remove("hidden");
+                }
+            });
+
+            const iframe = currentCard.querySelector("iframe");
+            const imageWrapper = currentCard.querySelector("#imageWrapper");
+            const videoWrapper = currentCard.querySelector("#videoWrapper");
+            const embedUrl = currentCard.dataset.embed;
+
+            // tampilkan wrapper dulu
+            imageWrapper.classList.add("hidden");
+            videoWrapper.classList.remove("hidden");
+
+            // force render
+            videoWrapper.offsetHeight;
+
+            // play
+            const separator = embedUrl.includes("?") ? "&" : "?";
+            iframe.src = embedUrl + separator + "autoplay=1&mute=1";
+        });
+    });
+}
+
+
+  </script>
 @endpush

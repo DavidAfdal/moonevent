@@ -33,7 +33,7 @@ class PackageBookingForm
                     })
                     ->required(),
                 Select::make('user_id')
-                    ->label("costumer")
+                    ->label("Costumer")
                     ->relationship(
                           name: 'customer',
                           titleAttribute: 'name',
@@ -42,24 +42,19 @@ class PackageBookingForm
                     ->required(),
                 Select::make('decoration_id')
                     ->relationship('decoration', 'decoration_name')
-                    ->hidden(fn (callable $get) => !$get('is_wedding_selected'))
-                    ->required(),
+                    ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
                 Select::make('mc_id')
                     ->relationship('mc', 'mc_name')
-                    ->hidden(fn (callable $get) => !$get('is_wedding_selected'))
-                    ->required(),
+                    ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
                 Select::make('entertainment_id')
                     ->relationship('entertainment', 'entertainment_name')
-                    ->hidden(fn (callable $get) => !$get('is_wedding_selected'))
-                    ->required(),
+                    ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
                 Select::make('photographie_id')
                     ->relationship('photograph', 'photography_name')
-                    ->hidden(fn (callable $get) => !$get('is_wedding_selected'))
-                    ->required(),
+                    ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
                 Select::make('mua_id')
                     ->relationship('mua', 'mua_name')
-                    ->hidden(fn (callable $get) => !$get('is_wedding_selected'))
-                    ->required(),
+                    ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
                 TextInput::make('total_amount')
                     ->required()
                     ->numeric(),

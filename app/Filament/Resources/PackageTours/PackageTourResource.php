@@ -21,7 +21,7 @@ class PackageTourResource extends Resource
 {
     protected static ?string $model = PackageTour::class;
 
-    protected static ?string $navigationLabel = 'Package Wedding';
+    protected static ?string $navigationLabel = 'Weddings';
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static string | UnitEnum | null $navigationGroup = 'Main Menu';
@@ -30,7 +30,7 @@ class PackageTourResource extends Resource
 
     public static function getPluralLabel(): ?string
     {
-        return 'Package Weddings';
+        return 'Weddings';
     }
 
     public static function form(Schema $schema): Schema

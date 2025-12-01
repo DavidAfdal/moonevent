@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 
 class HeroListWedding extends Component
 {
+    public $locations;
+    public $paxOptions;
+    public $priceOptions;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($locations, $paxOptions, $priceOptions)
     {
-        //
+        $this->locations = $locations;
+        $this->paxOptions = $paxOptions;
+        $this->priceOptions = $priceOptions;
     }
 
     /**
