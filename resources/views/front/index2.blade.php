@@ -19,7 +19,7 @@
     }
 
     .animate-infinite-scroll {
-      width: 200%;
+      width: 450%;
       animation: infinite-scroll 25s linear infinite;
     }
 
@@ -180,7 +180,8 @@
 
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-12 md:mt-16 mb-11">
           <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
             <div class="">
               <i
                 class="fa-regular fa-calendar-check w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
@@ -193,7 +194,8 @@
             </div>
           </div>
           <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <div class="">
               <i
                 class="fa-solid fa-people-group w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
@@ -206,7 +208,8 @@
             </div>
           </div>
           <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
             <div class="">
               <i
                 class="fa-solid fa-handshake w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
@@ -219,7 +222,8 @@
             </div>
           </div>
           <div
-            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            class="shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-white rounded-2xl p-6 group hover:bg-[#FF7043] hover:text-white transition-all cursor-pointer duration-300"
+            data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <div class="">
               <i
                 class="fa-solid fa-paintbrush w-fit h-auto px-4 py-2 md:px-5 md:py-3 text-2xl md:text-3xl bg-[#FF7043]/40 text-[#FF7043] group-hover:bg-white transition-all duration-300 rounded-xl"></i>
@@ -268,8 +272,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                                    justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                                                                                                                                                            justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                                                                                                                                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -302,8 +306,9 @@
         </h1>
       </div>
       <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
+          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          <img src="{{ asset('assets/thumbnails/wo10.jpg') }}" alt=""
             class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
           <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
@@ -322,8 +327,9 @@
             </a>
           </div>
         </div>
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
+          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          <img src="{{ asset('assets/thumbnails/wo8.JPG') }}" alt=""
             class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
           <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
@@ -342,8 +348,9 @@
             </a>
           </div>
         </div>
-        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-          <img src="https://images.unsplash.com/photo-1596457221755-b96bc3a6df18?w=500&auto=format&fit=crop&q=60" alt=""
+        <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group"
+          data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          <img src="{{ asset('assets/thumbnails/wo.jpg') }}" alt=""
             class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
           <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
@@ -371,47 +378,65 @@
       <!-- Vendor Section -->
       <div class="relative overflow-hidden py-20 bg-gray-100">
         <!-- Track carousel -->
-        <div class="flex animate-infinite-scroll">
+        <div class="flex animate-infinite-scroll w-[1340%] md:w-[470%]">
           <!-- Grup 1 -->
           <div class="flex items-center justify-center gap-10 shrink-0 px-10">
-            <img src="{{ asset('assets/vendor/AUF.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
+            <img src="{{ asset('assets/vendor/ANDAYU.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="GINTO Vendor">
-            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="CATERINDO Vendor">
+              alt="Andayu Vendor">
+            <img src="{{ asset('assets/vendor/BOYZ.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
             <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="DIAMOND Vendor">
+            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="GINTO Vendor">
+            <img src="{{ asset('assets/vendor/GLORYON.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/MEDIA .jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/PURANDEWI.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="DIAMOND Vendor">
+            <img src="{{ asset('assets/vendor/vendor.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md::h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/NENDANG.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="GINTO Vendor">
+            <img src="{{ asset('assets/vendor/SIRIH GADING.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
+            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="CATERINDO Vendor">
             <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-            <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
+            <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/NBS.jpg') }}"
-              class="w-[150px] h-[150px] rounded-full object-cover shadow-md" alt="">
+
+            <img src="{{ asset('assets/vendor/PESONAALAMANDA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/RUANG GARASI .jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
+            <img src="{{ asset('assets/vendor/SELERAUTAMA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+
+            <img src="{{ asset('assets/vendor/vendor3.png') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/AMARILIZ.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/3LARAS.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/tidars.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+            <img src="{{ asset('assets/vendor/PuspitaSawargi.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
           </div>
 
           <!-- Grup duplikat untuk looping tanpa jeda -->
           <div class="flex items-center justify-center gap-10 shrink-0 px-10" aria-hidden="true">
-            <img src="{{ asset('assets/vendor/AUF.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="GINTO Vendor">
-            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="CATERINDO Vendor">
-            <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="DIAMOND Vendor">
-            <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-            <img src="{{ asset('assets/vendor/NENDIA.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/NBS.jpg') }}"
-              class="w-[150px] h-[150px] rounded-full object-cover shadow-md" alt="">
+
+
           </div>
         </div>
       </div>
@@ -419,7 +444,7 @@
 
       <!-- Mid Banner -->
       <div class="relative max-w-full mx-auto pt-28 bg-cover bg-center min-h-[550px]"
-        style="background-image: url('{{ asset('assets/backgrounds/midBanner.avif') }}'); background-position: center; background-attachment: fixed;">
+        style="background-image: url('{{ asset('assets/thumbnails/wo4.jpg') }}'); background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-black/60 bg-opacity-50 flex items-center justify-center">
           <div class="text-center max-w-[850px] text-white px-4">
             <h1 class="text-xl md:text-3xl lg:text-4xl font-bold mb-4">
