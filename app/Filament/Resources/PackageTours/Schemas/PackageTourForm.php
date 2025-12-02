@@ -65,20 +65,28 @@ class PackageTourForm
                     ->relationship('category', 'name')
                     ->required(),
                 MarkdownEditor::make('general_information')
+                  ->toolbarButtons([
+                            ['bold', 'italic', 'strike', 'link'],
+                            ['heading'],
+                            ['blockquote', 'bulletList', 'orderedList'],
+                            ['undo', 'redo'],
+                        ])
                     ->label("General Information"),
                 MarkdownEditor::make('legal_services')
-                    ->afterStateUpdated(function ($state, callable $set) {
-                        // Convert markdown to HTML
-                        $converter = new CommonMarkConverter([
-                            'html_input' => 'strip',
-                            'allow_unsafe_links' => false,
-                        ]);
-                        $html = $converter->convert($state ?? '')->getContent();
-                        $set('content_html', $html);
-                    })
-                    ->live(onBlur: true)
+                       ->toolbarButtons([
+                            ['bold', 'italic', 'strike', 'link'],
+                            ['heading'],
+                            ['blockquote', 'bulletList', 'orderedList'],
+                            ['undo', 'redo'],
+                        ])
                     ->label("KUA Legal Services"),
                MarkdownEditor::make('event_crew')
+                       ->toolbarButtons([
+                            ['bold', 'italic', 'strike', 'link'],
+                            ['heading'],
+                            ['blockquote', 'bulletList', 'orderedList'],
+                            ['undo', 'redo'],
+                        ])
                     ->label("Our Event Crew")
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail')
