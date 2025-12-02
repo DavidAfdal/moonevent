@@ -219,22 +219,22 @@
       @php
         $teamWeddingOrganizer = [
           [
-            'name' => 'Lusy',
-            'aka' => 'Tante Lusy',
+            'name' => 'Lusy Destiani',
+            'aka' => 'Lusy',
             'role' => 'Event Coordinator',
             'photo' => asset('assets/orang/tante-lucy.png'),
             'delay' => 400
           ],
           [
             'name' => 'Edi',
-            'aka' => 'Om Edy',
+            'aka' => 'Edi',
             'role' => 'Event Supervisor',
             'photo' => asset('assets/orang/om_edi.png'),
             'delay' => 500
           ],
           [
             'name' => 'Kusumawardhana H.S',
-            'aka' => 'Aa Dhana',
+            'aka' => 'Kusuma',
             'role' => 'Facility Support',
             'photo' => asset('assets/orang/aa_dhana.png'),
             'delay' => 500
@@ -254,7 +254,7 @@
                 <div class="info">
                   <span class="member-name ">Munahwati</span>
                   <img src="{{ asset('assets/iconcard/love.png') }}" class="icon-love" alt="divider icon">
-                  <p class="member-aka">A.K.A Ibu Muna</p>
+                  <p class="member-aka">A.K.A Muna</p>
                 </div>
               </div>
             </div>

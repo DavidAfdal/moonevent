@@ -7,22 +7,23 @@
     </div>
 
     <ul class="flex flex-wrap gap-5 justify-center md:gap-14 items-center mx-auto max-w-[200px] md:max-w-[650px] my-7">
-      <li class="py-3 px-3 border-b-2 border-[#FF7043]">
+      <li class="py-3 px-3 {{ Request::is('/') ? 'border-b-2 border-[#FF7043]' : '' }}">
         <a href="/">Home</a>
       </li>
-      <li class="py-3 px-3">
+      <li class="py-3 px-3 {{ Request::is('about') ? 'border-b-2 border-[#FF7043]' : '' }}">
         <a href="/about">About</a>
       </li>
-      <li class="py-3 px-3">
+      <li class="py-3 px-3 {{ Request::is('team') ? 'border-b-2 border-[#FF7043]' : '' }}">
         <a href="/team">Team</a>
       </li>
-      <li class="py-3 px-3">
+      <li class="py-3 px-3 {{ Request::is('services') ? 'border-b-2 border-[#FF7043]' : '' }}">
         <a href="/services">Services</a>
       </li>
-      <li class="py-3 px-3">
+      <li class="py-3 px-3 {{ Request::is('wedding-list') ? 'border-b-2 border-[#FF7043]' : '' }}">
         <a href="/wedding-list">Reservasi</a>
       </li>
     </ul>
+
 
     <div class="md:max-w-[850px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
       <div
