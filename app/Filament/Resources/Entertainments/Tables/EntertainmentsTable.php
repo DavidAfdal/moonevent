@@ -33,9 +33,9 @@ class EntertainmentsTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Entertaiment')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Entertaiment')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Entertaiment')),
                 ]),
             ]);
     }

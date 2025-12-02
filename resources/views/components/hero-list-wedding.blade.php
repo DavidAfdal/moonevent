@@ -74,8 +74,8 @@
                 <select name="pax" id="pax" class="outline-none bg-transparent text-sm text-gray-700 w-full">
                     <option value="">Select Pax</option>
                     @foreach($paxOptions as $pax)
-                        <option value="{{ $pax }}" {{ request('pax') == $pax ? 'selected' : '' }}>
-                            {{ $pax }}
+                        <option value="{{ $pax['value'] }}" {{ request('pax') == $pax['value'] ? 'selected' : '' }}>
+                            {{ $pax['label'] }}
                         </option>
                     @endforeach
                 </select>

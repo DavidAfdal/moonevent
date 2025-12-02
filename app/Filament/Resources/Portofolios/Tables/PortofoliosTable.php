@@ -39,9 +39,9 @@ class PortofoliosTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Portofolio')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Portofolio')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Portofolio')),
                 ]),
             ]);
     }

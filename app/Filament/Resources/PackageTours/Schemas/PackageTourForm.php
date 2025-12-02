@@ -5,12 +5,14 @@ namespace App\Filament\Resources\PackageTours\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Str;
+use League\CommonMark\CommonMarkConverter;
 
 class PackageTourForm
 {
@@ -65,8 +67,18 @@ class PackageTourForm
                 MarkdownEditor::make('general_information')
                     ->label("General Information"),
                 MarkdownEditor::make('legal_services')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Convert markdown to HTML
+                        $converter = new CommonMarkConverter([
+                            'html_input' => 'strip',
+                            'allow_unsafe_links' => false,
+                        ]);
+                        $html = $converter->convert($state ?? '')->getContent();
+                        $set('content_html', $html);
+                    })
+                    ->live(onBlur: true)
                     ->label("KUA Legal Services"),
-                MarkdownEditor::make('event_crew')
+               MarkdownEditor::make('event_crew')
                     ->label("Our Event Crew")
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail')

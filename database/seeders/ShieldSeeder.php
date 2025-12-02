@@ -71,6 +71,8 @@ class ShieldSeeder extends Seeder
                 "RestoreAny:Testimoni",
                 "Replicate:Testimoni",
                 "Reorder:Testimoni",
+                "Approve:PackageBooking",
+                "SetWedding:Category",
                 "View:Photography","ViewAny:Portofolio","View:Portofolio","ViewAny:User","View:User","View:CustomDashboard","View:StatsOverview"
                 ]
          },

@@ -37,9 +37,9 @@ class TestimonisTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Testimoni')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Testimoni')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Testimoni')),
                 ]),
             ]);
     }
