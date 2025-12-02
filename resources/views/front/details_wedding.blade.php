@@ -3,13 +3,145 @@
 
 @push("styles")
 <style>
-    .markdown-content ul {
-        list-style: disc !important;
-        margin-left: 1.5rem !important;
-    }
-    .markdown-content li {
-        margin-bottom: 4px;
-    }
+   .markdown-content {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* UL (bullet list) */
+.markdown-content ul {
+    list-style: disc !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 0.8rem;
+}
+
+.markdown-content ul li {
+    margin-bottom: 4px;
+}
+
+.markdown-content ul li a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* OL (number list) */
+.markdown-content ol {
+    list-style: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-bottom: 0.8rem;
+}
+
+.markdown-content ol li {
+    margin-bottom: 4px;
+}
+
+.markdown-content ol li a {
+  color: #2563eb;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Link */
+.markdown-content a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* Heading Styles */
+.markdown-content h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.markdown-content h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Paragraph */
+.markdown-content p {
+    margin-bottom: 0.8rem;
+}
+
+/* Blockquote */
+.markdown-content blockquote {
+    border-left: 4px solid #f97316; /* warna orange lembut */
+    padding-left: 1rem;
+    margin-left: 0;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1rem;
+    background: #fff7ed;
+    border-radius: 4px;
+}
+
+/* Bold */
+.markdown-content strong {
+    font-weight: 700;
+    color: #000;
+}
+
+/* Italic */
+.markdown-content em {
+    font-style: italic;
+}
+
+/* Code inline */
+.markdown-content code {
+    background: #f3f4f6;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Code block */
+.markdown-content pre code {
+    display: block;
+    padding: 1rem;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+
+/* Tables */
+.markdown-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem;
+}
+
+.markdown-content table th {
+    background: #f3f4f6;
+    font-weight: 600;
+}
+
+
 </style>
 
 @endpush
@@ -53,7 +185,7 @@
         </div>
       </a>
       <!-- Tabs -->
-      <div class="mt-8">
+      <div class="mt-8" x-data="{ tab: 'info' }">
         <div class="flex space-x-4 border-b">
           @if ($package_tours->general_information)
                  <button @click="tab = 'info'" :class="tab === 'info' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
