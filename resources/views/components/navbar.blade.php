@@ -2,7 +2,7 @@
   class="flex w-full items-center justify-between px-6 md:px-12 lg:px-[65px] py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-transparent backdrop-blur-md">
 
 
-  <div class="flex items-center gap-3 md:gap-5">
+  <div class="flex items-center gap-3 md:gap-5 ">
     <img class="rounded-full w-[45px] h-[45px] md:w-[55px] md:h-[55px] object-cover" alt="Ellipse"
       src="../assets/backgrounds/moonevent.jpg" />
     <div class="font-semibold text-[#1b1b1b] text-lg md:text-xl whitespace-nowrap">
@@ -37,7 +37,7 @@
                     <img
                         src="{{ $avatarUrl }}"
                         alt="{{ $user->name }}"
-                        class="rounded-full w-8 h-8 object-cover"
+                        class="rounded-full hidden md:hidden lg:block w-8 h-8 object-cover"
                     />
                 </button>
           </x-slot>

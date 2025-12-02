@@ -4,7 +4,7 @@
     'priceOptions' => []
 ])
 
-<div class="relative bg-cover bg-center min-h-[60vh] flex items-center justify-center text-white"
+<div class="relative bg-cover bg-center h-[700px] md:max-h-[990px] lg:max-h-[990px] flex items-center justify-center text-white"
 <div class="relative bg-cover bg-center min-h-[85vh] flex items-center justify-center text-white"
          style="background-image: url('/assets/backgrounds/hero-wedding-list.png');">
          {{-- {{ asset('images/hero-background.jpg') }} --}}
@@ -12,11 +12,11 @@
     
     <div class="relative z-10 px-4 sm:px-6">
       
-        <h1 class="text-4xl text-center sm:text-5xl sm:text-left font-bold leading-tight">
+        <h1 class="text-3xl md:text-3xl lg:text-5xl text-center md:text-center lgtext-left font-bold leading-tight mt-10">
              <span class="text-orange-500">Your Event</span> Starts Here<br>
             Crafted by <span class="text-orange-500">Moon Event Organizer</span>
         </h1>
-        <p class="mt-4 text-sm text-center sm:text-xl sm:text-left text-gray-200">
+        <p class="mt-4 text-sm text-center sm:text-xl lg:text-left text-gray-200">
            Your Partner Event Solution
         </p>
         <div class="max-w-4xl mx-auto">
@@ -29,10 +29,10 @@
     @endif
 
     {{-- FILTERS BARIS ATAS --}}
-    <div class="flex items-center gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-3">
 
         {{-- Location --}}
-        <div class="flex-grow" style="flex-grow:1; min-width: 150px;">
+        <div class="">
             <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Select Location</label>
             <div class="flex items-center border rounded-md px-3 py-2 bg-white">
                 <span class="text-gray-500 mr-2">📍</span>
@@ -51,7 +51,7 @@
         </div>
 
         {{-- Price (lebih lebar) --}}
-        <div class="flex-grow" style="flex-grow:2; min-width: 250px;">
+        <div class="md:col-span-1 lg:col-span-2" >
             <label for="price" class="block text-sm font-medium text-gray-700 mb-1">Price</label>
             <div class="flex items-center border rounded-md px-3 py-2 bg-white">
                 <span class="text-gray-500 mr-2">💰</span>
@@ -67,7 +67,7 @@
         </div>
 
         {{-- Pax --}}
-        <div class="flex-grow" style="flex-grow:1; min-width: 150px;">
+        <div class="">
             <label for="pax" class="block text-sm font-medium text-gray-700 mb-1">Pax</label>
             <div class="flex items-center border rounded-md px-3 py-2 bg-white">
                 <span class="text-gray-500 mr-2">👥</span>

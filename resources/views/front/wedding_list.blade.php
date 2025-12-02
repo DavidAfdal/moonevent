@@ -12,15 +12,15 @@
         :priceOptions="$priceOptions"
     />
     
-    <div class="w-full max-w-[1440px] mx-auto px-4">
-        <div class="w-full flex flex-col md:flex-row items-center justify-between mt-8 ">
-            <h2 class="text-2xl font-semibold">
+    <div class="px-[20px] md:px-[65px] w-full max-w-[1440px] mx-auto px-4">
+        <div class="w-full flex flex-col md:flex-row items-center justify-between my-8">
+            <h2 class="text-xl md:text-2xl text-center font-semibold">
                 Our Beautiful Wedding Moments
             </h2>
             <x-filter-tab-wedding :categories="$categories"/>
         </div>
 
-            <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 mt-8">
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 mt-5 md:mt-8">
                 @foreach ($weddings as $wedding)
                     <x-card slug="{{$wedding->slug}}" image="{{Storage::url($wedding->thumbnail)}}"
                         category="{{$wedding->category->name}}" price="{{$wedding->price}}" title="{{$wedding->name}}"

@@ -272,8 +272,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                                                                            justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                                                                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                                                                                                                                                                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                                                                                                                                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -308,48 +308,45 @@
       <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
 
 
-      @foreach ($testimoni as $video)
+        @foreach ($testimoni as $video)
 
-          <div id="videoCard"
-            data-embed="{{ $video->video_link }}"
-            class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
+          <div id="videoCard" data-embed="{{ $video->video_link }}"
+            class="rounded-xl mx-auto relative w-full min-h-[500px] cursor-pointer overflow-hidden group">
 
-          <!-- ================= IMAGE WRAPPER ================= -->
-              <div id="imageWrapper" class="w-full h-full relative">
-                <img src="{{ Storage::url($video->thumbnail) }}"
-                  class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+            <!-- ================= IMAGE WRAPPER ================= -->
+            <div id="imageWrapper" class="w-full h-full relative">
+              <img src="{{ Storage::url($video->thumbnail) }}"
+                class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
-                <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+              <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
 
-                <div id="textOverlay" class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-                  <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-                    "{{ $video->desc }} "
-                  </h2>
-                  <p class="text-sm md:text-sm lg:text-base">{{ $video->title }}</p>
-                </div>
-
-                <div id="buttonPlay" class="absolute top-10 px-5 z-20">
-                  <button onclick="playReels()"
-                    class="btn-play bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-                    <i class="fa-solid fa-play"></i> Play Video
-                  </button>
-                </div>
+              <div id="textOverlay" class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+                <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+                  "{{ $video->desc }} "
+                </h2>
+                <p class="text-sm md:text-sm lg:text-base">{{ $video->title }}</p>
               </div>
 
-          <!-- ================= VIDEO REELS ================= -->
-              <div id="videoWrapper" class="hidden w-full h-full absolute inset-0 rounded-3xl">
-                      <iframe id="ytPlayer"
-                          class="w-full h-full rounded-3xl"
-                          src=""
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen>
-                  </iframe>
-                </div>
+              <div id="buttonPlay" class="absolute top-10 px-5 z-20">
+                <button onclick="playReels()"
+                  class="btn-play bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+                  <i class="fa-solid fa-play"></i> Play Video
+                </button>
+              </div>
+            </div>
+
+            <!-- ================= VIDEO REELS ================= -->
+            <div id="videoWrapper"
+              class="hidden w-full h-[500px] max-h-[500px] absolute inset-0 rounded-3xl overflow-hidden">
+              <iframe id="ytPlayer" class="w-full h-full object-cover rounded-3xl" src="" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
 
           </div>
-          
-      @endforeach
+
+        @endforeach
 
 
 
@@ -460,237 +457,237 @@
   <script src="{{asset('js/two-lines-text.js')}}"></script>
 
 
-      <script>
+  <script>
+    AOS.init({
+      once: false,
+      offset: 100
+    });
+
+    // resources/js/slider.js
+    document.addEventListener('DOMContentLoaded', function () {
+      const sliderContainer = document.getElementById('slider-container');
+      // Pastikan sliderContainer ditemukan
+      if (!sliderContainer) {
+        console.error('Element with ID "slider-container" not found.');
+        return;
+      }
+
+      const slides = Array.from(sliderContainer.children); // Konversi HTMLCollection menjadi Array
+      const totalSlides = slides.length;
+      let currentSlide = 0;
+
+      const slideButtons = document.querySelectorAll('[data-slide-to]');
+
+      // Fungsi untuk menggeser slider ke slide tertentu
+      function goToSlide(index) {
+        // Validasi indeks
+        if (index < 0) {
+          currentSlide = totalSlides - 1; // Kembali ke slide terakhir
+        } else if (index >= totalSlides) {
+          currentSlide = 0; // Kembali ke slide pertama
+        } else {
+          currentSlide = index;
+        }
+
+        // Hitung offset berdasarkan lebar slide
+        // Setiap slide memiliki w-full, jadi offset adalah kelipatan dari 100%
+        const offset = -currentSlide * 100;
+        sliderContainer.style.transform = `translateX(${offset}%)`;
+        sliderContainer.style.transition = 'transform 0.5s ease-in-out'; // Transisi halus
+
+        updateActiveButton(); // Perbarui tampilan tombol aktif
+      }
+
+      // Fungsi untuk memperbarui kelas aktif pada tombol indikator
+      function updateActiveButton() {
+        slideButtons.forEach((button, index) => {
+          if (index === currentSlide) {
+            button.classList.add('bg-orange-500'); // Warna aktif
+            button.classList.remove('bg-gray-400', 'hover:bg-gray-600'); // Hapus warna non-aktif
+          } else {
+            button.classList.remove('bg-orange-500'); // Hapus warna aktif
+            button.classList.add('bg-gray-400', 'hover:bg-gray-600'); // Tambah warna non-aktif
+          }
+        });
+      }
+
+      // Tambahkan event listener ke setiap tombol navigasi
+      slideButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const slideIndex = parseInt(button.dataset.slideTo); // Ambil indeks dari data-slide-to
+          goToSlide(slideIndex);
+        });
+      });
+
+      // Inisialisasi: Atur tampilan awal slider dan tombol
+      goToSlide(0);
+
+    });
+
+    // resources/js/slider-gallery.js
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const sliderContainer = document.getElementById('slider-container-2');
+      if (!sliderContainer) {
+        console.error('Element with ID "slider-container-2" not found.');
+        return;
+      }
+
+      // Ambil semua elemen anak dari sliderContainer, yang merupakan "slide" individu Anda
+      const slides = Array.from(sliderContainer.children);
+      const totalSlides = slides.length;
+      let currentSlide = 0;
+
+      const slideButtons = document.querySelectorAll('[data-slide-to]');
+
+      // Fungsi untuk menggeser slider ke slide tertentu
+      function goToSlide(index) {
+        // Logika untuk looping dari awal ke akhir atau sebaliknya
+        if (index < 0) {
+          currentSlide = totalSlides - 1; // Kembali ke slide terakhir
+        } else if (index >= totalSlides) {
+          currentSlide = 0; // Kembali ke slide pertama
+        } else {
+          currentSlide = index;
+        }
+
+        // Hitung offset berdasarkan lebar slide.
+        // Karena setiap slide memiliki `w-full` dan `flex-shrink-0`,
+        // mereka masing-masing mengambil 100% dari lebar container parent.
+        const offset = -currentSlide * 100;
+        sliderContainer.style.transform = `translateX(${offset}%)`;
+        sliderContainer.style.transition = 'transform 0.5s ease-in-out'; // Transisi halus
+
+        updateActiveButton(); // Perbarui tampilan tombol aktif
+      }
+
+      // Fungsi untuk memperbarui kelas aktif pada tombol indikator
+      function updateActiveButton() {
+        slideButtons.forEach((button, index) => {
+          if (index === currentSlide) {
+            // Tambah kelas untuk tombol aktif
+            button.classList.add('bg-orange-500');
+            button.classList.remove('bg-gray-400', 'hover:bg-gray-600');
+          } else {
+            // Hapus kelas untuk tombol aktif dan tambahkan kelas non-aktif
+            button.classList.remove('bg-orange-500');
+            button.classList.add('bg-gray-400', 'hover:bg-gray-600');
+          }
+        });
+      }
+
+      // Tambahkan event listener ke setiap tombol navigasi
+      slideButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const slideIndex = parseInt(button.dataset.slideTo); // Ambil indeks dari data-slide-to
+          goToSlide(slideIndex);
+        });
+      });
+
+      // Inisialisasi: Tampilkan slide pertama dan atur tombol aktif
+      goToSlide(0);
+    });
+
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   let lastScrollTop = 0;
+    //   const navbar = document.getElementById("navbar");
+
+    //   window.addEventListener("scroll", function () {
+    //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    //     if (scrollTop > lastScrollTop) {
+    //       // Scroll ke bawah -> sembunyikan navbar
+    //       navbar.classList.remove("show");
+    //       navbar.classList.add("hidden");
+    //     } else {
+    //       // Scroll ke atas -> tampilkan navbar dengan animasi
+    //       navbar.classList.remove("hidden");
+    //       navbar.classList.add("show");
+    //     }
+
+    //     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    //   });
+    // });
+
+
+    // Number wedding
+    let valueWedding = document.querySelectorAll('.num')
+    let interval = 5000
+
+    valueWedding.forEach((valueDisplay) => {
+      let startValue = 0
+      let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+
+      let duration = Math.floor(interval / endValue)
+      let counter = setInterval(function () {
+        startValue += 1
+        valueDisplay.textContent = startValue
+        if (startValue === endValue) {
+          clearInterval(counter)
+          if (valueDisplay.getAttribute('data-category') === 'withPlus') {
+            valueDisplay.textContent = `${startValue}+`
+          }
+        }
+      }, duration)
+    })
+
+    //  Slider testimonial
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
       AOS.init({
-        once: false,
-        offset: 100
+        // Konfigurasi global opsional:
+        duration: 1000, // Durasi animasi dalam ms
+        once: true,    // Apakah animasi hanya terjadi sekali saat di-scroll ke bawah
+        easing: 'ease-in-out', // Kurva easing default
       });
-
-      // resources/js/slider.js
-      document.addEventListener('DOMContentLoaded', function () {
-        const sliderContainer = document.getElementById('slider-container');
-        // Pastikan sliderContainer ditemukan
-        if (!sliderContainer) {
-          console.error('Element with ID "slider-container" not found.');
-          return;
-        }
-
-        const slides = Array.from(sliderContainer.children); // Konversi HTMLCollection menjadi Array
-        const totalSlides = slides.length;
-        let currentSlide = 0;
-
-        const slideButtons = document.querySelectorAll('[data-slide-to]');
-
-        // Fungsi untuk menggeser slider ke slide tertentu
-        function goToSlide(index) {
-          // Validasi indeks
-          if (index < 0) {
-            currentSlide = totalSlides - 1; // Kembali ke slide terakhir
-          } else if (index >= totalSlides) {
-            currentSlide = 0; // Kembali ke slide pertama
-          } else {
-            currentSlide = index;
-          }
-
-          // Hitung offset berdasarkan lebar slide
-          // Setiap slide memiliki w-full, jadi offset adalah kelipatan dari 100%
-          const offset = -currentSlide * 100;
-          sliderContainer.style.transform = `translateX(${offset}%)`;
-          sliderContainer.style.transition = 'transform 0.5s ease-in-out'; // Transisi halus
-
-          updateActiveButton(); // Perbarui tampilan tombol aktif
-        }
-
-        // Fungsi untuk memperbarui kelas aktif pada tombol indikator
-        function updateActiveButton() {
-          slideButtons.forEach((button, index) => {
-            if (index === currentSlide) {
-              button.classList.add('bg-orange-500'); // Warna aktif
-              button.classList.remove('bg-gray-400', 'hover:bg-gray-600'); // Hapus warna non-aktif
-            } else {
-              button.classList.remove('bg-orange-500'); // Hapus warna aktif
-              button.classList.add('bg-gray-400', 'hover:bg-gray-600'); // Tambah warna non-aktif
-            }
-          });
-        }
-
-        // Tambahkan event listener ke setiap tombol navigasi
-        slideButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const slideIndex = parseInt(button.dataset.slideTo); // Ambil indeks dari data-slide-to
-            goToSlide(slideIndex);
-          });
-        });
-
-        // Inisialisasi: Atur tampilan awal slider dan tombol
-        goToSlide(0);
-
-      });
-
-      // resources/js/slider-gallery.js
-
-      document.addEventListener('DOMContentLoaded', function () {
-        const sliderContainer = document.getElementById('slider-container-2');
-        if (!sliderContainer) {
-          console.error('Element with ID "slider-container-2" not found.');
-          return;
-        }
-
-        // Ambil semua elemen anak dari sliderContainer, yang merupakan "slide" individu Anda
-        const slides = Array.from(sliderContainer.children);
-        const totalSlides = slides.length;
-        let currentSlide = 0;
-
-        const slideButtons = document.querySelectorAll('[data-slide-to]');
-
-        // Fungsi untuk menggeser slider ke slide tertentu
-        function goToSlide(index) {
-          // Logika untuk looping dari awal ke akhir atau sebaliknya
-          if (index < 0) {
-            currentSlide = totalSlides - 1; // Kembali ke slide terakhir
-          } else if (index >= totalSlides) {
-            currentSlide = 0; // Kembali ke slide pertama
-          } else {
-            currentSlide = index;
-          }
-
-          // Hitung offset berdasarkan lebar slide.
-          // Karena setiap slide memiliki `w-full` dan `flex-shrink-0`,
-          // mereka masing-masing mengambil 100% dari lebar container parent.
-          const offset = -currentSlide * 100;
-          sliderContainer.style.transform = `translateX(${offset}%)`;
-          sliderContainer.style.transition = 'transform 0.5s ease-in-out'; // Transisi halus
-
-          updateActiveButton(); // Perbarui tampilan tombol aktif
-        }
-
-        // Fungsi untuk memperbarui kelas aktif pada tombol indikator
-        function updateActiveButton() {
-          slideButtons.forEach((button, index) => {
-            if (index === currentSlide) {
-              // Tambah kelas untuk tombol aktif
-              button.classList.add('bg-orange-500');
-              button.classList.remove('bg-gray-400', 'hover:bg-gray-600');
-            } else {
-              // Hapus kelas untuk tombol aktif dan tambahkan kelas non-aktif
-              button.classList.remove('bg-orange-500');
-              button.classList.add('bg-gray-400', 'hover:bg-gray-600');
-            }
-          });
-        }
-
-        // Tambahkan event listener ke setiap tombol navigasi
-        slideButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const slideIndex = parseInt(button.dataset.slideTo); // Ambil indeks dari data-slide-to
-            goToSlide(slideIndex);
-          });
-        });
-
-        // Inisialisasi: Tampilkan slide pertama dan atur tombol aktif
-        goToSlide(0);
-      });
-
-
-      // document.addEventListener("DOMContentLoaded", function () {
-      //   let lastScrollTop = 0;
-      //   const navbar = document.getElementById("navbar");
-
-      //   window.addEventListener("scroll", function () {
-      //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      //     if (scrollTop > lastScrollTop) {
-      //       // Scroll ke bawah -> sembunyikan navbar
-      //       navbar.classList.remove("show");
-      //       navbar.classList.add("hidden");
-      //     } else {
-      //       // Scroll ke atas -> tampilkan navbar dengan animasi
-      //       navbar.classList.remove("hidden");
-      //       navbar.classList.add("show");
-      //     }
-
-      //     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      //   });
-      // });
-
-
-      // Number wedding
-      let valueWedding = document.querySelectorAll('.num')
-      let interval = 5000
-
-      valueWedding.forEach((valueDisplay) => {
-        let startValue = 0
-        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-
-        let duration = Math.floor(interval / endValue)
-        let counter = setInterval(function () {
-          startValue += 1
-          valueDisplay.textContent = startValue
-          if (startValue === endValue) {
-            clearInterval(counter)
-            if (valueDisplay.getAttribute('data-category') === 'withPlus') {
-              valueDisplay.textContent = `${startValue}+`
-            }
-          }
-        }, duration)
-      })
-
-      //  Slider testimonial
+    });
 
 
 
-
-      document.addEventListener('DOMContentLoaded', () => {
-        AOS.init({
-          // Konfigurasi global opsional:
-          duration: 1000, // Durasi animasi dalam ms
-          once: true,    // Apakah animasi hanya terjadi sekali saat di-scroll ke bawah
-          easing: 'ease-in-out', // Kurva easing default
-        });
-      });
-
-
-
-    </script>
+  </script>
 
   <script>
-function playReels() {
-    document.querySelectorAll(".btn-play").forEach(btn => {
+    function playReels() {
+      document.querySelectorAll(".btn-play").forEach(btn => {
         btn.addEventListener("click", function () {
 
-            const currentCard = this.closest("#videoCard");
-            const allCards = document.querySelectorAll("#videoCard");
+          const currentCard = this.closest("#videoCard");
+          const allCards = document.querySelectorAll("#videoCard");
 
-            allCards.forEach(card => {
-                const iframe = card.querySelector("iframe");
-                const imageWrapper = card.querySelector("#imageWrapper");
-                const videoWrapper = card.querySelector("#videoWrapper");
+          allCards.forEach(card => {
+            const iframe = card.querySelector("iframe");
+            const imageWrapper = card.querySelector("#imageWrapper");
+            const videoWrapper = card.querySelector("#videoWrapper");
 
-                if (card !== currentCard) {
-                    if (iframe) iframe.src = "";
-                    if (videoWrapper) videoWrapper.classList.add("hidden");
-                    if (imageWrapper) imageWrapper.classList.remove("hidden");
-                }
-            });
+            if (card !== currentCard) {
+              if (iframe) iframe.src = "";
+              if (videoWrapper) videoWrapper.classList.add("hidden");
+              if (imageWrapper) imageWrapper.classList.remove("hidden");
+            }
+          });
 
-            const iframe = currentCard.querySelector("iframe");
-            const imageWrapper = currentCard.querySelector("#imageWrapper");
-            const videoWrapper = currentCard.querySelector("#videoWrapper");
-            const embedUrl = currentCard.dataset.embed;
+          const iframe = currentCard.querySelector("iframe");
+          const imageWrapper = currentCard.querySelector("#imageWrapper");
+          const videoWrapper = currentCard.querySelector("#videoWrapper");
+          const embedUrl = currentCard.dataset.embed;
 
-            // tampilkan wrapper dulu
-            imageWrapper.classList.add("hidden");
-            videoWrapper.classList.remove("hidden");
+          // tampilkan wrapper dulu
+          imageWrapper.classList.add("hidden");
+          videoWrapper.classList.remove("hidden");
 
-            // force render
-            videoWrapper.offsetHeight;
+          // force render
+          // videoWrapper.offsetHeight;
 
-            // play
-            const separator = embedUrl.includes("?") ? "&" : "?";
-            iframe.src = embedUrl + separator + "autoplay=1&mute=1";
+          // play
+          const separator = embedUrl.includes("?") ? "&" : "?";
+          iframe.src = embedUrl + separator + "autoplay=1&mute=1";
         });
-    });
-}
+      });
+    }
 
 
   </script>
