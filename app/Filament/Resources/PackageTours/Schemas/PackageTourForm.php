@@ -12,6 +12,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Str;
+use League\CommonMark\CommonMarkConverter;
 
 class PackageTourForm
 {
@@ -63,28 +64,23 @@ class PackageTourForm
                 Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required(),
-                RichEditor::make('general_information')
-                      ->toolbarButtons([
-                        'bold',
-                        'italic',
-                        'underline',
-                        'strike',
-                        'h2',
-                        'h3',
-                        'bulletList',
-                        'orderedList',
-                        'blockquote',
-                        'codeBlock',
-                        'undo',
-                        'redo',
-                    ])
-                    ->mergeTags([])
+                MarkdownEditor::make('general_information')
                     ->label("General Information"),
-                // RichEditor::make('legal_services')
-                //     ->label("KUA Legal Services"),
-                // RichEditor::make('event_crew')
-                //     ->label("Our Event Crew")
-                //     ->columnSpanFull(),
+                MarkdownEditor::make('legal_services')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        // Convert markdown to HTML
+                        $converter = new CommonMarkConverter([
+                            'html_input' => 'strip',
+                            'allow_unsafe_links' => false,
+                        ]);
+                        $html = $converter->convert($state ?? '')->getContent();
+                        $set('content_html', $html);
+                    })
+                    ->live(onBlur: true)
+                    ->label("KUA Legal Services"),
+               MarkdownEditor::make('event_crew')
+                    ->label("Our Event Crew")
+                    ->columnSpanFull(),
                 FileUpload::make('thumbnail')
                     ->label('Thumbnail')
                     ->directory('thumbnails/' . date('Y/m/d'))
