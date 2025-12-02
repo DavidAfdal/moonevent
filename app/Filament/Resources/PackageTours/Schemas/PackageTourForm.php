@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PackageTours\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -62,13 +63,28 @@ class PackageTourForm
                 Select::make('category_id')
                     ->relationship('category', 'name')
                     ->required(),
-                MarkdownEditor::make('general_information')
+                RichEditor::make('general_information')
+                      ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'underline',
+                        'strike',
+                        'h2',
+                        'h3',
+                        'bulletList',
+                        'orderedList',
+                        'blockquote',
+                        'codeBlock',
+                        'undo',
+                        'redo',
+                    ])
+                    ->mergeTags([])
                     ->label("General Information"),
-                MarkdownEditor::make('legal_services')
-                    ->label("KUA Legal Services"),
-                MarkdownEditor::make('event_crew')
-                    ->label("Our Event Crew")
-                    ->columnSpanFull(),
+                // RichEditor::make('legal_services')
+                //     ->label("KUA Legal Services"),
+                // RichEditor::make('event_crew')
+                //     ->label("Our Event Crew")
+                //     ->columnSpanFull(),
                 FileUpload::make('thumbnail')
                     ->label('Thumbnail')
                     ->directory('thumbnails/' . date('Y/m/d'))

@@ -2,10 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\PackageTourController;
-use App\Http\Controllers\PackageBankController;
-use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DashboardController;
 
@@ -18,10 +14,6 @@ Route::get('/category/{category:slug}', [FrontController::class, 'category'])->n
 Route::get('/details/{package_tours:slug}', [FrontController::class, 'details'])->name('front.details');
 Route::get('/wedding-list', [FrontController::class, 'wedding_list'])->name('front.wedding_list');  
  
-
-
-Route::get('/dashboard', [PackageBookingController::class, 'get_package_bookings'])->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -26,11 +26,12 @@
       <p class="text-lg text-gray-500">{{$package_tours->category->name}}</p>
       <h1 class="text-2xl lg:text-4xl text-justify text-gray-800  font-bold my-2">{{$package_tours->name}}</h1>
       <p class="text-sm text-gray-500 mt-1"><i class="fa fa-map-marker-alt text-red-500 mr-1"></i>{{$package_tours->location}}</p>
-      <p class="text-sm text-gray-500 mt-4">Total Invited Guests</p>
-      <div class="flex items-center space-x-2 mt-4">
-        <span class="bg-[#FF704380] text-white px-3 py-1 rounded-ee-2xl rounded-ss-2xl border border-orange-500 text-sm font-semibold">{{$package_tours->pax}} Pax</span>
-      </div>
-
+      @if ($package_tours->pax)
+        <p class="text-sm text-gray-500 mt-4">Total Invited Guests</p>
+        <div class="flex items-center space-x-2 mt-4">
+          <span class="bg-[#FF704380] text-white px-3 py-1 rounded-ee-2xl rounded-ss-2xl border border-orange-500 text-sm font-semibold">{{$package_tours->pax}} Pax</span>
+        </div>
+      @endif
       <p class="text-2xl lg:text-4xl text-justify font-bold text-black mt-4">Rp. {{number_format($package_tours->price, 0, ',', '.')}}</p>
 
       <a href="{{route('front.book_test', $package_tours->slug)}}">
@@ -52,7 +53,6 @@
           @if ($package_tours->event_crew)
              <button @click="tab = 'crew'" :class="tab === 'crew' ? 'text-orange-500 border-orange-500' : 'text-gray-500 hover:text-gray-700'"
                   class="border-b-2 py-2 px-4 font-semibold">Our Event Crew</button>
-         
           @endif
         </div>
 
@@ -61,7 +61,7 @@
 
           @if ($package_tours->general_information)
               <div x-show="tab === 'info'" x-transition>
-                  {!! Str::markdown($package_tours->general_information) !!}
+                  {{$package_tours->general_information}}
               </div>
           @endif
 

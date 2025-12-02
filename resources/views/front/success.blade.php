@@ -39,7 +39,7 @@
     <div id="fireworks-container" class="hidden fixed inset-0 z-[9999] pointer-events-none bg-transparent"></div>
 
     <div class="max-w-xl mx-auto flex flex-col justify-center items-start">
-      <img src="../assets/backgrounds/moonevent.jpg" alt=""
+      <img src="{{ asset("assets/backgrounds/moonevent.jpg") }}" alt=""
         class="rounded-full w-[60px] h-[60px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] object-cover">
       <h1 class="text-3xl/snug md:text-3xl/snug lg:text-5xl/snug font-semibold my-5">
         Booking confirmed successfully!

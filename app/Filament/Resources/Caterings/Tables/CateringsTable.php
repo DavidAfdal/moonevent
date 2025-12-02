@@ -33,9 +33,9 @@ class CateringsTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Catering')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Catering')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Catering')),
                 ]),
             ]);
     }

@@ -25,9 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         FilamentAsset::register([
-            Js::make('fullcalendar-js', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'),
-            Js::make('fullcalendar-js', ' https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.19/index.global.min.j'),
-           
+            Js::make('fullcalendar-js', 'https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'),           
         ],);
      }
 }
