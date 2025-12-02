@@ -39,7 +39,7 @@ class BookingChart extends ChartWidget
 
         $endDate = now();
 
-        if (in_array($filter, ['today', 'week', 'month'])) {
+        if (in_array($filter, ['today', 'week', ])) {
             // Per hari
             $bookings = PackageBooking::select(
                     DB::raw('DATE(booking_date) as day'),
@@ -52,6 +52,18 @@ class BookingChart extends ChartWidget
                 ->get();
 
             $labels = $bookings->pluck('day')->map(fn($d) => Carbon::parse($d)->format('d M'));
+        } else if ($filter == 'month') {
+             $bookings = PackageBooking::select(
+                    DB::raw('DATE(booking_date) as day'),
+                    DB::raw('SUM(total_amount) as total_amount')
+                )
+                ->where('status', '=', 'success')
+                ->whereBetween('booking_date', [$startDate, now()->endOfMonth()])
+                ->groupBy('day')
+                ->orderBy('day')
+                ->get();
+
+            $labels = $bookings->pluck('day')->map(fn($d) => Carbon::parse($d)->format('d M'));
         } else {
             $bookings = PackageBooking::select(
                     DB::raw('MONTH(booking_date) as month_number'),
@@ -59,7 +71,7 @@ class BookingChart extends ChartWidget
                     DB::raw('SUM(total_amount) as total_amount')
                 )
                 ->where('status', '=', 'success')
-                ->whereBetween('booking_date', [$startDate, $endDate])
+                ->whereBetween('booking_date', [$startDate, now()->endOfYear()])
                 ->groupBy('month_number', 'month')
                 ->orderBy('month_number')
                 ->get();

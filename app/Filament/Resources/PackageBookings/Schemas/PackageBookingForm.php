@@ -40,6 +40,17 @@ class PackageBookingForm
                           modifyQueryUsing: fn ($query) => $query->whereHas('roles', fn ($q) => $q->where('name', 'customer'))
                     )
                     ->required(),
+
+
+                 TextInput::make('couple_name')
+                ->label("Couple Name"),
+
+                TextInput::make('alternate_phone')
+                ->tel()
+                ->label("Alternative Phone Number"),
+
+
+                
                 Select::make('decoration_id')
                     ->relationship('decoration', 'decoration_name')
                     ->hidden(fn (callable $get) => !$get('is_wedding_selected')),

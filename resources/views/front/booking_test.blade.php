@@ -23,7 +23,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium">Username</label>
-                            <input name="username" type="text" value="{{Auth::user()->name}}" class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500" required placeholder="Septian">
+                            <input name="username" disabled type="text" value="{{Auth::user()->name}}" class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500" required placeholder="Septian">
                         </div>
                         <div>
                             <label class="block text-sm font-medium">Email</label>
@@ -39,8 +39,8 @@
                             <div class="w-full">
                                 <label class="block text-sm font-medium">Time</label>
                                 <select name="booking_time" class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500">
-                                    <option value="Pagi">Morning</option>
-                                    <option value="Malam">Night</option>
+                                    <option value="Morning">Morning</option>
+                                    <option value="Night">Night</option>
                                  </select>
                             </div>
                         </div>
@@ -54,6 +54,28 @@
                                     id="phoneNumber"
                                     name="phone_number"
                                     value="{{ltrim(Auth::user()->phone_number, '0')}}"
+                                    placeholder="8121455663433"
+                                    disabled
+                                    class="flex-1 rounded-md px-3 py-2 focus:outline-none"
+                                />
+                            </div>
+                        </div>
+
+
+                        <div>
+                            <label class="block text-sm font-medium">Couple Name (optional) </label>
+                            <input name="couple_name" type="text" value="" class="w-full mt-1 border rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500"  placeholder="Septian">
+                        </div>
+
+                         <div class="">
+                            <label class="block text-sm font-medium">Alternatif Phone Number (optional)</label>
+                            <div class="no-spinner flex items-center border rounded space-x-2 mt-2 focus-within:ring-2 focus-within:ring-orange-500">
+                                <span class="border-r border-gray-300 px-2">+62</span>
+                                <input
+                                    type="number"
+                                    id="phoneNumber"
+                                    name="alternate_phone"
+                                    value=""
                                     placeholder="8121455663433"
                                     class="flex-1 rounded-md px-3 py-2 focus:outline-none"
                                 />
@@ -137,11 +159,13 @@
                     <p class="text-base text-gray-600 font-semibold mb-4">{{$package_tours->category->name}}</p>
                     <p class="text-sm text-gray-600">{{$package_tours->location}}</p>
                 </div>
-                <div class="text-sm">
-                    <p class="text-gray-500">Total Invited Guests</p>
-                    <div class="flex items-center gap-2 mt-1">
-                        <span class="bg-[#FF704380] text-white px-3 py-1 rounded-ee-2xl rounded-ss-2xl border border-orange-500 text-sm font-semibold">{{$package_tours->pax}} Pax</span>
-                </div>
+                @if ($package_tours->pax)
+                    <div class="text-sm">
+                        <p class="text-gray-500">Total Invited Guests</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="bg-[#FF704380] text-white px-3 py-1 rounded-ee-2xl rounded-ss-2xl border border-orange-500 text-sm font-semibold">{{$package_tours->pax}} Pax</span>
+                    </div>
+                @endif
         
                 <button type="submit"  class="w-full mt-4 bg-[#FF7043] hover:bg-[#e55a2d] text-white py-2 px-4 rounded-lg font-semibold">
                     Confirm Booking

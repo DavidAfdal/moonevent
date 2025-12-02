@@ -26,6 +26,7 @@ class PackageBookingsTable
             ->columns([
                 TextColumn::make('customer.name')
                     ->sortable()
+                   ->placeholder('-')
                     ->searchable(),
                 TextColumn::make('tour.name')
                     ->label("Package")
