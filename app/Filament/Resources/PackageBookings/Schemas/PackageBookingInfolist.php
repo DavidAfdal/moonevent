@@ -36,7 +36,46 @@ class PackageBookingInfolist
                             TextEntry::make('customer.name')
                                 ->label('Customer Name')
                                 ->placeholder('-'),
+                                
+                            TextEntry::make('couple_name')
+                                ->label('Couple Name')
+                                ->placeholder('-'),
 
+                                TextEntry::make('customer.phone_number')
+                                ->label('Phone Number')
+                                ->formatStateUsing(function ($state) {
+                                    if (!$state) return '-';
+
+                                    $phone = preg_replace('/[^0-9]/', '', $state);
+
+                                    if (str_starts_with($phone, '0')) {
+                                        return '+62' . substr($phone, 1);
+                                    }
+
+                                    if (!str_starts_with($phone, '62')) {
+                                        return '+62' . $phone;
+                                    }
+
+                                    return '+' . $phone;
+                                })->placeholder('-'),
+
+                                TextEntry::make('alternate_phone')
+                                ->label('Alternative Phone Number')
+                                ->formatStateUsing(function ($state) {
+                                    if (!$state) return '-';
+
+                                    $phone = preg_replace('/[^0-9]/', '', $state);
+
+                                    if (str_starts_with($phone, '0')) {
+                                        return '+62' . substr($phone, 1);
+                                    }
+
+                                    if (!str_starts_with($phone, '62')) {
+                                        return '+62' . $phone;
+                                    }
+
+                                    return '+' . $phone;
+                                })->placeholder('-'),
                             TextEntry::make('total_amount')
                                 ->label('Total Amount')
                                 ->money('IDR', locale: 'id_ID')

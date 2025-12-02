@@ -241,19 +241,18 @@ class FrontController extends Controller
 
                 $totalAmount = $package_tours->price;
 
-                $phoneNumber =  $validated['phone_number'];
-                if (!str_starts_with($phoneNumber, '0')) {
-                    $phoneNumber = '0' . $phoneNumber;
+                $alternate_phone =  $validated['alternate_phone'];
+                if (!str_starts_with($alternate_phone, '0')) {
+                    $alternate_phone = '0' . $alternate_phone;
                 }
 
                 $validated['user_id'] = $user->id;
                 $validated['package_tour_id'] = $package_tours->id;
                 $validated['total_amount'] = $totalAmount;
                 $validated['status'] = 'pending';
+                $validated['alternate_phone'] = $alternate_phone;
 
-                $user->name = $request->username;
-                $user->phone_number = $phoneNumber;
-                $user->save();
+    
 
                 $packageBooking = PackageBooking::create($validated);
                 $packageBookingId = $packageBooking->id;
