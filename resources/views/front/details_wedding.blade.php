@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 
 
-@push("style")
+@push("styles")
 <style>
     .markdown-content ul {
         list-style: disc !important;
@@ -11,6 +11,7 @@
         margin-bottom: 4px;
     }
 </style>
+
 @endpush
 @section('content')
 <section class="max-w-[1440px] mx-auto px-4 py-10 mt-20" >
@@ -72,7 +73,7 @@
         <div class="mt-4 text-gray-700 space-y-2 text-sm leading-relaxed">
 
           @if ($package_tours->general_information)
-              <div x-show="tab === 'info'" x-transition>
+              <div x-show="tab === 'info'" x-transition class="markdown-content">
                 {!! str($package_tours->general_information)->markdown()->sanitizeHtml() !!}
               </div>
           @endif
@@ -84,7 +85,7 @@
           @endif
 
           @if ($package_tours->event_crew)
-                <div x-show="tab === 'crew'" x-transition>
+                <div x-show="tab === 'crew'" x-transition class="markdown-content">
                    {!! str($package_tours->event_crew)->markdown()->sanitizeHtml() !!}
                 </div>
           @endif
