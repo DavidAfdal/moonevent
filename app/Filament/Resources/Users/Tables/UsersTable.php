@@ -46,7 +46,7 @@ class UsersTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:User')),
                 ]),
             ]);
     }

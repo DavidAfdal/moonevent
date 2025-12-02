@@ -33,9 +33,9 @@ class MUASTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:MUA')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:MUA')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:MUA')),
                 ]),
             ]);
     }

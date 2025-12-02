@@ -38,9 +38,9 @@ class DecorationsTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Decoration')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Decoration')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Decoration')),
                 ]),
             ]);
     }

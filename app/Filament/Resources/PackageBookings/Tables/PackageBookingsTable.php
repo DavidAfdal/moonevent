@@ -76,7 +76,7 @@ class PackageBookingsTable
             ])
             ->recordActions([
                 ViewAction::make(),
-                  EditAction::make(),
+                EditAction::make(),
                Action::make('approve')
                     ->color('success')
                     ->icon(Heroicon::CheckCircle)
@@ -86,7 +86,8 @@ class PackageBookingsTable
                             'status' => 'success',
                         ]);
                     })
-                    ->successNotificationTitle('Approved Booking'),
+                    ->successNotificationTitle('Approved Booking')
+                    ->authorize(fn () => auth()->user()->can('Approve:PackageBooking')),
 
                 Action::make('rejected')
                         ->color('danger')
@@ -98,13 +99,14 @@ class PackageBookingsTable
                             ]);
                         })
                         ->successNotificationTitle('Rejected Booking')
+                        ->authorize(fn () => auth()->user()->can('Approve:PackageBooking'))
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
-                ]),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageBooking')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageBooking')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageBooking')),
+                ])
             ]);
     }
 }

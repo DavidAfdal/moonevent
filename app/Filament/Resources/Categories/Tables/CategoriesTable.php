@@ -23,6 +23,7 @@ class CategoriesTable
                 TextColumn::make("slug"),
                 ToggleColumn::make('is_wedding')
                  ->label('Wedding?')
+                 ->visible(fn () => auth()->user()->can('SetWedding:Category')),
             ])
             ->defaultSort("name")
             ->filters([
@@ -34,9 +35,9 @@ class CategoriesTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Category')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Category')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:Category')),
                 ]),
             ]);
     }

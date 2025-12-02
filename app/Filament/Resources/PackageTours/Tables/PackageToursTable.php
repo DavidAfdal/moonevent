@@ -49,9 +49,9 @@ class PackageToursTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                    ForceDeleteBulkAction::make(),
-                    RestoreBulkAction::make(),
+                    DeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageTour')),
+                    ForceDeleteBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageTour')),
+                    RestoreBulkAction::make()->authorize(fn () => auth()->user()->can('Delete:PackageTour')),
                 ]),
             ]);
     }

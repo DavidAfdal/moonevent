@@ -12,10 +12,12 @@
             {{ $title }}
         </div>
         <div class="flex items-center text-sm text-gray-600 mt-2 space-x-3">
-            <div class="flex items-center gap-2">
-                <span><img src="{{asset('assets/icons/pax.svg')}}" alt="Pax" class="w-5 h-5"></span>
-                <span>{{ $pax }} Pax</span>
-            </div>
+            @if ($pax)  
+                <div class="flex items-center gap-2">
+                    <span><img src="{{asset('assets/icons/pax.svg')}}" alt="Pax" class="w-5 h-5"></span>
+                    <span>{{ $pax }} Pax</span>
+                </div>
+            @endif
             <div class="flex items-center gap-1">
                 <span><img src="{{asset('assets/icons/task.svg')}}" alt="Task" class="w-5 h-5"></span>
                 <span>{{ $type }}</span>
