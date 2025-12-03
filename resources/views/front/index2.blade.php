@@ -124,7 +124,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-9 lg:gap-16 mt-12 lg:items-center">
         <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="300">
-          <img src="{{ asset('assets/photo_team/foto-team.png') }}" alt=""
+          <img src="{{ asset('assets/photo_team/homepageutama.jpg') }}" alt=""
             class="w-full object-cover mix-h-[300px] md:h-[400px]">
         </div>
         <div class="w-full" data-aos="fade-up" data-aos-duration="1000">

@@ -153,7 +153,7 @@
     <div class="my-28 px-[20px] md:px-[65px] max-w-[750px] mx-auto text-center" data-aos="fade-up"
       data-aos-duration="1000" data-aos-delay="300">
       <h1 class="text-3xl md:text-4xl font-semibold mb-5">
-        Established in October 2020 as PT. Moon Event Kreasindo.
+        Established in October 2020 as PT. Moon Event Kreasindo
       </h1>
       <p class="text-sm md:text-base text-black opacity-70">
         To become a leading Building Management and Event Organizer company, trusted and recognized for its
@@ -226,7 +226,7 @@
             'delay' => 400
           ],
           [
-            'name' => 'Edi',
+            'name' => 'Edi Kurniawan',
             'aka' => 'Edi',
             'role' => 'Event Supervisor',
             'photo' => asset('assets/orang/om_edi.png'),
