@@ -131,8 +131,8 @@
 
           <div class="rounded-xl overflow-hidden row-span-2">
             <img
-              src='assets/photo_team/TIM2.jpg'
-              alt="Wedding Photo 1" class="object-cover w-full h-full" />
+              src={{ asset('assets/photo_team/foto-team4.jpg') }}
+              alt="Wedding Photo 1" class="object-cover w-full max-h-[600px]" />
           </div>
 
           <div class="rounded-xl overflow-hidden">
@@ -293,27 +293,27 @@
         [
           'id' => '01',
           'title' => 'What services does Moon Event Organizer provide?',
-          'desc' => 'MoonEvent offers a complete range of services, including: Building Management, Event Organizer services (seminars, gatherings, graduations, mini concerts, product launches), and Wedding Organizer services (wedding planning & wedding day coordination). We also provide decoration, documentation, multimedia, and technical event coordination.'
+          'desc' => 'MoonEvent offers a complete range of services, including: Building Management, Event Organizer services (seminars, gatherings, graduations, mini concerts, product launches), and Wedding Organizer services (wedding planning & wedding day coordination). We also provide decoration, documentation, multimedia, and technical event coordination'
         ],
         [
           'id' => '02',
           'title' => 'How is the service booking process at Moon Event Organizer?',
-          'desc' => 'Clients can contact us through WhatsApp, email, or the booking form on our website. Our team will conduct a needs consultation, create a concept plan, prepare a proposal, and arrange a technical meeting before the event execution.'
+          'desc' => 'Clients can contact us through WhatsApp, email, or the booking form on our website. Our team will conduct a needs consultation, create a concept plan, prepare a proposal, and arrange a technical meeting before the event execution'
         ],
         [
           'id' => '03',
           'title' => 'Does Moonevent offer customizable service packages?',
-          'desc' => 'Yes. Moonevent provides flexible and customizable services tailored to the client’s needs, event location, budget, and preferred concept. We also offer packages ranging from basic to premium for various types of events.'
+          'desc' => 'Yes. Moonevent provides flexible and customizable services tailored to the client’s needs, event location, budget, and preferred concept. We also offer packages ranging from basic to premium for various types of events'
         ],
         [
           'id' => '04',
-          'title' => 'Bagaimana cara kerja Moonevent?',
-          'desc' => 'Moonevent adalah perusahaan wedding organizer lengkap yang menangani pernikahan dari tahap perencanaan, konsep, dekorasi, koordinasi vendor, hingga pelaksanaan acara di hari H. Kami fokus menciptakan pengalaman yang indah dan tak terlupakan bagi setiap pasangan.'
+          'title' => 'How does MoonEvent operate?',
+          'desc' => 'MoonEvent follows a comprehensive workflow that includes consultation, concept planning, vendor coordination, preparation, and event-day execution. Our team ensures every detail is well-managed to deliver a seamless and memorable experience'
         ],
       ];
     @endphp
 
-    <div class="px-[20px] md:px-[65px] my-44 grid grid-cols-1 md:grid-cols-2  gap-10">
+    <div class="px-[20px] md:px-[65px] mt-44 mb-28 grid grid-cols-1 md:grid-cols-2  gap-10">
       <div class="flex flex-col justify-between max-w-[500px]" data-aos="fade-up"
             data-aos-duration="1000" data-aos-delay="100">
         <div class="">
@@ -326,13 +326,13 @@
         </div>
         <div class="grid grid-cols-3 gap-3 my-20">
           <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
+            src="{{asset('assets/photo_team/IKIGAII-436.jpg')}}"
             alt="" class="rounded-xl w-[200px]">
           <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
+            src="{{asset('assets/photo_team/IKIGAII-462.jpg')}}"
             alt="" class="rounded-xl w-[200px]">
           <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8d2VkZGluZ3xlbnwwfDB8MHx8fDI%3D&auto=format&fit=crop&q=60&w=500"
+            src="{{asset('assets/photo_team/IKIGAII-829.jpg')}}"
             alt="" class="rounded-xl w-[200px]">
 
         </div>
@@ -380,7 +380,7 @@
             <div class="">
               <div class="mb-5">
                 <h3 class="font-semibold mb-2">Email</h3>
-                <p class="text-black opacity-70 text-sm">moonEventOrganizer@gmail.com</p>
+                <p class="text-black opacity-70 text-sm">mooneventorganizer123@gmail.com</p>
               </div>
               <div class="">
                 <h3 class="font-semibold mb-2">Office Address</h3>
@@ -416,7 +416,7 @@
           </div>
         </div>
         <div class="bg-gray-400/30 rounded-2xl">
-          <form action="https://formsubmit.co/anindiakayla09@gmail.com" method="POST" autoComplete="off">
+          <form action="https://formsubmit.co/mooneventorganizer123@gmail.com" method="POST" autoComplete="off">
             <div class="max-w-lg mx-auto px-4 bg-transparent">
               <div class="input-container-float w-full h-12 mt-10">
                 <input type="text" name="name" id="floating-input-1" placeholder=" "required
