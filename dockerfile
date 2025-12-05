@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
+    nodejs \
+    npm \
     libonig-dev \
     libzip-dev \
     libicu-dev \
