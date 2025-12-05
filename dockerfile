@@ -41,6 +41,8 @@ RUN composer install --no-scripts --no-progress --prefer-dist
 # Salin seluruh file ke container
 COPY . .
 
+RUN npm install && npm run build
+
 # Beri izin kepada direktori storage dan cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
