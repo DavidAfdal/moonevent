@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
     volumes:
       - laravel-storage-production:/var/www/storage
-      - laravel-public-production:/var/www/public:ro
+      - laravel-public-production:/var/www/public
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - laravel-network
