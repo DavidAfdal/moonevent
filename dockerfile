@@ -1,7 +1,7 @@
 # ============================
 # 1. COMPOSER STAGE
 # ============================
-FROM composer:2 AS composer_stage
+FROM composer:2.7-php8.2 AS composer_stage
 
 WORKDIR /app
 
