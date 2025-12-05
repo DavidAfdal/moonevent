@@ -6,19 +6,23 @@ FROM php:8.2-fpm AS builder
 
 # Install system packages
 RUN apt-get update && apt-get install -y \
-    curl \
-    unzip \
-    libpq-dev \
-    libonig-dev \
-    libssl-dev \
-    libxml2-dev \
-    libcurl4-openssl-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libxpm-dev \
+    libwebp-dev \
+    zlib1g-dev \
+    libzip-dev \
     libicu-dev \
-    libzip-dev 
-
-# Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pdo_mysql gd mbstring pcntl exif bcmath zip intl
+    libonig-dev \
+    git \
+    unzip \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
+    && docker-php-ext-install \
+        gd pdo pdo_mysql mbstring pcntl exif bcmath zip intl
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
