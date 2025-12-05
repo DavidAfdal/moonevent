@@ -1,9 +1,10 @@
-# ============
-# 1) STAGE BUILDER
-# Builds vendor + node assets
-# ============
-FROM php:8.2-fpm AS builder
+#############################################
+# Stage 1: BUILDER
+# Build vendor + PHP extensions
+#############################################
+FROM php:8.2-cli AS builder
 
+# Install system dependencies for PHP extensions
 # Install system packages
 RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
@@ -24,23 +25,29 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
         gd pdo pdo_mysql mbstring pcntl exif bcmath zip intl
 
+
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Working directory
 WORKDIR /var/www
 
+# Copy composer files
+# Copy full source code
 COPY . .
 
-# Composer install (PRODUCTION MODE)
-RUN composer install --no-dev --optimize-autoloader --no-progress --prefer-dist
 
-# ============
-# 2) STAGE PRODUCTION FINAL IMAGE
-# ============
-FROM php:8.2-fpm AS production
+# Install vendor (no dev)
+RUN composer install --no-dev --prefer-dist --no-progress --optimize-autoloader
 
-# Install minimal necessary extensions only
+
+#############################################
+# Stage 2: WORKSPACE (Final Runtime)
+# Lightweight PHP CLI runtime for development
+#############################################
+FROM php:8.2-cli
+
+# Install minimal runtime dependencies
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     libicu-dev \
@@ -62,5 +69,5 @@ COPY --from=builder /var/www /var/www
 # Permission for Laravel
 RUN chown -R www-data:www-data /var/www
 
-EXPOSE 9000
-CMD ["php-fpm"]
+
+CMD ["bash"]

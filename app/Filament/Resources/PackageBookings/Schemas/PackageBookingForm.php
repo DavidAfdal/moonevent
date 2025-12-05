@@ -40,6 +40,17 @@ class PackageBookingForm
                           modifyQueryUsing: fn ($query) => $query->whereHas('roles', fn ($q) => $q->where('name', 'customer'))
                     )
                     ->required(),
+
+
+                 TextInput::make('couple_name')
+                ->label("Couple Name"),
+
+                TextInput::make('alternate_phone')
+                ->tel()
+                ->label("Alternative Phone Number"),
+
+
+                
                 Select::make('decoration_id')
                     ->relationship('decoration', 'decoration_name')
                     ->hidden(fn (callable $get) => !$get('is_wedding_selected')),
@@ -59,17 +70,7 @@ class PackageBookingForm
                     ->required()
                     ->numeric(),
                 DatePicker::make('booking_date')
-                    ->required()
-                   ->unique(ignoreRecord: true)
-                    ->extraAttributes(['x-init' => "
-                        const bookedDates = " . json_encode(\App\Models\PackageBooking::pluck('booking_date')->toArray()) . ";
-                        this._flatpickr.config.disable = bookedDates;
-                        this._flatpickr.config.onDayCreate.push(function(dObj, dStr, fp, dayElem) {
-                            if (bookedDates.includes(dayElem.dateObj.toISOString().split('T')[0])) {
-                                dayElem.classList.add('bg-red-500', 'text-white', 'rounded-full');
-                            }
-                        });
-                    "]),
+                    ->required(),
                Select::make('booking_time')
                 ->options([
                     "Morning" => "Morning",

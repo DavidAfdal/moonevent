@@ -146,9 +146,10 @@ class FrontController extends Controller
         $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         $categories = Category::orderByDesc('id')->get();
         $locations = PackageTour::distinct()->pluck('location');
+        $testimoni = Testimoni::orderByDesc("created_at")->limit(3)->get();
         
         
-        return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions'));
+        return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions', "testimoni"));
     }
 
  
@@ -231,29 +232,28 @@ class FrontController extends Controller
             DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
                 $validated = $request->validated();
 
-                $existing = PackageBooking::whereDate('booking_date', $validated['booking_date'])
-                    ->lockForUpdate()
-                    ->first();
+                // $existing = PackageBooking::whereDate('booking_date', $validated['booking_date'])
+                //     ->lockForUpdate()
+                //     ->first();
 
-                if ($existing) {
-                    throw new \Exception('This date has already been booked by another user.');
-                }
+                // if ($existing) {
+                //     throw new \Exception('This date has already been booked by another user.');
+                // }
 
                 $totalAmount = $package_tours->price;
 
-                $phoneNumber =  $validated['phone_number'];
-                if (!str_starts_with($phoneNumber, '0')) {
-                    $phoneNumber = '0' . $phoneNumber;
+                $alternate_phone =  $validated['alternate_phone'];
+                if (!str_starts_with($alternate_phone, '0')) {
+                    $alternate_phone = '0' . $alternate_phone;
                 }
 
                 $validated['user_id'] = $user->id;
                 $validated['package_tour_id'] = $package_tours->id;
                 $validated['total_amount'] = $totalAmount;
                 $validated['status'] = 'pending';
+                $validated['alternate_phone'] = $alternate_phone;
 
-                $user->name = $request->username;
-                $user->phone_number = $phoneNumber;
-                $user->save();
+    
 
                 $packageBooking = PackageBooking::create($validated);
                 $packageBookingId = $packageBooking->id;

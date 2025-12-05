@@ -574,10 +574,10 @@
               'photo' => asset('assets/orang/ibu-munah.png')
             ],
             [
-              'name' => 'Indira Zahra Putri',
-              'aka' => 'Indira',
-              'role' => 'Event Supervisor', 'Bride, Grooms, & Family',
-              'photo' => asset('assets/orang/rara.jpg')
+              'name' => 'Lusy Destiani',
+              'aka' => 'Lusy',
+              'role' => 'Bride, Grooms, & Family',
+              'photo' => asset('assets/orang/tante-lucy.png')
             ],
             [
               'name' => 'Edi Kurniawan',
@@ -598,10 +598,10 @@
               'photo' => asset('assets/orang/abang-dias.jpg')
             ],
             [
-              'name' => 'Fadly Firdaus',
-              'aka' => 'Fadli',
-              'role' => 'VIP Management',
-              'photo' => asset('assets/orang/Fadly.jpg')
+              'name' => 'Naura Nisrina',
+              'aka' => 'Naura',
+              'role' => 'Bride, Grooms, & Family',
+              'photo' => asset('assets/orang/aura.jpg')
             ],
             [
               'name' => 'Risma Nurdiyani',
@@ -688,16 +688,16 @@
               'photo' => asset('assets/orang/fathur.jpg')
             ],
             [
-              'name' => 'Naura Nisrina',
-              'aka' => 'Naura',
-              'role' => 'Bride, Grooms, & Family',
-              'photo' => asset('assets/orang/aura.jpg')
+              'name' => 'Fadly Firdaus',
+              'aka' => 'Fadli',
+              'role' => 'VIP Management',
+              'photo' => asset('assets/orang/Fadly.jpg')
             ],
             [
-              'name' => 'Lusy Destiani',
-              'aka' => 'Lusy',
-              'role' => 'Bride, Grooms, & Family',
-              'photo' => asset('assets/orang/tante-lucy.png')
+              'name' => 'Indira Zahra Putri',
+              'aka' => 'Indira',
+              'role' => 'Event Supervisor', 'Bride, Grooms, & Family',
+              'photo' => asset('assets/orang/rara.jpg')
             ],
           ];
 
@@ -715,7 +715,7 @@
               'photo' => asset('assets/orang/tante-lucy.png')
             ],
             [
-              'name' => 'Edi',
+              'name' => 'Edi Kurniawan',
               'aka' => 'Edi',
               'role' => 'Head Of Banquet',
               'photo' => asset('assets/orang/om_edi.png')
@@ -733,7 +733,7 @@
               'photo' => asset('assets/orang/susy.jpg')
             ],
             [
-              'name' => 'Naura',
+              'name' => 'Naura Nisrina',
               'aka' => 'Naura',
               'role' => 'Public Relation & Secretary',
               'photo' => asset('assets/orang/kak-naura.jpg')
