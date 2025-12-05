@@ -44,9 +44,20 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd ${{ secrets.VPS_APP_DIR }}
-            docker compose pull || true
-            docker compose build --no-cache
-            docker compose down
-            docker compose up -d --remove-orphans
-            docker system prune -af
+              set -euo pipefail
+
+              echo "> Navigate to app directory"
+              cd ${{ secrets.VPS_APP_DIR }}
+
+              echo "> Pull image"
+              docker compose pull
+
+              echo "> Build image"
+              docker compose build --no-cache
+
+              echo "> Restart services"
+              docker compose down
+              docker compose up -d --remove-orphans
+
+              echo "> Cleanup"
+              docker system prune -af
