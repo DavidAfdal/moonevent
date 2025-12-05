@@ -32,12 +32,15 @@ services:
 
   # Nginx Service
   nginx:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: ./docker/nginx/nginx.dockerfile
     container_name: laravel-nginx
+    restart: unless-stopped
     ports:
       - "8000:80"
     volumes:
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - laravel-storage-production:/var/www/storage:ro
     networks:
       - laravel-network
     depends_on:
@@ -49,10 +52,10 @@ services:
     container_name: laravel-mysql
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: moonevent
-      MYSQL_ROOT_PASSWORD: kusuma567#
-      MYSQL_USER: kusuma
-      MYSQL_PASSWORD: kusuma998
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "127.0.0.1:3306:3306"
     volumes:
