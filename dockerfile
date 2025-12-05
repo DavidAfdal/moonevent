@@ -1,61 +1,47 @@
-# ============================
-# 1. COMPOSER STAGE
-# ============================
-FROM composer:2.7-php8.2 AS composer_stage
+# Gunakan image resmi PHP sebagai base image
+FROM php:8.2-fpm
 
-WORKDIR /app
-
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-scripts
-
-# Copy seluruh source code setelah install vendor
-COPY . .
-
-
-# ============================
-# 2. NODE + VITE BUILD STAGE
-# ============================
-FROM node:18 AS vite_stage
-
-WORKDIR /app
-
-# Copy source + vendor dari composer_stage
-COPY --from=composer_stage /app ./
-
-RUN npm install
-RUN npm run build
-
-
-# ============================
-# 3. FINAL PRODUCTION STAGE (PHP-FPM)
-# ============================
-FROM php:8.2-fpm AS app
-
-# Install extension yang dibutuhkan Laravel
+# Instalasi dependencies sistem
 RUN apt-get update && apt-get install -y \
+    build-essential \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
+    locales \
     zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
     unzip \
     git \
-    libzip-dev \
+    curl \
     libonig-dev \
+    libzip-dev \
     libicu-dev \
-    libxml2-dev \
-    && docker-php-ext-install pdo_mysql zip intl mbstring exif pcntl bcmath
+    libxml2-dev
 
+RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip intl
+
+# Instalasi Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set working directory
 WORKDIR /var/www
 
-# Copy semua file project dari Composer stage,
-# sudah termasuk vendor
-COPY --from=composer_stage /app ./
+# Salin file composer.lock dan composer.json
+COPY composer.lock composer.json ./
 
-# Copy hasil build Vite
-COPY --from=vite_stage /app/public/build ./public/build
+# Set variabel lingkungan untuk mengizinkan plugin Composer berjalan sebagai root
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Permission untuk storage & cache
+# Jalankan Composer untuk menginstall dependencies PHP
+RUN composer install --no-scripts --no-progress --prefer-dist
+
+# Salin seluruh file ke container
+COPY . .
+
+# Beri izin kepada direktori storage dan cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
+# Expose port 9000 dan start PHP-FPM server
 EXPOSE 9000
 CMD ["php-fpm"]
