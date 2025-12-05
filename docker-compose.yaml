@@ -32,15 +32,12 @@ services:
 
   # Nginx Service
   nginx:
-    build:
-      context: .
-      dockerfile: ./docker/nginx/nginx.dockerfile
+    image: nginx:latest
     container_name: laravel-nginx
-    restart: unless-stopped
     ports:
       - "8000:80"
     volumes:
-      - laravel-storage-production:/var/www/storage
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - laravel-network
     depends_on:
