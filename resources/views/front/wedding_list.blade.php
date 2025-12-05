@@ -5,20 +5,33 @@
 @endpush
 
 @section('content')
-<section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
-    <x-hero-list-wedding
-        :locations="$locations"
-        :paxOptions="$paxOptions"
-        :priceOptions="$priceOptions"
-    />
-    
-    <div class="px-[20px] md:px-[65px] w-full max-w-[1440px] mx-auto px-4">
-        <div class="w-full flex flex-col md:flex-row items-center justify-between my-8">
-            <h2 class="text-xl md:text-2xl text-center font-semibold">
-                Our Beautiful Wedding Moments
-            </h2>
-            <x-filter-tab-wedding :categories="$categories"/>
+    <section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
+        <x-hero-list-wedding :locations="$locations" :paxOptions="$paxOptions" :priceOptions="$priceOptions" />
+        <div class="px-[20px] md:px-[65px] w-full h-[250px] my-8 relative">
+            <img src="{{ asset('assets/thumbnails/wo9.jpg') }}" class="w-full h-full object-cover object-top rounded-xl"
+                alt="">
+            <div class="max-w-[620px] absolute top-0 px-10 py-6">
+                <h2 class="text-4xl font-semibold text-white">Special Promo for Your Upcoming Event</h2>
+                <p class="text-sm text-white my-4">
+                    Enjoy exclusive discounts for wedding and event packages this month. Make your dream celebration
+                    unforgettable at the best value
+                </p>
+                <a href="/"
+                    class="flex items-center gap-5 w-fit border-2 border-white rounded-full px-2 py-1 group font-semibold transition-all duration-300 text-white">
+                    Claim Offer
+                    <i
+                        class="fa-solid fa-arrow-right w-fit h-auto rounded-full flex-shrink-0 p-2 border border-white transition duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
+
+        <div class="px-[20px] md:px-[65px] w-full max-w-[1440px] mx-auto px-4">
+            <div class="w-full flex flex-col md:flex-row items-center justify-between my-8">
+                <h2 class="text-xl md:text-2xl text-center font-semibold">
+                    Our Beautiful Wedding Moments
+                </h2>
+                <x-filter-tab-wedding :categories="$categories" />
+            </div>
 
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 mt-5 md:mt-8">
                 @foreach ($weddings as $wedding)
