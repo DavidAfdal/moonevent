@@ -146,9 +146,10 @@ class FrontController extends Controller
         $weddings = $query->with('category')->orderByDesc('id')->paginate(8);
         $categories = Category::orderByDesc('id')->get();
         $locations = PackageTour::distinct()->pluck('location');
+        $testimoni = Testimoni::orderByDesc("created_at")->limit(3)->get();
         
         
-        return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions'));
+        return view('front.wedding_list', compact('weddings', 'categories', 'locations', 'paxOptions', 'priceOptions', "testimoni"));
     }
 
  
@@ -231,13 +232,13 @@ class FrontController extends Controller
             DB::transaction(function () use ($request, $user, $package_tours, &$packageBookingId) {
                 $validated = $request->validated();
 
-                $existing = PackageBooking::whereDate('booking_date', $validated['booking_date'])
-                    ->lockForUpdate()
-                    ->first();
+                // $existing = PackageBooking::whereDate('booking_date', $validated['booking_date'])
+                //     ->lockForUpdate()
+                //     ->first();
 
-                if ($existing) {
-                    throw new \Exception('This date has already been booked by another user.');
-                }
+                // if ($existing) {
+                //     throw new \Exception('This date has already been booked by another user.');
+                // }
 
                 $totalAmount = $package_tours->price;
 

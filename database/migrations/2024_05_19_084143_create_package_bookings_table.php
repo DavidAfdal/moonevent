@@ -27,7 +27,7 @@ return new class extends Migration
             $table->unsignedBigInteger('total_amount');
 
             // ganti start_date & end_date dengan booking_date
-            $table->date('booking_date')->unique(); 
+            $table->date('booking_date'); 
             $table->string('booking_time', 50);
 
             $table->softDeletes();

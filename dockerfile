@@ -19,15 +19,10 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libxml2-dev
 
-# Instalasi extensions PHP yang diperlukan
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip intl
 
 # Instalasi Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Instalasi Node.js dan npm untuk Laravel Breeze
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs
 
 # Set working directory
 WORKDIR /var/www
@@ -43,9 +38,6 @@ RUN composer install --no-scripts --no-progress --prefer-dist
 
 # Salin seluruh file ke container
 COPY . .
-
-# Install dependencies NPM dan jalankan build
-RUN npm install
 
 # Beri izin kepada direktori storage dan cache
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache

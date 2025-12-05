@@ -1,48 +1,75 @@
 version: '3.8'
 
 services:
+  # PHP-FPM Service
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app
     container_name: laravel-app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
-      - .:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
-      - laravel
+      - laravel-network
+    depends_on:
+      - mysql
 
-  web:
+  # Workspace Service (untuk artisan commands)
+  workspace:
+    build:
+      context: ./docker/workspace
+      dockerfile: workspace.dockerfile
+    container_name: laravel-workspace
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - laravel-network
+    depends_on:
+      - mysql
+    tty: true
+    stdin_open: true
+
+  # Nginx Service
+  nginx:
     image: nginx:alpine
-    container_name: laravel-web
+    container_name: laravel-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
     volumes:
-      - .:/var/www
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
     networks:
-      - laravel
+      - laravel-network
+    depends_on:
+      - app
 
-  db:
-    image: mysql:5.7
-    container_name: laravel-db
+  # MySQL Service
+  mysql:
+    image: mysql:8.0
+    container_name: laravel-mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: moonevent
+      MYSQL_ROOT_PASSWORD: kusuma567#
+      MYSQL_USER: kusuma
+      MYSQL_PASSWORD: kusuma998
+    ports:
+      - "127.0.0.1:3306:3306"
     volumes:
-      - dbdata:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     networks:
-      - laravel
+      - laravel-network
 
 networks:
-  laravel:
+  laravel-network:
     driver: bridge
 
 volumes:
-  dbdata:
+  mysql-data:
     driver: local
