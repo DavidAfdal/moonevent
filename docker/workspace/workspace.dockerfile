@@ -6,31 +6,24 @@ FROM php:8.2-cli AS builder
 
 # Install system dependencies for PHP extensions
 # Install system packages
-RUN apt-get update \
-    && apt-get install -y \
-        build-essential \
-        pkg-config \
-        libpng-dev \
-        libjpeg-dev \
-        libfreetype6-dev \
-        libzip-dev \
-        libxml2-dev \
-        libonig-dev \
-        curl \
-        unzip \
-        git
-
-# Install PHP extensions (with GD fix)
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+RUN apt-get update && apt-get install -y \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libxpm-dev \
+    libwebp-dev \
+    zlib1g-dev \
+    libzip-dev \
+    libicu-dev \
+    libonig-dev \
+    git \
+    unzip \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
     && docker-php-ext-install \
-        gd \
-        pdo_mysql \
-        mbstring \
-        exif \
-        pcntl \
-        bcmath \
-        zip \
-        intl
+        gd pdo pdo_mysql mbstring pcntl exif bcmath zip intl
 
 
 # Install Composer
