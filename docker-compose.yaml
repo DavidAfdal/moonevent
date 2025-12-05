@@ -10,6 +10,7 @@ services:
     restart: unless-stopped
     volumes:
       - laravel-storage-production:/var/www/storage
+      - laravel-public-production:/var/www/public:ro
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - laravel-network
@@ -41,6 +42,7 @@ services:
       - "8000:80"
     volumes:
       - laravel-storage-production:/var/www/storage:ro
+      - laravel-public-production:/var/www/public:ro
     networks:
       - laravel-network
     depends_on:
@@ -69,5 +71,6 @@ networks:
 
 volumes:
   laravel-storage-production:
+  laravel-public-production:
   mysql-data:
     driver: local
