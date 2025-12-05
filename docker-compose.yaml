@@ -8,24 +8,39 @@ services:
       dockerfile: Dockerfile
     container_name: laravel-app
     restart: unless-stopped
-    working_dir: /var/www
     volumes:
+      - laravel-storage-production:/var/www/storage
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - laravel-network
     depends_on:
       - mysql
 
+  # Workspace Service (untuk artisan commands)
+  workspace:
+    build:
+      context: ./docker/workspace
+      dockerfile: workspace.dockerfile
+    container_name: laravel-workspace
+    restart: unless-stopped
+    networks:
+      - laravel-network
+    depends_on:
+      - mysql
+    tty: true
+    stdin_open: true
+
   # Nginx Service
   nginx:
-    image: nginx:alpine
+    build:
+      context: ./docker/nginx
+      dockerfile: nginx.dockerfile
     container_name: laravel-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
     volumes:
-      - ./:/var/www
-      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - laravel-storage-production:/var/www/storage
     networks:
       - laravel-network
     depends_on:
@@ -53,5 +68,6 @@ networks:
     driver: bridge
 
 volumes:
+  laravel-storage-production:
   mysql-data:
     driver: local
