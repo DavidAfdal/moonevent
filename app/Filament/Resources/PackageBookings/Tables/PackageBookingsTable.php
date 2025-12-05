@@ -28,6 +28,11 @@ class PackageBookingsTable
                     ->sortable()
                    ->placeholder('-')
                     ->searchable(),
+                TextColumn::make('couple_name')
+                    ->sortable()
+                   ->placeholder('-')
+                   
+                    ->searchable(),
                 TextColumn::make('tour.name')
                     ->label("Package")
                     ->badge(),

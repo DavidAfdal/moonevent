@@ -141,12 +141,10 @@
                 <div class="bg-white p-6 rounded-lg shadow text-sm">
                     <h3 class="text-lg font-semibold mb-4">Consultation Notice</h3>
                     {{-- <div class="flex flex-col gap-2"> {!! Str::markdown($package_tours->general_information) !!}</div> --}}
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li><strong>Free Of Charge:</strong> This booking is intended for consultation purposes only. You will not be charged any fees for reserving this session.</li>
-                        <li><strong>Planning Discussion:</strong> During the consultation, we will discuss your wedding ideas, preferences, and how we can help make your day special.</li>
-                        <li><strong>No Commitment Required:</strong> There is no obligation to proceed with any package or service after the consultation.</li>
-                        <li><strong>Initial Step Only:</strong> This is the first step to understanding your needs before crafting a personalized wedding plan.</li>
-                    </ul>
+                   <p class="text-lg">
+                        To confirm your booking, please click <strong>Confirm Booking</strong> to proceed, and you will be able to chat with us directly via WhatsApp to discuss your wedding plans with the package you selected.
+                    </p>
+
                 </div>
             </div>
         
