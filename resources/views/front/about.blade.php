@@ -123,10 +123,10 @@
     <!-- Section Hero -->
     <div class="px-[20px] md:px-[65px] mt-28">
       <div class="">
-        <h1 class="max-w-[750px] text-center mx-auto text-3xl md:text-5xl font-semibold md:mb-16">
+        <h1 class="max-w-[750px] text-center mx-auto text-3xl md:text-5xl font-semibold mb-10 md:mb-16">
           Company <span class="text-[#FF7043]/90">Profile</span>
         </h1>
-        <div class="grid grid-cols-2 gap-5 w-full max-w-4xl mx-auto
+        <div class="grid grid-cols-2 gap-3 md:gap-5 w-full max-w-4xl mx-auto
                                   grid-auto-rows-[150px] md:grid-auto-rows-[200px] lg:grid-auto-rows-[940px] ">
 
           <div class="rounded-xl overflow-hidden row-span-2">

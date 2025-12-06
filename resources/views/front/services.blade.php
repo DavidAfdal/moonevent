@@ -86,20 +86,20 @@
       <div class="relative w-full">
         <img
           src="https://images.unsplash.com/photo-1503314885798-a70f8f9028d3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=869"
-          alt="" class="w-full object-cover max-h-[400px] rounded-2xl">
+          alt="" class="w-full object-cover md:max-h-[400px] rounded-2xl">
         <div
-          class="text-center absolute w-full top-0 h-full bg-black bg-opacity-20 rounded-lg flex flex-col items-center justify-center ">
+          class="text-center absolute w-full top-0 h-full bg-black bg-opacity-20 rounded-2xl flex flex-col items-center justify-center">
           <h2
             class="text-white max-w-[450px] md:max-w-[650px] lg:max-w-[850px] text-3xl md:text-5xl lg:text-7xl mb-5 font-semibold mt-5">
             Wedding Services
           </h2>
-          <p class="max-w-[500px] md:max-w-[550px] lg:max-w-[760px] text-base text-white">
+          <p class="max-w-[500px] md:max-w-[550px] lg:max-w-[760px] text-sm md:text-base text-white">
             We provide end-to-end wedding planning and design services to bring your vision to life with precision and
             care.
           </p>
           <div class="flex items-center gap-3 mt-8">
             <span class="bg-[#FF7043] w-4 h-4 rounded-full flex-shrink-0"></span>
-            <p class="text-white text-base font-medium">
+            <p class="text-white text-sm md:text-base font-medium">
               Personalized Solutions for Every Couple
             </p>
           </div>
@@ -246,20 +246,20 @@
             WORK PROCESS
           </p>
         </div>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold mt-3 md:mt-3 lg:mt-5">
           Our Proven Process for a Perfect Celebration
         </h1>
       </div>
 
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 md:gap-14 lg:gap-8">
+      <div class="mt-7 md:mt-7 lg:mt-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 md:gap-14 lg:gap-8">
         <div class="" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">
-          <p class="text-black/70 text-sm md:text-base mb-10 md:mb-20">
+          <p class="text-black/70 text-sm md:text-base mb-7 md:mb-7 lg:mb-10 md:mb-20">
             Our process is simple yet meaningful. Every love story is unique, and we ensure your wedding reflects your
             personality and dreams beautifully.
           </p>
           <img
             src="https://images.unsplash.com/photo-1761116362962-3cd736532ea2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2VkZGluZ3xlbnwwfDB8Mnx8fDI%3D&auto=format&fit=crop&q=60&w=500"
-            class="min-w-[550px] max-h-[270px] object-cover mb-14 md:mb-0" alt="">
+            class="md:w-full md:max-h-[300px] lg:min-w-[550px] lg:max-h-[270px] object-cover mb-14 md:mb-0" alt="">
         </div>
         <div class="flex flex-col gap-7 md:gap-20 overflow-hidden">
           <div class="border-y border-[#FF7043] flex items-start py-8 gap-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
