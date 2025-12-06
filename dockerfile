@@ -48,8 +48,6 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libfcgi-bin \
     procps \
-    node \
-    npm \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
