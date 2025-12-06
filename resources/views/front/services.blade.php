@@ -166,7 +166,7 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-20">
         <div class="w-full p-4 rounded-xl border border-gray-300 group cursor-pointer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <img src={{ asset('assets/photo_team/services.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
+          <img src={{ asset('assets/photo_team/services-1.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
             alt="">
           <div class="flex gap-3 rounded-xl mt-4">
             <div
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="w-full p-4 rounded-xl border border-gray-300 group cursor-pointer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <img src={{ asset('assets/photo_team/services3.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
+          <img src={{ asset('assets/photo_team/services-3.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
             alt="">
           <div class="flex gap-3 rounded-xl mt-4">
             <div
@@ -201,7 +201,7 @@
           </div>
         </div>
         <div class="w-full p-4 rounded-xl border border-gray-300 group cursor-pointer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <img src={{ asset('assets/photo_team/services2.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
+          <img src={{ asset('assets/photo_team/services-2.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
             alt="">
           <div class="flex gap-3 rounded-xl mt-4">
             <div
@@ -218,7 +218,7 @@
           </div>
         </div>
         <div class="w-full p-4 rounded-xl border border-gray-300 group cursor-pointer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-          <img src={{ asset('assets/photo_team/services8.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
+          <img src={{ asset('assets/photo_team/services-4.jpg') }} class="object-cover rounded-t-xl max-h-[320px] w-full"
             alt="">
           <div class="flex gap-3 rounded-xl mt-4">
             <div
