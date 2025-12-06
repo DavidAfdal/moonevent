@@ -75,14 +75,13 @@
                             <!-- Video Iframe Responsive -->
                             <div class="relative pt-[56.25%]">
                                 <iframe class="absolute top-0 left-0 w-full h-full"
-                                    src="https://www.youtube.com/embed/GtL1huin9EE" title="YouTube Video" frameborder="0"
+                                    src="https://www.youtube.com/embed/1eLRzfl2gcA" title="YouTube Video" frameborder="0"
                                     allow="autoplay; encrypted-media" allowfullscreen>
                                 </iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Statistic Section -->
                 <div class="grid grid-cols-2 md:grid-cols-4 text-center text-white gap-y-8">
                     <div>
