@@ -109,68 +109,46 @@
             <h2 class="text-4xl font-bold text-gray-800 text-center mb-8">What Our Clients Say</h2>
 
             <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-                    <img src="{{ asset('assets/thumbnails/wo10.jpg') }}" alt=""
-                        class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+                
+                @foreach ($testimoni as $video)
 
-                    <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+                    <div id="videoCard" data-embed="{{ $video->video_link }}"
+                        class="rounded-xl mx-auto relative w-full min-h-[500px] cursor-pointer overflow-hidden group">
 
-                    <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-                        <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-                            "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-                        </h2>
-                        <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
-                    </div>
+                        <!-- ================= IMAGE WRAPPER ================= -->
+                        <div id="imageWrapper" class="w-full h-full relative">
+                        <img src="{{ Storage::url($video->thumbnail) }}"
+                            class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
-                    <div class="absolute top-10 px-5 z-20">
-                        <a href=""
-                            class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
+                        <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+
+                        <div id="textOverlay" class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
+                            <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
+                            "{{ $video->desc }} "
+                            </h2>
+                            <p class="text-sm md:text-sm lg:text-base">{{ $video->title }}</p>
+                        </div>
+
+                        <div id="buttonPlay" class="absolute top-10 px-5 z-20">
+                            <button onclick="playReels()"
+                            class="btn-play bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
                             <i class="fa-solid fa-play"></i> Play Video
-                        </a>
-                    </div>
-                </div>
-                <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-                    <img src="{{ asset('assets/thumbnails/wo8.JPG') }}" alt=""
-                        class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
+                            </button>
+                        </div>
+                        </div>
 
-                    <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
+                        <!-- ================= VIDEO REELS ================= -->
+                        <div id="videoWrapper"
+                        class="hidden w-full h-[500px] max-h-[500px] absolute inset-0 rounded-3xl overflow-hidden">
+                        <iframe id="ytPlayer" class="w-full h-full object-cover rounded-3xl" src="" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                        </div>
 
-                    <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-                        <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-                            "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-                        </h2>
-                        <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
-                    </div>
-
-                    <div class="absolute top-10 px-5 z-20">
-                        <a href=""
-                            class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-                            <i class="fa-solid fa-play"></i> Play Video
-                        </a>
-                    </div>
-                </div>
-                <div class="rounded-xl mx-auto relative w-full max-h-[500px] cursor-pointer overflow-hidden group">
-                    <img src="{{ asset('assets/thumbnails/wo.jpg') }}" alt=""
-                        class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
-
-                    <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
-
-                    <div class="w-full px-5 py-5 text-white absolute bottom-0 rounded-b-3xl z-20">
-                        <h2 class="text-base md:text-sm lg:text-2xl font-semibold mb-5">
-                            "I've made lifelong friends here and wouldn't hesitate to recommend it to everyone."
-                        </h2>
-                        <p class="text-sm md:text-sm lg:text-base">Lorem ipsum dolor sit amet.</p>
                     </div>
 
-                    <div class="absolute top-10 px-5 z-20">
-                        <a href=""
-                            class="bg-white/70 text-black px-5 py-2 rounded-full group-hover:bg-[#FF7043]/70 group-hover:text-white transition-all duration-300 ease-in-out text-sm md:text-base">
-                            <i class="fa-solid fa-play"></i> Play Video
-                        </a>
-                    </div>
-                </div>
-
-
+                @endforeach
 
             </div>
         </section>

@@ -31,9 +31,11 @@ class PackageToursTable
                     ->sortable(),
                 TextColumn::make('pax')
                     ->numeric()
+                    ->placeholder('-')
                     ->sortable(),
                 TextColumn::make('category.name')
                     ->badge()
+                    ->placeholder('-')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->since()

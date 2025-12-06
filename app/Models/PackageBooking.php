@@ -21,6 +21,8 @@ class PackageBooking extends Model
         'entertainment_id',
         'mua_id',
         'quantity',
+         'couple_name',
+        "alternate_phone",
         'total_amount',
         'booking_date',
         'booking_time',

@@ -49,8 +49,8 @@
         If there's anything you need before your arrival, please don't hesitate to reach out to your host!
       </p>
       <div class="flex flex-wrap items-center gap-3 md:gap-3 lg:gap-4">
-        <a href="https://wa.link/yiggct" class="bg-[#FF7043] hover:bg-orange-600 transition-all duration-300 rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
-          <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Confirm to Whatsapp
+        <a href="https://wa.link/yiggct" class="bg-[#FF7043] flex gap-4 items-center rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
+          <i class="fa-brands fa-whatsapp size-4"></i>  Confirm to Whatsapp
         </a>
         <a href="/"
           class="flex items-center gap-5 border border-black rounded-full px-3 py-2 group font-semibold transition-all duration-300">
