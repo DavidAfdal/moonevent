@@ -123,7 +123,7 @@
         <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="300">
           <img src="{{ asset('assets/photo_team/homepageutama.jpg') }}" alt=""
-            class="w-full object-cover mix-h-[300px] md:h-[400px]">
+            class="w-full object-cover mix-h-[300px] md:min-h-[300px] max-h-[600px]">
         </div>
         <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
           <h1 class="text-2xl md:text-xl lg:text-3xl font-semibold md:leading-normal mb-5 md:mb-5 lg:mb-7">
