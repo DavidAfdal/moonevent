@@ -49,7 +49,7 @@
         If there's anything you need before your arrival, please don't hesitate to reach out to your host!
       </p>
       <div class="flex flex-wrap items-center gap-3 md:gap-3 lg:gap-4">
-        <a href="https://wa.link/yiggct" class="bg-[#FF7043] flex gap-4 items-center rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
+        <a href="wa.link/37syn6" class="bg-[#FF7043] flex gap-4 items-center rounded-full text-base md:text-lg font-medium text-white px-5 py-3">
           <i class="fa-brands fa-whatsapp size-4"></i>  Confirm to Whatsapp
         </a>
         <a href="/"
