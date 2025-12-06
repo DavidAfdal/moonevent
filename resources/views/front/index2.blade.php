@@ -53,7 +53,7 @@
           </div>
         </section>
         <h2
-          class="text-white min-w-[450px] md:min-w-[650px] lg:min-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-3 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
+          class="text-white w-fit md:min-w-[650px] lg:min-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-3 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
           Your Partner Event Solution
         </h2>
       </div>
