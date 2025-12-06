@@ -70,17 +70,7 @@ class PackageBookingForm
                     ->required()
                     ->numeric(),
                 DatePicker::make('booking_date')
-                    ->required()
-                   ->unique(ignoreRecord: true)
-                    ->extraAttributes(['x-init' => "
-                        const bookedDates = " . json_encode(\App\Models\PackageBooking::pluck('booking_date')->toArray()) . ";
-                        this._flatpickr.config.disable = bookedDates;
-                        this._flatpickr.config.onDayCreate.push(function(dObj, dStr, fp, dayElem) {
-                            if (bookedDates.includes(dayElem.dateObj.toISOString().split('T')[0])) {
-                                dayElem.classList.add('bg-red-500', 'text-white', 'rounded-full');
-                            }
-                        });
-                    "]),
+                    ->required(),
                Select::make('booking_time')
                 ->options([
                     "Morning" => "Morning",

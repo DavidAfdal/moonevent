@@ -14,7 +14,7 @@ class ListPackageTours extends ListRecords
     {
         return [
             CreateAction::make()
-                        ->label("New Wedding"),
+                        ->label("New Package"),
         ];
     }
 }

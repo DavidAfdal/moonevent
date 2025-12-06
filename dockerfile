@@ -1,55 +1,71 @@
-# Gunakan image resmi PHP sebagai base image
-FROM php:8.2-fpm
+# ============
+# 1) STAGE BUILDER
+# Builds vendor + node assets
+# ============
+FROM php:8.2-fpm AS builder
 
-# Instalasi dependencies sistem
+# Install system packages
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg-dev \
     libfreetype6-dev \
-    locales \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
-    git \
-    curl \
-    libonig-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libxpm-dev \
+    libwebp-dev \
+    zlib1g-dev \
     libzip-dev \
     libicu-dev \
-    libxml2-dev
+    libonig-dev \
+    git \
+    unzip \
+    && docker-php-ext-configure gd \
+        --with-freetype \
+        --with-jpeg \
+        --with-webp \
+    && docker-php-ext-install \
+        gd pdo pdo_mysql mbstring pcntl exif bcmath zip intl
 
-# Instalasi extensions PHP yang diperlukan
-RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip intl
-
-# Instalasi Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Instalasi Node.js dan npm untuk Laravel Breeze
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs
-
-# Set working directory
+# Working directory
 WORKDIR /var/www
 
-# Salin file composer.lock dan composer.json
-COPY composer.lock composer.json ./
-
-# Set variabel lingkungan untuk mengizinkan plugin Composer berjalan sebagai root
-ENV COMPOSER_ALLOW_SUPERUSER=1
-
-# Jalankan Composer untuk menginstall dependencies PHP
-RUN composer install --no-scripts --no-progress --prefer-dist
-
-# Salin seluruh file ke container
 COPY . .
 
-# Install dependencies NPM dan jalankan build
-RUN npm install
+# Composer install (PRODUCTION MODE)
+RUN composer install --no-dev --optimize-autoloader --no-progress --prefer-dist
 
-# Beri izin kepada direktori storage dan cache
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+# ============
+# 2) STAGE PRODUCTION FINAL IMAGE
+# ============
+FROM php:8.2-fpm AS production
 
-# Expose port 9000 dan start PHP-FPM server
+# Install minimal necessary extensions only
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libicu-dev \
+    libzip-dev \
+    libfcgi-bin \
+    procps \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+COPY --from=builder /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
+COPY --from=builder /usr/local/bin/docker-php-ext-* /usr/local/bin/
+
+WORKDIR /var/www
+
+# Copy from builder stage
+COPY --from=builder /var/www /var/www
+
+
+# Permission for Laravel
+RUN chown -R www-data:www-data /var/www
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
 EXPOSE 9000
 CMD ["php-fpm"]

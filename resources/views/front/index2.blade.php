@@ -2,10 +2,7 @@
 
 <!-- Icons -->
 @push("styles")
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
   <style>
     /* Animasi horizontal mulus */
     @keyframes infinite-scroll {
@@ -56,7 +53,7 @@
           </div>
         </section>
         <h2
-          class="text-white min-w-[450px] md:min-w-[650px] lg:min-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-3 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
+          class="text-white w-fit md:min-w-[650px] lg:min-w-[750px] text-2xl md:text-3xl lg:text-5xl font-semibold mt-3 leading-relaxed animate__animated animate__fadeInUp animate__duration-3s">
           Your Partner Event Solution
         </h2>
       </div>
@@ -101,7 +98,8 @@
 
     <!-- About Section -->
     <div class="px-[20px] md:px-[65px]" id="section-one">
-      <div class="text-center mt-60">
+      <div class="text-center mt-60" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="100">
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold">
           Company Profile
         </h1>
@@ -112,7 +110,7 @@
 
             <!-- Tulisan -->
             <span class="mx-4 text-base md:text-lg font-semibold text-[#FF7043] tracking-widest">
-              OUR CAMPANY
+              OUR COMPANY
             </span>
 
             <!-- Garis kanan -->
@@ -124,12 +122,12 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-9 lg:gap-16 mt-12 lg:items-center">
         <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="300">
-          <img src="{{ asset('assets/photo_team/foto-team.png') }}" alt=""
+          <img src="{{ asset('assets/photo_team/homepageutama.jpg') }}" alt=""
             class="w-full object-cover mix-h-[300px] md:h-[400px]">
         </div>
         <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
           <h1 class="text-2xl md:text-xl lg:text-3xl font-semibold md:leading-normal mb-5 md:mb-5 lg:mb-7">
-            We Are a team of passionate and experience wedding planners
+            We are a team of passionate and experience wedding planners
           </h1>
           <p class="md:text-base lg:text-base text-black opacity-70 font-light mb-3">
             Moon Event Organizer is a professional company specializing in venue management, event organizing, and wedding
@@ -260,7 +258,7 @@
           </div>
         </section>
         <h1 class="text-2xl md:text-4xl lg:text-4xl font-semibold max-w-[650px] mx-auto">
-          Complete wedding care, from planning to design.
+          Complete wedding care, from planning to design
         </h1>
       </div>
 
@@ -272,8 +270,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                                                                                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                                                                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                                                                                                                                                                                            justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+                                                                                                                                                                                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -281,6 +279,16 @@
         @endforeach
 
       </div>
+      @if ($instagram->count() > 0)
+        <div class="flex justify-center mt-6" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="200">
+          <a href="https://www.instagram.com/mooneventorganizer/" target="_blank"
+            class="flex items-center justify-center text-white gap-3 px-2 w-[150px] py-4 bg-[#FF7043] rounded-full mx-auto mt-10  hover:bg-[#E5633C] transition duration-300 group">
+            See More
+            <i class="fa-solid fa-arrow-right transition duration-300 group-hover:translate-x-2"></i>
+          </a>
+        </div>
+      @endif
     </div>
 
 
@@ -302,7 +310,7 @@
           </div>
         </section>
         <h1 class="text-2xl md:text-4xl lg:text-4xl font-semibold max-w-[650px] mx-auto">
-          What our clients have to say.
+          What our clients have to say
         </h1>
       </div>
       <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -381,7 +389,7 @@
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="DIAMOND Vendor">
             <img src="{{ asset('assets/vendor/vendor.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md::h-[150px] rounded-full object-cover shadow-md" alt="">
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
             <img src="{{ asset('assets/vendor/NENDANG.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="GINTO Vendor">
