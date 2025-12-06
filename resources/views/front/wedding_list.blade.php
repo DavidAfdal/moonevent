@@ -182,6 +182,48 @@
     </script>
 @endpush
 
+@push('after-scripts')
+    <script>
+            function playReels() {
+            document.querySelectorAll(".btn-play").forEach(btn => {
+                btn.addEventListener("click", function () {
+
+                const currentCard = this.closest("#videoCard");
+                const allCards = document.querySelectorAll("#videoCard");
+
+                allCards.forEach(card => {
+                    const iframe = card.querySelector("iframe");
+                    const imageWrapper = card.querySelector("#imageWrapper");
+                    const videoWrapper = card.querySelector("#videoWrapper");
+
+                    if (card !== currentCard) {
+                    if (iframe) iframe.src = "";
+                    if (videoWrapper) videoWrapper.classList.add("hidden");
+                    if (imageWrapper) imageWrapper.classList.remove("hidden");
+                    }
+                });
+
+                const iframe = currentCard.querySelector("iframe");
+                const imageWrapper = currentCard.querySelector("#imageWrapper");
+                const videoWrapper = currentCard.querySelector("#videoWrapper");
+                const embedUrl = currentCard.dataset.embed;
+
+                // tampilkan wrapper dulu
+                imageWrapper.classList.add("hidden");
+                videoWrapper.classList.remove("hidden");
+
+                // force render
+                // videoWrapper.offsetHeight;
+
+                // play
+                const separator = embedUrl.includes("?") ? "&" : "?";
+                iframe.src = embedUrl + separator + "autoplay=1&mute=1";
+                });
+            });
+            }
+  </script>
+@endpush
+
 @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
