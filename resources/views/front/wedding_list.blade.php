@@ -7,17 +7,17 @@
 @section('content')
     <section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
         <x-hero-list-wedding :locations="$locations" :paxOptions="$paxOptions" :priceOptions="$priceOptions" />
-        <div class="px-[20px] md:px-[65px] w-full h-[250px] my-8 relative">
-            <img src="{{ asset('assets/thumbnails/wo9.jpg') }}" class="w-full h-full object-cover object-top rounded-xl"
+        <div class="px-[20px] md:px-[65px] w-full h-[230px] md:h-[230px] lg:h-[250px] my-8 relative">
+            <img src="{{ asset('assets/thumbnails/wo9.jpg') }}" class="w-full h-full object-cover object-right md:object-top rounded-xl"
                 alt="">
-            <div class="max-w-[620px] absolute top-0 px-10 py-6">
-                <h2 class="text-4xl font-semibold text-white">Special Promo for Your Upcoming Event</h2>
-                <p class="text-sm text-white my-4">
+            <div class="max-w-[250px] md:max-w-[450px] lg:max-w-[620px] absolute top-0 px-5 py-2 md:px-7 md:py-3 lg:px-10 lg:py-6">
+                <h2 class="text-base md:text-2xl lg:text-4xl font-semibold text-white">Special Promo for Your Upcoming Event</h2>
+                <p class="text-[10px] md:text-[12px] lg:text-sm text-white my-4">
                     Enjoy exclusive discounts for wedding and event packages this month. Make your dream celebration
                     unforgettable at the best value
                 </p>
                 <a href="/"
-                    class="flex items-center gap-5 w-fit border-2 border-white rounded-full px-2 py-1 group font-semibold transition-all duration-300 text-white">
+                    class="flex items-center gap-5 w-fit border-2 border-white rounded-full px-2 py-1 group font-semibold transition-all duration-300 text-sm md:text-base lg:text-lg text-white">
                     Claim Offer
                     <i
                         class="fa-solid fa-arrow-right w-fit h-auto rounded-full flex-shrink-0 p-2 border border-white transition duration-300 group-hover:translate-x-1"></i>
