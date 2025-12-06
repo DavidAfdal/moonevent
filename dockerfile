@@ -25,11 +25,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
         gd pdo pdo_mysql mbstring pcntl exif bcmath zip intl
 
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && node --version \
-    && npm --version
-    
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -53,6 +48,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libfcgi-bin \
     procps \
+    node \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
