@@ -16,7 +16,7 @@
     }
 
     .animate-infinite-scroll {
-      width: 450%;
+      width: 500%;
       animation: infinite-scroll 25s linear infinite;
     }
 
@@ -402,6 +402,8 @@
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
             <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+              <img src="{{ asset('assets/vendor/NOLA.jpg') }}"
+                class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
 
             <img src="{{ asset('assets/vendor/PESONAALAMANDA.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
