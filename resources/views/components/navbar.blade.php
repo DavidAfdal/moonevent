@@ -15,7 +15,7 @@
     <a href="{{ route('front.about') }}" class="hover:text-[#FF7043] transition">About</a>
     <a href="{{ route('front.team') }}" class="hover:text-[#FF7043] transition">Team</a>
     <a href="{{ route('front.services') }}" class="hover:text-[#FF7043] transition">Services</a>
-    <a href="{{ route('front.wedding_list') }}" class="hover:text-[#FF7043] transition">Reservasi</a>
+    <a href="{{ route('front.wedding_list') }}" class="hover:text-[#FF7043] transition">Reservation</a>
   </div>
 
   <div class="hidden md:flex h-fit items-center">

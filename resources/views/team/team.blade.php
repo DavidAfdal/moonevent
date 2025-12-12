@@ -607,7 +607,7 @@
               'name' => 'Risma Nurdiyani',
               'aka' => 'Risma',
               'role' => 'VIP Management',
-              'photo' => asset('assets/orang/risma.jpg')
+              'photo' => asset('assets/orang/Risma.jpg')
             ],
             [
               'name' => 'Aulia Rahmi',
@@ -637,7 +637,7 @@
               'name' => 'Kusumadirangga H.S',
               'aka' => 'Rangga',
               'role' => 'Front Line',
-              'photo' => asset('assets/orang/rangga.jpg')
+              'photo' => asset('assets/orang/Rangga.jpg')
             ],
             [
               'name' => 'Arsya Rivaldo',
@@ -760,7 +760,7 @@
               'name' => 'Kusumadirangga H.S',
               'aka' => 'Rangga',
               'role' => 'Event & IT Support',
-              'photo' => asset('assets/orang/rangga.jpg')
+              'photo' => asset('assets/orang/Rangga.jpg')
             ],
             [
               'name' => 'David Afdal Kaizar',
