@@ -59,7 +59,7 @@ jobs:
               docker compose down
 
               echo "> Reset Docker volumes"
-              docker volume rm laravel-public-production || true
+              docker volume rm project_laravel-public-production || true
 
               echo "> Start services"
               docker compose up -d --remove-orphans
