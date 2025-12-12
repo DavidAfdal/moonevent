@@ -55,8 +55,13 @@ jobs:
               echo "> Build image"
               docker compose build --no-cache
 
-              echo "> Restart services"
+              echo "> Stop running containers"
               docker compose down
+
+              echo "> Reset Docker volumes"
+              docker volume rm laravel-public-production || true
+
+              echo "> Start services"
               docker compose up -d --remove-orphans
 
               echo "> Cleanup"
