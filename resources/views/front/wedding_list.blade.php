@@ -7,7 +7,7 @@
 @section('content')
     <section id="content" class=" w-full mx-auto bg-white min-h-screen flex flex-col  ">
         <x-hero-list-wedding :locations="$locations" :paxOptions="$paxOptions" :priceOptions="$priceOptions" />
-        <div class="px-[20px] md:px-[65px] w-full h-[230px] md:h-[230px] lg:h-[250px] my-8 relative">
+        <div class="px-[20px] md:px-[65px] w-full max-w-[1440px] mx-auto h-[230px] md:h-[230px] lg:h-[250px] my-8 relative">
             <img src="{{ asset('assets/thumbnails/wo9.jpg') }}" class="w-full h-full object-cover object-right md:object-top rounded-xl"
                 alt="">
             <div class="max-w-[250px] md:max-w-[450px] lg:max-w-[620px] absolute top-0 px-5 py-2 md:px-7 md:py-3 lg:px-10 lg:py-6">

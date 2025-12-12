@@ -17,19 +17,6 @@ services:
     depends_on:
       - mysql
 
-  # Workspace Service (untuk artisan commands)
-  workspace:
-    build:
-      context: .
-      dockerfile: ./docker/workspace/workspace.dockerfile
-    container_name: laravel-workspace
-    restart: unless-stopped
-    networks:
-      - laravel-network
-    depends_on:
-      - mysql
-    tty: true
-    stdin_open: true
 
   # Nginx Service
   nginx:

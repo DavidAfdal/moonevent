@@ -270,8 +270,8 @@
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                                                                                            justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                                                                                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+               opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -394,7 +394,7 @@
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="GLORYON Vendor">
 
-          <img src="{{ asset('assets/vendor/MEDIA.jpg') }}"
+          <img src="{{ asset('assets/vendor/MEDIA .jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="MEDIA Vendor">
 
@@ -410,7 +410,7 @@
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="NENDANG Vendor">
 
-          <img src="{{ asset('assets/vendor/SIRIHGADING.jpg') }}"
+          <img src="{{ asset('assets/vendor/SIRIH GADING.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="SIRIH GADING Vendor">
 
@@ -425,10 +425,7 @@
           <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="ANNISA Vendor">
-            <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-            <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+
               <img src="{{ asset('assets/vendor/NOLA.jpg') }}"
                 class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
 
