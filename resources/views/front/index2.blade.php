@@ -122,7 +122,7 @@
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-9 lg:gap-16 mt-12 lg:items-center">
         <div class="w-full" data-oas-anchor="#section-one" data-aos="fade-up" data-aos-duration="1000"
           data-aos-delay="300">
-          <img src="{{ asset('assets/photo_team/homepageutama.jpg') }}" alt=""
+          <img src="{{ asset('assets/photo_team/homepageutama.jpg') }}" alt="background homepage"
             class="w-full object-cover mix-h-[300px] md:min-h-[300px] max-h-[600px]">
         </div>
         <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
@@ -266,12 +266,12 @@
         @foreach ($instagram as $item)
           <div class="w-full relative group cursor-pointer" data-oas-anchor="#section-one" data-aos="fade-up"
             data-aos-duration="1000" data-aos-delay="100">
-            <img src={{ Storage::url($item->thumbnail) }} alt=""
+            <img src={{ Storage::url($item->thumbnail) }} alt="{{ $item->title }}"
               class="w-full max-h-[350px] rounded-lg md:h-auto object-cover">
             <div
               class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3
-                                                                                                                                                                                            justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
-                                                                                                                                                                                            opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                justify-center items-center text-center text-white w-[250px] py-5 bg-orange-600 bg-opacity-45 rounded-lg
+               opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
               <i class="fa-brands fa-instagram text-lg"></i>
               <a href="{{ $item->link }}" target="_blank">View Instagram</a>
             </div>
@@ -324,6 +324,7 @@
             <!-- ================= IMAGE WRAPPER ================= -->
             <div id="imageWrapper" class="w-full h-full relative">
               <img src="{{ Storage::url($video->thumbnail) }}"
+                alt="{{ $video->title }}"
                 class="w-full h-full object-cover rounded-3xl z-0 relative transition-all duration-500 ease-out group-hover:scale-105">
 
               <div class="absolute inset-0 bg-black/30 rounded-3xl z-10"></div>
@@ -368,60 +369,98 @@
         <div class="flex animate-infinite-scroll w-[1340%] md:w-[470%]">
           <!-- Grup 1 -->
           <div class="flex items-center justify-center gap-10 shrink-0 px-10">
-            <img src="{{ asset(path: 'assets/vendor/AUF.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="Andayu Vendor">
-            <img src="{{ asset('assets/vendor/BOYZ.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
-              alt="DIAMOND Vendor">
-            <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
+            
+           <img src="{{ asset('assets/vendor/AUF.jpg') }}"
+            class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+            alt="AUF Vendor">
+
+          <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="GINTO Vendor">
-            <img src="{{ asset('assets/vendor/GLORYON.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/MEDIA .jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/PURANDEWI.jpg') }}"
+
+          <img src="{{ asset('assets/vendor/BOYZ.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="BOYZ Vendor">
+
+          <img src="{{ asset('assets/vendor/DIAMOND.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="DIAMOND Vendor">
-            <img src="{{ asset('assets/vendor/vendor.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/NENDANG.jpg') }}"
+
+          <img src="{{ asset('assets/vendor/GINTO.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="GINTO Vendor">
-            <img src="{{ asset('assets/vendor/SIRIH GADING.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="AUF Vendor">
-            <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
+
+          <img src="{{ asset('assets/vendor/GLORYON.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="GLORYON Vendor">
+
+          <img src="{{ asset('assets/vendor/MEDIA .jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="MEDIA Vendor">
+
+          <img src="{{ asset('assets/vendor/PURANDEWI.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="PURANDEWI Vendor">
+
+          <img src="{{ asset('assets/vendor/vendor.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="Vendor Logo">
+
+          <img src="{{ asset('assets/vendor/NENDANG.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="NENDANG Vendor">
+
+          <img src="{{ asset('assets/vendor/SIRIH GADING.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="SIRIH GADING Vendor">
+
+          <img src="{{ asset('assets/vendor/CATERINDO.jpg') }}"
               class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
               alt="CATERINDO Vendor">
-            <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-            <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+
+          <img src="{{ asset('assets/vendor/DOSHIN.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="DOSHIN Vendor">
+
+          <img src="{{ asset('assets/vendor/ANNISA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="ANNISA Vendor">
+
               <img src="{{ asset('assets/vendor/NOLA.jpg') }}"
                 class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
 
-            <img src="{{ asset('assets/vendor/PESONAALAMANDA.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/RUANG GARASI .jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="NBS Vendor">
-            <img src="{{ asset('assets/vendor/SELERAUTAMA.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+          <img src="{{ asset('assets/vendor/PESONAALAMANDA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="PESONA ALAMANDA Vendor">
 
-            <img src="{{ asset('assets/vendor/vendor3.png') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/AMARILIZ.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/3LARAS.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/tidars.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
-            <img src="{{ asset('assets/vendor/PuspitaSawargi.jpg') }}"
-              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md" alt="">
+          <img src="{{ asset('assets/vendor/RUANGGARASI.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="RUANG GARASI Vendor">
+
+          <img src="{{ asset('assets/vendor/SELERAUTAMA.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="SELERA UTAMA Vendor">
+
+          <img src="{{ asset('assets/vendor/vendor3.png') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="Vendor Logo 3">
+
+          <img src="{{ asset('assets/vendor/AMARILIZ.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="AMARILIZ Vendor">
+
+          <img src="{{ asset('assets/vendor/3LARAS.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="3 LARAS Vendor">
+
+          <img src="{{ asset('assets/vendor/tidars.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="TIDARS Vendor">
+
+          <img src="{{ asset('assets/vendor/PuspitaSawargi.jpg') }}"
+              class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full object-cover shadow-md"
+              alt="Puspita Sawargi Vendor">
+
           </div>
 
           <!-- Grup duplikat untuk looping tanpa jeda -->
