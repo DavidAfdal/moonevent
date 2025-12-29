@@ -69,7 +69,8 @@ class FrontController extends Controller
 
 
     public function wedding_list(Request $request){
-        $query = PackageTour::query();
+       $query = PackageTour::query()->where('is_active', true);
+
 
          // Filter berdasarkan nama kategori
 
@@ -81,7 +82,7 @@ class FrontController extends Controller
 
         if ($request->has('location') && $request->location != '') {
             $locationName = ucwords(str_replace('-', ' ', $request->location));
-            $query->where('location', $locationName);
+            $query->where('location', operator: $locationName);
         }
 
        
