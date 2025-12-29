@@ -23,7 +23,8 @@ class PackageTour extends Model
         'category_id',
         "event_crew",
         "legal_services",
-        "general_information"
+        "general_information",
+        "is_active"
     ];
 
     public function category(){

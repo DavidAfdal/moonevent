@@ -13,6 +13,7 @@
 
     {{-- Canonical (hindari duplikasi URL) --}}
     <link rel="canonical" href="@yield('canonical', url()->current())">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{-- Favicon --}}
     <link rel="icon" type="image/svg+xml" href="{{ asset('assets/logos/logo-moonevent.svg') }}">

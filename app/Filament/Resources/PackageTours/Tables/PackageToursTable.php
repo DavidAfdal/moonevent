@@ -10,6 +10,7 @@ use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 
@@ -40,6 +41,9 @@ class PackageToursTable
                 TextColumn::make('created_at')
                     ->since()
                     ->sortable(),
+                 ToggleColumn::make('is_active')
+                    ->label('Active')
+                    ->visible(fn () => auth()->user()->can('Delete:PackageTour')),
             ])
             ->filters([
                 SelectFilter::make("category")
